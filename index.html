@@ -15,23 +15,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Meridian">
-<style>
+<meta name="apple-mobile-web-app-title" content="Meridian"><style>
 .tz-wrap{margin-top:10px;}
 .tz-railhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 16px;}
 .tz-railhead h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:var(--white);}
 .tz-railhead .tz-sub{font-size:12.5px;color:var(--muted);font-weight:600;}
-/* Flexbox (not grid) so a short last row centres instead of orphaning to the
-   left: fixed-size tiles, justify-content:center — every row, including the
-   remainder, sits balanced in the middle. */
 .tz-rail{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;}
 .tz-rail.locs{margin-top:38px;}
 .tz-rail .tz-tile{flex:0 0 auto;}
 .tz-rail.chars .tz-tile{width:180px;}
 .tz-rail.locs .tz-tile{width:300px;}
-/* Photo card: the image sits on top, fully visible, with the caption BELOW it
-   on a dark card — so the picture is never covered by text, and name/label
-   stay legible on either band (the card is dark on both). */
 .tz-tile{position:relative;border-radius:16px;overflow:hidden;background:#141414;
   border:1px solid rgba(255,255,255,0.08);box-shadow:0 6px 20px -12px rgba(0,0,0,0.5);
   transition:opacity .6s ease, transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;}
@@ -52,45 +45,21 @@
 .tz-tile .tz-accentbar{position:absolute;top:0;left:0;right:0;height:3px;z-index:2;}
 .tz-latest{margin-top:8px;font-size:13px;color:var(--muted);}
 .tz-latest b{color:var(--white);font-weight:600;}
-/* The rail headings and the "most recently added" names sit on the section
-   background, so they flip to dark when this band is inverted to the light
-   ground. The tile captions live on their own dark photo cards, so they stay
-   white on both bands. */
 .inv .tz-railhead h3{color:#0A0A0A;}
 .inv .tz-latest b{color:#0A0A0A;}
-/* Phones (e.g. a normal iPhone) get the biggest bump — the tiles are the teaser. */
 @media(max-width:640px){
   .tz-rail{gap:14px;}
   .tz-rail.chars .tz-tile{width:150px;}
   .tz-rail.locs .tz-tile{width:264px;}
 }
 </style>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-/* MONOCHROME PALETTE — the site is strictly black/white/two
-   greys, with colour reserved for bloc identity only. Grey-dark (#666666)
-   carries white text/contours; grey-light (#A6A6A6) carries black text/
-   contours; which of the two an element uses depends on the background it
-   sits on. The five bloc accents are retuned to mid-luminance shades that
-   pass contrast on BOTH black and white grounds, so one hex serves the
-   default (black) sections and the inverted (white) bands alike. Solid
-   bloc-filled buttons take black text on amber/gold/teal and white text on
-   blue/rust (see the .btn-card rules). Non-aligned territories (Neo
-   Singapore) use the greys instead of a colour. */
+<style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 :root{
   --black:#0A0A0A; --white:#FFFFFF; --paper:#FFFFFF;
   --grey-d:#666666; --grey-l:#A6A6A6;
   --anthracite:#666666; --muted:#A6A6A6; --card-muted:#666666;
   --hairline:rgba(255,255,255,0.12); --card-hairline:rgba(0,0,0,0.10);
   --cu:#D9822B; --sc:#4E7FB5; --la:#A9803A; --lh:#2E9E8F; --mp:#B14E2E; --mp2:#4E7FB5;
-  /* Site accent (2026-07-15): the violet is retired in favour of the logo's
-     dual spot colours — Terra Azure (Earth) and Ares Rose (Mars), both
-     deliberately outside every bloc hue. They share the interactive/emphasis
-     layer roughly 50-50: azure carries text links, hover states, selection
-     and "latest" markers; rose carries CTAs, primary buttons, tags and
-     anchor-nav highlights; fills/progress bars run the azure-to-rose
-     gradient. --acc remains as a legacy alias resolving to azure. */
   --earth:#58C6FF; --mars:#FF7A64;
   --acc:var(--earth);
   --ns:#A6A6A6;
@@ -98,56 +67,19 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-/* Horizontal-slip fix (2026-07-20, author report): on touch screens a
-   not-quite-vertical swipe could pan the page sideways whenever any element
-   ran wider than the viewport. overflow-x:clip on BOTH html and body (clip,
-   unlike hidden, forbids horizontal scrolling entirely instead of merely
-   hiding the scrollbar — older engines fall back to the hidden declared
-   first) pins the page laterally; overscroll-behavior-x stops rubber-band
-   panning on engines that still allow it. */
 html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
-/* Horizontal-wobble fix, part two (2026-07-28, author report on iPhone).
-   The 2026-07-20 fix above stopped the *document* being wider than the screen —
-   measured at 390px, every page now reports zero horizontal overflow. But the
-   wobble persisted, because it was never the document: it was scroll CHAINING.
-   The sticky anchor-nav collapses to a horizontally scrollable chip row on
-   small screens (deliberately — those strips are meant to scroll sideways).
-   Its overscroll-behavior-x was the default `auto`, which lets a horizontal
-   swipe that reaches the strip's end hand the remaining motion outward to the
-   page. A not-quite-vertical drag therefore slid the whole layout.
-   `contain` keeps each strip scrolling and keeps its own end-of-travel bounce,
-   but refuses to pass the gesture on. Applied to every horizontal scroller on
-   the site, so the behaviour is uniform rather than page-by-page. */
 .anchor-nav.sticky,.cast-strip-outer,.loc-strip-outer,.dash-tabs,
 .mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
-/* Defensive width caps: replaced media or a wide table is the usual way a page
-   silently regains horizontal overflow later. Cheap to state once, globally. */
 img,svg,video,iframe,table,pre{max-width:100%;}
 p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
 body{background:var(--black);color:var(--white);
   font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
   -webkit-font-smoothing:antialiased;}
-/* Legibility safety net (2026-07-12): an unstyled <a> falls back to the
-   browser's own default link colour (dark blue, darker purple once visited)
-   instead of the surrounding text colour. That default is dark enough to
-   read as illegible dark-on-dark when the anchor wraps block content on the
-   site's black background (found on the Manuscript page's chapter-card
-   links, where the child .ch-num/.tagline elements have no colour rule of
-   their own and so inherited the anchor's colour instead of the page's
-   white). Every anchor now explicitly inherits its container's colour by
-   default; specific classes below (.nav-links a, .btn-primary, .dash-table
-   a, etc.) still set their own colour deliberately and continue to win,
-   since a class selector always outranks this bare element selector. This
-   is the general rule going forward: light text only on dark surfaces, dark
-   text only on light surfaces, and every anchor must resolve to one or the
-   other rather than an unstyled browser default. */
 a{color:inherit;}
 ::selection{background:var(--acc);color:#0A0A0A;}
 .inv ::selection{background:var(--earth);color:#FFFFFF;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 .serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
-
-/* NAV — sticky, blurred, with a pinned CTA (whatcani.build-inspired) */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;padding:18px 5vw;
   backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
@@ -155,10 +87,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;
   transition:background .3s ease,padding .3s ease,border-color .3s ease;}
 nav.scrolled{background:rgba(10,10,10,0.92);padding:13px 5vw;
   box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);border-bottom-color:rgba(255,255,255,0.14);}
-
-/* BACK TO TOP — floating round button, bottom-right, matching the sticky
-   nav's own blur/transparency treatment so it reads as part of the same UI
-   language (2026-07-12). Hidden until the user has scrolled down a bit. */
 .back-to-top{position:fixed;right:5vw;bottom:28px;z-index:190;
   width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
@@ -169,21 +97,11 @@ nav.scrolled{background:rgba(10,10,10,0.92);padding:13px 5vw;
 .back-to-top:hover{background:rgba(10,10,10,0.92);border-color:rgba(255,255,255,0.14);}
 .back-to-top svg{width:20px;height:20px;}
 @media(max-width:640px){.back-to-top{right:5vw;bottom:20px;width:46px;height:46px;}}
-/* ANIMATED LOGO (2026-07-15) — the text logo is replaced by an inline
-   animated SVG lockup derived from Assets/Logo/meridian-resonance-logo.svg:
-   two beaded ring contours (Earth azure / Mars rose) overlapping in an
-   infinity figure, lattice threads pulsing in the lens, comet sweeps
-   circling, wordmark in Space Grotesk with the azure-to-rose gradient.
-   Nav carries the compact single-line lockup; the footer carries the full
-   stacked mark. Shared animation classes are prefixed mr- to avoid
-   collisions with page CSS. */
 .logo{display:flex;align-items:center;text-decoration:none;}
 .logo-svg{display:block;height:38px;width:auto;}
 .footer-logo{display:inline-block;text-decoration:none;}
 .footer-logo .logo-svg{height:130px;}
 .mr-spark{mix-blend-mode:screen;}
-/* The sparkles are SMIL (<animateMotion> along the mark's own path), not CSS,
-   so reduced-motion is honoured by hiding them rather than pausing them. */
 @media (prefers-reduced-motion:reduce){.mr-spark{display:none}}
 .nav-links{display:flex;align-items:center;gap:26px;list-style:none;}
 .nav-links a{color:var(--white);text-decoration:none;font-size:14.5px;font-weight:500;
@@ -207,56 +125,30 @@ nav.scrolled{background:rgba(10,10,10,0.92);padding:13px 5vw;
 .mobile-menu a{color:var(--white);text-decoration:none;font-weight:700;
   font-size:clamp(1.6rem,6vw,2.6rem);padding:14px 0;transition:color .2s ease;}
 .mobile-menu a:hover{color:var(--acc);}
-
-/* TRIBAND — series-wide neutral treatment (2.3 of the visual style guide) */
 .triband{height:4px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));}
-
 section{padding:110px 6vw;}
 .wrap{max-width:1180px;margin:0 auto;}
 .on-black{background:var(--black);color:var(--white);}
 .section-head{text-align:center;max-width:620px;margin:0 auto 64px;}
-
-/* ONE consistent heading scale, applied everywhere via bare element
-   selectors instead of per-component sizes (2026-07-12: consolidated —
-   there were 6+ near-duplicate paragraph sizes and 5+ h3 sizes before this). */
 h2{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;
   font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.2;color:var(--white);}
 h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;line-height:1.3;color:var(--white);margin-bottom:8px;}
 h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.06em;
   text-transform:uppercase;color:var(--accent);margin:20px 0 8px;}
-
-/* ONE consistent body-text rule: every plain paragraph/list item is 16px at
-   1.7 line-height, full stop. Colour still varies by context (muted on dark,
-   near-black on light cards) but size and rhythm never do. */
 p{margin-bottom:14px;}
 p:last-child{margin-bottom:0;}
-
-/* ONE consistent "micro-label" style — small, bold, uppercase, letter-spaced.
-   Used for every tag/pill/eyebrow/number in the site instead of five
-   slightly-different sizes (11.5px/12px/12.5px/13px/13.5px before this). */
 .tag,.bloc-pill,.ch-num,.footer-nav-title,.law-item .n,.timeline-item .date,.hero .eyebrow{
   font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
 .tag{display:block;margin-bottom:14px;color:var(--accent);}
-
-/* ONE consistent "caption" style — small, muted, sentence case. Used for
-   secondary metadata under a heading (role, tagline, anchor pills, flags). */
 .meta,.chapter-block .tagline,.flag-missing,.anchor-nav a{
   font-size:13px;}
-
-/* ONE consistent "lede" style — the intro sentence directly under a big
-   heading (hero, page-hero, section-head all used slightly different sizes
-   before this). */
 .hero p.lede,.page-hero p,.section-head p{
   font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--muted);font-family:'Inter',sans-serif;margin-top:18px;}
-
-/* HERO — bigger, bolder, tighter (whatcani.build-inspired scale) */
 .hero{min-height:78vh;display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;padding:170px 6vw 90px;position:relative;overflow:hidden;}
 .hero .eyebrow{margin-bottom:20px;}
 .hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.4rem,7vw,5.2rem);letter-spacing:-0.035em;line-height:1.04;max-width:960px;color:var(--white);}
-/* The hero's accented word and the wordmark class use the flat palette accent
-   — no colour outside bloc emphasis. */
 .hero h1 .accent,.grad-text{background:linear-gradient(90deg,var(--earth),var(--mars));
   -webkit-background-clip:text;background-clip:text;color:transparent;}
 .hero p.lede{max-width:620px;margin-left:auto;margin-right:auto;}
@@ -266,18 +158,7 @@ p:last-child{margin-bottom:0;}
   border-bottom:2px solid var(--mars);padding-bottom:1px;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
-
-/* .hero-content is the homepage hero copy wrapper. */
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-
-/* ROTATING GLOBE (2026-07-12) — homepage-only band, before "Four Blocs, One
-   Fracture". Wireframe Earth (graticule + simplified coastlines) driven by
-   GLOBE_JS via requestAnimationFrame; territory dots and their fanned labels
-   are plain SVG elements whose position/opacity JS updates every frame, so
-   there's nothing to animate here in pure CSS beyond the static linework
-   tone and the moon rings. Respects prefers-reduced-motion via GLOBE_JS
-   itself (slows rotation rather than freezing it, since freezing a
-   half-rotated globe would look broken).  */
 .globe-section{padding:64px 0 8px;overflow:hidden;}
 .globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
 .globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
@@ -298,13 +179,6 @@ text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-w
 text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:8px;fill:var(--ns);letter-spacing:.06em;
   text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#0A0A0A;stroke-width:2.5px;stroke-linejoin:round;}
 .globe-moon-ring{fill:none;stroke:var(--grey-l);stroke-width:0.6;opacity:0.5;}
-/* MERIDIAN LATTICE (2026-07-13) — shimmering triangulated ring of nodes
-   surrounding the globe inside the same 1:1 stage; node/edge positions and
-   shimmer opacities are driven per-frame in GLOBE_JS, so the CSS here is
-   just stroke/fill identity plus the two slow CSS-only breathing layers
-   (halo behind the lattice, atmosphere ring on the globe rim). Labels
-   gained a thin dark paint-order outline (above) so they stay readable
-   when they fan out over lattice linework. */
 .lat-edge{stroke:var(--grey-l);stroke-width:0.7;fill:none;}
 .lat-node{fill:var(--grey-l);}
 .lat-fil{stroke:var(--grey-l);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
@@ -314,32 +188,19 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:8px;fill:var
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
 @media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
 @media(max-width:640px){.globe-stage{max-width:94vw;}}
-
-/* PAGE HERO (inner pages) */
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:150px 6vw 60px;position:relative;overflow:hidden;background:var(--black);}
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--white);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
-
-/* BAND — CSS gradient separators (no stock photography used) */
 .band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
 .band.bloc{opacity:0.85;}
-
-/* CARDS — light background, dark text throughout (2026-07-12: inverted
-   against the dark page background, per direction). The prompt/anchor boxes
-   below reuse this same treatment so every boxed element on the site reads
-   as one consistent "card" language. */
 .card-white,.card-dark,.prompt-details,.chapter-block .anchors{
   background:var(--paper);border:1px solid var(--card-hairline);border-radius:20px;padding:34px;color:#1a1a1a;
   --accent:var(--grey-d);}
 .card-white h3,.card-dark h3{color:#141414;}
 .card-white p,.card-dark p{color:#333333;}
 .card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
-/* Bloc-tinted glow on hover for the homepage bloc cards specifically — a
-   soft radial wash in that bloc's own accent colour behind the paper card,
-   plus a widening accent-bar, so the five-card grid feels responsive rather
-   than static (2026-07-13). */
 .bloc-card{position:relative;overflow:hidden;}
 .bloc-card::before{content:'';position:absolute;inset:-40% -40% auto auto;width:70%;height:70%;
   background:radial-gradient(circle,color-mix(in srgb, var(--accent) 30%, transparent) 0%,transparent 72%);
@@ -347,34 +208,18 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:8px;fill:var
 .bloc-card:hover::before{opacity:1;}
 .bloc-card .accent-bar{transition:width .35s cubic-bezier(.2,.8,.2,1);}
 .bloc-card:hover .accent-bar{width:72px;}
-
-/* Extra breathing room between a direct-child intro paragraph and whatever
-   follows it (fixes e.g. the World page's "Master prefixes" intro sentence
-   touching the first card directly below it, with no gap at all). */
 section .wrap > p{margin-bottom:28px;}
-
-/* BLOC ACCENT UTILITIES */
 .bloc-cu{--accent:var(--cu);}
 .bloc-sc{--accent:var(--sc);}
 .bloc-la{--accent:var(--la);}
 .bloc-lh{--accent:var(--lh);}
 .bloc-mp{--accent:var(--mp);}
-/* Neo Singapore is non-aligned, not a governed bloc — neutral grey accent,
-   distinct from the real blocs' colours (2026-07-12 fix). */
 .bloc-ns{--accent:var(--ns);}
-/* Tier pills (2026-07-13): every character card carries one colour-coded tier
-   tag (Protagonist / Antagonist / Deuteragonist / Secondary / Minor); the teal
-   territory pill stays Luna Haven-only. Hues sit deliberately outside the five
-   bloc accents so a tier tag never reads as a bloc tag. */
 .tier-protagonist{--accent:var(--grey-l);}
 .tier-antagonist{--accent:var(--grey-l);}
 .tier-deuteragonist{--accent:var(--grey-d);}
 .tier-secondary{--accent:var(--grey-d);}
 .tier-minor{--accent:var(--grey-d);}
-/* Location tier pills (2026-07-13): Anchor/Recurring/Site reuse the character
-   ladder's top/mid/admission hues (violet/indigo/slate) so tier colour reads
-   as one language across Characters and Locations, and stays outside the
-   five bloc accents. */
 .tier-anchor{--accent:var(--grey-l);}
 .tier-recurring{--accent:var(--grey-d);}
 .tier-site{--accent:var(--grey-d);}
@@ -383,19 +228,10 @@ section .wrap > p{margin-bottom:28px;}
   border:1px solid color-mix(in srgb, var(--accent) 45%, transparent);color:var(--accent);}
 .card-white .bloc-pill,.card-dark .bloc-pill{background:color-mix(in srgb, var(--accent) 14%, white);
   border:1px solid color-mix(in srgb, var(--accent) 55%, transparent);}
-
-/* GRID */
 .grid{display:grid;gap:26px;}
 .grid-3{grid-template-columns:repeat(3,1fr);}
 .grid-4{grid-template-columns:repeat(4,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-
-/* PORTRAIT / PLATE — character portraits and location plates now share one
-   display treatment (2026-07-12): same width, same height, same border and
-   radius, so the two entry types read as one consistent card language.
-   Source images keep their canonical generation aspect ratios (character
-   1:1, location 16:9 per the World page's prompt canon) — only the on-site
-   display crop is square for both; object-fit:cover handles the crop. */
 .portrait,.plate{width:100%;aspect-ratio:1/1;border-radius:16px;object-fit:cover;
   border:3px solid var(--accent);display:block;background:#1c1c1c;}
 .portrait-placeholder,.plate-placeholder{width:100%;aspect-ratio:1/1;border-radius:16px;border:3px solid var(--accent);
@@ -404,13 +240,6 @@ section .wrap > p{margin-bottom:28px;}
 .portrait-placeholder{background:linear-gradient(160deg,rgba(255,255,255,0.06),rgba(0,0,0,0.3));font-size:30px;}
 .plate-placeholder{background:linear-gradient(120deg, color-mix(in srgb, var(--accent) 22%, #111), #111);
   font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
-
-/* CAST STRIP (2026-07-13) — homepage-only horizontal gallery of featured
-   character portraits, reusing the existing optimised character images
-   rather than a new asset pipeline. Sits outside .wrap so it can bleed to
-   the section's own edge padding instead of being capped at 1180px; a
-   mask-image fades both edges to signal there's more to scroll. Cards link
-   out to that character's anchor on the gated Characters page. */
 .cast-strip-outer{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;margin-top:64px;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
@@ -430,15 +259,7 @@ section .wrap > p{margin-bottom:28px;}
   font-size:14.5px;color:var(--white);line-height:1.25;}
 .cast-card .cast-bloc{margin-top:4px;font-size:11.5px;font-weight:700;letter-spacing:0.04em;
   text-transform:uppercase;color:var(--accent);}
-/* Mobile: size only the IMAGE to 132px — the old rule set height:132px on
-   the whole .cast-card anchor too, which clipped the name/bloc text below
-   the portrait (2026-07-14 fix; the loc-card rule below was already
-   image-only, which is why that strip never clipped). */
 @media(max-width:640px){.cast-card{width:132px;}.cast-card img{width:132px;height:132px;}}
-
-/* LOCATION STRIP (2026-07-12) — homepage-only horizontal gallery of featured
-   location plates, same mechanism as the cast strip above but 16:9 to match
-   the location-plate aspect ratio rather than the 1:1 portrait ratio. */
 .loc-strip-outer{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;margin-top:64px;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
@@ -458,12 +279,6 @@ section .wrap > p{margin-bottom:28px;}
 .loc-card .loc-bloc{margin-top:4px;font-size:11.5px;font-weight:700;letter-spacing:0.04em;
   text-transform:uppercase;color:var(--accent);}
 @media(max-width:640px){.loc-card{width:200px;}.loc-card img{width:200px;height:112px;}}
-
-/* STRIP PLACEHOLDERS (2026-07-16) — codex entries whose portrait/plate isn't
-   generated yet still get a card in the homepage strips: initials in the
-   bloc accent inside a dashed frame, same footprint as the image it stands
-   in for, swapped for the real image automatically on the build after
-   ingest_images.py lands it. */
 .cast-card .strip-ph,.loc-card .strip-ph{display:flex;align-items:center;justify-content:center;
   border-radius:14px;border:3px dashed var(--accent);
   background:linear-gradient(160deg,rgba(255,255,255,0.05),rgba(0,0,0,0.3));
@@ -472,12 +287,6 @@ section .wrap > p{margin-bottom:28px;}
 .loc-card .strip-ph{width:240px;height:135px;font-size:20px;}
 @media(max-width:640px){.cast-card .strip-ph{width:132px;height:132px;font-size:22px;}
   .loc-card .strip-ph{width:200px;height:112px;font-size:17px;}}
-
-/* HOMEPAGE CURATION (2026-07-13) — the index page's information redesign:
-   globe caption, trilogy stat band + manuscript progress bar, latest-chapter
-   split feature, pull-quote band, book trio cards, hero scroll cue. All of
-   it reuses the existing type scale, card language, and reveal mechanism —
-   only the layout patterns here are new. */
 .globe-caption{text-align:center;color:var(--muted);font-size:13px;line-height:1.7;
   max-width:600px;margin:22px auto 0;padding:0 6vw;}
 .stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
@@ -517,13 +326,6 @@ section .wrap > p{margin-bottom:28px;}
 .scroll-cue{margin-top:44px;opacity:0.45;animation:cue-bob 2.4s ease-in-out infinite;color:var(--white);}
 .scroll-cue svg{width:22px;height:22px;display:block;}
 @keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
-
-/* SITE-WIDE CURATION (2026-07-13) — the homepage's design language rolled
-   out to every inner page: hero stat chips, sticky anchor navs, law/mode
-   cards with ghost numerals, a spined timeline, glossary/theme card grids,
-   pacing chip rows, manuscript chapter-card grids with a "latest" highlight,
-   and prev/next reading navigation on chapter pages. All content untouched —
-   only how it's housed. */
 .hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
 .hero-stats .hs{padding:8px 16px;border-radius:100px;border:1px solid var(--hairline);
   font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.04em;color:var(--muted);}
@@ -536,11 +338,9 @@ section .wrap > p{margin-bottom:28px;}
 .law-card{position:relative;background:rgba(255,255,255,0.03);border:1px solid var(--hairline);
   border-radius:18px;padding:28px 28px 24px;overflow:hidden;transition:border-color .3s ease,transform .3s ease;}
 .law-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
-
 .law-card .ghost{position:absolute;top:-16px;right:8px;font-family:'Space Grotesk',sans-serif;
   font-weight:700;font-size:96px;line-height:1;color:rgba(255,255,255,0.05);pointer-events:none;user-select:none;}
 .law-card .n{color:var(--accent);display:block;margin-bottom:8px;}
-
 .law-card h3{margin-bottom:8px;}
 .law-card p{color:#CFCFCF;margin-bottom:0;}
 .tl-wrap{position:relative;padding-left:28px;}
@@ -588,11 +388,6 @@ section .wrap > p{margin-bottom:28px;}
   padding:18px 20px;color:#CFCFCF;font-size:15px;line-height:1.65;}
 .theme-card b{color:var(--white);font-family:'Space Grotesk',sans-serif;}
 .act-head[id],.entry-block[id],.chapter-block[id],.territory-head[id],.gloss-item[id]{scroll-margin-top:150px;}
-
-/* BUTTONS — contrast rule, applied consistently: light text only ever sits on
-   a dark surface, dark text only ever sits on a light surface. */
-/* Solid rose fills are identical on both grounds (same convention as bloc
-   buttons): the bright rose is mid-luminance, so it carries black text. */
 .btn-primary{background:#FF7A64;color:#0A0A0A;padding:13px 26px;border-radius:100px;font-size:14px;
   font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
@@ -601,30 +396,14 @@ section .wrap > p{margin-bottom:28px;}
   padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
   font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
 .btn-outline:hover{background:rgba(255,255,255,0.08);}
-/* .btn-outline is for use directly on the dark page background only (light
-   text, transparent fill). Any button/link living inside a light card
-   (.card-white/.card-dark and anything sharing their styling) must use
-   .btn-card instead — a solid, dark-on-light-card pill using the bloc accent
-   colour where one applies (falls back to the site's neutral accent
-   otherwise), so it's never light text stranded on the light card paper. */
 .btn-card{background:var(--accent);color:#FFFFFF;border:none;padding:12px 26px;border-radius:100px;
   font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
   font-family:'Space Grotesk',sans-serif;transition:.3s cubic-bezier(.2,.8,.2,1);}
 .btn-card:hover{transform:translateY(-3px);filter:brightness(1.08);}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
-
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-/* Cards inside the horizontally-scrolling cast/location strips must never
-   translate vertically — the strip containers clip on the Y axis (see
-   overflow-y:hidden above), and a new card entering view via horizontal
-   scroll re-triggers its own reveal, which without this override looked
-   like the whole row bobbing up and down and getting cropped mid-scroll on
-   mobile. Fade only, no slide, for these two card types (2026-07-13). */
 .cast-card.reveal,.loc-card.reveal{transform:none !important;}
-
-/* CHAPTER / CONTENT-PAGE STYLES */
 .chapter-block{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:46px;}
 .chapter-block h3{margin:6px 0 6px;}
 .chapter-block .tagline{margin-bottom:14px;font-style:italic;}
@@ -634,52 +413,28 @@ section .wrap > p{margin-bottom:28px;}
 .chapter-block .anchors b{color:#141414;}
 .act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
 .act-head .tag{margin-bottom:6px;}
-
-/* Manuscript-vs-treatment status line on each chapter block (2026-07-12) —
-   makes the distinction visible right on the Book pages: this chapter is
-   either Story-Bible-treatment-only, or has moved into finished prose. */
 .ms-status{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:700;
   letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);}
 .ms-status.ms-drafted{color:var(--accent);}
 .ms-status a{color:var(--acc);text-decoration:underline;}
-
-/* MANUSCRIPT — clean reading typography for finished chapters, deliberately
-   distinct from the reference/treatment pages: narrower measure, slightly
-   larger type, generous line spacing, built for sustained reading rather
-   than lookup. */
 .manuscript-wrap{max-width:700px;margin:0 auto;}
 .manuscript-wrap p{font-size:17.5px;line-height:1.85;color:#CFCFCF;margin-bottom:24px;}
 .scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent);
   margin:56px 0 30px;}
 .scene-header:first-of-type{margin-top:8px;}
-
 .entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
-/* Shared image+text layout for both character and location entries — same
-   column width, same breakpoint, so the two pages read as one pattern.
-   Thumbnail column sized to 2/3 of its previous 520px (2026-07-12) — the
-   full-resolution image is one click away via the lightbox below. */
 .entry-media-grid{display:grid;grid-template-columns:347px 1fr;gap:28px;align-items:start;}
 .entry-media{width:347px;}
 @media(max-width:1000px){
   .entry-media-grid{grid-template-columns:1fr;}
   .entry-media{width:100%;max-width:280px;margin:0 auto;}
 }
-
-/* Clickable portrait/plate trigger — resets button chrome so it looks like
-   the plain image it wraps, adds a zoom cursor and a subtle hover/focus cue
-   as the click affordance (2026-07-12). */
 .media-trigger{display:block;width:100%;padding:0;margin:0;border:none;background:none;
   cursor:zoom-in;text-align:left;border-radius:16px;overflow:hidden;}
 .media-trigger img{transition:filter .25s ease,transform .25s ease;}
 .media-trigger:hover img{filter:brightness(1.1);transform:scale(1.015);}
 .media-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
-
-/* LIGHTBOX — opens the same image file at its true native resolution and
-   aspect ratio (1:1 for characters, 16:9 for locations — no cropping),
-   rather than a resized copy. If the image doesn't fit the viewport, the
-   scroll wrapper's native overflow lets the user pan/scroll to see the rest
-   instead of shrinking the image down. */
 .lightbox-overlay{position:fixed;inset:0;z-index:600;background:rgba(5,5,5,0.94);
   display:none;align-items:center;justify-content:center;padding:60px 24px;}
 .lightbox-overlay.open{display:flex;}
@@ -700,7 +455,6 @@ section .wrap > p{margin-bottom:28px;}
 .entry-block p{color:#CFCFCF;}
 .flag-missing{display:inline-block;margin-top:10px;padding:8px 14px;border-radius:8px;
   background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.25);color:var(--grey-l);}
-
 .prompt-details{margin-top:22px;padding:0;overflow:hidden;}
 .prompt-details summary{cursor:pointer;padding:16px 20px;font-family:'Space Grotesk',sans-serif;
   font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--anthracite);
@@ -711,17 +465,10 @@ section .wrap > p{margin-bottom:28px;}
 .prompt-details pre{margin:0;padding:0 20px 20px;font-family:'Inter',sans-serif;font-size:13px;
   line-height:1.6;color:#333333;white-space:pre-wrap;word-break:break-word;
   max-height:420px;overflow-y:auto;}
-
 .anchor-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:50px;}
 .anchor-nav a{font-weight:600;padding:7px 14px;border-radius:100px;white-space:nowrap;
   border:1px solid var(--hairline);color:var(--muted);text-decoration:none;transition:.2s ease;}
 .anchor-nav a:hover{border-color:var(--mars);color:var(--mars);}
-/* Compact sticky section-nav on small screens (2026-07-20, author request):
-   instead of wrapping into a half-screen block of chips, the sticky nav
-   collapses to ONE horizontally swipeable row. An edge fade (mask-image) on
-   both sides signals there's more to scroll; the backdrop blur is dropped
-   inside the mask block because iOS Safari misrenders mask + backdrop-filter
-   together, so the background goes near-opaque instead. */
 @media(max-width:760px){
   .anchor-nav.sticky{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
     scrollbar-width:none;gap:8px;touch-action:pan-x;
@@ -732,22 +479,17 @@ section .wrap > p{margin-bottom:28px;}
   .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
   .inv .anchor-nav.sticky{background:rgba(255,255,255,0.97);}
 }
-
 .law-item{padding:24px 0;border-bottom:1px solid var(--hairline);}
 .law-item .n{color:var(--accent);}
 .law-item h3{margin:4px 0 8px;}
 .law-item p{color:#CFCFCF;}
-
 .timeline-item{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:18px 0;border-bottom:1px solid var(--hairline);}
 .timeline-item .date{color:var(--accent);}
 .timeline-item .label{font-weight:700;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;font-size:16px;}
 .timeline-item p{color:var(--muted);}
-
 .gloss-item{padding:18px 0;border-bottom:1px solid var(--hairline);}
 .gloss-item dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--white);}
 .gloss-item dd{color:#CFCFCF;}
-
-/* GATE */
 #gate{position:fixed;inset:0;background:var(--black);z-index:999;display:flex;align-items:center;
   justify-content:center;flex-direction:column;gap:18px;text-align:center;padding:24px;}
 #gate input{background:rgba(255,255,255,0.06);border:1px solid var(--hairline);border-radius:10px;
@@ -756,8 +498,6 @@ section .wrap > p{margin-bottom:28px;}
   font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;}
 #gate p{max-width:420px;color:var(--muted);font-size:13.5px;font-family:'Inter',sans-serif;}
 #gate.hidden{display:none;}
-
-/* FOOTER */
 footer{border-top:1px solid var(--hairline);padding:48px 6vw;background:var(--black);}
 .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
@@ -768,7 +508,6 @@ footer{border-top:1px solid var(--hairline);padding:48px 6vw;background:var(--bl
 .footer-bottom{border-top:1px solid var(--hairline);padding-top:22px;margin-top:32px;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:12.5px;color:var(--muted);}
-
 @media(max-width:900px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
@@ -780,23 +519,9 @@ footer{border-top:1px solid var(--hairline);padding:48px 6vw;background:var(--bl
   .grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;}
 }
-
-/* INVERTED BANDS (2026-07-14) — roughly 40% of content bands flip to white
-   background / black text; rounded boxes flip to black cards with white
-   text; the two greys swap roles (grey-dark carries emphasis on white, as
-   grey-light does on black). Sections gain the .inv class automatically in
-   page() — every second eligible <section> down a page — so all builders
-   inherit the rhythm with no per-page markup. Bloc accents are mid-luminance
-   and unchanged across both grounds. */
 section.inv,.band-group.inv{background:var(--paper);color:#0A0A0A;
   --muted:#666666;--card-muted:#A6A6A6;--hairline:rgba(0,0,0,0.12);--accent:var(--grey-d);--ns:#666666;
-  /* Dual spot colours darkened to same-hue variants that pass contrast on
-     white; hue identity (azure/rose) is preserved across both grounds. */
   --earth:#0C82C8;--mars:#C93B47;}
-/* .band-group: a full-bleed alternating band inside a padding:0 section —
-   used by the Characters/Locations pages (one band per bloc group) and the
-   Book treatment pages (one band per act), where a single <section> must
-   host the sticky anchor nav across all groups. */
 .band-group{padding:90px 6vw;}
 .band-group + .band-group{padding-top:80px;}
 .inv h2,.inv h3,.inv .stat .n,.inv .chapnav .t,.inv .cast-card .cast-name,.inv .loc-card .loc-name,
@@ -820,9 +545,6 @@ section.inv,.band-group.inv{background:var(--paper);color:#0A0A0A;
 .inv .btn-outline{color:#0A0A0A;border-color:rgba(0,0,0,0.35);}
 .inv .btn-outline:hover{background:rgba(0,0,0,0.06);}
 .inv :where(.card-white,.card-dark,.prompt-details){--accent:var(--grey-l);}
-/* Dark card surfaces inside white bands sit on black again, so they get the
-   bright dual spot pair back (the band-level darkened variants are for text
-   on the white ground only). */
 .inv :where(.card-white,.card-dark,.prompt-details,.latest-card){--earth:#58C6FF;--mars:#FF7A64;}
 .inv .btn-card{color:#0A0A0A;}
 .inv .anchor-nav.sticky{background:rgba(255,255,255,0.9);border-bottom-color:rgba(0,0,0,0.12);}
@@ -838,14 +560,8 @@ section.inv,.band-group.inv{background:var(--paper);color:#0A0A0A;
 .inv .tier-deuteragonist,.inv .tier-secondary,.inv .tier-minor,.inv .tier-recurring,.inv .tier-site{--accent:var(--grey-l);}
 .inv .logo{color:#0A0A0A;}
 .inv .logo .lg{color:var(--acc);}
-/* Solid bloc-filled buttons: black text on amber/gold/teal, white text on
-   blue/rust — the pairing that passes contrast, identical on both grounds.
-   Declared last so it wins over the .inv default above. */
 .bloc-cu .btn-card,.bloc-la .btn-card,.bloc-lh .btn-card{color:#0A0A0A;}
 .bloc-sc .btn-card,.bloc-mp .btn-card{color:#FFFFFF;}
-/* Bloc accents re-asserted after every default/.inv accent rule, so an
-   element that genuinely belongs to a bloc always keeps its colour on both
-   grounds. */
 .bloc-cu{--accent:var(--cu);}
 .bloc-sc{--accent:var(--sc);}
 .bloc-la{--accent:var(--la);}
@@ -854,25 +570,9 @@ section.inv,.band-group.inv{background:var(--paper);color:#0A0A0A;
 .bloc-ns{--accent:var(--ns);}
 .inv .book-card .bk-num{color:color-mix(in srgb, var(--accent) 80%, white);}
 .inv .portrait-placeholder{background:linear-gradient(160deg,rgba(0,0,0,0.05),rgba(0,0,0,0.16));}
-
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}
-
-/* ── Hero reveal windows (2026-07-16, hero-images) ─────────────────────────
-   Full-width windows over pinned imagery: each .hero-window is clipped with
-   clip-path:inset(0), which clips the painting of its position:fixed child
-   image to the window's own box while the image stays pinned to the
-   viewport — so the page scrolls past a slit that reveals the still image
-   behind it. Pure CSS, no scroll JS. Uniform height everywhere: 2/3 of a
-   full-width 16:9 frame (37.5vw). */
 .hero-window{position:relative;clip-path:inset(0 0 0 0);height:min(37.5vw,62vh);pointer-events:none;background:#0A0A0A;}
-/* width/height 100% rather than 100vw/100vh (2026-07-28): for a position:fixed
-   element these resolve against the viewport anyway, but 100vw *includes* the
-   classic scrollbar, so on desktop it rendered ~15px wider than the visible
-   area — and because the image is fixed it escapes the overflow-x:clip on
-   body, which only clips in-flow descendants. That was a real sliver of
-   horizontal overflow no page-level guard could catch. */
-.hero-window img{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;}
-</style>
+.hero-window img{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;}</style>
 </head>
 <body>
 <nav>
