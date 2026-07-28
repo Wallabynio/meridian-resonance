@@ -5,7 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meridian Resonance — A Hard Science-Fiction Trilogy</title>
 <meta name="description" content="Meridian Resonance: a hard science-fiction trilogy by Istvan Bakos, set in 2087, across three Earth powers and a dimensional preserve, where empathy is a physical law.">
-
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Meridian">
 <style>
 .tz-wrap{margin-top:10px;}
 .tz-railhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 16px;}
@@ -96,6 +106,24 @@ html{scroll-behavior:smooth;}
    first) pins the page laterally; overscroll-behavior-x stops rubber-band
    panning on engines that still allow it. */
 html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
+/* Horizontal-wobble fix, part two (2026-07-28, author report on iPhone).
+   The 2026-07-20 fix above stopped the *document* being wider than the screen —
+   measured at 390px, every page now reports zero horizontal overflow. But the
+   wobble persisted, because it was never the document: it was scroll CHAINING.
+   The sticky anchor-nav collapses to a horizontally scrollable chip row on
+   small screens (deliberately — those strips are meant to scroll sideways).
+   Its overscroll-behavior-x was the default `auto`, which lets a horizontal
+   swipe that reaches the strip's end hand the remaining motion outward to the
+   page. A not-quite-vertical drag therefore slid the whole layout.
+   `contain` keeps each strip scrolling and keeps its own end-of-travel bounce,
+   but refuses to pass the gesture on. Applied to every horizontal scroller on
+   the site, so the behaviour is uniform rather than page-by-page. */
+.anchor-nav.sticky,.cast-strip-outer,.loc-strip-outer,.dash-tabs,
+.mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
+/* Defensive width caps: replaced media or a wide table is the usual way a page
+   silently regains horizontal overflow later. Cheap to state once, globally. */
+img,svg,video,iframe,table,pre{max-width:100%;}
+p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
 body{background:var(--black);color:var(--white);
   font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
   -webkit-font-smoothing:antialiased;}
@@ -837,7 +865,13 @@ section.inv,.band-group.inv{background:var(--paper);color:#0A0A0A;
    behind it. Pure CSS, no scroll JS. Uniform height everywhere: 2/3 of a
    full-width 16:9 frame (37.5vw). */
 .hero-window{position:relative;clip-path:inset(0 0 0 0);height:min(37.5vw,62vh);pointer-events:none;background:#0A0A0A;}
-.hero-window img{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;}
+/* width/height 100% rather than 100vw/100vh (2026-07-28): for a position:fixed
+   element these resolve against the viewport anyway, but 100vw *includes* the
+   classic scrollbar, so on desktop it rendered ~15px wider than the visible
+   area — and because the image is fixed it escapes the overflow-x:clip on
+   body, which only clips in-flow descendants. That was a real sliver of
+   horizontal overflow no page-level guard could catch. */
+.hero-window img{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;}
 </style>
 </head>
 <body>
