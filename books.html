@@ -103,21 +103,10 @@ nav.scrolled{background:rgba(10,10,10,0.92);padding:13px 5vw;
 .logo-svg{display:block;height:38px;width:auto;}
 .footer-logo{display:inline-block;text-decoration:none;}
 .footer-logo .logo-svg{height:130px;}
-.mr-ring{transform-box:fill-box;transform-origin:center;animation:mrSpin 40s linear infinite;}
-.mr-ring.rev{animation-name:mrSpinRev;}
-@keyframes mrSpin{to{transform:rotate(360deg)}}
-@keyframes mrSpinRev{to{transform:rotate(-360deg)}}
-.mr-comet{animation:mrCometA 9s linear infinite;}
-.mr-comet.rev{animation-name:mrCometB;animation-delay:-4.5s;}
-@keyframes mrCometA{to{stroke-dashoffset:-100}}
-@keyframes mrCometB{to{stroke-dashoffset:100}}
-.mr-thread{fill:none;stroke-linecap:round;stroke-dasharray:4 7;
-  animation:mrFlow 2.8s linear infinite,mrBreathe 5.6s ease-in-out infinite;}
-.mr-thread.d2{animation-delay:-0.9s,-1.9s}
-.mr-thread.d3{animation-delay:-1.8s,-3.7s}
-@keyframes mrFlow{to{stroke-dashoffset:-22}}
-@keyframes mrBreathe{0%,100%{opacity:.25}50%{opacity:.8}}
-@media (prefers-reduced-motion:reduce){.mr-ring,.mr-comet,.mr-thread{animation:none}}
+.mr-spark{mix-blend-mode:screen;}
+/* The sparkles are SMIL (<animateMotion> along the mark's own path), not CSS,
+   so reduced-motion is honoured by hiding them rather than pausing them. */
+@media (prefers-reduced-motion:reduce){.mr-spark{display:none}}
 .nav-links{display:flex;align-items:center;gap:26px;list-style:none;}
 .nav-links a{color:var(--white);text-decoration:none;font-size:14.5px;font-weight:500;
   opacity:0.78;transition:opacity .25s ease;letter-spacing:0.01em;}
@@ -803,31 +792,50 @@ section.inv,.band-group.inv{background:var(--paper);color:#0A0A0A;
 </head>
 <body>
 <nav>
-  <a href="index.html" class="logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 620 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meridian Resonance">
+  <a href="index.html" class="logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 468 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Meridian Resonance">
   <defs>
-    <linearGradient id="mrNavTxt" x1="132" y1="0" x2="610" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#9AD9FF"/><stop offset="0.42" stop-color="#CDEBFF"/>
-      <stop offset="0.58" stop-color="#FFD9CF"/><stop offset="1" stop-color="#FF7A64"/>
-    </linearGradient>
-    <linearGradient id="mrNavLat" x1="62" y1="0" x2="86" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#58C6FF"/><stop offset="1" stop-color="#FF7A64"/>
+    <path id="mrPathNav" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"/>
+    <linearGradient id="mrGradNav" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#58C6FF"/><stop offset="0.26" stop-color="#7ED3FF"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#FF9887"/>
+      <stop offset="1" stop-color="#FF7A64"/>
     </linearGradient>
   </defs>
-  <circle class="mr-ring" cx="48" cy="48" r="38" fill="none" stroke="#58C6FF" stroke-width="2.6"
-    stroke-linecap="round" pathLength="600" stroke-dasharray="0.6 5 1.6 8 0.6 4 2.4 11 0.6 6" opacity="0.85"/>
-  <circle class="mr-comet" cx="48" cy="48" r="38" fill="none" stroke="#CFEDFF" stroke-width="3.2"
-    stroke-linecap="round" pathLength="100" stroke-dasharray="16 84" opacity="0.9"/>
-  <circle class="mr-ring rev" cx="100" cy="48" r="38" fill="none" stroke="#FF7A64" stroke-width="2.6"
-    stroke-linecap="round" pathLength="600" stroke-dasharray="0.6 5 1.6 8 0.6 4 2.4 11 0.6 6" opacity="0.85"/>
-  <circle class="mr-comet rev" cx="100" cy="48" r="38" fill="none" stroke="#FFE0D8" stroke-width="3.2"
-    stroke-linecap="round" pathLength="100" stroke-dasharray="16 84" opacity="0.9"/>
-  <g stroke="url(#mrNavLat)" stroke-width="1.4" fill="none">
-    <path class="mr-thread" d="M80,26 Q74,48 66,70"/>
-    <path class="mr-thread d2" d="M86,48 Q74,44 62,48"/>
-    <path class="mr-thread d3" d="M82,64 Q73,50 64,30"/>
+  <g transform="translate(0,10) scale(0.80)">
+    <use xlink:href="#mrPathNav" href="#mrPathNav" fill="url(#mrGradNav)" opacity="0.62"/>
+    <circle class="mr-spark" r="2.8" fill="#CFEDFF" opacity="0">
+      <animateMotion dur="17s" begin="-0s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-0s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.1" fill="#FFFFFF" opacity="0">
+      <animateMotion dur="17s" begin="-4.25s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-4.25s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.6" fill="#FFE0D8" opacity="0">
+      <animateMotion dur="17s" begin="-8.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-8.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="1.9" fill="#CFEDFF" opacity="0">
+      <animateMotion dur="17s" begin="-12.75s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-12.75s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
   </g>
-  <text x="132" y="60" font-family="'Space Grotesk',sans-serif" font-size="36" font-weight="600"
-    letter-spacing="2" fill="url(#mrNavTxt)">MERIDIAN RESONANCE</text>
+  <text x="170" y="45" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="1.2" fill="#FFFFFF">MERIDIAN</text>
+  <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
   <ul class="nav-links"><li><a href="world.html">World</a></li>
 <li><a href="codex.html">Codex</a></li>
@@ -908,33 +916,50 @@ section.inv,.band-group.inv{background:var(--paper);color:#0A0A0A;
 <footer>
   <div class="footer-inner">
     <div>
-      <a href="index.html" class="footer-logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meridian Resonance">
+      <a href="index.html" class="footer-logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 400 212" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Meridian Resonance">
   <defs>
-    <linearGradient id="mrFtTxt" x1="90" y1="0" x2="370" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#58C6FF"/><stop offset="0.42" stop-color="#BEE6FF"/>
-      <stop offset="0.58" stop-color="#FFD9CF"/><stop offset="1" stop-color="#FF7A64"/>
-    </linearGradient>
-    <linearGradient id="mrFtLat" x1="192" y1="0" x2="268" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#58C6FF"/><stop offset="1" stop-color="#FF7A64"/>
+    <path id="mrPathFooter" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"/>
+    <linearGradient id="mrGradFooter" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#58C6FF"/><stop offset="0.26" stop-color="#7ED3FF"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#FF9887"/>
+      <stop offset="1" stop-color="#FF7A64"/>
     </linearGradient>
   </defs>
-  <circle class="mr-ring" cx="180" cy="128" r="88" fill="none" stroke="#58C6FF" stroke-width="2"
-    stroke-linecap="round" pathLength="600" stroke-dasharray="0.6 5 1.6 8 0.6 4 2.4 11 0.6 6" opacity="0.8"/>
-  <circle class="mr-comet" cx="180" cy="128" r="88" fill="none" stroke="#CFEDFF" stroke-width="2.4"
-    stroke-linecap="round" pathLength="100" stroke-dasharray="16 84" opacity="0.9"/>
-  <circle class="mr-ring rev" cx="280" cy="128" r="88" fill="none" stroke="#FF7A64" stroke-width="2"
-    stroke-linecap="round" pathLength="600" stroke-dasharray="0.6 5 1.6 8 0.6 4 2.4 11 0.6 6" opacity="0.8"/>
-  <circle class="mr-comet rev" cx="280" cy="128" r="88" fill="none" stroke="#FFE0D8" stroke-width="2.4"
-    stroke-linecap="round" pathLength="100" stroke-dasharray="16 84" opacity="0.9"/>
-  <g stroke="url(#mrFtLat)" stroke-width="1.1" fill="none">
-    <path class="mr-thread" d="M254,70 Q230,128 206,186"/>
-    <path class="mr-thread d2" d="M268,128 Q230,118 192,128"/>
-    <path class="mr-thread d3" d="M258,160 Q228,128 202,96"/>
+  <g transform="translate(106,4) scale(0.95)">
+    <use xlink:href="#mrPathFooter" href="#mrPathFooter" fill="url(#mrGradFooter)" opacity="0.62"/>
+    <circle class="mr-spark" r="3.0" fill="#CFEDFF" opacity="0">
+      <animateMotion dur="18s" begin="-0s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-0s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.3" fill="#FFFFFF" opacity="0">
+      <animateMotion dur="18s" begin="-4.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-4.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.8" fill="#FFE0D8" opacity="0">
+      <animateMotion dur="18s" begin="-9s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-9s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.1" fill="#CFEDFF" opacity="0">
+      <animateMotion dur="18s" begin="-13.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-13.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
   </g>
-  <text x="230" y="104" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="25"
-    font-weight="500" letter-spacing="10" fill="#9AD9FF">MERIDIAN</text>
-  <text x="230" y="150" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="46"
-    font-weight="700" letter-spacing="3" fill="url(#mrFtTxt)">RESONANCE</text>
+  <text x="200" y="152" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="2" fill="#FFFFFF">MERIDIAN</text>
+  <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
       <p style="margin-top:10px;font-size:13px;color:var(--muted);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three blocs, a dimensional preserve, and the discovery that empathy is not an emotion but a physical law.</p>
     </div>
