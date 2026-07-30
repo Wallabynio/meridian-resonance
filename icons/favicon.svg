@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <defs>
     <linearGradient id="mrIconGrad" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#58C6FF"/><stop offset="0.26" stop-color="#7ED3FF"/>
-      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#FF9887"/>
-      <stop offset="1" stop-color="#FF7A64"/>
+      <stop offset="0" stop-color="#087DC2"/><stop offset="0.26" stop-color="#3FA8E0"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#E8737D"/>
+      <stop offset="1" stop-color="#D93D4A"/>
     </linearGradient>
     <radialGradient id="mrWashA" cx="0.2" cy="0.16" r="0.75">
-      <stop offset="0" stop-color="#58C6FF" stop-opacity="0.20"/>
-      <stop offset="1" stop-color="#58C6FF" stop-opacity="0"/>
+      <stop offset="0" stop-color="#087DC2" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#087DC2" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="mrWashB" cx="0.82" cy="0.86" r="0.75">
-      <stop offset="0" stop-color="#FF7A64" stop-opacity="0.20"/>
-      <stop offset="1" stop-color="#FF7A64" stop-opacity="0"/>
+      <stop offset="0" stop-color="#D93D4A" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#D93D4A" stop-opacity="0"/>
     </radialGradient>
     
   </defs>
