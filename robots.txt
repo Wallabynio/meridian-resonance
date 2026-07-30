@@ -9,7 +9,6 @@ Disallow: /glossary.html
 Disallow: /book1.html
 Disallow: /book2.html
 Disallow: /book3.html
-Disallow: /dashboard.html
 Disallow: /chapter-01.html
 Disallow: /chapter-02.html
 Disallow: /chapter-03.html
