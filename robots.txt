@@ -45,3 +45,4 @@ Disallow: /chapter-33.html
 Disallow: /chapter-34.html
 Disallow: /chapter-35.html
 Disallow: /chapter-36.html
+Disallow: /chapter-37.html
