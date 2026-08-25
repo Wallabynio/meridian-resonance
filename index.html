@@ -569,6 +569,13 @@ details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
   list-style:none;display:flex;align-items:center;gap:8px;}
 .prompt-details summary::-webkit-details-marker{display:none;}
 .scope-note{color:var(--grey);font-size:14.5px;margin-top:calc(var(--flow) * -0.5);}
+.pcopy{position:relative;}
+.pcopy-b{position:absolute;top:10px;right:10px;z-index:2;cursor:pointer;
+  font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;padding:7px 13px;border-radius:100px;border:0;
+  background:var(--earth);color:#FFFFFF;}
+.pcopy-b[data-done]{background:var(--grey);color:#000000;}
+.pcopy pre{padding-top:44px;}
 .doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
 .doc-note{font-family:'Space Grotesk',sans-serif;font-size:11px;
@@ -1158,6 +1165,25 @@ if (backToTop) {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeLightbox();
   });
 })();
+
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-copy]'); if(!b) return;
+  var pre=b.parentElement.querySelector('pre'); if(!pre) return;
+  var t=pre.innerText, ok=function(){
+    var was=b.textContent; b.textContent='Copied'; b.setAttribute('data-done','');
+    setTimeout(function(){b.textContent=was; b.removeAttribute('data-done');},1600);
+  };
+  if(navigator.clipboard&&window.isSecureContext){
+    navigator.clipboard.writeText(t).then(ok,function(){});
+  }else{
+    var a=document.createElement('textarea');
+    a.value=t; a.setAttribute('readonly','');
+    a.style.cssText='position:fixed;left:-9999px;top:0;';
+    document.body.appendChild(a); a.select();
+    try{document.execCommand('copy'); ok();}catch(_){}
+    document.body.removeChild(a);
+  }
+});
 window.__GLOBE_SCENES={"New Manhattan": ["Surveillance Spire", "Mirror Bastion"], "São Verde": ["Verdant Citadel"], "Gulf Crescent": ["Logistics Command", "Container Verge"], "Beijing Command": ["Broadcast Chamber", "Ministry Annex", "Shaoyang Terraces"], "Baikal Complex": ["Resonance Laboratory", "Ice Citadel"], "Pearl Delta": ["Quantum Quarter", "Suppression Archive"], "Mediterranean Zone": ["Coastal Seawall", "Sagrada Spire", "Priorat Grove"], "Australasian Ring": ["Sydney Hub", "Orbital Station"], "African Belt": ["Nairobi Relay", "Table Terraces"], "Luna Haven": ["Dome Plaza", "Meridian Levels", "Habitat Corridors", "Archive Chamber"], "Neo Singapore": ["Transit Platform", "Gardens Relay"], "Council Grove": ["Ancient Grove"], "Cobalt Basin": ["Empathy Flats", "Lattice Threshold", "Mycelial Chamber"], "Fault Verge": ["Seam Edge"], "Turan Waste": ["Kazakh Scar"]};
 (function(){
   var svg = document.getElementById('globe-svg');
