@@ -513,6 +513,15 @@ section .wrap > p{margin-bottom:28px;}
   font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
   margin:56px 0 30px;}
 .scene-header:first-of-type{margin-top:8px;}
+.scene-plate,.scene-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;
+  margin:36px 0;display:block;object-fit:cover;border:3px solid var(--accent);
+  background:var(--surface);}
+.scene-placeholder{display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb, var(--accent) 22%, var(--surface));
+  color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:600;
+  font-size:14px;text-transform:uppercase;letter-spacing:0.04em;text-align:center;
+  padding:var(--pad-row);}
+.manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
 .entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
 .entry-media-grid{display:grid;grid-template-columns:347px 1fr;gap:28px;align-items:start;}
 .entry-media{width:347px;}
@@ -893,8 +902,8 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
       <div class="stat"><div class="n">3</div><div class="l">Novels</div></div>
       <div class="stat"><div class="n">90</div><div class="l">Chapters outlined</div></div>
       <div class="stat teal"><div class="n">37</div><div class="l">Ready to read</div></div>
-      <div class="stat"><div class="n">35</div><div class="l">Characters</div></div>
-      <div class="stat"><div class="n">31</div><div class="l">Locations</div></div>
+      <div class="stat"><div class="n">38</div><div class="l">Characters</div></div>
+      <div class="stat"><div class="n">40</div><div class="l">Locations</div></div>
       <div class="stat"><div class="n">11</div><div class="l">Laws of the Meridian</div></div>
     </div>
     <div class="progress-row reveal" style="--w:41%;">
@@ -1192,7 +1201,7 @@ document.addEventListener('click',function(e){
     document.body.removeChild(a);
   }
 });
-window.__GLOBE_SCENES={"New Manhattan": ["Surveillance Spire", "Mirror Bastion"], "São Verde": ["Verdant Citadel"], "Gulf Crescent": ["Logistics Command", "Container Verge"], "Beijing Command": ["Broadcast Chamber", "Ministry Annex", "Shaoyang Terraces"], "Baikal Complex": ["Resonance Laboratory", "Ice Citadel"], "Pearl Delta": ["Quantum Quarter", "Suppression Archive"], "Mediterranean Zone": ["Coastal Seawall", "Sagrada Spire", "Priorat Grove"], "Australasian Ring": ["Sydney Hub", "Orbital Station"], "African Belt": ["Nairobi Relay", "Table Terraces"], "Luna Haven": ["Dome Plaza", "Meridian Levels", "Habitat Corridors", "Archive Chamber"], "Neo Singapore": ["Transit Platform", "Gardens Relay"], "Council Grove": ["Ancient Grove"], "Cobalt Basin": ["Empathy Flats", "Lattice Threshold", "Mycelial Chamber"], "Fault Verge": ["Seam Edge"], "Turan Waste": ["Kazakh Scar"]};
+window.__GLOBE_SCENES={"New Manhattan": ["Surveillance Spire", "Mirror Bastion"], "São Verde": ["Verdant Citadel"], "Gulf Crescent": ["Logistics Command", "Container Verge"], "Beijing Command": ["Broadcast Chamber", "Ministry Annex", "Shaoyang Terraces", "Transit Lounge"], "Baikal Complex": ["Resonance Laboratory", "Ice Citadel"], "Pearl Delta": ["Quantum Quarter", "Suppression Archive"], "Mediterranean Zone": ["Coastal Seawall", "Sagrada Spire", "Priorat Grove", "Harbour House"], "Australasian Ring": ["Sydney Hub", "Orbital Station"], "African Belt": ["Nairobi Relay", "Table Terraces"], "Luna Haven": ["Dome Plaza", "Meridian Levels", "Habitat Corridors", "Archive Chamber", "Medical Facility", "Archive Deep", "Deep Chamber", "Tether Reception"], "Neo Singapore": ["Transit Platform", "Gardens Relay"], "Council Grove": ["Ancient Grove"], "Cobalt Basin": ["Empathy Flats", "Lattice Threshold", "Mycelial Chamber", "Access Gate", "Western Rim"], "Fault Verge": ["Seam Edge", "Shimmer Veil"], "Turan Waste": ["Kazakh Scar"]};
 (function(){
   var svg = document.getElementById('globe-svg');
   if (!svg) return;
