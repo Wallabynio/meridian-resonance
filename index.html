@@ -17,25 +17,21 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Meridian"><style>
 .tz-wrap{margin-top:10px;}
-.tz-railhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 16px;}
-.tz-railhead h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:var(--ink);}
-.tz-railhead .tz-sub{font-size:12.5px;color:var(--ink);font-weight:600;}
-.tz-rail{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;}
-.tz-rail.locs{margin-top:38px;}
-.tz-rail .tz-tile{flex:0 0 auto;}
-.tz-rail.chars .tz-tile{width:180px;}
-.tz-rail.locs .tz-tile{width:300px;}
-.tz-tile{position:relative;border-radius:16px;overflow:hidden;background:#141414;
+.tz-latest{margin-top:8px;font-size:13px;color:var(--ink);}
+.tz-latest b{color:var(--ink);font-weight:600;}
+.tz-marquee-outer{overflow:hidden;margin-top:38px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
+.tz-marquee{display:flex;gap:20px;width:max-content;
+  animation:tz-scroll 110s linear infinite;}
+.tz-marquee-outer:hover .tz-marquee{animation-play-state:paused;}
+@keyframes tz-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.tz-tile{position:relative;flex:0 0 auto;width:360px;border-radius:16px;overflow:hidden;
+  background:#141414;
   --ink:var(--white);--accent-text:var(--ink);--ground:#141414;
   --surface:#FFFFFF;--surface-ink:#000000;color:var(--ink);
-  border:1px solid var(--grey);box-shadow:0 6px 20px -12px rgba(0,0,0,0.5);
-  transition:opacity .6s ease, transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;}
-.tz-tile:hover{transform:translateY(-5px);box-shadow:0 18px 34px -14px rgba(0,0,0,0.6);}
-.tz-tile.fading{opacity:0;}
-.tz-tile img{width:100%;display:block;object-fit:cover;transition:filter .35s ease;}
-.tz-tile:hover img{filter:brightness(1.06);}
-.tz-rail.chars .tz-tile img{aspect-ratio:1/1;}
-.tz-rail.locs .tz-tile img{aspect-ratio:16/9;}
+  border:1px solid var(--grey);box-shadow:0 6px 20px -12px rgba(0,0,0,0.5);}
+.tz-tile img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9;}
 .tz-tile .tz-cap{padding:var(--pad-row) var(--pad-box);}
 .tz-tile .tz-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15.5px;color:#fff;
   line-height:1.25;}
@@ -45,15 +41,12 @@
   font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:0.08em;
   text-transform:uppercase;padding:3px 8px;border-radius:100px;box-shadow:0 2px 10px rgba(0,0,0,0.35);}
 .tz-tile .tz-accentbar{position:absolute;top:0;left:0;right:0;height:3px;z-index:2;}
-.tz-latest{margin-top:8px;font-size:13px;color:var(--ink);}
-.tz-latest b{color:var(--ink);font-weight:600;}
-.inv .tz-railhead h3{color:#000000;}
 .inv .tz-latest b{color:#000000;}
-@media(max-width:640px){
-  .tz-rail{gap:14px;}
-  .tz-rail.chars .tz-tile{width:150px;}
-  .tz-rail.locs .tz-tile{width:264px;}
+@media(prefers-reduced-motion: reduce){
+  .tz-marquee{animation:none;}
+  .tz-marquee-outer{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 }
+@media(max-width:640px){.tz-tile{width:264px;}}
 </style>
 <style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 :root{
@@ -283,9 +276,9 @@ section .wrap > p{margin-bottom:28px;}
 .grid-3{grid-template-columns:repeat(3,1fr);}
 .grid-4{grid-template-columns:repeat(4,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-.portrait,.plate{width:100%;aspect-ratio:1/1;border-radius:16px;object-fit:cover;
+.portrait,.plate{width:100%;aspect-ratio:16/9;border-radius:16px;object-fit:cover;
   border:3px solid var(--accent);display:block;background:var(--surface);}
-.portrait-placeholder,.plate-placeholder{width:100%;aspect-ratio:1/1;border-radius:16px;border:3px solid var(--accent);
+.portrait-placeholder,.plate-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;border:3px solid var(--accent);
   display:flex;align-items:center;justify-content:center;
   color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:0.02em;text-align:center;padding:var(--pad-row);}
 .portrait-placeholder{background:var(--surface);font-size:14px;font-weight:600;
@@ -307,11 +300,11 @@ section .wrap > p{margin-bottom:28px;}
 .cast-strip-outer::-webkit-scrollbar{height:6px;}
 .cast-strip-outer::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:3px;}
 .cast-strip{display:flex;gap:20px;padding:12px var(--gutter) 24px;width:max-content;}
-.cast-card{width:158px;flex:0 0 auto;text-decoration:none;color:inherit;scroll-snap-align:start;
+.cast-card{width:240px;flex:0 0 auto;text-decoration:none;color:inherit;scroll-snap-align:start;
   transition:transform .35s cubic-bezier(.2,.8,.2,1);}
 .cast-strip{scroll-snap-type:x proximity;}
 .cast-card:hover{transform:translateY(-6px);}
-.cast-card img{width:158px;height:158px;object-fit:cover;border-radius:14px;
+.cast-card img{width:240px;height:135px;object-fit:cover;border-radius:14px;
   border:3px solid var(--accent);display:block;background:var(--surface);
   transition:filter .3s ease,box-shadow .3s ease;}
 .cast-card:hover img{filter:brightness(1.08);box-shadow:0 16px 32px -10px rgba(0,0,0,0.55);}
@@ -319,7 +312,7 @@ section .wrap > p{margin-bottom:28px;}
   font-size:14.5px;color:var(--ink);line-height:1.25;}
 .cast-card .cast-bloc{margin-top:4px;font-size:11.5px;font-weight:700;letter-spacing:0.04em;
   text-transform:uppercase;color:var(--accent-text);}
-@media(max-width:640px){.cast-card{width:132px;}.cast-card img{width:132px;height:132px;}}
+@media(max-width:640px){.cast-card{width:200px;}.cast-card img{width:200px;height:112px;}}
 .loc-strip-outer{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;margin-top:64px;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
@@ -343,9 +336,9 @@ section .wrap > p{margin-bottom:28px;}
   border-radius:14px;border:3px dashed var(--accent);
   background:var(--surface);
   font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--surface-ink);}
-.cast-card .strip-ph{width:158px;height:158px;font-size:26px;}
+.cast-card .strip-ph{width:240px;height:135px;font-size:20px;}
 .loc-card .strip-ph{width:240px;height:135px;font-size:20px;}
-@media(max-width:640px){.cast-card .strip-ph{width:132px;height:132px;font-size:22px;}
+@media(max-width:640px){.cast-card .strip-ph{width:200px;height:112px;font-size:17px;}
   .loc-card .strip-ph{width:200px;height:112px;font-size:17px;}}
 .globe-caption{text-align:center;color:var(--ink);font-size:13px;line-height:1.7;
   max-width:600px;margin:22px auto 0;padding:0 var(--gutter);}
@@ -818,7 +811,7 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
 <div class="triband"></div>
 
 
-<section class="globe-section on-black">
+<div class="hero-window" aria-hidden="true"><img src="images/territories/corporate-union-new-manhattan-establishing-v1.jpg" alt=""></div><section class="globe-section on-black">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="tag">The World in Motion</span>
@@ -896,19 +889,19 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
 </section>
 
 
-<section class="on-black">
+<div class="hero-window" aria-hidden="true"><img src="images/locations/corporate-union-new-manhattan-surveillance-spire-v1.jpg" alt="" loading="lazy"></div><section class="on-black">
   <div class="wrap">
     <div class="stat-band reveal">
       <div class="stat"><div class="n">3</div><div class="l">Novels</div></div>
       <div class="stat"><div class="n">90</div><div class="l">Chapters outlined</div></div>
-      <div class="stat teal"><div class="n">37</div><div class="l">Ready to read</div></div>
+      <div class="stat teal"><div class="n">39</div><div class="l">Ready to read</div></div>
       <div class="stat"><div class="n">38</div><div class="l">Characters</div></div>
       <div class="stat"><div class="n">40</div><div class="l">Locations</div></div>
       <div class="stat"><div class="n">11</div><div class="l">Laws of the Meridian</div></div>
     </div>
-    <div class="progress-row reveal" style="--w:41%;">
+    <div class="progress-row reveal" style="--w:43%;">
       <div class="progress-track"><div class="progress-fill"></div></div>
-      <div class="cap">Manuscript progress &mdash; Chapter 37 of 90 &middot; Act 4, Book 2: Resonant Faultlines</div>
+      <div class="cap">Manuscript progress &mdash; Chapter 39 of 90 &middot; Act 4, Book 2: Resonant Faultlines</div>
     </div>
   </div>
 </section>
@@ -921,20 +914,20 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
       <p>Acts 1&ndash;3 are complete and Act 4 is underway — new chapters go up as finished prose, not notes, the day they&rsquo;re done. Begin with the first shimmer beneath Luna Haven and follow the fracture outward, or jump straight to the latest.</p>
       <div class="btn-group">
         <a href="chapter-01.html" class="btn-primary">Start at Chapter 1 &rarr;</a>
-        <a href="manuscript.html" class="btn-outline">All 37 chapters</a>
+        <a href="manuscript.html" class="btn-outline">All 39 chapters</a>
       </div>
     </div>
-    <a class="card-dark card-hover latest-card reveal" href="chapter-37.html">
+    <a class="card-dark card-hover latest-card reveal" href="chapter-39.html">
       <div class="accent-bar"></div>
       <span class="ch-num">Latest chapter &middot; Book 2, Act 4</span>
-      <h3>Chapter 37 &mdash; Lines in the Sand</h3>
-      <p>Lunar Accord — Luna Haven — Archive Chamber · Corporate Union — New Manhattan — Surveillance Spire</p>
+      <h3>Chapter 39 &mdash; Two Detonations</h3>
+      <p>Sovereign Coalition — Pearl Delta — Suppression Archive · Martian Preserve — Fault Verge — Seam Edge</p>
       <p class="read-on">Read it now &rarr;</p>
     </a>
   </div>
 </section>
 
-<section class="on-black quote-band">
+<div class="hero-window" aria-hidden="true"><img src="images/characters/corporate-union-elena-vazquez-v1.jpg" alt="" loading="lazy"></div><section class="on-black quote-band">
   <blockquote class="reveal">The Meridian shows us what following a thread to its end looks like.<cite>L&eacute;a Fournier&rsquo;s session notes &mdash; Chapter 17, &ldquo;Resonance Unleashed&rdquo;</cite></blockquote>
 </section>
 
@@ -943,18 +936,15 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
     <div class="section-head reveal">
       <span class="tag">Faces &amp; Places of 2087</span>
       <h2>The people and places of the fracture</h2>
-      <p>The people caught in the fracture, and the places it runs through &mdash; from mirrored corporate towers to a pocket dimension of rust-red trees under a cobalt sky. New faces and locations arrive as the world fills in.<span class="tz-latest"></span></p>
+      <p>The people caught in the fracture, and the places it runs through &mdash; from mirrored corporate towers to a pocket dimension of rust-red trees under a cobalt sky.<span class="tz-latest"> 9 images filed so far &mdash; 3 territories, 3 locations, 3 characters. Most recently added: <b>Wáng Sù</b>, <b>New Manhattan</b>, <b>Verdant Citadel</b>, <b>Beijing Command</b>.</span></p>
     </div>
-    <div class="tz-wrap reveal">
-      <div class="tz-railhead"><h3>The faces</h3><span class="tz-sub">0 portraits</span></div>
-      <div id="tz-chars" class="tz-rail chars"></div>
-      <div class="tz-railhead" style="margin-top:34px;"><h3>The places</h3><span class="tz-sub">0 locations</span></div>
-      <div id="tz-locs" class="tz-rail locs"></div>
-    </div>
+  </div>
+  <div class="tz-marquee-outer reveal">
+    <div class="tz-marquee"><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/corporate-union-new-manhattan-establishing-v1.jpg" alt="New Manhattan" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">New Manhattan</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/sovereign-coalition-wang-su-v1.jpg" alt="Wáng Sù" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Wáng Sù</div><div class="tz-label">Sovereign Coalition</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/corporate-union-sao-verde-verdant-citadel-v1.jpg" alt="Verdant Citadel" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Verdant Citadel</div><div class="tz-label">São Verde</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/sovereign-coalition-beijing-command-establishing-v1.jpg" alt="Beijing Command" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Beijing Command</div><div class="tz-label">Sovereign Coalition</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/corporate-union-sao-verde-establishing-v1.jpg" alt="São Verde" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">São Verde</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/sovereign-coalition-beijing-command-broadcast-chamber-v1.jpg" alt="Broadcast Chamber" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Broadcast Chamber</div><div class="tz-label">Beijing Command</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/corporate-union-elena-vazquez-v1.jpg" alt="Elena Vázquez" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Elena Vázquez</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/corporate-union-new-manhattan-surveillance-spire-v1.jpg" alt="Surveillance Spire" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Surveillance Spire</div><div class="tz-label">New Manhattan</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/corporate-union-daniel-cruz-v1.jpg" alt="Daniel Cruz" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Daniel Cruz</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/corporate-union-new-manhattan-establishing-v1.jpg" alt="New Manhattan" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">New Manhattan</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/sovereign-coalition-wang-su-v1.jpg" alt="Wáng Sù" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Wáng Sù</div><div class="tz-label">Sovereign Coalition</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/corporate-union-sao-verde-verdant-citadel-v1.jpg" alt="Verdant Citadel" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Verdant Citadel</div><div class="tz-label">São Verde</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/sovereign-coalition-beijing-command-establishing-v1.jpg" alt="Beijing Command" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Beijing Command</div><div class="tz-label">Sovereign Coalition</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/corporate-union-sao-verde-establishing-v1.jpg" alt="São Verde" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">São Verde</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/sovereign-coalition-beijing-command-broadcast-chamber-v1.jpg" alt="Broadcast Chamber" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Broadcast Chamber</div><div class="tz-label">Beijing Command</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/corporate-union-elena-vazquez-v1.jpg" alt="Elena Vázquez" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Elena Vázquez</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/corporate-union-new-manhattan-surveillance-spire-v1.jpg" alt="Surveillance Spire" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Surveillance Spire</div><div class="tz-label">New Manhattan</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/corporate-union-daniel-cruz-v1.jpg" alt="Daniel Cruz" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Daniel Cruz</div><div class="tz-label">Corporate Union</div></div></div></div>
   </div>
 </section>
 
-<section class="on-black">
+<div class="hero-window" aria-hidden="true"><img src="images/territories/corporate-union-sao-verde-establishing-v1.jpg" alt="" loading="lazy"></div><section class="on-black">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="tag">Four Blocs, One Fracture</span>
@@ -1027,7 +1017,7 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
   </div>
 </section>
 
-<section class="on-black">
+<div class="hero-window" aria-hidden="true"><img src="images/locations/corporate-union-sao-verde-verdant-citadel-v1.jpg" alt="" loading="lazy"></div><section class="on-black">
   <div class="wrap" style="text-align:center;">
     <div class="section-head reveal" style="margin-bottom:0;">
       <span class="tag">2087 is waiting</span>
@@ -1668,54 +1658,19 @@ window.__GLOBE_SCENES={"New Manhattan": ["Surveillance Spire", "Mirror Bastion"]
   }
   requestAnimationFrame(frame);
 })();
-window.__TZ_CHARS=[];window.__TZ_LOCS=[];
+
 (function(){
-  function tileHTML(item){
-    var badge = item.isNew ? '<span class="tz-new">New</span>' : '';
-    return '<div class="tz-accentbar" style="background:var(--accent);"></div>' +
-      '<img src="'+item.src+'" alt="'+item.name+'" loading="lazy">' +
-      badge +
-      '<div class="tz-cap"><div class="tz-name">'+item.name+'</div>' +
-      '<div class="tz-label">'+item.label+'</div></div>';
-  }
-  function mountRail(elId, pool, count, interval, offset){
-    var el = document.getElementById(elId);
-    if(!el || !pool.length) return;
-    var shown = Math.min(count, pool.length);
-    var slots = [];
-    var next = 0;
-    for(var i=0;i<shown;i++){
-      var wrap = document.createElement('div');
-      wrap.className = 'tz-tile '+pool[i].accent;
-      wrap.innerHTML = tileHTML(pool[i]);
-      el.appendChild(wrap);
-      slots.push(wrap);
-      next = i+1;
+  // The marquee's tiles are rendered server-side, twice in a row, for a
+  // seamless CSS loop (see .tz-marquee / @keyframes tz-scroll). A reduced-
+  // motion viewer gets no animation (CSS media query), so the duplicate
+  // copy would just be a redundant tail to scroll past manually — trim it.
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var m = document.querySelector('.tz-marquee');
+    if (m){
+      var half = m.children.length / 2;
+      for (var i = 0; i < half; i++) m.removeChild(m.lastElementChild);
     }
-    next = next % pool.length;
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce || pool.length <= shown) return;
-    var slot = 0;
-    setTimeout(function(){
-      setInterval(function(){
-        var wrap = slots[slot % slots.length];
-        var item = pool[next];
-        wrap.classList.add('fading');
-        setTimeout(function(){
-          wrap.className = 'tz-tile '+item.accent;
-          wrap.innerHTML = tileHTML(item);
-          // force reflow then fade back in
-          void wrap.offsetWidth;
-          wrap.classList.remove('fading');
-        }, 620);
-        slot = (slot+1) % slots.length;
-        next = (next+1) % pool.length;
-      }, interval);
-    }, offset);
   }
-  var C = window.__TZ_CHARS || [], L = window.__TZ_LOCS || [];
-  mountRail('tz-chars', C, 6, 3600, 0);
-  mountRail('tz-locs', L, 3, 4200, 1800);
 })();
 </script>
 </body>
