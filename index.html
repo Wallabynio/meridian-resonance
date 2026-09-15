@@ -3,67 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meridian Resonance — A Hard Science-Fiction Trilogy</title>
-<meta name="description" content="Meridian Resonance: a hard science-fiction trilogy by Istvan Bakos, set in 2087, across three Earth powers and a dimensional preserve, where empathy is a physical law.">
+<title>Meridian Resonance</title>
+<meta name="description" content="Meridian Resonance: a hard science-fiction trilogy by Istvan Bakos, set in 2087, across three Earth blocs and a dimensional preserve.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Meridian"><style>
-.tz-wrap{margin-top:10px;}
-.tz-latest{margin-top:8px;font-size:13px;color:var(--ink);}
-.tz-latest b{color:var(--ink);font-weight:600;}
-.tz-marquee-outer{overflow:hidden;margin-top:38px;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
-.tz-marquee{display:flex;gap:20px;width:max-content;
-  animation:tz-scroll 110s linear infinite;}
-.tz-marquee-outer:hover .tz-marquee{animation-play-state:paused;}
-@keyframes tz-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.tz-tile{position:relative;flex:0 0 auto;width:360px;border-radius:16px;overflow:hidden;
-  background:#141414;
-  --ink:var(--white);--accent-text:var(--ink);--ground:#141414;
-  --surface:#FFFFFF;--surface-ink:#000000;color:var(--ink);
-  border:1px solid var(--grey);box-shadow:0 6px 20px -12px rgba(0,0,0,0.5);}
-.tz-tile img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9;}
-.tz-tile .tz-cap{padding:var(--pad-row) var(--pad-box);}
-.tz-tile .tz-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15.5px;color:#fff;
-  line-height:1.25;}
-.tz-tile .tz-label{margin-top:5px;font-size:10.5px;font-weight:700;letter-spacing:0.05em;
-  text-transform:uppercase;color:var(--accent-text);}
-.tz-tile .tz-new{position:absolute;top:11px;right:11px;background:var(--mars);color:#FFFFFF;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:0.08em;
-  text-transform:uppercase;padding:3px 8px;border-radius:100px;box-shadow:0 2px 10px rgba(0,0,0,0.35);}
-.tz-tile .tz-accentbar{position:absolute;top:0;left:0;right:0;height:3px;z-index:2;}
-.inv .tz-latest b{color:#000000;}
-@media(prefers-reduced-motion: reduce){
-  .tz-marquee{animation:none;}
-  .tz-marquee-outer{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-}
-@media(max-width:640px){.tz-tile{width:264px;}}
-</style>
+<meta name="apple-mobile-web-app-title" content="Meridian"><meta name="robots" content="noindex, nofollow">
 <style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 :root{
   --black:#000000; --white:#FFFFFF; --paper:#FFFFFF;
-  --grey:#BFBFBF;
+  --grey:#404040;
   --grey-d:var(--grey); --grey-l:var(--grey); --anthracite:var(--grey);
   --hairline:var(--grey); --card-hairline:var(--grey);
-  --ground:#000000;
+  --ground:#FFFFFF;
   --surface:var(--grey); --surface-2:var(--grey);
-  --surface-ink:#000000;
+  --surface-ink:#FFFFFF;
   --cu:#A8692A; --sc:#427AB8; --la:#947238; --lh:#298578; --mp:#CC4F27; --mp2:#427AB8;
   --tz:#57824E; --um:#9267AB;
   --earth:#087DC2; --mars:#D93D4A;
   --acc:#087DC2;
   --ns:var(--grey);
   --accent:var(--grey);
-  --ink:#FFFFFF;
+  --ink:#000000;
   --accent-text:var(--ink);
   --gutter:clamp(20px,5.5vw,88px);
   --band-y:clamp(64px,7.5vw,110px);
@@ -76,11 +44,11 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
-.anchor-nav.sticky,.cast-strip-outer,.loc-strip-outer,.dash-tabs,
+.anchor-nav.sticky,.dash-tabs,
 .mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
 img,svg,video,iframe,table,pre{max-width:100%;}
 p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
-body{background:var(--black);color:var(--white);
+body{background:var(--ground);color:var(--ink);
   font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
   -webkit-font-smoothing:antialiased;}
 a{color:inherit;}
@@ -150,10 +118,9 @@ nav.scrolled{background:rgba(10,10,10,0.92);padding:13px var(--gutter);
 .triband{height:4px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));}
 section{padding:var(--band-y) var(--gutter);}
 section.band-host{padding:0;}
-section.band-host > :not(.band-group):not(.anchor-nav):not(.hero-window){
+section.band-host > :not(.band-group):not(.anchor-nav){
   padding:var(--band-y-tight) var(--gutter);}
 .wrap{max-width:1180px;margin:0 auto;}
-.on-black{background:var(--black);color:var(--white);}
 .section-head{text-align:center;max-width:620px;margin:0 auto 64px;}
 h2{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;
   font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.2;color:var(--ink);}
@@ -175,8 +142,6 @@ p:last-child{margin-bottom:0;}
 .hero .eyebrow{margin-bottom:20px;}
 .hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.4rem,7vw,5.2rem);letter-spacing:-0.035em;line-height:1.04;max-width:960px;color:var(--ink);}
-.hero h1 .accent,.grad-text{background:linear-gradient(90deg,var(--earth),var(--mars));
-  -webkit-background-clip:text;background-clip:text;color:transparent;}
 .hero p.lede{max-width:620px;margin-left:auto;margin-right:auto;}
 .hero-byline{margin-top:22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;
   letter-spacing:0.02em;color:var(--ink);}
@@ -216,27 +181,20 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:8px;fill:var
 @media(max-width:640px){.globe-stage{max-width:94vw;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
+  --ink:#FFFFFF;--accent-text:var(--ink);
   padding:calc(var(--band-y) + 44px) var(--gutter) var(--band-y-tight);}
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
 .band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
 .band.bloc{opacity:0.85;}
-.card-white,.card-dark,.chapter-block .anchors,.law-card,.theme-card,.ch-card,
-.gloss-grid .gloss-item,.prompt-details,.gtree-card,.chapnav a,.dash-card,
-.dash-decision,.dash-table,#gate input{
-  background:var(--paper);border-radius:14px;padding:var(--pad-box);
-  --grey:#404040;border:1px solid var(--grey);
-  --ground:#FFFFFF;--ink:#000000;--surface:#000000;--surface-ink:#FFFFFF;--surface-2:var(--grey);
-  --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
-.inv .card-white,.inv .card-dark,.inv .chapter-block .anchors,.inv .law-card,.inv .theme-card,.inv .ch-card,
-.gloss-grid .gloss-item,.inv .prompt-details,.inv .gtree-card,.inv .chapnav a,.inv .dash-card,
-.dash-decision,.inv .dash-table,#gate input{
-  background:var(--black);
+.card-dark,.chapter-block .anchors,.law-card,.ch-card,
+.gloss-grid .gloss-item,.prompt-details,.gtree-card,.chapnav a{
+  background:var(--black);border-radius:14px;padding:var(--pad-box);
   --grey:#BFBFBF;border:1px solid var(--grey);
   --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
   --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
-:where(.card-white,.card-dark,.chapter-block .anchors,.law-card,.theme-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.gtree-card,.chapnav a,.dash-card,.dash-decision,.dash-table,#gate input) :where(.card-white,.card-dark,.chapter-block .anchors,.law-card,.theme-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.gtree-card,.chapnav a,.dash-card,.dash-decision,.dash-table,#gate input){
+:where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.gtree-card,.chapnav a) :where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.gtree-card,.chapnav a){
   background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
   --accent-text:var(--ink);color:var(--ink);}
 .card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
@@ -268,78 +226,16 @@ section .wrap > p{margin-bottom:28px;}
 .bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
   background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
 .grid{display:grid;gap:26px;}
-.grid,.law-grid,.gloss-grid,.ch-grid,.theme-grid,.gtree-grid{
+.grid,.law-grid,.gloss-grid,.ch-grid,.gtree-grid{
   margin-block:var(--flow-lg);}
-.grid>*,.law-grid>*,.gloss-grid>*,.ch-grid>*,.theme-grid>*,.gtree-grid>*{
+.grid>*,.law-grid>*,.gloss-grid>*,.ch-grid>*,.gtree-grid>*{
   margin-block:0;}
-.wrap>.card-dark,.wrap>.canon-note,.wrap>.mono-list{margin-block:var(--flow-lg);}
+.wrap>.card-dark{margin-block:var(--flow-lg);}
 .grid-3{grid-template-columns:repeat(3,1fr);}
 .grid-4{grid-template-columns:repeat(4,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-.portrait,.plate{width:100%;aspect-ratio:16/9;border-radius:16px;object-fit:cover;
-  border:3px solid var(--accent);display:block;background:var(--surface);}
-.portrait-placeholder,.plate-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;border:3px solid var(--accent);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:0.02em;text-align:center;padding:var(--pad-row);}
-.portrait-placeholder{background:var(--surface);font-size:14px;font-weight:600;
-  text-transform:uppercase;letter-spacing:0.04em;}
-.mode-state{--accent:var(--grey);}
-.mode-state .portrait,.mode-state .portrait-placeholder,
-.mode-placed .portrait,.mode-placed .portrait-placeholder{
-  border-color:var(--grey);box-shadow:0 0 0 3px var(--ground),0 0 0 5px var(--grey);}
 .bloc-pill.mode-state{background:var(--ground);border:2px solid var(--grey);
   color:var(--grey);padding:3px 10px;}
-.plate-placeholder{background:color-mix(in srgb, var(--accent) 22%, var(--surface));
-  font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
-.ph-status{display:block;font-size:11px;font-weight:400;text-transform:none;
-  letter-spacing:normal;opacity:.7;margin-top:2px;}
-.cast-strip-outer{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;margin-top:64px;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
-  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.18) transparent;}
-.cast-strip-outer::-webkit-scrollbar{height:6px;}
-.cast-strip-outer::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:3px;}
-.cast-strip{display:flex;gap:20px;padding:12px var(--gutter) 24px;width:max-content;}
-.cast-card{width:240px;flex:0 0 auto;text-decoration:none;color:inherit;scroll-snap-align:start;
-  transition:transform .35s cubic-bezier(.2,.8,.2,1);}
-.cast-strip{scroll-snap-type:x proximity;}
-.cast-card:hover{transform:translateY(-6px);}
-.cast-card img{width:240px;height:135px;object-fit:cover;border-radius:14px;
-  border:3px solid var(--accent);display:block;background:var(--surface);
-  transition:filter .3s ease,box-shadow .3s ease;}
-.cast-card:hover img{filter:brightness(1.08);box-shadow:0 16px 32px -10px rgba(0,0,0,0.55);}
-.cast-card .cast-name{margin-top:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:14.5px;color:var(--ink);line-height:1.25;}
-.cast-card .cast-bloc{margin-top:4px;font-size:11.5px;font-weight:700;letter-spacing:0.04em;
-  text-transform:uppercase;color:var(--accent-text);}
-@media(max-width:640px){.cast-card{width:200px;}.cast-card img{width:200px;height:112px;}}
-.loc-strip-outer{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;margin-top:64px;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
-  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.18) transparent;}
-.loc-strip-outer::-webkit-scrollbar{height:6px;}
-.loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:3px;}
-.loc-strip{display:flex;gap:20px;padding:12px var(--gutter) 24px;width:max-content;scroll-snap-type:x proximity;}
-.loc-card{width:240px;flex:0 0 auto;text-decoration:none;color:inherit;scroll-snap-align:start;
-  transition:transform .35s cubic-bezier(.2,.8,.2,1);}
-.loc-card:hover{transform:translateY(-6px);}
-.loc-card img{width:240px;height:135px;object-fit:cover;border-radius:14px;
-  border:3px solid var(--accent);display:block;background:var(--surface);
-  transition:filter .3s ease,box-shadow .3s ease;}
-.loc-card:hover img{filter:brightness(1.08);box-shadow:0 16px 32px -10px rgba(0,0,0,0.55);}
-.loc-card .loc-name{margin-top:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:14.5px;color:var(--ink);line-height:1.25;}
-.loc-card .loc-bloc{margin-top:4px;font-size:11.5px;font-weight:700;letter-spacing:0.04em;
-  text-transform:uppercase;color:var(--accent-text);}
-@media(max-width:640px){.loc-card{width:200px;}.loc-card img{width:200px;height:112px;}}
-.cast-card .strip-ph,.loc-card .strip-ph{display:flex;align-items:center;justify-content:center;
-  border-radius:14px;border:3px dashed var(--accent);
-  background:var(--surface);
-  font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--surface-ink);}
-.cast-card .strip-ph{width:240px;height:135px;font-size:20px;}
-.loc-card .strip-ph{width:240px;height:135px;font-size:20px;}
-@media(max-width:640px){.cast-card .strip-ph{width:200px;height:112px;font-size:17px;}
-  .loc-card .strip-ph{width:200px;height:112px;font-size:17px;}}
 .globe-caption{text-align:center;color:var(--ink);font-size:13px;line-height:1.7;
   max-width:600px;margin:22px auto 0;padding:0 var(--gutter);}
 .stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
@@ -367,13 +263,6 @@ section .wrap > p{margin-bottom:28px;}
 .latest-card{--accent:var(--grey);text-decoration:none;display:block;}
 .latest-card .ch-num{color:var(--ink);display:block;margin-bottom:10px;}
 .latest-card .read-on{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--mars);}
-.quote-band{padding:var(--band-y) var(--gutter);}
-.quote-band blockquote{max-width:820px;margin:0 auto;text-align:center;font-style:italic;font-weight:400;
-  font-family:'Inter',sans-serif;font-size:clamp(1.25rem,2.6vw,1.8rem);line-height:1.55;color:var(--ink);}
-.quote-band blockquote::before{content:'\201C';display:block;font-family:'Space Grotesk',sans-serif;
-  font-style:normal;font-size:64px;line-height:0.6;margin-bottom:18px;
-  color:var(--grey);}
-.quote-band cite{display:block;margin-top:24px;font-style:normal;font-family:'Space Grotesk',sans-serif;
   font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 .book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
   letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
@@ -383,9 +272,9 @@ section .wrap > p{margin-bottom:28px;}
 .scroll-cue svg{width:22px;height:22px;display:block;}
 @keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
 .hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
-.hero-stats .hs{padding:8px 16px;border-radius:100px;background:var(--ground);border:1px solid var(--grey);
-  font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.04em;color:var(--ink);}
-.hero-stats .hs b{color:var(--ink);font-weight:700;}
+.hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
+  font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.04em;color:#000000;}
+.hero-stats .hs b{color:#000000;font-weight:700;}
 .anchor-nav.sticky{position:sticky;top:60px;z-index:100;background:var(--ground);
   padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
 .anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
@@ -411,7 +300,7 @@ section .wrap > p{margin-bottom:28px;}
 .book-card{position:relative;overflow:hidden;}
 .book-card > *:not(.ghost){position:relative;z-index:1;}
 .book-card .ghost{top:0;right:10px;font-size:88px;}
-.book-placeholder{background:#BFBFBF;}
+.book-placeholder{background:#BFBFBF;--ink:#000000;color:var(--ink);}
 @media(max-width:600px){
   .law-card .ghost{font-size:68px;}
   .book-card .ghost{font-size:64px;}
@@ -465,11 +354,6 @@ section .wrap > p{margin-bottom:28px;}
   text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
 .chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
 .chapnav a.next{text-align:right;}
-.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-@media(max-width:800px){.theme-grid{grid-template-columns:1fr;}}
-.theme-card{
-  padding:var(--pad-box);color:var(--ink);font-size:15px;line-height:1.65;}
-.theme-card b{color:var(--ink);font-family:'Space Grotesk',sans-serif;}
 .act-head[id],.entry-block[id],.chapter-block[id],.territory-head[id],.gloss-item[id]{scroll-margin-top:150px;}
 .btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
   font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
@@ -486,7 +370,6 @@ section .wrap > p{margin-bottom:28px;}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.cast-card.reveal,.loc-card.reveal{transform:none !important;}
 .chapter-block{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:46px;}
 .chapter-block h3{margin:6px 0 6px;}
 .chapter-block .tagline{margin-bottom:14px;font-style:italic;}
@@ -516,56 +399,6 @@ section .wrap > p{margin-bottom:28px;}
   padding:var(--pad-row);}
 .manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
 .entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
-.entry-media-grid{display:grid;grid-template-columns:347px 1fr;gap:28px;align-items:start;}
-.entry-media{width:347px;}
-@media(max-width:1000px){
-  .entry-media-grid{grid-template-columns:1fr;}
-  .entry-media{width:100%;max-width:280px;margin:0 auto;}
-}
-.media-trigger{display:block;width:100%;padding:0;margin:0;border:none;background:none;
-  cursor:zoom-in;text-align:left;border-radius:16px;overflow:hidden;}
-.media-trigger img{transition:filter .25s ease,transform .25s ease;}
-.media-trigger:hover img{filter:brightness(1.1);transform:scale(1.015);}
-.media-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
-.lightbox-overlay{position:fixed;inset:0;z-index:600;background:rgba(5,5,5,0.94);
-  display:none;align-items:center;justify-content:center;padding:60px 24px;}
-.lightbox-overlay.open{display:flex;}
-.lightbox-content{display:flex;flex-direction:column;align-items:center;gap:14px;
-  max-width:100%;max-height:100%;}
-.lightbox-scroll{display:flex;max-width:100%;max-height:calc(100vh - 160px);overflow:auto;
-  border-radius:14px;border:1px solid rgba(255,255,255,0.14);overscroll-behavior:contain;}
-.lightbox-scroll img{display:block;margin:auto;max-width:none;}
-.lightbox-caption{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;
-  color:var(--ink);letter-spacing:0.02em;text-align:center;}
-.lightbox-close{position:fixed;top:22px;right:26px;width:44px;height:44px;border-radius:50%;
-  border:1.5px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);color:var(--ink);
-  font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  transition:background .2s ease;z-index:610;}
-.lightbox-close:hover{background:rgba(255,255,255,0.2);}
-.entry-media-2{margin-top:14px;}
-section.band-note{padding-top:calc(var(--band-y) * 0.45);
-  padding-bottom:calc(var(--band-y) * 0.45);}
-.canon-note{max-width:820px;margin:0 auto;background:#404040;
-  border-radius:16px;padding:var(--pad-box);}
-.canon-note .cn-head{margin-bottom:12px;}
-.canon-note .tag{color:#FFFFFF;}
-.canon-note p{color:#FFFFFF;font-size:15px;line-height:1.55;margin:0 0 10px;}
-.cn-grades{margin:16px 0 12px;border-top:1px solid #FFFFFF;padding-top:14px;}
-.cn-axis{display:block;font-family:'Space Grotesk',sans-serif;font-size:10.5px;
-  font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;
-  margin-bottom:8px;}
-.cn-row{display:grid;grid-template-columns:22px 116px 1fr;gap:10px;align-items:baseline;
-  padding:5px 0;font-size:14.5px;color:#FFFFFF;}
-.cn-n{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#FFFFFF;}
-.cn-name{font-family:'Space Grotesk',sans-serif;font-weight:700;}
-.cn-floor{font-weight:700;margin-top:4px !important;}
-@media (max-width:620px){
-  .cn-row{grid-template-columns:20px 1fr;}
-  .cn-row .cn-desc{grid-column:2;}
-}
-.entry-media-1 .media-cap,.entry-media-2 .media-cap{display:block;margin-top:8px;font-family:'Space Grotesk',sans-serif;
-  font-size:11.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  color:var(--accent-text);}
 .entry-block h3{margin-bottom:4px;}
 .entry-block .meta{margin-bottom:16px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
 .entry-block p{color:var(--ink);}
@@ -579,10 +412,6 @@ details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
 .prompt-details summary::-webkit-details-marker{display:none;}
 .demand-list{font-size:14px;padding-left:1.15em;}
 .demand-list li{margin:3px 0;}
-.demand-group{display:flex;flex-direction:column;gap:6px;}
-.demand-heading{font-family:'Space Grotesk',sans-serif;font-size:10.5px;
-  font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  color:var(--grey);margin:0;}
 .demand-list-plain{list-style:none;padding-left:0;}
 .scope-note{color:var(--grey);font-size:14.5px;margin-top:calc(var(--flow) * -0.5);}
 .doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
@@ -639,7 +468,6 @@ details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
     mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 30px),transparent);}
   .anchor-nav.sticky::-webkit-scrollbar{display:none;}
   .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
-  .inv .anchor-nav.sticky{background:var(--ground);}
 }
 .law-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
 .law-item .n{color:var(--accent-text);}
@@ -652,15 +480,7 @@ details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
 .gloss-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
 .gloss-item dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink);}
 .gloss-item dd{color:var(--ink);}
-#gate{position:fixed;inset:0;background:var(--black);z-index:999;display:flex;align-items:center;
-  justify-content:center;flex-direction:column;gap:18px;text-align:center;padding:24px;}
-#gate input{
-  color:var(--ink);padding:var(--pad-row) var(--pad-box);font-size:15px;width:260px;text-align:center;}
-#gate button{background:var(--mars);color:#FFFFFF;border:none;padding:12px 26px;border-radius:100px;
-  font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;}
-#gate p{max-width:420px;color:var(--ink);font-size:13.5px;font-family:'Inter',sans-serif;}
-#gate.hidden{display:none;}
-footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);}
+footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
 .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
 .footer-nav{display:flex;flex-direction:column;gap:10px;}
@@ -687,27 +507,14 @@ footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gu
   .grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;}
 }
-section.inv,.band-group.inv{background:var(--paper);color:var(--black);
-  --grey:#404040;
-  --accent:var(--grey);
-  --ink:var(--black);--accent-text:var(--ink);
-  --ground:var(--paper);
-  --surface:var(--grey);--surface-2:var(--grey);--surface-ink:#FFFFFF;
-}
+section,.band-group{background:var(--ground);color:var(--ink);}
 .band-group{padding:var(--band-y) var(--gutter);}
 .band-group + .band-group{padding-top:var(--band-y-tight);}
-.mono-list{color:var(--ink);}
-.inv .card-white,.inv .card-dark,.inv .chapter-block .anchors{
-  background:var(--black);
-  --ink:var(--white);--accent-text:var(--ink);--ground:var(--black);--surface:#FFFFFF;--surface-2:var(--grey);
-  --accent-text:var(--ink);color:var(--ink);}
-.inv .btn-outline:hover{background:var(--surface-2);}
-.inv .anchor-nav.sticky{background:var(--ground);}
-.inv .hero-stats .hs{color:var(--ink);}
-.inv .cast-strip-outer,.inv .loc-strip-outer{scrollbar-color:rgba(0,0,0,0.25) transparent;}
-.inv .cast-strip-outer::-webkit-scrollbar-thumb,.inv .loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);}
-.inv .logo{color:#000000;}
-.inv .logo .lg{color:var(--earth);}
+.hero-stats .hs{color:#000000;}
+.cast-strip-outer,.loc-strip-outer{scrollbar-color:rgba(0,0,0,0.25) transparent;}
+.cast-strip-outer::-webkit-scrollbar-thumb,.loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);}
+.logo{color:#000000;}
+.logo .lg{color:var(--earth);}
 .bloc-cu .btn-card,.bloc-la .btn-card,.bloc-lh .btn-card{color:#000000;}
 .bloc-sc .btn-card,.bloc-mp .btn-card{color:#FFFFFF;}
 .bloc-cu{--accent:var(--cu);}
@@ -718,10 +525,7 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
 .bloc-ns{--accent:var(--ns);}
 .bloc-tz{--accent:var(--tz);}
 .bloc-um{--accent:var(--um);}
-.inv .portrait-placeholder{background:var(--surface);}
-@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}
-.hero-window{position:relative;clip-path:inset(0 0 0 0);height:min(37.5vw,62vh);pointer-events:none;background:#000000;}
-.hero-window img{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;}</style>
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
 </head>
 <body>
 <nav>
@@ -771,18 +575,16 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
   <ul class="nav-links"><li><a href="world.html">World</a></li>
-<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="canon-images.html">Image Canon</a></li><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline</a></li><li><a href="pacing.html">Pacing</a></li><li><a href="glossary.html">Glossary</a></li></ul></li>
+<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline</a></li><li><a href="pacing.html">Pacing</a></li><li><a href="glossary.html">Glossary</a></li></ul></li>
 <li><a href="locations.html">Locations</a></li>
 <li><a href="characters.html">Characters</a></li>
 <li><a href="books.html">Books</a></li>
-<li><a href="studio.html">Studio</a></li>
     <li><a href="manuscript.html" class="nav-cta">Manuscript &rarr;</a></li>
   </ul>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu"><a href="world.html">World</a>
 <a href="codex.html">Codex</a>
-<a class="sub" href="canon-images.html">Image Canon</a>
 <a class="sub" href="craft.html">Craft</a>
 <a class="sub" href="laws.html">Laws &amp; Codex</a>
 <a class="sub" href="timeline.html">Timeline</a>
@@ -790,18 +592,17 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
 <a class="sub" href="glossary.html">Glossary</a>
 <a href="locations.html">Locations</a>
 <a href="characters.html">Characters</a>
-<a href="books.html">Books</a>
-<a href="studio.html">Studio</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
+<a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
-<div class="hero on-black">
+<div class="hero">
   <div class="hero-content">
     <span class="eyebrow">A Hard Science-Fiction Trilogy &middot; 2087</span>
-    <h1>Empathy is not an emotion.<br>It is a <span class="accent">physical law.</span></h1>
-    <p class="lede">On a world rebuilt from climate collapse and an AI uprising, something beneath the lunar colony has begun to answer — a force that responds not to machines, but to the quality of human attention. As three powers race to study it, weaponise it, or protect it, the people caught between them must decide what consciousness is worth.</p>
+    <h1>Meridian Resonance</h1>
+    <p class="lede">Set in 2087, after climate collapse and an AI uprising split the world into three competing blocs. Beneath the lunar colony of Luna Haven, researchers have found something that responds to human attention rather than to machines.</p>
     <p class="hero-byline">A trilogy by <span>Istvan Bakos</span></p>
     <div class="btn-group">
-      <a href="chapter-01.html" class="btn-primary">Begin reading &rarr;</a>
-      <a href="world.html" class="btn-outline">Explore the world</a>
+      <a href="chapter-01.html" class="btn-primary">Chapter 1</a>
+      <a href="world.html" class="btn-outline">World</a>
     </div>
     <div class="scroll-cue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
   </div>
@@ -809,11 +610,11 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
 <div class="triband"></div>
 
 
-<div class="hero-window" aria-hidden="true"><img src="images/territories/corporate-union-new-manhattan-establishing-v1.jpg" alt=""></div><section class="globe-section on-black">
+<section class="globe-section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tag">The World in Motion</span>
-      <h2>One fractured world, three powers</h2>
+      <span class="tag">World</span>
+      <h2>The world&rsquo;s territories</h2>
     </div>
   </div>
   <div class="globe-stage reveal">
@@ -887,7 +688,7 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
 </section>
 
 
-<div class="hero-window" aria-hidden="true"><img src="images/locations/corporate-union-new-manhattan-surveillance-spire-v1.jpg" alt="" loading="lazy"></div><section class="on-black">
+<section>
   <div class="wrap">
     <div class="stat-band reveal">
       <div class="stat"><div class="n">3</div><div class="l">Novels</div></div>
@@ -904,14 +705,14 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
   </div>
 </section>
 
-<section class="on-black inv">
+<section>
   <div class="wrap home-split">
     <div class="section-head reveal">
-      <span class="tag">Read It As It&rsquo;s Written</span>
-      <h2>The trilogy, unfolding in real time</h2>
-      <p>Acts 1&ndash;3 are complete and Act 4 is underway — new chapters go up as finished prose, not notes, the day they&rsquo;re done. Begin with the first shimmer beneath Luna Haven and follow the fracture outward, or jump straight to the latest.</p>
+      <span class="tag">Manuscript</span>
+      <h2>Latest chapter</h2>
+      <p>Acts 1&ndash;3 are complete and Act 4 is underway New chapters are posted as finished prose the day they are done.</p>
       <div class="btn-group">
-        <a href="chapter-01.html" class="btn-primary">Start at Chapter 1 &rarr;</a>
+        <a href="chapter-01.html" class="btn-primary">Chapter 1</a>
         <a href="manuscript.html" class="btn-outline">All 39 chapters</a>
       </div>
     </div>
@@ -920,69 +721,52 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
       <span class="ch-num">Latest chapter &middot; Book 2, Act 4</span>
       <h3>Chapter 39 &mdash; Two Detonations</h3>
       <p>Sovereign Coalition — Pearl Delta — Suppression Archive · Martian Preserve — Fault Verge — Seam Edge</p>
-      <p class="read-on">Read it now &rarr;</p>
+      <p class="read-on">Read chapter &rarr;</p>
     </a>
   </div>
 </section>
 
-<div class="hero-window" aria-hidden="true"><img src="images/characters/corporate-union-elena-vazquez-v1.jpg" alt="" loading="lazy"></div><section class="on-black quote-band">
-  <blockquote class="reveal">The Meridian shows us what following a thread to its end looks like.<cite>L&eacute;a Fournier&rsquo;s session notes &mdash; Chapter 17, &ldquo;Resonance Unleashed&rdquo;</cite></blockquote>
-</section>
-
-<section class="on-black inv">
+<section>
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tag">Faces &amp; Places of 2087</span>
-      <h2>The people and places of the fracture</h2>
-      <p>The people caught in the fracture, and the places it runs through &mdash; from mirrored corporate towers to a pocket dimension of rust-red trees under a cobalt sky.<span class="tz-latest"> 22 images filed so far &mdash; 7 territories, 11 locations, 4 characters. Most recently added: <b>Martian Preserve</b>, <b>Empathy Flats</b>, <b>Australasian Ring</b>, <b>Mediterranean Zone</b>.</span></p>
-    </div>
-  </div>
-  <div class="tz-marquee-outer reveal">
-    <div class="tz-marquee"><div class="tz-tile bloc-mp"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/martian-preserve-martian-preserve-establishing-v1.jpg" alt="Martian Preserve" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Martian Preserve</div><div class="tz-label">Martian Preserve</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/lunar-accord-australasian-ring-establishing-v1.jpg" alt="Australasian Ring" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Australasian Ring</div><div class="tz-label">Lunar Accord</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/lunar-accord-mediterranean-zone-establishing-v1.jpg" alt="Mediterranean Zone" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Mediterranean Zone</div><div class="tz-label">Lunar Accord</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/corporate-union-daniel-cruz-v1.jpg" alt="Daniel Cruz" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Daniel Cruz</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-lh"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/lunar-accord-luna-haven-establishing-v1.jpg" alt="Luna Haven" loading="lazy"><div class="tz-cap"><div class="tz-name">Luna Haven</div><div class="tz-label">Lunar Accord</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/corporate-union-new-manhattan-establishing-v1.jpg" alt="New Manhattan" loading="lazy"><div class="tz-cap"><div class="tz-name">New Manhattan</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/corporate-union-new-manhattan-surveillance-spire-v1.jpg" alt="Surveillance Spire" loading="lazy"><div class="tz-cap"><div class="tz-name">Surveillance Spire</div><div class="tz-label">New Manhattan</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-mediterranean-zone-coastal-seawall-v1.jpg" alt="Coastal Seawall" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Coastal Seawall</div><div class="tz-label">Mediterranean Zone</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-mediterranean-zone-sagrada-spire-v1.jpg" alt="Sagrada Spire" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Sagrada Spire</div><div class="tz-label">Mediterranean Zone</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/corporate-union-sao-verde-verdant-citadel-v1.jpg" alt="Verdant Citadel" loading="lazy"><div class="tz-cap"><div class="tz-name">Verdant Citadel</div><div class="tz-label">São Verde</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/sovereign-coalition-wang-su-v1.jpg" alt="Wáng Sù" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Wáng Sù</div><div class="tz-label">Sovereign Coalition</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-mediterranean-zone-priorat-grove-v1.jpg" alt="Priorat Grove" loading="lazy"><div class="tz-cap"><div class="tz-name">Priorat Grove</div><div class="tz-label">Mediterranean Zone</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-mediterranean-zone-harbour-house-v1.jpg" alt="Harbour House" loading="lazy"><div class="tz-cap"><div class="tz-name">Harbour House</div><div class="tz-label">Mediterranean Zone</div></div></div><div class="tz-tile bloc-lh"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/lunar-accord-lea-fournier-v1.jpg" alt="Léa Fournier" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Léa Fournier</div><div class="tz-label">Luna Haven</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-australasian-ring-orbital-station-v1.jpg" alt="Orbital Station" loading="lazy"><div class="tz-cap"><div class="tz-name">Orbital Station</div><div class="tz-label">Australasian Ring</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/corporate-union-sao-verde-establishing-v1.jpg" alt="São Verde" loading="lazy"><div class="tz-cap"><div class="tz-name">São Verde</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/corporate-union-elena-vazquez-v1.jpg" alt="Elena Vázquez" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Elena Vázquez</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-lh"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-luna-haven-dome-plaza-v1.jpg" alt="Dome Plaza" loading="lazy"><div class="tz-cap"><div class="tz-name">Dome Plaza</div><div class="tz-label">Luna Haven</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/sovereign-coalition-beijing-command-broadcast-chamber-v1.jpg" alt="Broadcast Chamber" loading="lazy"><div class="tz-cap"><div class="tz-name">Broadcast Chamber</div><div class="tz-label">Beijing Command</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/sovereign-coalition-beijing-command-establishing-v1.jpg" alt="Beijing Command" loading="lazy"><div class="tz-cap"><div class="tz-name">Beijing Command</div><div class="tz-label">Sovereign Coalition</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-australasian-ring-sydney-hub-v1.jpg" alt="Sydney Hub" loading="lazy"><div class="tz-cap"><div class="tz-name">Sydney Hub</div><div class="tz-label">Australasian Ring</div></div></div><div class="tz-tile bloc-mp"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/martian-preserve-cobalt-basin-empathy-flats-v1.jpg" alt="Empathy Flats" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Empathy Flats</div><div class="tz-label">Cobalt Basin</div></div></div><div class="tz-tile bloc-mp"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/martian-preserve-martian-preserve-establishing-v1.jpg" alt="Martian Preserve" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Martian Preserve</div><div class="tz-label">Martian Preserve</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/lunar-accord-australasian-ring-establishing-v1.jpg" alt="Australasian Ring" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Australasian Ring</div><div class="tz-label">Lunar Accord</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/lunar-accord-mediterranean-zone-establishing-v1.jpg" alt="Mediterranean Zone" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Mediterranean Zone</div><div class="tz-label">Lunar Accord</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/corporate-union-daniel-cruz-v1.jpg" alt="Daniel Cruz" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Daniel Cruz</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-lh"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/lunar-accord-luna-haven-establishing-v1.jpg" alt="Luna Haven" loading="lazy"><div class="tz-cap"><div class="tz-name">Luna Haven</div><div class="tz-label">Lunar Accord</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/corporate-union-new-manhattan-establishing-v1.jpg" alt="New Manhattan" loading="lazy"><div class="tz-cap"><div class="tz-name">New Manhattan</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/corporate-union-new-manhattan-surveillance-spire-v1.jpg" alt="Surveillance Spire" loading="lazy"><div class="tz-cap"><div class="tz-name">Surveillance Spire</div><div class="tz-label">New Manhattan</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-mediterranean-zone-coastal-seawall-v1.jpg" alt="Coastal Seawall" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Coastal Seawall</div><div class="tz-label">Mediterranean Zone</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-mediterranean-zone-sagrada-spire-v1.jpg" alt="Sagrada Spire" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Sagrada Spire</div><div class="tz-label">Mediterranean Zone</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/corporate-union-sao-verde-verdant-citadel-v1.jpg" alt="Verdant Citadel" loading="lazy"><div class="tz-cap"><div class="tz-name">Verdant Citadel</div><div class="tz-label">São Verde</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/sovereign-coalition-wang-su-v1.jpg" alt="Wáng Sù" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Wáng Sù</div><div class="tz-label">Sovereign Coalition</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-mediterranean-zone-priorat-grove-v1.jpg" alt="Priorat Grove" loading="lazy"><div class="tz-cap"><div class="tz-name">Priorat Grove</div><div class="tz-label">Mediterranean Zone</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-mediterranean-zone-harbour-house-v1.jpg" alt="Harbour House" loading="lazy"><div class="tz-cap"><div class="tz-name">Harbour House</div><div class="tz-label">Mediterranean Zone</div></div></div><div class="tz-tile bloc-lh"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/lunar-accord-lea-fournier-v1.jpg" alt="Léa Fournier" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Léa Fournier</div><div class="tz-label">Luna Haven</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-australasian-ring-orbital-station-v1.jpg" alt="Orbital Station" loading="lazy"><div class="tz-cap"><div class="tz-name">Orbital Station</div><div class="tz-label">Australasian Ring</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/corporate-union-sao-verde-establishing-v1.jpg" alt="São Verde" loading="lazy"><div class="tz-cap"><div class="tz-name">São Verde</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-cu"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/characters/corporate-union-elena-vazquez-v1.jpg" alt="Elena Vázquez" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Elena Vázquez</div><div class="tz-label">Corporate Union</div></div></div><div class="tz-tile bloc-lh"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-luna-haven-dome-plaza-v1.jpg" alt="Dome Plaza" loading="lazy"><div class="tz-cap"><div class="tz-name">Dome Plaza</div><div class="tz-label">Luna Haven</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/sovereign-coalition-beijing-command-broadcast-chamber-v1.jpg" alt="Broadcast Chamber" loading="lazy"><div class="tz-cap"><div class="tz-name">Broadcast Chamber</div><div class="tz-label">Beijing Command</div></div></div><div class="tz-tile bloc-sc"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/territories/sovereign-coalition-beijing-command-establishing-v1.jpg" alt="Beijing Command" loading="lazy"><div class="tz-cap"><div class="tz-name">Beijing Command</div><div class="tz-label">Sovereign Coalition</div></div></div><div class="tz-tile bloc-la"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/lunar-accord-australasian-ring-sydney-hub-v1.jpg" alt="Sydney Hub" loading="lazy"><div class="tz-cap"><div class="tz-name">Sydney Hub</div><div class="tz-label">Australasian Ring</div></div></div><div class="tz-tile bloc-mp"><div class="tz-accentbar" style="background:var(--accent);"></div><img src="images/locations/martian-preserve-cobalt-basin-empathy-flats-v1.jpg" alt="Empathy Flats" loading="lazy"><span class="tz-new">New</span><div class="tz-cap"><div class="tz-name">Empathy Flats</div><div class="tz-label">Cobalt Basin</div></div></div></div>
-  </div>
-</section>
-
-<div class="hero-window" aria-hidden="true"><img src="images/territories/corporate-union-sao-verde-establishing-v1.jpg" alt="" loading="lazy"></div><section class="on-black">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="tag">Four Blocs, One Fracture</span>
-      <h2>A world rebuilt after climate collapse and an AI uprising</h2>
-      <p>Four powers hold an uneasy peace over a scarred planet, each reaching for the Meridian with a different hand &mdash; to own it, to control it, to protect it, or to be left alone with it.</p>
+      <span class="tag">Blocs</span>
+      <h2>The four blocs</h2>
+      <p>Four powers hold an uneasy peace over a scarred planet.</p>
     </div>
     <div class="grid grid-4">
       <div class="card-dark card-hover bloc-card reveal bloc-cu">
         <div class="accent-bar"></div>
         <h3>Corporate Union</h3>
-        <p>Surveillance capitalism, perfected.</p>
+        <p>Surveillance capitalism.</p>
       </div>
 
       <div class="card-dark card-hover bloc-card reveal bloc-sc">
         <div class="accent-bar"></div>
         <h3>Sovereign Coalition</h3>
-        <p>Order as the answer to everything.</p>
+        <p>State control and order.</p>
       </div>
 
       <div class="card-dark card-hover bloc-card reveal bloc-la">
         <div class="accent-bar"></div>
         <h3>Lunar Accord</h3>
-        <p>Repair as a way of life.</p>
+        <p>Post-war repair and rebuilding.</p>
       </div>
 
       <div class="card-dark card-hover bloc-card reveal bloc-mp">
         <div class="accent-bar"></div>
         <h3>Martian Preserve</h3>
-        <p>A dimension that remembers.</p>
+        <p>A separate, older dimension.</p>
       </div></div>
-    <div class="btn-group"><a href="world.html" class="btn-outline">See all four blocs &rarr;</a></div>
+    <div class="btn-group"><a href="world.html" class="btn-outline">All blocs &rarr;</a></div>
   </div>
 </section>
 
-<section class="on-black inv">
+<section>
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tag">Three Novels &middot; One Arc</span>
+      <span class="tag">Books</span>
       <h2>Fractured Horizons &middot; Resonant Faultlines &middot; Harmonic Worlds</h2>
-      <p>Three novels, ninety chapters, one continuous arc &mdash; from the first light beneath Luna Haven to the price of a shared future. Book Two is being written now.</p>
+      <p>Three novels, 90 chapters. Book Two is being written now.</p>
     </div>
     <div class="grid grid-3">
       <div class="card-dark card-hover book-card reveal">
@@ -990,7 +774,7 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
         <div class="accent-bar"></div>
         <span class="bk-num">Book One</span>
         <h3>Fractured Horizons</h3>
-        <p>First shimmer to first cascade: Luna Haven opens what its models called a door &mdash; and learns it never was one.</p>
+        <p>Luna Haven&rsquo;s discovery beneath the colony, and its first consequences.</p>
         <span class="bloc-pill">Complete in draft</span>
       </div>
 
@@ -999,7 +783,7 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
         <div class="accent-bar"></div>
         <span class="bk-num">Book Two</span>
         <h3>Resonant Faultlines</h3>
-        <p>The fracture goes planetary: healing and harm prove to be the same physics, and every bloc reaches for it at once.</p>
+        <p>The discovery spreads to every bloc, and the fracture becomes planetary.</p>
         <span class="bloc-pill">Drafting &middot; Act 4</span>
       </div>
 
@@ -1008,24 +792,56 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
         <div class="accent-bar"></div>
         <span class="bk-num">Book Three</span>
         <h3>Harmonic Worlds</h3>
-        <p>The long work of repair: record-keeping, integration, and what a shared future costs the people who build it.</p>
+        <p>Integration, record-keeping, and the cost of a shared future.</p>
         <span class="bloc-pill">Outlined &middot; 30 chapters</span>
       </div></div>
-    <div class="btn-group"><a href="books.html" class="btn-outline">Explore the three books &rarr;</a></div>
+    <div class="btn-group"><a href="books.html" class="btn-outline">All three books &rarr;</a></div>
   </div>
 </section>
 
-<div class="hero-window" aria-hidden="true"><img src="images/locations/corporate-union-sao-verde-verdant-citadel-v1.jpg" alt="" loading="lazy"></div><section class="on-black">
-  <div class="wrap" style="text-align:center;">
-    <div class="section-head reveal" style="margin-bottom:0;">
-      <span class="tag">2087 is waiting</span>
-      <h2>Step through the aperture</h2>
-      <p>Start with Chapter One and follow the fracture from the beginning &mdash; or go deeper into the world, its people, and the laws that govern the Meridian.</p>
-      <div class="btn-group">
-        <a href="chapter-01.html" class="btn-primary">Begin reading &rarr;</a>
-        <a href="manuscript.html" class="btn-outline">Read what&rsquo;s written</a>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Manuscript</span>
+      <h2>Three books, ninety chapters</h2>
+      <p>A chapter counts here only once it is drafted to manuscript quality and registered as such. Everything before that stage exists as a full treatment in the Story Bible.</p>
     </div>
+    <div class="grid grid-3"><div class="card-dark reveal"><div class="meter-l"><span>Fractured Horizons</span><span><b>30</b> / 30</span></div><div class="meter"><i style="width:100%"></i></div></div><div class="card-dark reveal"><div class="meter-l"><span>Resonant Faultlines</span><span><b>9</b> / 30</span></div><div class="meter"><i style="width:30%"></i></div></div><div class="card-dark reveal"><div class="meter-l"><span>Harmonic Worlds</span><span><b>0</b> / 30</span></div><div class="meter"><i style="width:0%"></i></div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Roadmap</span>
+      <h2>What is being built</h2>
+    </div>
+    <div class="grid grid-2"><div class="card-dark reveal"><span class="tag">Done</span><h3>Story Bible</h3><p>The canonical source of truth — worldbuilding, laws, environmental and character codices, the full chapter treatment across the three books, and the reference sections. Every other document and the whole website derive from it.</p></div><div class="card-dark reveal"><span class="tag">Under way</span><h3>Manuscript drafting</h3><p>Book 1, Fractured Horizons, covers Acts 1 to 3; Book 2, Resonant Faultlines, picks up at Act 4; Book 3, Harmonic Worlds, closes the arc. A chapter counts as drafted only once its prose is locked and registered as manuscript quality — everything before that stage exists as a full treatment in the Story Bible.</p><p style="color:var(--grey);">39 of 90 chapters are drafted to manuscript quality and registered as such.</p></div><div class="card-dark reveal"><span class="tag">Done</span><h3>Website</h3><p>A single generated site built from the Story Bible&#x27;s extracted JSON and the manuscript markdown. Manuscript chapters get their own reading pages, distinct from their Story Bible treatments, and the homepage carries the project&#x27;s working state — the roadmap, the decisions ledger and open items — the way Studio once did before the two merged. Published to GitHub Pages at wallabynio.github.io/meridian-resonance under one shareable passphrase covering every page. Rebuilding is not publishing: a rebuild writes into Deploy/ and stops there, and uploading happens only when asked. See Publishing Workflow.md.</p></div><div class="card-dark reveal"><span class="tag">Ahead</span><h3>Multimedia visual book</h3><p>Format to be decided — interactive PDF, web reader, video, or a mix.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Ledger</span>
+      <h2>The decisions behind it</h2>
+      <p>Every substantive change to this world is recorded with its reasoning, newest first &mdash; all 410 of them, sorted by date rather than by the order they were written down.</p>
+    </div>
+    <div class="doc-table-wrap"><table class="doc-table">
+      <thead><tr><th>Date</th><th>Decision</th></tr></thead>
+      <tbody><tr><td>2026-09-15</td><td>Story Bible&#x27;s &quot;Image Characteristics&quot; document scrubbed of production apparatus — Composition entries dropped, Identity-only Look facts throughout</td></tr><tr><td>2026-09-15</td><td>Style Guide.md&#x27;s &quot;Blocs, registers and filing&quot; section audited field-by-field — 12 dead image-generation rules dropped, 6 rewritten to state only what&#x27;s still true</td></tr><tr><td>2026-09-15</td><td>Image placeholder boxes, &quot;Image characteristics&quot; panels and the click-to-zoom lightbox removed from the live site — &quot;Look&quot; replaces production apparatus</td></tr><tr><td>2026-09-15</td><td>Stage A of the post-simplification consistency audit: two live tooling breakages fixed, one real contrast defect fixed, one checker limitation documented</td></tr><tr><td>2026-09-14</td><td>Simplification Phase 6: StatiCrypt passphrase gate dropped; site publishes plain, kept out of search indexes only</td></tr><tr><td>2026-09-14</td><td>Contrast fix: footer and every interior page&#x27;s title band were rendering black text on black background</td></tr><tr><td>2026-09-14</td><td>Simplification Phase 5c: homepage marketing copy flattened to plain factual text; quote-band feature and dead BLOC_BLURB dict removed</td></tr><tr><td>2026-09-14</td><td>Simplification Phase 5b: the .inv alternating-band system removed; SHARED_CSS rebuilt around one permanent ground and one dark box</td></tr><tr><td>2026-09-14</td><td>Simplification Phase 5a: hero-image automation, homepage marquee and image-log.json removed</td></tr><tr><td>2026-09-14</td><td>Simplification Phase 4: studio.html folded into the homepage</td></tr><tr><td>2026-09-14</td><td>Simplification Phase 3b: image-generation code, data fields and files retired from the live build</td></tr><tr><td>2026-09-14</td><td>Simplification Phase 3a: migrated the rescued Image Canon worldbuilding into World.md</td></tr><tr><td>2026-09-13</td><td>Site &amp; image simplification, Phase 1: all images archived to Version 7</td></tr><tr><td>2026-09-10</td><td>Martian Preserve: Empathy Flats location plate and territory establishing shot ingested and published</td></tr></tbody>
+    </table></div>
+    <details class="prompt-details"><summary>Earlier decisions</summary><div class="pd-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td>2026-09-10</td><td>Rule 10 (location/character anchors) moved from a two-step to a four-step build ladder, matching Rule 9&#x27;s territory ladder</td></tr><tr><td>2026-09-09</td><td>Every declared demand now grounds 2087 as &quot;year-2087&quot;, not a bare number</td></tr><tr><td>2026-09-09</td><td>Characters completeness pass: all 38 characters audited and completed against canon</td></tr><tr><td>2026-09-08</td><td>Locations completeness pass: all 40 locations audited and completed against canon</td></tr><tr><td>2026-09-08</td><td>Six flagged contradictions from the territories pass resolved with the author</td></tr><tr><td>2026-09-08</td><td>All 13 territories&#x27; demand lists audited for completeness and rewritten to drop negative phrasing</td></tr><tr><td>2026-09-08</td><td>Image characteristics boxes split into a Composition list and an Identity list, no more per-line labels</td></tr><tr><td>2026-09-08</td><td>Aspect-ratio drift closed: characters.json&#x27;s leftover &quot;1:1 square portrait&quot; line, plus the stale grade-boilerplate framing it sat beside</td></tr><tr><td>2026-09-08</td><td>Part 8 (Image Characteristics) made self-regenerating, closing the gap that let it go stale all session</td></tr><tr><td>2026-09-08</td><td>Composition/identity demand ordering separated; split-fingerprint staleness detection extended from territories to locations and characters</td></tr><tr><td>2026-09-08</td><td>2087 embedded into every one of the 91 subjects&#x27; image-characteristics demands, per-bloc adapted, then made explicit where it had gone missing</td></tr><tr><td>2026-09-08</td><td>Territory/location image-characteristics audit — the Australasian Ring&#x27;s missing orbital tether, and ten other confirmed gaps</td></tr><tr><td>2026-09-07</td><td>Image generation prompts retired everywhere — demands are now the only source of image characteristics</td></tr><tr><td>2026-09-07</td><td>16 images re-baselined against the new demands fingerprint</td></tr><tr><td>2026-09-04</td><td>Léa Fournier built and filed — the first character anchored to Dome Plaza</td></tr><tr><td>2026-09-04</td><td>Dome Plaza (Luna Haven) built, corrected and filed — first location generated after the singular image_prompt field&#x27;s retirement</td></tr><tr><td>2026-09-04</td><td>Both still-live manual tasks (housekeeping sweep, deploy site) verified end to end, and the accumulated site backlog since 2026-09-02 finally published</td></tr><tr><td>2026-09-04</td><td>Luna Haven&#x27;s territory establishing shot completed end to end — all four ladder steps built, filed and ingested</td></tr><tr><td>2026-09-04</td><td>Wáng Sù regenerated from scratch and filed, closing the author&#x27;s three-subject list — and a demand-approval gate the process was missing</td></tr><tr><td>2026-09-03</td><td>Elena Vázquez&#x27;s Corporate Union portrait regenerated from scratch and filed, closing the stale-image audit entirely</td></tr><tr><td>2026-09-03</td><td>Surveillance Spire regenerated from scratch and filed, closing its stale-image drift</td></tr><tr><td>2026-09-03</td><td>A real correction-currency blind spot found and closed: stale images were invisible, not clean</td></tr><tr><td>2026-09-03</td><td>Broadcast Chamber&#x27;s finished plate reviewed, approved, and filed</td></tr><tr><td>2026-09-03</td><td>Added a standing correction-currency audit, and recovered five corrections that had been generated but never recorded</td></tr><tr><td>2026-09-03</td><td>Extended the temporal-frame audit from territories to locations and characters, and declared the Martian Preserve&#x27;s pocket-dimension locations exempt</td></tr><tr><td>2026-09-03</td><td>Broadcast Chamber, rebuilt: from an empty plastic render to a working 2087 broadcast chamber, in two corrected passes</td></tr><tr><td>2026-09-03</td><td>Fixed: every non-Corporate-Union territory showed the wrong bloc colour on World and Locations</td></tr><tr><td>2026-09-03</td><td>Hero images fixed sitewide, and the homepage&#x27;s two rails became one endless marquee</td></tr><tr><td>2026-09-03</td><td>Daniel Cruz filed — the São Verde chain complete in one sitting</td></tr><tr><td>2026-09-03</td><td>Verdant Citadel filed — Daniel Cruz&#x27;s resistance hub, caught trying to run on flat monitors</td></tr><tr><td>2026-09-03</td><td>São Verde becomes the first new territory built under the fixed cinematic register — full four-step ladder, filed and live</td></tr><tr><td>2026-09-03</td><td>The letterboxing trigger phrase reworded at its source across every location and character prompt</td></tr><tr><td>2026-09-03</td><td>Surveillance Spire and Elena Vázquez finished — and the letterboxing traced to one phrase now sitting in 91 other prompts</td></tr><tr><td>2026-09-03</td><td>New Manhattan and Beijing Command regenerated under the fixed cinematic register — and a real letterboxing defect caught before filing, not after</td></tr><tr><td>2026-09-03</td><td>The cinematic register comes back into the light — a dead nav pointer removed, and Blade Runner 2049&#x27;s grounding wired into every character and location prompt, not just territories&#x27;</td></tr><tr><td>2026-09-03</td><td>Elena Vázquez filed — the first character anchor built on Higgsfield, and the first to carry the new 16:9 portrait format</td></tr><tr><td>2026-09-03</td><td>Beijing Command filed — Sovereign Coalition&#x27;s first territory, and a real fix to how territory_holds() matches a compound anchor name</td></tr><tr><td>2026-09-03</td><td>All plates go 16:9 — the 1:1 character-portrait convention is retired everywhere it lived</td></tr><tr><td>2026-09-03</td><td>Surveillance Spire filed — New Manhattan&#x27;s first location, and the first location built on Higgsfield</td></tr><tr><td>2026-09-03</td><td>Rule 11 violated once, on Surveillance Spire&#x27;s correction — canon strengthened so it can&#x27;t happen silently again</td></tr><tr><td>2026-09-03</td><td>New Manhattan&#x27;s territory shot finished — the first subject to walk Rule 9&#x27;s full ladder on Higgsfield</td></tr><tr><td>2026-09-03</td><td>New Manhattan step 1-2 walked end to end on Higgsfield — first live test of the new pipeline, plus a real fix to territory_holds()</td></tr><tr><td>2026-09-03</td><td>Correction authorship flipped — Claude drafts, the author approves; the two manual image app-tasks are retired</td></tr><tr><td>2026-09-03</td><td>Higgsfield connected — Claude now generates images directly, replacing the manual Leonardo step everywhere it was named</td></tr><tr><td>2026-09-03</td><td>Scene node (Rule 15) drafted for all 37 chapters; automatic coverage check added</td></tr><tr><td>2026-09-03</td><td>Chapter 38 (&quot;Hidden Offensives&quot;) drafted — Book 2&#x27;s cislunar black-ops strikes and Sarin&#x27;s extended lattice-tolerance session</td></tr><tr><td>2026-09-03</td><td>Chapter 39 (&quot;Two Detonations&quot;) drafted — Arjun Patel&#x27;s arrest at the Suppression Archive and the parasite&#x27;s first crossing at the Seam Edge</td></tr><tr><td>2026-09-02</td><td>Scene box&#x27;s prompt disclosure was sitting flush against the next paragraph — fixed with --flow, not a magic number</td></tr><tr><td>2026-09-02</td><td>Scene boxes actually rendering on Chapter 1 — the Rule 15 design wired into build_site.py, not just written into the canon</td></tr><tr><td>2026-09-02</td><td>Scene-image design settled — Image Canon Rule 15, a new COMPOSITE node kind, closes the open item on studio.html</td></tr><tr><td>2026-09-02</td><td>Placeholder image labels unified to one format (name + &#x27;not yet generated&#x27;) across characters, locations and territories</td></tr><tr><td>2026-09-02</td><td>Kaelin Drayke&#x27;s Chapter 5 tenure fixed — &#x27;seventeen years&#x27; to &#x27;six&#x27;, matching his Codex age</td></tr><tr><td>2026-09-02</td><td>Elowen&#x27;s pronoun drift re-audited across Chapters 1, 8, 15, 35 — one chapter fixed, three corrected as false alarms</td></tr><tr><td>2026-09-02</td><td>Chapter 36&#x27;s Xiàng/Eddy relationship duration fixed — &#x27;eleven years&#x27; to &#x27;six&#x27;, matching Chapter 9</td></tr><tr><td>2026-09-02</td><td>Pronoun checker&#x27;s Jīn Wú gap investigated and left closed — a fix that made it worse</td></tr><tr><td>2026-09-02</td><td>Pronoun checker&#x27;s three new candidates investigated — one false-positive class fixed, two documented, one real finding surfaced elsewhere</td></tr><tr><td>2026-09-02</td><td>Three new standalone checkers, built from what the canon drift audit had to do by hand</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, full sweep finding — Chapter 37 stated Luna Haven&#x27;s population as &#x27;six thousand&#x27;; canon says approximately 5 million</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, full sweep finding — Chapter 23&#x27;s surviving-animal claim contradicted Chapters 17 and 19</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, full sweep finding — Chapter 31&#x27;s &#x27;no windows, no sky&#x27; framing predates the 2026-08-18 glazing/dome canon</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, full sweep finding — Chapter 34&#x27;s &#x27;amber walls&#x27; at Luna Haven&#x27;s Dome Plaza aligned to teal</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, full sweep finding — three manuscript-internal number wobbles standardised</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, reverse-drift touch-ups — four Chapter 31-37 established facts carried back into the Story Bible</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, finding 1 continued — Chapters 17 and 35 also asserted the Margins were empty</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, finding 2 — Chapter 36&#x27;s Container Verge scene moved indoors to match the 2026-08-25 Gulf Crescent relocation</td></tr><tr><td>2026-09-02</td><td>Canon drift audit, finding 1 — the Margins/Kazakh Scar settlement decision never reached World.md or Environmental Codex</td></tr><tr><td>2026-09-02</td><td>A fourth manual task written — Meridian image correction — to run the correction workflow end to end from the sidebar</td></tr><tr><td>2026-09-02</td><td>Rule 11&#x27;s blank correction list can now cache the author&#x27;s last agreed demands — self-invalidating, still never canon</td></tr><tr><td>2026-09-02</td><td>Codification thresholds retired — every named site and walk-on promoted to full Codex entries</td></tr><tr><td>2026-09-01</td><td>Every image archived as Version 6, and the pipeline reset to build the whole library again from the ladder</td></tr><tr><td>2026-09-01</td><td>The water advisory was firing on an inland city and on the Moon — the word list, not the prompts, was wrong</td></tr><tr><td>2026-09-01</td><td>Studio audited section by section — the page that reports the work was reporting four things by hand</td></tr><tr><td>2026-08-31</td><td>A character&#x27;s variant filename had two opposite rules, and one of them would have refiled ten portraits under the bloc they left</td></tr><tr><td>2026-08-31</td><td>Three more facts written down twice — and one audit so the next one fails the build instead of waiting to be noticed</td></tr><tr><td>2026-08-31</td><td>Studio&#x27;s reference cards were still instructing the author to use the retired ensemble frame — and the ledger&#x27;s live arrays are now audited</td></tr><tr><td>2026-08-31</td><td>The Story Bible folder is canon again — 75 MB of superseded export moved out to the Archive</td></tr><tr><td>2026-08-31</td><td>33 MB of orphans finally deleted — and the belief that a session cannot delete them was the thing actually blocking it</td></tr><tr><td>2026-08-31</td><td>laws.html&#x27;s last two paragraphs were never paraphrased — the advisory that said so was miscounting</td></tr><tr><td>2026-08-31</td><td>The instructions drift was self-inflicted — a copy was handed over, then the master was edited without re-delivering</td></tr><tr><td>2026-08-31</td><td>Three manual tasks audited — the prompts nobody could read now have master copies, and the no-network finding is reversed</td></tr><tr><td>2026-08-31</td><td>Mode portraits keep their place and their axis at once - teal fill, grey double ring</td></tr><tr><td>2026-08-31</td><td>Consistency sweep after the overhaul - twenty-nine stale claims across canon, workflows and the builder&#x27;s own documentation</td></tr><tr><td>2026-08-31</td><td>Image ingest is a desktop-local task by necessity, and the Publishing Workflow now says why</td></tr><tr><td>2026-08-31</td><td>Studio&#x27;s queue was offering thirty-five portraits that cannot be generated - Rule 6&#x27;s hold now reaches characters</td></tr><tr><td>2026-08-31</td><td>A migration now reads as a colour change - the wardrobe register belongs to a state, not to a person</td></tr><tr><td>2026-08-31</td><td>The Unregulated Margins become a real category - the Turan Waste is the thirteenth territory, and people live there</td></tr><tr><td>2026-08-31</td><td>Luna Haven&#x27;s residents now read teal, and stop saying their own name twice</td></tr><tr><td>2026-08-31</td><td>Every location and character prompt rewritten onto the ladder - stages 7, 8 and 9 close the overhaul</td></tr><tr><td>2026-08-31</td><td>The ladder made checkable, and what the checks found in the twelve territory prompts - stages 5 and 6</td></tr><tr><td>2026-08-31</td><td>One prompt, one home - the schema and filename migration, stages 3 to 5 of the image-generation overhaul</td></tr><tr><td>2026-08-31</td><td>The Image Canon rewritten around the build-and-correct ladder - stage 2 of the image-generation overhaul</td></tr><tr><td>2026-08-31</td><td>Bloc ensemble frames retired from the whole project - stage 1 of the image-generation overhaul</td></tr><tr><td>2026-08-26</td><td>Roadmap.md reduced to a project reference — its status half retired to Studio</td></tr><tr><td>2026-08-26</td><td>Rule 13&#x27;s two-stage Flux pipeline retired — the rule is now the three bloc filters</td></tr><tr><td>2026-08-26</td><td>Studio&#x27;s queue: the wrong prompt removed from a location task, and &quot;79 images out of date&quot; broken into batches you can actually sit down to</td></tr><tr><td>2026-08-26</td><td>Vegetation and fauna re-scoped — moderate planting, fauna as a hint, the Preserve excepted</td></tr><tr><td>2026-08-25</td><td>Three stale CANON_UNRENDERED declarations closed — canon that had quietly stopped reaching a page</td></tr><tr><td>2026-08-25</td><td>Canon speaks in the present tense — _audit_canon_voice() enforces it</td></tr><tr><td>2026-08-25</td><td>Style Guide — 54 passages rewritten into the present tense</td></tr><tr><td>2026-08-25</td><td>Image Canon — the last 9 passages of change narrative removed</td></tr><tr><td>2026-08-25</td><td>Image Canon — 55 paragraphs rewritten into the present tense</td></tr><tr><td>2026-08-25</td><td>Image Canon — &#x27;Rule-number map…&#x27; removed from canon, kept here</td></tr><tr><td>2026-08-25</td><td>Image Canon — &#x27;Decisions closed…&#x27; removed from canon, kept here</td></tr><tr><td>2026-08-25</td><td>Image Canon — &#x27;The two master prefixes…&#x27; removed from canon, kept here</td></tr><tr><td>2026-08-25</td><td>Verified the dashboard left nothing behind, and added the one element that had no Studio equivalent</td></tr><tr><td>2026-08-25</td><td>The Meridian Dashboard is retired — its content folded into studio.html, its computation kept</td></tr><tr><td>2026-08-25</td><td>Site Stage 6 — studio.html, the project&#x27;s own page, computed by the dashboard&#x27;s own gather()</td></tr><tr><td>2026-08-25</td><td>Codex becomes a dropdown — the six reference pages were reachable only by landing on codex.html</td></tr><tr><td>2026-08-25</td><td>Site Stage 5 — the Image Canon and the Style Guide become pages</td></tr><tr><td>2026-08-25</td><td>SECURITY — two new pages shipped as plaintext; the gate list is inverted and now fails safe</td></tr><tr><td>2026-08-25</td><td>Site Stage 4 — this week&#x27;s canon data reaches the page: dual anchors and the wardrobe register</td></tr><tr><td>2026-08-25</td><td>Site Stage 3 — one disclosure, one definition, and the workbench moves behind it</td></tr><tr><td>2026-08-25</td><td>A box never touches the text around it — one --flow token, one rule, an audit</td></tr><tr><td>2026-08-25</td><td>Site Stage 2 — the freshness guarantee: canon can no longer exist without a page, or be copied into the builder</td></tr><tr><td>2026-08-25</td><td>Site Stage 1 — world.html stops contradicting the bible; three hand-written card grids now read from it</td></tr><tr><td>2026-08-25</td><td>The preserved-landmark lock is now enforced, not just asserted — _audit_landmark_lock()</td></tr><tr><td>2026-08-25</td><td>Chapter 4&#x27;s &#x27;kind of&#x27; tic trimmed, and the voice checker given a count floor so the flag list stops refilling itself</td></tr><tr><td>2026-08-25</td><td>Gulf Crescent relocated from former Houston to the lower Persian Gulf, keeping its spaceport wing</td></tr><tr><td>2026-08-25</td><td>Image Canon Rule 12 — the dual anchor, enforced by _audit_dual_anchors()</td></tr><tr><td>2026-08-25</td><td>The Lunar Accord&#x27;s Earth wardrobe register, and _audit_wardrobe_register()</td></tr><tr><td>2026-08-25</td><td>Rule 13 (two-stage generation + three bloc filters), the tri-polar cold war, and the step-7 backlog closed</td></tr><tr><td>2026-08-24</td><td>Site published and independently verified; PAT rotated; the publishing route is now known precisely</td></tr><tr><td>2026-08-24</td><td>Book 1 strapline written; Books 2 and 3 straplines had act-header residue on their tails</td></tr><tr><td>2026-08-24</td><td>Phase C, first pass — world.html was publishing canon the author had overturned</td></tr><tr><td>2026-08-24</td><td>Phase D, first half — Part 1&#x27;s production apparatus moved out; Part 1 is now purely reader-facing</td></tr><tr><td>2026-08-24</td><td>Phase D complete — and the supreme canon tier was mandating two retired systems</td></tr><tr><td>2026-08-24</td><td>world.html now takes its canon prose from Part 1 — mechanism built, nine of eighteen paragraphs converted</td></tr><tr><td>2026-08-24</td><td>world.html now takes every word of its canon from the World section — 20 of 20 paragraphs, nothing paraphrased</td></tr><tr><td>2026-08-24</td><td>Phase E — &#x27;Part N&#x27; and &#x27;Appendix X&#x27; retired as a filing convention; canonical order now stated once, in CANON_ORDER</td></tr><tr><td>2026-08-24</td><td>Phase C complete — laws.html sources all 35 of its paragraphs from Canonical Rules, and the five sourcing helpers become one shared BibleSection</td></tr><tr><td>2026-08-24</td><td>The Appendices section renamed Reference, at the author&#x27;s direction</td></tr><tr><td>2026-08-24</td><td>Story Bible audit verified phase by phase against its own original measurements; three stale suggestions closed, one re-diagnosed</td></tr><tr><td>2026-08-24</td><td>D3 closed with a shared-sentence drift audit — which immediately found 90 lost apostrophes from the original .pages export</td></tr><tr><td>2026-08-24</td><td>The 17 reported drift pairs reconciled - and the detector that reported them was found under-sensitive and rebuilt</td></tr><tr><td>2026-08-24</td><td>Published - 8 pages live; and a standing note corrected: publishing CAN be run from this session, it does not need the author&#x27;s own Terminal</td></tr><tr><td>2026-08-24</td><td>All shared-sentence drift resolved - 23 pairs reconciled, and the drift audit&#x27;s name-blinding fixed twice more</td></tr><tr><td>2026-08-24</td><td>Tone marks applied to Jin, Xiang and Wang across 479 occurrences - the last naming inconsistency in the trilogy</td></tr><tr><td>2026-08-24</td><td>The dashboard now refreshes itself on every build - it was six hours behind the work it describes</td></tr><tr><td>2026-08-20</td><td>New Manhattan location pilot confirmed working — and a silent fingerprint-target bug fixed behind it</td></tr><tr><td>2026-08-20</td><td>Territory establishing prompts audited against the pilot; Mediterranean Zone hardened as the next one up</td></tr><tr><td>2026-08-20</td><td>Image campaign turned from documentation into enforcement — two new build audits and a derived Territory campaign tab</td></tr><tr><td>2026-08-20</td><td>Simplification pass — Part 8 made generated, the Plan doc dissolved into Image Canon, status.py added</td></tr><tr><td>2026-08-20</td><td>Cleared the deferred backlog — Luna Haven exclusion, Publishing Workflow, check.py, Rules 10/11 trim, and a vacuous-pass guard</td></tr><tr><td>2026-08-20</td><td>Dashboard rebuilt — 531KB to 13KB, and it no longer builds a copy of the site to render a status page</td></tr><tr><td>2026-08-20</td><td>publish_to_github.py leaked the live PAT into any failure message — fixed, token needs rotating</td></tr><tr><td>2026-08-20</td><td>Luna Haven&#x27;s light resolved — the fiction already contained its own mechanism</td></tr><tr><td>2026-08-20</td><td>Story Bible audit, and Phase B applied — the website no longer wears the Word document&#x27;s filing system</td></tr><tr><td>2026-08-20</td><td>Phase A1 — Part 7&#x27;s appendices are generated, and the warm-up found a real canon drift</td></tr><tr><td>2026-08-20</td><td>Phase A complete — Parts 3, 4, 5 and 7 all generate themselves, and the merge recovered canon in both directions</td></tr><tr><td>2026-08-19</td><td>Chapter 37 drafted — &quot;Lines in the Sand&quot; (Book 2, Resonant Faultlines)</td></tr><tr><td>2026-08-19</td><td>publish_to_github.py verification no longer fails on empty directories git cannot track</td></tr><tr><td>2026-08-18</td><td>Housekeeping Sweep upgraded: thorough + fixes on the spot</td></tr><tr><td>2026-08-18</td><td>Recreated the missing Housekeeping Sweep trigger; corrected a duplicate mistake</td></tr><tr><td>2026-08-18</td><td>Added &quot;Write Chapter&quot; dashboard button</td></tr><tr><td>2026-08-18</td><td>Stray Gemini export removed -- approved via dashboard</td></tr><tr><td>2026-08-18</td><td>build_site.py: fixed missing Deploy/images/territories + groups directories</td></tr><tr><td>2026-08-18</td><td>New Manhattan territory shot: first real-generator confirmation -- tested-label bug fixed and automated</td></tr><tr><td>2026-08-18</td><td>build_site.py: stale variant-scheme comment rewritten, orphaned regex removed</td></tr><tr><td>2026-08-18</td><td>Doc contradictions fixed: five-layer/master-prefix language purged from active docs</td></tr><tr><td>2026-08-18</td><td>Whole-project efficiency audit: 2 scripts + 3 Management docs archived</td></tr><tr><td>2026-08-18</td><td>Ledger suggestions array cleared -- all 18 entries were already resolved</td></tr><tr><td>2026-08-18</td><td>Dashboard: collapsible long sections + spacing fix</td></tr><tr><td>2026-08-18</td><td>Fixed missing Deploy/images/territories and /groups directories in build_site.py</td></tr><tr><td>2026-08-18</td><td>New Manhattan&#x27;s two locations rewritten as territory-anchored edit prompts -- pilot for Rule 7/9&#x27;s location-anchor design</td></tr><tr><td>2026-08-18</td><td>Live tested/not-tested tag added to territory-anchored location prompts</td></tr><tr><td>2026-08-18</td><td>Retired code and docs swept project-wide, and Part 6&#x27;s manuscript status made self-regenerating</td></tr><tr><td>2026-08-18</td><td>Dates and revision-history language purged from the site and bible; dashboard is now the sole log; Part 4&#x27;s Luna Haven folded into Lunar Accord</td></tr><tr><td>2026-08-18</td><td>Luna Haven&#x27;s dual register strengthened: bio-tech suits are local lifestyle dress, not survival gear</td></tr><tr><td>2026-08-18</td><td>Luna Haven canon extended: pressurised glazing/domes are legitimate architecture, EVA suits canonised for surface excursions</td></tr><tr><td>2026-08-18</td><td>Luna Haven canonised as an iceberg: real surface architecture visible from outside; territory shot switched from interior to true aerial exterior</td></tr><tr><td>2026-08-18</td><td>Dome Plaza image prompt updated to show the iceberg glazing dome overhead</td></tr><tr><td>2026-08-18</td><td>Fixed double dividing line around territory headers on locations.html and characters.html</td></tr><tr><td>2026-08-18</td><td>Chapter 36 — The Echoes of Misuse drafted to manuscript quality</td></tr><tr><td>2026-08-18</td><td>Numbered Meridian Laws removed from Chapter 36&#x27;s prose</td></tr><tr><td>2026-08-18</td><td>Part 3&#x27;s Container Verge and Logistics Command entries reconciled with the Ch 36 treatment</td></tr><tr><td>2026-08-18</td><td>StatiCrypt vendored into the repo — encryption no longer needs a package registry</td></tr><tr><td>2026-08-18</td><td>Book 1&#x27;s two remaining Law citations removed from prose</td></tr><tr><td>2026-08-18</td><td>Write Chapter button and scheduled task removed — structurally unable to work</td></tr><tr><td>2026-08-18</td><td>Housekeeping Sweep button and scheduled task removed</td></tr><tr><td>2026-08-18</td><td>Dashboard Reference tables rebuilt — uniform grid, correct emphasis, real responsive stacking</td></tr><tr><td>2026-08-18</td><td>Reference table text no longer sits flush on the table frame when stacked</td></tr><tr><td>2026-08-18</td><td>App icon mark enlarged — side margin halved on the home-screen and PWA icons</td></tr><tr><td>2026-08-18</td><td>Guardrail added: Story Bible apparatus can no longer reach manuscript prose</td></tr><tr><td>2026-08-18</td><td>Soft-vocabulary audit run with the author — two more Law leaks in Book 1, and a bug in the new audit itself</td></tr><tr><td>2026-08-18</td><td>check_prose_vocabulary.py added — the soft half of the scaffolding guard, committed rather than remembered</td></tr><tr><td>2026-08-18</td><td>check_prose_voice.py added, and a pre-draft continuity brief made part of the drafting routine</td></tr><tr><td>2026-08-17</td><td>Group-portrait reference-slot order applied: faces lead, background moves last</td></tr><tr><td>2026-08-17</td><td>Prompt-order-is-priority applied to the live data: 35 character anchors reordered, 12 Ⓓ layers echoed</td></tr><tr><td>2026-08-17</td><td>Prompt-order-is-priority investigated and written into canon; Leonardo Style setting corrected</td></tr><tr><td>2026-08-17</td><td>Image Canon.md Rule 1 rewritten to drop the retired ①-⑤ layer numbering</td></tr><tr><td>2026-08-17</td><td>Cowork project-instructions field updated to the current version</td></tr><tr><td>2026-08-17</td><td>Archive Chamber gains a Siege Damage state (Ch 71) — data added, no image generated</td></tr><tr><td>2026-08-17</td><td>Assets/_prompts/ batch files retired — author decided</td></tr><tr><td>2026-08-17</td><td>Render-verification stays on-demand — author decided</td></tr><tr><td>2026-08-17</td><td>Two OneDrive-stuck leftover files moved to _to_delete/ for manual deletion</td></tr><tr><td>2026-08-17</td><td>Orphaned dashboard_artifact.html moved to _to_delete/</td></tr><tr><td>2026-08-17</td><td>Dashboard Applied log paginated — newest 20 visible, rest behind a toggle</td></tr><tr><td>2026-08-17</td><td>Style Guide swept for other stale PROPOSED sections — one found (Typography), now resolved</td></tr><tr><td>2026-08-17</td><td>Part 6 (Manuscript) status text corrected — was 24 chapters stale</td></tr><tr><td>2026-08-17</td><td>Rendered-geometry verification confirmed working from Claude&#x27;s own cloud sandbox</td></tr><tr><td>2026-08-17</td><td>STEP 8 treatment audit run — register produced, one finding raised separately</td></tr><tr><td>2026-08-17</td><td>STEP 10 (generate frames from the audit) superseded by the author&#x27;s from-zero regeneration</td></tr><tr><td>2026-08-17</td><td>encrypt-or-gate-images — author decided: accept the gap</td></tr><tr><td>2026-08-17</td><td>grey-means-two-things — author decided: leave as-is</td></tr><tr><td>2026-08-17</td><td>Typography — author decided: keep Space Grotesk + Inter, closed as LOCKED</td></tr><tr><td>2026-08-17</td><td>plan-6-variant-logic (STEP 9) confirmed resolved — location variant keying is live</td></tr><tr><td>2026-08-17</td><td>plan-7-variant-prompt-relocation (STEP 7) confirmed fixed — all six movers relocate correctly</td></tr><tr><td>2026-08-17</td><td>regen-images suggestion closed — superseded by full from-zero regeneration</td></tr><tr><td>2026-08-07</td><td>GitHub Pages Source switched back to &quot;Deploy from a branch&quot; — deploy hang traced and fixed</td></tr><tr><td>2026-08-06</td><td>Dashboard gained three on-demand action buttons; both recurring scheduled tasks retired in favour of ad-hoc versions</td></tr><tr><td>2026-08-06</td><td>Published Sydney Hub location plate; excluded a stray file from the push</td></tr><tr><td>2026-08-06</td><td>Site published live — pivoted from the browser-relayed Git Data API design to a plain token-authenticated git push, which is now the working publish mechanism</td></tr><tr><td>2026-08-06</td><td>[Superseded, see entry above] Built the automatic-publish infrastructure — GitHub API via a browser-relayed commit, replacing the broken browser-file_upload route.</td></tr><tr><td>2026-08-06</td><td>Cleared suggestion stale-dashboard-production-note-exemption — Style Guide&#x27;s production-note-audit section no longer names the removed dashboard.html</td></tr><tr><td>2026-08-06</td><td>Uniform encryption: books.html, codex.html, and manuscript.html moved from the public shop window into the Bible passphrase gate — index.html is now the only open page</td></tr><tr><td>2026-08-06</td><td>Two-word naming rule extended explicitly to the walk-on/site registers; Priya and Ostrowski corrected to double names</td></tr><tr><td>2026-08-06</td><td>Cleared both suggestions from the New-badge investigation: 6 v2 portraits re-filed, Coastal Seawall log date corrected</td></tr><tr><td>2026-08-06</td><td>Fixed the homepage &quot;Faces &amp; Places of 2087&quot; New badge: was flat-tagging the whole catalog</td></tr><tr><td>2026-08-05</td><td>Phase 3 of the Visual Consistency Sweep complete — Book 2&#x27;s Chapters 31-34 scanned and fixed, all 34 drafted chapters now clear</td></tr><tr><td>2026-08-05</td><td>Phase 3 of the Visual Consistency Sweep — Book 1 manuscript chapter sweep complete (all 30 chapters)</td></tr><tr><td>2026-08-05</td><td>Phase 0 / Phase 0.5 of the Visual Consistency Sweep approved and merged into canon</td></tr><tr><td>2026-08-05</td><td>Visual Consistency Sweep Phase 1 — negation audit complete, one rewrite applied</td></tr><tr><td>2026-08-05</td><td>Closed a canon-sync gap: world.html was not rendering today&#x27;s new Part 1 content</td></tr><tr><td>2026-08-05</td><td>Audited every site page for hardcoded canon; added a build-time canon-coverage audit</td></tr><tr><td>2026-08-05</td><td>Site now reads as finished canon everywhere; coverage audit extended to all 4 codex pages + registers rendered</td></tr><tr><td>2026-08-05</td><td>Phase 2 first pass: scanned Part 5 + generation prompts for anachronistic vocabulary, 5 fixes applied</td></tr><tr><td>2026-08-05</td><td>Sixth Phase 2 fix applied: Rina Matsuda&#x27;s &#x27;keyboard-worn fingertips&#x27;</td></tr><tr><td>2026-08-05</td><td>Six newly-approved preserved landmarks woven into their territories&#x27; location prompts</td></tr><tr><td>2026-08-05</td><td>Phase 3, Chapter 1: one anachronism fix applied</td></tr><tr><td>2026-08-04</td><td>Stale dashboard.html entry pruned from encrypted-cache; prune step added to encrypt_deploy.py</td></tr><tr><td>2026-07-31</td><td>Full rewrite of both Image Canon master prefixes — anachronistic tech and cartoonish locations</td></tr><tr><td>2026-07-31</td><td>Colour-budget cap on grey boxes and spot-colour fills retired at author request</td></tr><tr><td>2026-07-30</td><td>Published to GitHub: dashboard.html deleted from the live repo, 63 changed files uploaded in 3 batches</td></tr><tr><td>2026-07-30</td><td>Stale PWA/favicon background colour fixed (#0A0A0A -&gt; #000000); github_sync_report.py regression from the encrypt_deploy.py refactor fixed</td></tr><tr><td>2026-07-30</td><td>Dashboard removal follow-through: orphan file deleted, redundant plain Manuscript nav link removed, artifact hero text corrected</td></tr><tr><td>2026-07-30</td><td>Dashboard removed from the site; moved to a Cowork artifact; nav CTA repointed to Manuscript; author passphrase tier removed</td></tr><tr><td>2026-07-30</td><td>Grey-box/spot-colour follow-up: three more contrast bugs fixed, teaser tie-break fixed, 15% budget audit built</td></tr><tr><td>2026-07-30</td><td>Neutral palette rebuilt to pure black/white + two greys; canon-note grey box fixed</td></tr><tr><td>2026-07-30</td><td>Anchor lineage — replacing an anchor now orphans the variants edited from it</td></tr><tr><td>2026-07-30</td><td>Double-escaped middot entities in 47 captions — fixed at source, and now audited</td></tr><tr><td>2026-07-30</td><td>L4 — location alteration prompts derived, and a real error in the staleness source found by a count that would not move</td></tr><tr><td>2026-07-30</td><td>L6, L7, L8 — location validation, bible write-up, and the generation list</td></tr><tr><td>2026-07-30</td><td>Prompts are now paste-ready: markers, layer titles and the non-visual function layer stripped; prefixes trimmed</td></tr><tr><td>2026-07-30</td><td>Chapter-treatment sweep — no missed variants; 93 broken tokens repaired; Echo made four-bodied in the render</td></tr><tr><td>2026-07-30</td><td>Echo Cipher rendered as four graded bodies rather than a partial count</td></tr><tr><td>2026-07-30</td><td>Judgement calls reviewed — Priorat Grove down to tier 1; Rina and Shaoyang held, on narrative grounds</td></tr><tr><td>2026-07-30</td><td>The canon note rebuilt as a compact panel — and a self-inflicted deletion recovered</td></tr><tr><td>2026-07-30</td><td>git push route deleted; upload staged for the browser instead, folder-replacement rather than file reconciliation</td></tr><tr><td>2026-07-30</td><td>Assisted upload is viable after all — GitHub&#x27;s file input, not a drag; system set up, nothing pushed</td></tr><tr><td>2026-07-30</td><td>Site published to GitHub through the browser upload route — eight commits, folder replacement, 0 files reconciled by hand</td></tr><tr><td>2026-07-30</td><td>Docs updated to match reality: the site is published, and &quot;local-only&quot; is retired from every project document</td></tr><tr><td>2026-07-30</td><td>Project instructions rewritten in full and given a master copy in the repo</td></tr><tr><td>2026-07-29</td><td>Universal fluid spacing rule — one --gutter/--band-y scale across the whole site</td></tr><tr><td>2026-07-29</td><td>Spacing rule, second pass — seam classes now validated against adjacency, not trusted</td></tr><tr><td>2026-07-29</td><td>Spacing rule, third pass — seam classes deleted outright; verification moved to rendered geometry</td></tr><tr><td>2026-07-29</td><td>Uniform box padding, pure ink, opaque surfaces — site-wide</td></tr><tr><td>2026-07-29</td><td>Spot colours unified to one hex each — Terra Azure #087DC2, Ares Rose #D93D4A</td></tr><tr><td>2026-07-29</td><td>Grey pair collapsed to one medium grey #777777; every box now separates from its band</td></tr><tr><td>2026-07-29</td><td>Global contrasting-box rule; opaque pills; Treaty Zone and Unregulated Margins get their own colours</td></tr><tr><td>2026-07-29</td><td>Filled pill labels follow the band; five bloc accents rebalanced</td></tr><tr><td>2026-07-29</td><td>Character codex tree restructured to match the location tree</td></tr><tr><td>2026-07-29</td><td>Full colour audit — retired palette purged from every source, plus branch counts on both codex trees</td></tr><tr><td>2026-07-29</td><td>Superseded globe/lattice preview archived; two stale builder paths corrected</td></tr><tr><td>2026-07-29</td><td>Tree count labels matched; ghost numerals to the medium grey; bloc-arc pills on character entries</td></tr><tr><td>2026-07-29</td><td>Ghost numeral extended to all four candidate contexts</td></tr><tr><td>2026-07-29</td><td>Small-phone verification — three real defects found and fixed at 320-375px</td></tr><tr><td>2026-07-29</td><td>Ghost marks no longer cut off — anchored flush, sized against the shortest host</td></tr><tr><td>2026-07-29</td><td>Image variant numbering established; second portrait and second prompt for the six characters who change bloc</td></tr><tr><td>2026-07-29</td><td>Bloc prefix now decides the image variant; variant-2 portraits filed under the destination bloc</td></tr><tr><td>2026-07-29</td><td>STEP 1 — &#x27;LATEST&#x27; marker is now a pill below the chapter numeral</td></tr><tr><td>2026-07-29</td><td>STEP 2 — production notes removed from the finished product; flagging mechanism retired</td></tr><tr><td>2026-07-29</td><td>STEP 3 — Luna Haven settled as a register of the Lunar Accord; one canonical group order site-wide</td></tr><tr><td>2026-07-29</td><td>STEP 4 — Lǐ Jūn anchored on Earth at the Sydney Hub, Australasian Ring</td></tr><tr><td>2026-07-29</td><td>STEP 5 — both portraits in a pair are captioned</td></tr><tr><td>2026-07-29</td><td>STEP 6 — Luna Haven residents get teal circles; two mis-filed residents found and corrected</td></tr><tr><td>2026-07-29</td><td>Zara AlHāshimī&#x27;s image prompt was built on the wrong bloc — all five layers made consistent</td></tr><tr><td>2026-07-29</td><td>STEP 7 — the six movers&#x27; second portraits now happen where they settle, not where they left</td></tr><tr><td>2026-07-29</td><td>STEP 8 — all 90 treatments audited for permanent moves and altered locations; register written, nothing applied</td></tr><tr><td>2026-07-29</td><td>Rina Matsuda — the reported &#x27;dropped move&#x27; was my own misreading; the real bug was silent discarding</td></tr><tr><td>2026-07-29</td><td>STEP 9 — the variant number gains a second axis: persistence modes, marked by shape not colour</td></tr><tr><td>2026-07-29</td><td>STEP 10 — six new portrait prompts written for the mode variants; prompts now a list, one per state</td></tr><tr><td>2026-07-29</td><td>Publishing to GitHub is now one command, and it can delete</td></tr><tr><td>2026-07-29</td><td>Variants are now EDITED from an anchor image, not generated from a description</td></tr><tr><td>2026-07-29</td><td>IMAGE CANON — anchors, and a graded four-layer alteration frame for both categories</td></tr><tr><td>2026-07-29</td><td>L1 — all 31 locations adjudicated by reading; the step-8 shortlist was mostly wrong</td></tr><tr><td>2026-07-29</td><td>ANCHOR DEFINED as the trilogy&#x27;s opening state — which invalidates four existing location plates</td></tr><tr><td>2026-07-29</td><td>The v-scheme: one filename shape, every frame captioned, every slot filled</td></tr><tr><td>2026-07-29</td><td>L2 — location states named, tiers assigned, signature features recorded</td></tr><tr><td>2026-07-29</td><td>Mutual-exclusion audit — the check that was missing, plus the four anchors it caught</td></tr><tr><td>2026-07-29</td><td>Staleness flag — an image that predates its own prompt now says so</td></tr><tr><td>2026-07-29</td><td>Ingest was BROKEN by the v-scheme — rewritten, and the drop name now printed on every frame</td></tr><tr><td>2026-07-28</td><td>Project reorganised: Deploy/ reduced to site-only, finished docs archived, GitHub hygiene moved into the build</td></tr><tr><td>2026-07-28</td><td>Real encryption replaces the passphrase gate — gated pages now ship to GitHub as ciphertext</td></tr><tr><td>2026-07-28</td><td>GitHub repo rebuilt from scratch; encrypted site published, plaintext history destroyed</td></tr><tr><td>2026-07-28</td><td>Encryption made idempotent so rebuilds no longer produce 45 phantom changed files</td></tr><tr><td>2026-07-28</td><td>Logo rebuilt from Assets/Logo/mr-logo.svg — interlocking-rings mark, sparkles on an infinite path, white stacked wordmark</td></tr><tr><td>2026-07-28</td><td>Favicon and PWA icon set generated from the logo mark, with the sparkles frozen in place</td></tr><tr><td>2026-07-28</td><td>Horizontal wobble on phones fixed at the real cause — scroll chaining, not page overflow</td></tr><tr><td>2026-07-28</td><td>Retired logo archived; stale logo comment in build_site.py corrected</td></tr><tr><td>2026-07-28</td><td>CSS comments stripped at build time — ~1.5 MB off the site, and comment edits no longer force a full re-upload</td></tr><tr><td>2026-07-25</td><td>Chapter 34 — Fault Lines on Luna Haven drafted (Book 2)</td></tr><tr><td>2026-07-20</td><td>Roadmap.md refreshed — 33/90 chapter count, Book 1 review marked done, completed per-Part split removed from pending</td></tr><tr><td>2026-07-20</td><td>Project Instructions Draft status line updated — Book 1 complete, Book 2 underway, counts now deferred to the dashboard</td></tr><tr><td>2026-07-20</td><td>Removed leftover files: _builder/notes_server.log and the Story Bible .af~lock~ file</td></tr><tr><td>2026-07-20</td><td>Mobile pass: tree cards fit small screens, sticky section-nav now one swipeable row and present on all 13 content pages, horizontal scroll-slip pinned</td></tr><tr><td>2026-07-19</td><td>Chapter 33 — States of Emergency drafted (Book 2)</td></tr><tr><td>2026-07-18</td><td>Drafted Ch 32 — Weaponised Compassion (Book 2) to manuscript quality</td></tr><tr><td>2026-07-18</td><td>Story Bible Part 5 location taglines re-synced to chapters.json</td></tr><tr><td>2026-07-18</td><td>Book 2 &amp; 3 pre-draft continuity pass completed (Ch 33-90)</td></tr><tr><td>2026-07-18</td><td>Book 2-3 law numbering conformed to the 11-law canon</td></tr><tr><td>2026-07-18</td><td>Treatment openings de-garbled + Part 5 orphan lines removed</td></tr><tr><td>2026-07-18</td><td>Wáng Sù arrival sequencing resolved (documentation precedes him)</td></tr><tr><td>2026-07-18</td><td>Primate-analogues established as a distinct seeded species</td></tr><tr><td>2026-07-18</td><td>Law-numbering fix extended to codex + appendix Parts</td></tr><tr><td>2026-07-18</td><td>Draft-originated canon back-prop policy adopted (tiered) + applied to Ch 32</td></tr><tr><td>2026-07-18</td><td>Dashboard: unified Suggestions + Applied into one Changes tab</td></tr><tr><td>2026-07-18</td><td>Chapter taglines reformatted to Bloc — Territory — Site (all 90)</td></tr><tr><td>2026-07-18</td><td>Added Bloc → Territory → Site location index (bible Part 3 + site)</td></tr><tr><td>2026-07-18</td><td>All chapter taglines anchored to a specific site (no territory-only entries)</td></tr><tr><td>2026-07-18</td><td>Drafted-chapter taglines reconciled to their finished manuscripts</td></tr><tr><td>2026-07-18</td><td>Drafted manuscript scene headers tidied to taxonomy + new sites renamed to two words</td></tr><tr><td>2026-07-18</td><td>Fault Verge boundary-shimmer codified as &quot;Shimmer Veil&quot; (Ch 42)</td></tr><tr><td>2026-07-18</td><td>Removed the Bloc → Territory → Site reference block from the Locations page</td></tr><tr><td>2026-07-18</td><td>Added auto-updating visual trees: Bloc→Territory→Site (locations) + Bloc→Character (characters)</td></tr><tr><td>2026-07-18</td><td>Trees upgraded: collapsible bloc cards + circular portrait/plate thumbnails</td></tr><tr><td>2026-07-18</td><td>Reference trees: collapsed by default with bold accent-filled clickable headers</td></tr><tr><td>2026-07-18</td><td>Reference trees made single-open accordions (locations + characters)</td></tr><tr><td>2026-07-18</td><td>Homepage globe animation: added missing locations + made scene lists auto-updating</td></tr><tr><td>2026-07-18</td><td>Homepage globe animation enriched (lit planet, aurora, atmosphere, comets, ping rings)</td></tr><tr><td>2026-07-18</td><td>Globe: Luna Haven marker sized to match; Martian Preserve markers made floating/non-physical</td></tr><tr><td>2026-07-18</td><td>Globe caption updated for floating Martian Preserve markers</td></tr><tr><td>2026-07-17</td><td>Chapter 28 — Beneath the Ruins drafted to manuscript quality</td></tr><tr><td>2026-07-17</td><td>Research-programme timeline canonised (two-tier history)</td></tr><tr><td>2026-07-17</td><td>Ch 17 four-decades wording fixed (approved suggestion)</td></tr><tr><td>2026-07-17</td><td>Naming of the Meridian canonised (place named first)</td></tr><tr><td>2026-07-17</td><td>Chapter 29 drafted to manuscript quality — &quot;Last Light — The Hum Splits&quot;</td></tr><tr><td>2026-07-17</td><td>Wáng Sù&#x27;s Chapter 29 music canonised — Liú Shuǐ (Flowing Water)</td></tr><tr><td>2026-07-17</td><td>Resolved: Wáng Sù transit-lounge placement (Option A)</td></tr><tr><td>2026-07-17</td><td>Chapter 30 drafted — &quot;Shards of Tomorrow&quot; — Book 1 complete in draft</td></tr><tr><td>2026-07-17</td><td>P1 applied — 13 fourth-wall chapter-number references removed from Book 1 prose</td></tr><tr><td>2026-07-17</td><td>P1 applied — Ch 12 Preserve&lt;-&gt;Luna Haven distance contradiction fixed</td></tr><tr><td>2026-07-17</td><td>P3 applied — Ch 10 pre-cascade &quot;cascade&quot; usage fixed</td></tr><tr><td>2026-07-17</td><td>P3 applied — Luna Haven header bloc-tag normalized</td></tr><tr><td>2026-07-17</td><td>P3 applied — cascade duration referent made explicit in Ch 17</td></tr><tr><td>2026-07-17</td><td>P3 applied — Ch 6 propaganda footage origin softened</td></tr><tr><td>2026-07-17</td><td>P2 applied — recurring craft tics thinned (eleven / mechanism); notebook motif reviewed</td></tr><tr><td>2026-07-17</td><td>P4 applied — named walk-ons registered (Ines Almeida, Ostrowski)</td></tr><tr><td>2026-07-17</td><td>Ch 31 drafted — &quot;Convergent Signals&quot; (Book 2 opens)</td></tr><tr><td>2026-07-17</td><td>Spoiler-teaser resolved: index is the sole ungated front door, rest gated</td></tr><tr><td>2026-07-17</td><td>Dashboard gated (author-only passphrase) + curated auto-rotating homepage teaser</td></tr><tr><td>2026-07-17</td><td>Homepage copy refresh (story voice) + self-updating progress + teaser colour fix</td></tr><tr><td>2026-07-17</td><td>Fixed truncated act titles + chapter taglines (PDF-extraction artifacts)</td></tr><tr><td>2026-07-17</td><td>Ch 38 location line restored + author credit (Istvan Bakos) added to the site</td></tr><tr><td>2026-07-17</td><td>Uniform location-tagline format + Ch 38 corrected to canonised locations; author credit in meta/footer</td></tr><tr><td>2026-07-16</td><td>Inbox accepts any image format</td></tr><tr><td>2026-07-16</td><td>Daily GitHub upload summary added</td></tr><tr><td>2026-07-16</td><td>Names re-spelled for cultural authenticity; slug layer folds diacritics</td></tr><tr><td>2026-07-16</td><td>Slug generator now strips apostrophes (Aur&#x27;k -&gt; aurk)</td></tr><tr><td>2026-07-16</td><td>Two-word naming convention canonised + applied to all character names</td></tr><tr><td>2026-07-16</td><td>Region renamed: Central Asian Steppe -&gt; Turan Waste</td></tr><tr><td>2026-07-16</td><td>Law-number mislabels corrected across outlines and codex</td></tr><tr><td>2026-07-16</td><td>Chapter 26 — Catalyst drafted to manuscript quality</td></tr><tr><td>2026-07-16</td><td>Chapter 27 — The Fall of Shadows drafted to manuscript quality</td></tr><tr><td>2026-07-16</td><td>Sarin Yelena codex gap closed (suggestion sarin-ch27-codex-gap)</td></tr><tr><td>2026-07-16</td><td>Sarin&#x27;s Luna Haven presence grounded: Tomasz&#x27;s request made explicit</td></tr><tr><td>2026-07-16</td><td>Hero reveal windows shipped (suggestion hero-images)</td></tr><tr><td>2026-07-16</td><td>Homepage strips now show the complete cast and world</td></tr><tr><td>2026-07-16</td><td>Hero placement rule revised: one before every dark section</td></tr><tr><td>2026-07-16</td><td>Homepage strips fully dynamic with pending-image placeholders</td></tr><tr><td>2026-07-15</td><td>Open-decisions tab retired; items moved to Suggestions/Roadmap</td></tr><tr><td>2026-07-15</td><td>Proactive suggestions + weekly housekeeping sweep</td></tr><tr><td>2026-07-15</td><td>Dashboard suggestions self-resolve</td></tr><tr><td>2026-07-15</td><td>Story Bible split into per-Part files</td></tr><tr><td>2026-07-15</td><td>Style docs consolidated</td></tr><tr><td>2026-07-15</td><td>Builder tidied — one-time scripts moved to _oneshot/</td></tr><tr><td>2026-07-15</td><td>Dashboard shows image-regeneration progress</td></tr><tr><td>2026-07-15</td><td>Project restructured into Deploy / Project / Assets</td></tr><tr><td>2026-07-15</td><td>Automatic image ingest added</td></tr><tr><td>2026-07-15</td><td>Continuity-review docs archived</td></tr><tr><td>2026-07-15</td><td>Roadmap trimmed to forward-looking phases</td></tr><tr><td>2026-07-15</td><td>Dashboard made ledger-driven</td></tr><tr><td>2026-07-15</td><td>Site changelog remarks removed</td></tr><tr><td>2026-07-15</td><td>Canon-sync workflow added</td></tr><tr><td>2026-07-15</td><td>Animated logo embedded; violet accent replaced by dual spot colours</td></tr><tr><td>2026-07-15</td><td>Dual-colour consistency pass + Chapter 38 title fix</td></tr><tr><td>2026-07-14</td><td>Locations dashboard tab — Unregulated Margins group</td></tr><tr><td>2026-07-14</td><td>Monochrome site overhaul</td></tr><tr><td>2026-07-13</td><td>Character and location entries revised to visual register</td></tr><tr><td>2026-07-12</td><td>Website generated as a single unified site</td></tr><tr><td>2026-07-12</td><td>Website kept local-only for now</td></tr><tr><td>2026-07-12</td><td>Visual &amp; population revision</td></tr><tr><td>2026-07-12</td><td>Narrative craft canon locked</td></tr><tr><td>2026-07-11</td><td>Ten location entries completed</td></tr><tr><td>2026-07-11</td><td>Chapter 1 audit-flag thread resolved</td></tr><tr><td>2026-07-11</td><td>Law 8 / Law 9 mislabel corrected</td></tr><tr><td>2026-07-11</td><td>Martian Preserve character entries populated</td></tr></tbody></table></div></div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Open</span>
+      <h2>Open items</h2>
+    </div>
+    <div class="card-dark reveal"><h3>Should Suppression Archive get a post-arrest &quot;Marked&quot; state?</h3><p>Arjun&#x27;s arrest (Chapter 39) happens in this exact room, but Suppression Archive is still single-state (state_arc: [&quot;Baseline&quot;]) with no visible trace of it. Comparable Anchor-tier locations that carry a narrative turning point get a second state for it (e.g. Priorat Grove&#x27;s Grafted state, Archive Chamber&#x27;s Siege Damage state). A possible second state here would show the room disturbed by the arrest itself — an overturned stool, scattered case materials, the ordinary work of the space interrupted mid-motion. Flagged during the locations completeness pass rather than added outright, since a new state is a bigger structural change than completing an existing demand list.</p></div><div class="card-dark reveal"><h3>Does Meridian Levels need a &quot;Siege Damage&quot; state to match Archive Chamber?</h3><p>Meridian Levels and Archive Chamber share identical description language — both are named as one of the four nodes targeted in the Chapter 71 Siege of Consciousness — but only Archive Chamber has a post-siege damage state; Meridian Levels remains state_arc: [&quot;Baseline&quot;] only. This could be a genuine completeness gap (the Levels were hit the same as the Chamber and should show it) or an intentional choice (the Levels survive the siege visually undamaged, unlike the Chamber). Flagged during the locations completeness pass rather than resolved outright, since it depends on a canon call about what actually happened to this node during the siege.</p></div>
   </div>
 </section>
 
@@ -1077,7 +893,7 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
   <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three blocs, a dimensional preserve, and the discovery that empathy is not an emotion but a physical law.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and a dimensional preserve.</p>
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Explore</span>
@@ -1089,7 +905,6 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Codex</span>
-      <a href="canon-images.html">Image Canon</a>
       <a href="craft.html">Craft</a>
       <a href="laws.html">Laws &amp; Codex</a>
       <a href="timeline.html">Timeline</a>
@@ -1102,14 +917,6 @@ section.inv,.band-group.inv{background:var(--paper);color:var(--black);
     <span class="footer-copy">Fractured Horizons &middot; Resonant Faultlines &middot; Harmonic Worlds</span>
   </div>
 </footer>
-
-<div id="lightbox-overlay" class="lightbox-overlay">
-  <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close">&times;</button>
-  <div class="lightbox-content">
-    <div id="lightbox-scroll" class="lightbox-scroll"><img id="lightbox-img" src="" alt=""></div>
-    <div id="lightbox-caption" class="lightbox-caption"></div>
-  </div>
-</div>
 
 <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
@@ -1138,38 +945,6 @@ if (backToTop) {
   window.addEventListener('scroll', toggleBackToTop, { passive: true });
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
-
-(function(){
-  var overlay = document.getElementById('lightbox-overlay');
-  if (!overlay) return;
-  var img = document.getElementById('lightbox-img');
-  var caption = document.getElementById('lightbox-caption');
-  var closeBtn = document.getElementById('lightbox-close');
-  function openLightbox(src, name){
-    img.src = src;
-    img.alt = name || '';
-    caption.textContent = name || '';
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox(){
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    img.src = '';
-  }
-  document.addEventListener('click', function(e){
-    var trigger = e.target.closest('.media-trigger');
-    if (trigger) {
-      e.preventDefault();
-      openLightbox(trigger.getAttribute('data-full'), trigger.getAttribute('data-caption'));
-    }
-  });
-  closeBtn.addEventListener('click', closeLightbox);
-  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeLightbox(); });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeLightbox();
-  });
-})();
 window.__GLOBE_SCENES={"New Manhattan": ["Surveillance Spire", "Mirror Bastion"], "São Verde": ["Verdant Citadel"], "Gulf Crescent": ["Logistics Command", "Container Verge"], "Beijing Command": ["Broadcast Chamber", "Ministry Annex", "Shaoyang Terraces", "Transit Lounge"], "Baikal Complex": ["Resonance Laboratory", "Ice Citadel"], "Pearl Delta": ["Quantum Quarter", "Suppression Archive"], "Mediterranean Zone": ["Coastal Seawall", "Sagrada Spire", "Priorat Grove", "Harbour House"], "Australasian Ring": ["Sydney Hub", "Orbital Station"], "African Belt": ["Nairobi Relay", "Table Terraces"], "Luna Haven": ["Dome Plaza", "Meridian Levels", "Habitat Corridors", "Archive Chamber", "Medical Facility", "Archive Deep", "Deep Chamber", "Tether Reception"], "Neo Singapore": ["Transit Platform", "Gardens Relay"], "Council Grove": ["Ancient Grove"], "Cobalt Basin": ["Empathy Flats", "Lattice Threshold", "Mycelial Chamber", "Access Gate", "Western Rim"], "Fault Verge": ["Seam Edge", "Shimmer Veil"], "Turan Waste": ["Kazakh Scar"]};
 (function(){
   var svg = document.getElementById('globe-svg');
@@ -1636,20 +1411,6 @@ window.__GLOBE_SCENES={"New Manhattan": ["Surveillance Spire", "Mirror Bastion"]
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
-})();
-
-(function(){
-  // The marquee's tiles are rendered server-side, twice in a row, for a
-  // seamless CSS loop (see .tz-marquee / @keyframes tz-scroll). A reduced-
-  // motion viewer gets no animation (CSS media query), so the duplicate
-  // copy would just be a redundant tail to scroll past manually — trim it.
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){
-    var m = document.querySelector('.tz-marquee');
-    if (m){
-      var half = m.children.length / 2;
-      for (var i = 0; i < half; i++) m.removeChild(m.lastElementChild);
-    }
-  }
 })();
 </script>
 </body>
