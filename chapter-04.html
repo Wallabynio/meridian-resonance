@@ -143,6 +143,11 @@ p:last-child{margin-bottom:0;}
 .hero .eyebrow{margin-bottom:20px;}
 .hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.4rem,7vw,5.2rem);letter-spacing:-0.035em;line-height:1.04;max-width:960px;color:var(--ink);}
+@supports ((background-clip:text) or (-webkit-background-clip:text)){
+  .hero h1{width:fit-content;margin-left:auto;margin-right:auto;
+    background-image:linear-gradient(90deg,var(--earth) 0%,var(--mars) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;}}
 .hero p.lede{max-width:620px;margin-left:auto;margin-right:auto;}
 .hero-byline{margin-top:22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;
   letter-spacing:0.02em;color:var(--ink);}
