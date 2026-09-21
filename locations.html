@@ -20,7 +20,7 @@
 details.gtree-card{overflow:hidden;min-width:0;padding:0;}
 .gtree-card>summary{cursor:pointer;list-style:none;outline:none;display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-width:0;
   font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;
-  background:var(--accent);color:var(--ground);
+  background:var(--accent);color:#FFFFFF;
   padding:var(--pad-row) var(--pad-box);
   transition:filter .14s,box-shadow .14s,transform .1s;}
 .gtree-card>summary::-webkit-details-marker{display:none;}
@@ -29,9 +29,9 @@ details.gtree-card{overflow:hidden;min-width:0;padding:0;}
 .gtree-card>summary:hover{filter:brightness(1.09);box-shadow:0 10px 24px -10px var(--accent);}
 .gtree-card>summary:active{transform:translateY(1px);}
 .gtree-card>summary .gt-dot{display:none;}
-.gt-c{margin-left:auto;font-size:12px;font-weight:700;color:var(--ground);flex:none;}
-.gt-caret{flex:none;width:20px;height:20px;border-radius:50%;background:var(--ground);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;font-size:9px;transition:transform .18s,background .14s;text-shadow:none;}
-.gtree-card>summary:hover .gt-caret{background:var(--ground);}
+.gt-c{margin-left:auto;font-size:12px;font-weight:700;color:#FFFFFF;flex:none;}
+.gt-caret{flex:none;width:20px;height:20px;border-radius:50%;background:#FFFFFF;color:var(--accent);display:inline-flex;align-items:center;justify-content:center;font-size:9px;transition:transform .18s,background .14s;text-shadow:none;}
+.gtree-card>summary:hover .gt-caret{background:#FFFFFF;}
 .gtree-card[open] .gt-caret{transform:rotate(90deg);}
 .gt-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
 .gtree,.gtree ul{list-style:none;margin:0;padding:0;}
@@ -51,7 +51,7 @@ details.gtree-card{overflow:hidden;min-width:0;padding:0;}
 .gt-leaf span{min-width:0;overflow-wrap:anywhere;}
 .gt-leaf:hover{background:var(--accent);color:#fff;}
 .gt-dest{display:inline-flex;align-items:center;margin-left:6px;
-  padding:1px 7px;border-radius:100px;background:var(--accent);color:var(--ground);
+  padding:1px 7px;border-radius:100px;background:var(--accent);color:#FFFFFF;
   font-family:'Space Grotesk',sans-serif;font-size:9.5px;font-weight:700;
   letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;flex:none;}
 .gt-thumb{width:24px;height:24px;border-radius:50%;object-fit:cover;flex:none;border:1.5px solid var(--accent);background:var(--surface);}
@@ -618,7 +618,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
   <ul class="nav-links"><li><a href="world.html">World</a></li>
-<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline</a></li><li><a href="pacing.html">Pacing</a></li><li><a href="glossary.html">Glossary</a></li></ul></li>
+<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li></ul></li>
 <li><a href="locations.html" class="active">Locations</a></li>
 <li><a href="characters.html">Characters</a></li>
 <li><a href="books.html">Books</a></li>
@@ -630,8 +630,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <a href="codex.html">Codex</a>
 <a class="sub" href="craft.html">Craft</a>
 <a class="sub" href="laws.html">Laws &amp; Codex</a>
-<a class="sub" href="timeline.html">Timeline</a>
-<a class="sub" href="pacing.html">Pacing</a>
+<a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
 <a class="sub" href="glossary.html">Glossary</a>
 <a href="locations.html">Locations</a>
 <a href="characters.html">Characters</a>
@@ -1407,8 +1406,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
       <span class="footer-nav-title">Codex</span>
       <a href="craft.html">Craft</a>
       <a href="laws.html">Laws &amp; Codex</a>
-      <a href="timeline.html">Timeline</a>
-      <a href="pacing.html">Pacing</a>
+      <a href="timeline.html">Timeline &amp; Pacing</a>
       <a href="glossary.html">Glossary</a>
     </div>
   </div>
