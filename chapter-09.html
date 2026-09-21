@@ -56,12 +56,9 @@ a{color:inherit;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 .serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);
-  backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
-  background:rgba(10,10,10,0.72);border-bottom:1px solid var(--hairline);
-  transition:background .3s ease,padding .3s ease,border-color .3s ease;}
-nav.scrolled{background:rgba(10,10,10,0.92);padding:13px var(--gutter);
-  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);border-bottom-color:rgba(255,255,255,0.14);}
+  display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
+  background:var(--black);border-bottom:1px solid rgba(255,255,255,0.14);
+  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);}
 .back-to-top{position:fixed;right:var(--gutter);bottom:28px;z-index:190;
   width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   background:#087DC2;border:none;color:#FFFFFF;
@@ -86,9 +83,8 @@ nav.scrolled{background:rgba(10,10,10,0.92);padding:13px var(--gutter);
 .nav-links li.has-sub{position:relative;}
 .sub-caret{margin-left:5px;font-size:10px;opacity:.65;}
 .nav-sub{position:absolute;top:100%;left:-14px;min-width:196px;margin-top:14px;
-  padding:8px 0;list-style:none;background:rgba(10,10,10,0.96);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  border:1px solid var(--hairline);border-radius:14px;
+  padding:calc(var(--pad-row) * .5) 0;list-style:none;background:var(--black);
+  border:1px solid rgba(255,255,255,0.14);border-radius:14px;
   opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .18s ease,transform .18s ease,visibility .18s ease;}
 .nav-links li.has-sub:hover>.nav-sub,
@@ -156,7 +152,8 @@ p:last-child{margin-bottom:0;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;}
+.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
+  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
 .globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
 .globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
 .globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
@@ -168,23 +165,23 @@ p:last-child{margin-bottom:0;}
 @keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
 #globeSpec{opacity:.75;}
 #globeFresnel{opacity:.9;}
-.globe-rim{fill:none;stroke:var(--grey-l);stroke-width:1.1;opacity:0.7;}
+.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
 .globe-dot-glow{filter:blur(7px);}
-.globe-leader{fill:none;stroke:var(--grey-l);stroke-width:0.6;opacity:0.42;}
+.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
 text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
-  letter-spacing:.01em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:3px;stroke-linejoin:round;}
-text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:8px;fill:var(--ns);letter-spacing:.06em;
-  text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:2.5px;stroke-linejoin:round;}
-.globe-moon-ring{fill:none;stroke:var(--grey-l);stroke-width:0.6;opacity:0.5;}
-.lat-edge{stroke:var(--grey-l);stroke-width:0.7;fill:none;}
-.lat-node{fill:var(--grey-l);}
-.lat-fil{stroke:var(--grey-l);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
-.lat-halo{fill:none;stroke:var(--grey-l);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
+  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
+text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
+  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
+.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
+.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
+.lat-node{fill:var(--globe-line);}
+.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
+.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
 @keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
 .globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
 @media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
-@media(max-width:640px){.globe-stage{max-width:94vw;}}
+@media(max-width:640px){.globe-stage{max-width:none;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
   --ink:#FFFFFF;--accent-text:var(--ink);
@@ -751,12 +748,6 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 const hb = document.querySelector('.hamburger');
 const mm = document.querySelector('.mobile-menu');
 if (hb) { hb.addEventListener('click', () => { hb.classList.toggle('open'); mm.classList.toggle('open'); }); }
-const navEl = document.querySelector('nav');
-if (navEl) {
-  const onScroll = () => navEl.classList.toggle('scrolled', window.scrollY > 8);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-}
 const backToTop = document.getElementById('back-to-top');
 if (backToTop) {
   const toggleBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 500);

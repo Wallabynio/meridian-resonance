@@ -99,12 +99,9 @@ a{color:inherit;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 .serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);
-  backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
-  background:rgba(10,10,10,0.72);border-bottom:1px solid var(--hairline);
-  transition:background .3s ease,padding .3s ease,border-color .3s ease;}
-nav.scrolled{background:rgba(10,10,10,0.92);padding:13px var(--gutter);
-  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);border-bottom-color:rgba(255,255,255,0.14);}
+  display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
+  background:var(--black);border-bottom:1px solid rgba(255,255,255,0.14);
+  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);}
 .back-to-top{position:fixed;right:var(--gutter);bottom:28px;z-index:190;
   width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   background:#087DC2;border:none;color:#FFFFFF;
@@ -129,9 +126,8 @@ nav.scrolled{background:rgba(10,10,10,0.92);padding:13px var(--gutter);
 .nav-links li.has-sub{position:relative;}
 .sub-caret{margin-left:5px;font-size:10px;opacity:.65;}
 .nav-sub{position:absolute;top:100%;left:-14px;min-width:196px;margin-top:14px;
-  padding:8px 0;list-style:none;background:rgba(10,10,10,0.96);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  border:1px solid var(--hairline);border-radius:14px;
+  padding:calc(var(--pad-row) * .5) 0;list-style:none;background:var(--black);
+  border:1px solid rgba(255,255,255,0.14);border-radius:14px;
   opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .18s ease,transform .18s ease,visibility .18s ease;}
 .nav-links li.has-sub:hover>.nav-sub,
@@ -199,7 +195,8 @@ p:last-child{margin-bottom:0;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;}
+.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
+  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
 .globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
 .globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
 .globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
@@ -211,23 +208,23 @@ p:last-child{margin-bottom:0;}
 @keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
 #globeSpec{opacity:.75;}
 #globeFresnel{opacity:.9;}
-.globe-rim{fill:none;stroke:var(--grey-l);stroke-width:1.1;opacity:0.7;}
+.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
 .globe-dot-glow{filter:blur(7px);}
-.globe-leader{fill:none;stroke:var(--grey-l);stroke-width:0.6;opacity:0.42;}
+.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
 text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
-  letter-spacing:.01em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:3px;stroke-linejoin:round;}
-text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:8px;fill:var(--ns);letter-spacing:.06em;
-  text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:2.5px;stroke-linejoin:round;}
-.globe-moon-ring{fill:none;stroke:var(--grey-l);stroke-width:0.6;opacity:0.5;}
-.lat-edge{stroke:var(--grey-l);stroke-width:0.7;fill:none;}
-.lat-node{fill:var(--grey-l);}
-.lat-fil{stroke:var(--grey-l);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
-.lat-halo{fill:none;stroke:var(--grey-l);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
+  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
+text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
+  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
+.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
+.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
+.lat-node{fill:var(--globe-line);}
+.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
+.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
 @keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
 .globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
 @media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
-@media(max-width:640px){.globe-stage{max-width:94vw;}}
+@media(max-width:640px){.globe-stage{max-width:none;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
   --ink:#FFFFFF;--accent-text:var(--ink);
@@ -759,7 +756,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
         <p>Gulf Crescent — interior: the salt-corroded catwalk gallery in the ventilated interstitial gap between the climate dome&#x27;s shell and the marine lock wall, adjacent to Logistics Command. Shaded and survivable but nobody&#x27;s choice of where to stand — the gulf&#x27;s exterior heat is past human tolerance at peak, and the gap is where that heat is merely bad. It is where Amita Rao reads what she cannot read at her workstation — the only part of the chokepoint outside the compliance floor&#x27;s camera arcs, which is the reason she goes there and never the reason she gives. It carries two scenes: the private noticing in Chapter 36, and the trilogy&#x27;s most significant public disclosure in the Corporate Union arc in Chapter 54, where five years of documented logistics crimes are presented to the port authority&#x27;s international compliance officer, sacrificing Amita&#x27;s anonymity for the evidence. The same catwalk holds both, which is the point: the place where she works out what she is looking at is the place where she finally says it aloud.</p>
         <h4>Scene arc</h4>
         <p>Ch 36    Distorted node patterns noticed. Amita Rao takes the week&#x27;s routing summary out onto the Verge catwalk, as she does twice a shift, and finds the anomaly she has been failing to name: six of the Gulf Crescent&#x27;s nineteen transfer nodes deformed since the emergency declaration — backhauls that do not balance, freight going to sites with no declared industrial function and nothing coming back out. She cannot yet connect it to the contamination pathway Xiàng and Eddy are finding in the Meridian Levels. She documents it with procedural exactness and routes it to the research team as a question rather than an analysis.</p>
-<p>Ch 54    Full disclosure; anonymity sacrificed. Amita Rao makes her full disclosure at the Container Verge. She presents her complete documentation of Corporate Union logistics crimes to the port authority&#x27;s international compliance officer: every masked shipment, every falsified manifest, every covert military supply chain she identified and tracked over five years. She sacrifices her anonymity for the evidence. The logistics crimes she documents — including the supply chains that supported the Chapter 48 assault on Luna Haven — are now in the port authority&#x27;s record and cannot be unseen. The Container Verge&#x27;s salt-corroded industrial architecture frames an act of moral precision: a person for whom form-filling is a form of courage.</p>
+<p>Ch 54    Full disclosure; anonymity sacrificed. Amita Rao makes her full disclosure at the Container Verge. She presents her complete documentation of Corporate Union logistics crimes to the port authority&#x27;s international compliance officer: every masked shipment, every falsified manifest, every covert military supply chain she identified and tracked over five years. She sacrifices her anonymity for the evidence. The logistics crimes she documents — including the supply chains that supported the Chapter 48 assault on Luna Haven — are now in the port authority&#x27;s record and cannot be unseen. The Corporate Union&#x27;s answer arrives inside thirty hours: her credentials are void, her access is gone, and the compliance officer who received the file is reassigned. Inside the record sits a detail nobody at the port authority can read — a high-priority supply line to a Sovereign Coalition installation the Union has no declared relationship with, the same installation at the centre of Xiàng&#x27;s contamination cluster. The Container Verge&#x27;s salt-corroded industrial architecture frames an act of moral precision: a person for whom form-filling is a form of courage.</p>
         
         <details class="prompt-details"><summary>Look &mdash; Anchor · Baseline</summary><div class="pd-body"><ul class="demand-list demand-list-plain"><li>One compliance officer reading a holographic manifest</li><li>Two or three dockworkers further along the catwalks</li><li>Shaded, salt-corroded and merely tolerable rather than comfortable — the one gap in the chokepoint that sits deliberately outside the compliance floor&#x27;s camera arcs</li><li>Ordinary dockside procedure carrying on in the one gap the territory&#x27;s surveillance doesn&#x27;t fully reach</li></ul></div></details>
       </div>
@@ -915,7 +912,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
         <p>Ch 27       First asylum clearance; programme established. At the Coastal Seawall, a researcher who has been trying to leave the Corporate Union&#x27;s academic infrastructure for eight months finally receives clearance through the Lunar Accord&#x27;s emergency research asylum programme. The clearance is small and individual, but it is the first formal use of a programme that will later become significant. The Coastal Seawall&#x27;s adaptive sandstone engineering frames the moment with the visual register of a choice made in the direction of care.</p>
 <p>Ch 47       Marcus Bellamy defects; identity threshold crossed. Marcus Bellamy lands at the Coastal Seawall&#x27;s transport hub fourteen hours after leaving New Manhattan on a commercial flight. He used his Corporate Union security clearance for the last time at departure verification. In the fourteen hours between departure verification and arrival, his sabotage has already modified the Chapter 48 strike sequence&#x27;s timing parameters. The gap between his two identities Corporate Union security officer on authorised leave and Lunar Accord defector — is the Coastal Seawall itself: the warm gold sandstone against the salt-grey sea. Sienna TeAriki&#x27;s infrastructure network processes his arrival with the same practical efficiency it applies to coastal evacuations.</p>
 <p>Ch 48       Sabotage consequence registered. What the assault planners do not know is that Marcus Bellamy&#x27;s sabotage — executed in the fourteen hours between his departure verification and his arrival at the Coastal Seawall — has modified the strike sequence&#x27;s timing parameters, delaying the orbital relay disruption synchronisation signal by forty-seven minutes. The Coastal Seawall appears in Chapter 48 as the location Marcus reached before the assault began: the point of no return that is also the point of causal consequence.</p>
-<p>Ch 60    Misha at the Seawall; Book 2 closes. At the Coastal Seawall in the Mediterranean Zone, Misha Fedorov takes a walk along the adaptive seawall&#x27;s promenade in the warm gold light. He is sixty-two days away from the death the narrative has already determined for him. He does not know this. He is thinking about what he will write next. Book 2 ends here, with transit nominally restored, the consultation phase&#x27;s first chapter closed, and the final act prepared but not yet begun.</p>
+<p>Ch 60    Misha at the Seawall; Book 2 closes. At the Coastal Seawall in the Mediterranean Zone, Misha Fedorov takes a walk along the adaptive seawall&#x27;s promenade in the warm gold light. He is sixty-two days from a death whose cause he now knows, having taken the Chapter 56 exposure himself, and he carries out of the Dome Plaza the only complete understanding of what the Baikal record has just exposed. Book 2 ends here, on the recognition that the structure which ended the first civilisation is being rebuilt on a schedule and is ahead of the work on Luna Haven.</p>
 <p>Ch 62    Misha dies; Mode 3 boundary begins. Two days after delivering his final historical briefing in the Luna Haven Archive Chamber, Misha Fedorov dies of cardiac failure at the Coastal Seawall in the Mediterranean Zone. He is found at a bench on the adaptive seawall promenade in the early morning, with a completed notebook in his coat pocket. From this moment forward, every appearance of Misha Fedorov in the narrative must be archival only. The Coastal Seawall is the last physical location Misha inhabits.</p>
         <div class="anchors" style="margin-top:12px;"><b>Timeline for Lunar Accord:</b><p style="margin-bottom:8px;"><b>Bk2 Ch35 &mdash; Xiàng defects to Luna Haven.</b> Makes the Sovereign Coalition–Lunar Accord trust bridge embodied and public.</p></div>
         <details class="prompt-details"><summary>Look &mdash; Anchor · Baseline</summary><div class="pd-body"><ul class="demand-list demand-list-plain"><li>Three people waiting on worn benches, one being cleared</li><li>A processing threshold — practical, humane infrastructure built entirely around care.</li><li>Ordinary bureaucratic waiting, calm and procedural, even though what&#x27;s being processed can be life-changing for the people in it.</li></ul></div></details><details class="prompt-details"><summary>Look &mdash; Variant 2 · Promenade</summary><div class="pd-body"><ul class="demand-list demand-list-plain"><li>One figure seated alone on the bench, early morning, unhurried</li></ul></div></details>
@@ -1006,13 +1003,14 @@ section,.band-group{background:var(--ground);color:var(--ink);}
         <h3>Nairobi Relay</h3>
         <div class="meta"><span class="bloc-pill tier-anchor">Anchor</span> <span class="bloc-pill">African Belt</span></div>
         <h4>Description</h4>
-        <p>African Belt — interior: relay hub compound with rammed earth walls and instrument bays. Warm outdoor light; AI relay racks integrated with agro-ecological architecture. The Nairobi Relay is the African Belt&#x27;s data and coordination hub across all three books. It appears in six chapters, from Thandi&#x27;s first anomaly detection Ch 2 through the unified-theory confirmation session Ch 41 to Eddy&#x27;s planetary-scale AI repair programme Ch 83 and the trilogy&#x27;s final chapter Ch 90 . Its scene arc is the arc of ecological empiricism becoming planetary action: what Thandi detects in Chapter 2 is what Eddy operationalises at scale in Chapter 83.</p>
+        <p>African Belt — interior: relay hub compound with rammed earth walls and instrument bays. Warm outdoor light; AI relay racks integrated with agro-ecological architecture. The Nairobi Relay is the African Belt&#x27;s data and coordination hub across all three books. It appears from Thandi&#x27;s first anomaly detection Ch 2 through her propaganda analysis Ch 16 and her recovery-signatures write-up Ch 19 to Eddy&#x27;s planetary-scale AI repair programme Ch 83 and the trilogy&#x27;s final chapter Ch 90 . Its scene arc is the arc of ecological empiricism becoming planetary action: what Thandi detects in Chapter 2 is what Eddy operationalises at scale in Chapter 83.</p>
         <h4>Scene arc</h4>
         <p>Ch 2            First resonance anomaly; global entanglement seeded. At the Nairobi Relay, Thandi Okoro is running standard ecological AI network diagnostics across the Table Terraces&#x27; agro-ecology. Her instruments detect a resonance signature in an AI subsystem that should not be capable of producing it — structurally identical to what Jīn and Mara are independently finding in Luna Haven&#x27;s soil. The match is too precise to be coincidence and too anomalous to report through official channels without more data. Thandi begins a parallel archive: everything she detects goes into a local physical record alongside the standard network logs.</p>
 <p>Ch 16           Propaganda analysed as hollow empathy; unified insight formed. Thandi watches the Corporate Union–Sovereign Coalition propaganda broadcasts from her Nairobi Relay hub and does something she has been preparing to do for three months: she runs a comparative analysis of the broadcast&#x27;s empathy-mimicry structure against the AI pollution data she has been collecting. The propaganda has the same hollow-empathy structural signature she has been documenting in compromised AI networks. She writes in her field notes: &#x27;the pollution of AI systems and the pollution of political information are the same weapon in different deployment environments.&#x27;</p>
 <p>Ch 19           Recovery signatures found; dual-use principle established. Thandi processes a week of data at the Nairobi Relay and finds that AI subsystems compromised before the Chapter 17 cascade are showing recovery signatures in its aftermath — the cascade&#x27;s authentic resonance has partially healed them. She writes this up carefully, because the implications are dual-use: the same physics that heals can harm; the same force that corrupts AI systems can restore them; the difference is pattern quality. She routes the finding to Léa&#x27;s research channel and to Eddy at the Sydney Hub. This is the finding Eddy will operationalise at scale in Chapter 83.</p>
 <p>Ch 83    Planetary AI ecological repair coordinated. Eddy Okafor coordinates the ecological repair of AI systems across the African Belt from his base at the Nairobi Relay — the same hub where Thandi first detected the resonance signatures that linked Luna Haven to the African Belt&#x27;s ecological networks in Chapter 2. The repair work applies everything Thandi documented in Chapter 19 authentic resonance can heal AI systems compromised by hollow-empathy pollution. Eddy manages this as an embodied person in a physical location, doing maintenance work. The chapter refuses to make his ordinariness into tragedy or his maintenance work into a consolation prize.</p>
 <p>Ch 90    Witness query received; Misha&#x27;s protocol invoked. In the African Belt at the Nairobi Relay, a query arrives in the Witness Archive from a research institution that did not exist when the trilogy opened — a post-siege institution working on the ecological implications of authentic resonance for compromised AI systems. Eddy Okafor flags the query as significant under Misha&#x27;s protocol, because it is exactly the kind of question Misha&#x27;s archive was preserved to answer. Misha is not present. His protocol is. The Nairobi Relay appears in the trilogy&#x27;s final chapter as the location where the work continues.</p>
+<p>Ch 83       Repair programme runs on systems and on people. Eddy coordinates the ecological repair of AI systems across the African Belt from the Nairobi Relay, applying what Thandi documented in Chapter 19 at the scale the collective&#x27;s partial integration has made possible. The same protocol is run on the override-trial survivors whose interiority began failing in Chapter 55, because the mechanism does not care which kind of system it repairs and nobody else volunteered to run it. Some recover, some partially, and records are kept on all of them.</p>
         <div class="anchors" style="margin-top:12px;"><b>Timeline for Lunar Accord:</b><p style="margin-bottom:8px;"><b>Bk2 Ch35 &mdash; Xiàng defects to Luna Haven.</b> Makes the Sovereign Coalition–Lunar Accord trust bridge embodied and public.</p></div>
         <details class="prompt-details"><summary>Look &mdash; Anchor · Baseline</summary><div class="pd-body"><ul class="demand-list demand-list-plain"><li>Four people working the bay, one reading an ambient readout</li><li>Working field-station rhythm — a small technical team moving through infrastructure built for work, not for visitors</li><li>Function folded into the growing architecture itself rather than bolted onto it</li></ul></div></details>
       </div>
@@ -1436,12 +1434,6 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 const hb = document.querySelector('.hamburger');
 const mm = document.querySelector('.mobile-menu');
 if (hb) { hb.addEventListener('click', () => { hb.classList.toggle('open'); mm.classList.toggle('open'); }); }
-const navEl = document.querySelector('nav');
-if (navEl) {
-  const onScroll = () => navEl.classList.toggle('scrolled', window.scrollY > 8);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-}
 const backToTop = document.getElementById('back-to-top');
 if (backToTop) {
   const toggleBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 500);

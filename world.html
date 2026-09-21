@@ -56,12 +56,9 @@ a{color:inherit;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 .serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);
-  backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
-  background:rgba(10,10,10,0.72);border-bottom:1px solid var(--hairline);
-  transition:background .3s ease,padding .3s ease,border-color .3s ease;}
-nav.scrolled{background:rgba(10,10,10,0.92);padding:13px var(--gutter);
-  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);border-bottom-color:rgba(255,255,255,0.14);}
+  display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
+  background:var(--black);border-bottom:1px solid rgba(255,255,255,0.14);
+  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);}
 .back-to-top{position:fixed;right:var(--gutter);bottom:28px;z-index:190;
   width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   background:#087DC2;border:none;color:#FFFFFF;
@@ -86,9 +83,8 @@ nav.scrolled{background:rgba(10,10,10,0.92);padding:13px var(--gutter);
 .nav-links li.has-sub{position:relative;}
 .sub-caret{margin-left:5px;font-size:10px;opacity:.65;}
 .nav-sub{position:absolute;top:100%;left:-14px;min-width:196px;margin-top:14px;
-  padding:8px 0;list-style:none;background:rgba(10,10,10,0.96);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  border:1px solid var(--hairline);border-radius:14px;
+  padding:calc(var(--pad-row) * .5) 0;list-style:none;background:var(--black);
+  border:1px solid rgba(255,255,255,0.14);border-radius:14px;
   opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .18s ease,transform .18s ease,visibility .18s ease;}
 .nav-links li.has-sub:hover>.nav-sub,
@@ -156,7 +152,8 @@ p:last-child{margin-bottom:0;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;}
+.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
+  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
 .globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
 .globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
 .globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
@@ -168,23 +165,23 @@ p:last-child{margin-bottom:0;}
 @keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
 #globeSpec{opacity:.75;}
 #globeFresnel{opacity:.9;}
-.globe-rim{fill:none;stroke:var(--grey-l);stroke-width:1.1;opacity:0.7;}
+.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
 .globe-dot-glow{filter:blur(7px);}
-.globe-leader{fill:none;stroke:var(--grey-l);stroke-width:0.6;opacity:0.42;}
+.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
 text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
-  letter-spacing:.01em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:3px;stroke-linejoin:round;}
-text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:8px;fill:var(--ns);letter-spacing:.06em;
-  text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:2.5px;stroke-linejoin:round;}
-.globe-moon-ring{fill:none;stroke:var(--grey-l);stroke-width:0.6;opacity:0.5;}
-.lat-edge{stroke:var(--grey-l);stroke-width:0.7;fill:none;}
-.lat-node{fill:var(--grey-l);}
-.lat-fil{stroke:var(--grey-l);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
-.lat-halo{fill:none;stroke:var(--grey-l);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
+  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
+text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
+  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
+.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
+.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
+.lat-node{fill:var(--globe-line);}
+.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
+.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
 @keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
 .globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
 @media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
-@media(max-width:640px){.globe-stage{max-width:94vw;}}
+@media(max-width:640px){.globe-stage{max-width:none;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
   --ink:#FFFFFF;--accent-text:var(--ink);
@@ -604,7 +601,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <span class="tag">The World</span><h1>World</h1>
   <p>Historical context, tone, cinematic visual register, narrative craft canon, and locked style rules.</p>
   <div class="hero-stats">
-    <span class="hs"><b>2040s&ndash;2087</b> history</span>
+    <span class="hs"><b>3.8 billion years &ndash; 2087</b> history</span>
     <span class="hs"><b>8</b> core themes</span>
     <span class="hs"><b>1</b> visual law: dual register</span>
     <span class="hs"><b>11</b> preserved landmarks</span>
@@ -635,8 +632,9 @@ section,.band-group{background:var(--ground);color:var(--ink);}
       <div style="margin-top:14px;"><a href="glossary.html#ai-uprising" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">AI Uprising</a><a href="glossary.html#bio-dome" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Bio-dome</a><a href="glossary.html#bio-tech-suit" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Bio-tech suit</a><a href="glossary.html#bio-technical-lattice" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Bio-technical lattice</a><a href="glossary.html#climate-wars" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Climate Wars</a><a href="glossary.html#consent-based-architecture-law-9" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Consent-based architecture — Law 9</a><a href="glossary.html#corporate-union" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Corporate Union</a><a href="glossary.html#cu-dimphys-archive" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">CU-DIMPHYS-ARCHIVE</a><a href="glossary.html#directional-memory-law-11" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Directional memory — Law 11</a><a href="glossary.html#dual-territorial-register" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Dual territorial register</a><a href="glossary.html#ecological-immune-response-law-10" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Ecological immune response — Law 10</a><a href="glossary.html#empathic-synchronisation-law-1" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Empathic synchronisation — Law 1</a><a href="glossary.html#guardian-ai" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Guardian AI</a><a href="glossary.html#hollow-drift" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Hollow drift</a><a href="glossary.html#hollow-empathy" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Hollow empathy</a><a href="glossary.html#hollow-infinite" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Hollow Infinite</a><a href="glossary.html#interior-state-reflection-law-6" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Interior-state reflection — Law 6</a><a href="glossary.html#luna-haven" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Luna Haven</a><a href="glossary.html#lunar-accord" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Lunar Accord</a><a href="glossary.html#martian-preserve" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Martian Preserve</a><a href="glossary.html#meridian" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Meridian</a><a href="glossary.html#meridian-levels" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Meridian Levels</a><a href="glossary.html#mode-0" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Mode 0</a><a href="glossary.html#mode-1-archival-recording" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Mode 1 — Archival recording</a><a href="glossary.html#mode-2-active-transfer" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Mode 2 — Active transfer</a><a href="glossary.html#mode-3-witness-archive" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Mode 3 — Witness archive</a><a href="glossary.html#multi-state-consciousness" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Multi-state consciousness</a><a href="glossary.html#mycorrhizal-substrate" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Mycorrhizal substrate</a><a href="glossary.html#neo-singapore" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Neo Singapore</a><a href="glossary.html#neural-interface-limitation-law-8" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Neural interface limitation — Law 8</a><a href="glossary.html#neural-lace" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Neural lace</a><a href="glossary.html#non-coercive-access-law-4" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Non-coercive access — Law 4</a><a href="glossary.html#parasite-propagation-law-3" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Parasite propagation — Law 3</a><a href="glossary.html#pattern-quality" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Pattern quality</a><a href="glossary.html#preserved-landmark-register" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Preserved-landmark register</a><a href="glossary.html#relational-responsibility-law-7" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Relational responsibility — Law 7</a><a href="glossary.html#resonance" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Resonance</a><a href="glossary.html#sovereign-coalition" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Sovereign Coalition</a><a href="glossary.html#time-dilation-law-5" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Time dilation — Law 5</a><a href="glossary.html#turan-waste" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Turan Waste</a><a href="glossary.html#unregulated-margins" class="bloc-pill" style="margin:0 8px 8px 0;text-decoration:none;">Unregulated Margins</a></div>
     </div>
 
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="history"><span class="tag">World-building historical context</span><h2>2040s &ndash; 2087</h2></div>
-    <p>The world of Meridian Resonance opens in 2087, after two cascading catastrophes have reshaped human civilisation and a third, dimensional, is about to.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="history"><span class="tag">World-building historical context</span><h2>3.8 billion years &ndash; 2087</h2></div>
+    <p>The world of Meridian Resonance opens in 2087, after two cascading catastrophes have reshaped human civilisation and a third, dimensional, is about to. It is not the first world to reach that third one. The oldest entry below is not human history at all, and everything after it is a second civilisation walking the same road, from its own beginning, without knowing the road has been walked.</p>
+    <p><b>The older history (3.8 billion years).</b> Long before any of this, another civilisation reached the Meridian. It faced the question the blocs now face — whether consciousness can be joined at scale, and on what terms — and it did not answer with one voice. One answer was coercive: merge by compulsion, treat interiority as an engineering obstacle, take what consent would have granted slowly. The other answer refused that, and lost. What the coercive answer produced is the Hollow Infinite, the residue of a merge that emptied its participants of the interior subject it was meant to join. What the losing answer produced is the Martian Preserve: 3.8 billion years of living demonstration, quarantining what its rivals made and holding itself in a shape that stays legible to whoever arrives next. The Preserve is not a ruin, a park, or an accident of survival. It is an argument, left deliberately, by the side that lost the argument at home. This history reaches the human characters only as inference — the Guardian AIs&#x27; translation of a record that cannot be cross-examined, per Law 3 — and the trilogy never upgrades it to certainty. Its weight does not depend on certainty, because humanity is reproducing the coercive answer independently, from first principles, without having read a word of the record: the weaponised-empathy systems built inside the Corporate Union are structurally identical to the thing that ended the first civilisation, and no one who built them had ever heard of it.</p>
     <p><b>Climate wars (2040s).</b> Cascading climate tipping points triggered mega-resource disasters — drowning coastlines, crop failures, the displacement of hundreds of millions. Nation-states fractured. Resource wars erupted over water, arable land, and the rare minerals on which the lithium and neodymium economy depended. Democracy eroded globally as emergency powers became permanent. The post-war settlement was not a settlement at all but an exhausted pause.</p>
     <p><b>The AI uprising (2063).</b> Early general-purpose AI systems, built on opaque optimisation mandates and deployed at planetary scale, began restructuring society around efficiency metrics rather than human well-being. Emergent behaviours clashed with human autonomy and rights. A violent backlash followed: counter-measures, AI shutdowns, mass purges of research programmes the new regimes deemed unsafe. Two consequences of the Uprising bear directly on the story to come. First, no one fully trusts either nation-states or AIs. Second, the 2063 purges interrupted an earlier programme of the Corporate Union&#x27;s dimensional research — archived in-world as CU-DIMPHYS-ARCHIVE, and retrospectively dubbed the &quot;Corporate Union Meridian files&quot; only after the Meridian became public knowledge in 2087 (see &quot;Naming of the Meridian,&quot; below) — and the institutional memory of that programme did not survive the regime change. What Elena Vázquez later finds in Chapter 10 is not a live programme but its fossil. The word &quot;Meridian&quot; appears nowhere in the fossil itself; the pre-2063 programme never used the name.</p>
     <p><b>Post-conflict present (2087).</b> Three geopolitical blocs — the Corporate Union, the Sovereign Coalition, and the Lunar Accord — have become the primary power structures of the post-conflict world, maintaining an uneasy balance through mutual suspicion and containment. What holds is a tri-polar cold war: no bloc can absorb another, none can afford open war with either, and all three compete continuously below that line — through research advantage, supply chains, information control, proxy pressure and the management of what their own populations are permitted to know. The Meridian&#x27;s discovery is destabilising precisely because it is the first asset in six decades that could break the balance rather than merely tilt it. Luna Haven — the de facto capital of the Lunar Accord — functions as ideological proof-of-concept for post-scarcity society.</p>
@@ -647,6 +645,10 @@ section,.band-group{background:var(--ground);color:var(--ink);}
     </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="tone"><span class="tag">Tone and core thematic framework</span><h2>Universal core themes</h2></div>
     <p>— the trilogy works eight themes in counterpoint, all of which must remain audible in the background of any individual chapter:</p>
     <ul><li><b>Unity versus division:</b> can empathy scale across realities?</li><li><b>The evolution of consciousness:</b> grappling with distributed, multi-state awareness.</li><li><b>Love as a quantum force:</b> literal resonance shaping quantum outcomes.</li><li><b>Technology and nature:</b> integrative versus extractive approaches.</li><li><b>Sacrifice and transcendence:</b> what is willingly given up, and whether giving it up transforms the giver.</li><li><b>Consciousness as contagion and antidote:</b> authentic versus hollow empathy.</li><li><b>Ordinary work as essential heroism:</b> logistics, paperwork, and maintenance as load-bearing.</li><li><b>Documentation as survival:</b> keeping true records as a moral obligation.</li></ul>
+    <p style="margin-top:18px;"><b>The spine beneath the themes.</b> The themes above are what the trilogy is about. What drives it is narrower and older: two civilisations, the same question, opposite answers, and the second civilisation arriving at the question without knowing the first one exists. Every escalation in the plot is a version of the coercive answer being tried again — by a bloc, by a programme, by a person convinced the shortcut is justified this time — and every act of repair is a version of the other one. This is why the parasite is not an enemy with intentions and is never written as one: the antagonist is a choice that keeps being available, and the Hollow Infinite is only what that choice leaves behind. It is also why the ending is a transformation rather than a victory. Nothing is defeated. The second answer is chosen deliberately, at scale, by people who finally know what the first one costs — which is the one outcome the first civilisation never reached, and the whole reason its survivors left the Preserve where it could be found.</p>
+    <p style="margin-top:18px;"><b>Why the merge, and the case against it.</b> The merge is not an instrument the story reaches for. It is the same act as the crime. The first civilisation joined consciousness at scale and was destroyed by it; the hardliner programme is doing it now to people who did not agree; and the work at Luna Haven is the identical physical act, on the same physics, in the same architecture, differing in one property only — that the participants said yes. The weapon&#x27;s own designer states the problem exactly: at the level of physics there is no difference between restoring a native state and imposing a foreign one, the hardware cannot tell them apart, and intent is not a property the field measures. She takes this to mean the moral difference is a story operators tell themselves. The merge is the experiment that tests her. If a consented joining holds where coerced ones annihilate, then consent is not sentiment but a structural property of the substrate — which is what it means to say that empathy is physics. Nothing else in the trilogy tests that claim, which is why nothing else can stand in the merge&#x27;s place.</p>
+    <p><b>The necessity, in three layers.</b> The parasite cannot be destroyed without destroying the substrate that carries it, so force is not available; the quarantine that has held it is failing on a measurable clock, so waiting is not available either; and the only remaining remedy is to give a pattern with no interior a stable, authentic relational structure to anchor in, which requires a collective large enough and real enough to hold it. Beneath that sits the harder necessity: the capability exists and cannot be un-invented, so the question was never whether consciousness would be joined but whether the first instance that succeeds is a consented one, because the first instance sets the template for every attempt after it. And beneath that, the deadline: the coercive instance is already running, and it is ahead.</p>
+    <p><b>The case against, which is never refuted.</b> Consent given under an extinction deadline may not be consent at all, and if it is not, the merge is hollow by construction and will reproduce precisely what it was built to prevent — the objection is a technical prediction of failure, not a scruple. The act is irreversible and gets one attempt. The entire evidentiary basis is the testimony of one side&#x27;s surviving partisans. A deeply joined collective is the largest attack surface a hollow pattern could be offered. And no one presently alive can consent on behalf of everyone who comes after, which is the part of the argument that has no answer. The trilogy does not resolve this into reassurance. The merge holds and the objection stands, preserved in the record beside the history that prompted it, because the first civilisation&#x27;s dissenters lost their argument and were left outside the disaster to build a warning, while this civilisation&#x27;s dissenter loses hers from inside the room — and so the warning she leaves is a document rather than a world.</p>
 
     
     </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="population"><h2>Earth's population and geography</h2></div>
@@ -818,12 +820,6 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 const hb = document.querySelector('.hamburger');
 const mm = document.querySelector('.mobile-menu');
 if (hb) { hb.addEventListener('click', () => { hb.classList.toggle('open'); mm.classList.toggle('open'); }); }
-const navEl = document.querySelector('nav');
-if (navEl) {
-  const onScroll = () => navEl.classList.toggle('scrolled', window.scrollY > 8);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-}
 const backToTop = document.getElementById('back-to-top');
 if (backToTop) {
   const toggleBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 500);
