@@ -64,12 +64,13 @@ nav.scrolled{background:rgba(10,10,10,0.92);padding:13px var(--gutter);
   box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);border-bottom-color:rgba(255,255,255,0.14);}
 .back-to-top{position:fixed;right:var(--gutter);bottom:28px;z-index:190;
   width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
-  background:rgba(10,10,10,0.72);border:1px solid var(--hairline);color:var(--ink);
+  background:#087DC2;border:none;color:#FFFFFF;
+  box-shadow:0 10px 28px -12px rgba(0,0,0,0.55);
   cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);
-  transition:opacity .3s ease,transform .3s ease,background .3s ease,border-color .3s ease;}
+  transition:opacity .3s ease,transform .3s ease,background .3s ease;}
 .back-to-top.visible{opacity:1;pointer-events:all;transform:translateY(0);}
-.back-to-top:hover{background:rgba(10,10,10,0.92);border-color:rgba(255,255,255,0.14);}
+.back-to-top:hover{background:#D93D4A;}
+.back-to-top:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
 .back-to-top svg{width:20px;height:20px;}
 @media(max-width:640px){.back-to-top{bottom:20px;width:46px;height:46px;}}
 .logo{display:flex;align-items:center;text-decoration:none;}
@@ -693,7 +694,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   
     <div class="chapnav">
       <a class="prev" href="chapter-38.html"><span class="dir">&larr; Previous chapter</span><span class="t">Chapter 38 &mdash; Hidden Offensives</span></a>
-      <span style="flex:1 1 240px;"></span>
+      <a class="next" href="chapter-40.html"><span class="dir">Next chapter &rarr;</span><span class="t">Chapter 40 &mdash; Warnings from the Martian Preserve</span></a>
     </div>
 </section>
 
