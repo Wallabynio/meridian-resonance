@@ -190,6 +190,15 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
+.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
+.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;
+  object-fit:cover;max-height:min(58vh,620px);}
+.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
+.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
+  border-radius:14px 14px 0 0;}
+.art-card img{max-height:230px;}
+@media(max-width:900px){.art-card img{max-height:200px;}}
+@media(max-width:640px){.art-banner img{max-height:44vh;}.art-card img{max-height:170px;}}
 .band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
 .band.bloc{opacity:0.85;}
 .card-dark,.chapter-block .anchors,.law-card,.ch-card,
@@ -605,6 +614,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <a href="characters.html">Characters</a>
 <a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
+<figure class="art-banner art-bleed"><img src="art/book-2-resonant-faultlines-1600.webp" srcset="art/book-2-resonant-faultlines-960.webp 960w, art/book-2-resonant-faultlines-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Resonant Faultlines — the image of the book&#x27;s central movement." loading="eager" fetchpriority="high"></figure>
 <div class="page-hero">
   <div class="page-glow"></div>
   <span class="tag">Chapter Outlines</span><h1>Book 2 &middot; Resonant Faultlines</h1>
@@ -659,6 +669,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   
     <div class="band-group">
       <div class="wrap">
+      <figure class="art-banner art-band"><img src="art/act-4-1600.webp" srcset="art/act-4-960.webp 960w, art/act-4-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 4: Coalition-Building Under Pressure." loading="lazy" decoding="async"></figure>
       <div class="act-head"><span class="ghost" aria-hidden="true">4</span><span class="tag">Act 4 &middot; Chapters 31&ndash;40</span><h2>Coalition-Building Under Pressure</h2></div>
       
       <div class="chapter-block" id="ch31">
@@ -787,6 +798,7 @@ through documented strain (pacing note Ch 38/43 .</div>
     </div>
     <div class="band-group">
       <div class="wrap">
+      <figure class="art-banner art-band"><img src="art/act-5-1600.webp" srcset="art/act-5-960.webp 960w, art/act-5-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 5: Theory Consolidation and Physical Proof." loading="lazy" decoding="async"></figure>
       <div class="act-head"><span class="ghost" aria-hidden="true">5</span><span class="tag">Act 5 &middot; Chapters 41&ndash;50</span><h2>Theory Consolidation and Physical Proof</h2></div>
       
       <div class="chapter-block" id="ch41">
@@ -919,6 +931,7 @@ narrative content. Léa&#x27;s method identified as the only instrument that can
     </div>
     <div class="band-group">
       <div class="wrap">
+      <figure class="art-banner art-band"><img src="art/act-6-1600.webp" srcset="art/act-6-960.webp 960w, art/act-6-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 6: Temporary Truce, Naming, and Political Reorganisation." loading="lazy" decoding="async"></figure>
       <div class="act-head"><span class="ghost" aria-hidden="true">6</span><span class="tag">Act 6 &middot; Chapters 51&ndash;60</span><h2>Temporary Truce, Naming, and Political Reorganisation</h2></div>
       
       <div class="chapter-block" id="ch51">

@@ -190,6 +190,15 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
+.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
+.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;
+  object-fit:cover;max-height:min(58vh,620px);}
+.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
+.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
+  border-radius:14px 14px 0 0;}
+.art-card img{max-height:230px;}
+@media(max-width:900px){.art-card img{max-height:200px;}}
+@media(max-width:640px){.art-banner img{max-height:44vh;}.art-card img{max-height:170px;}}
 .band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
 .band.bloc{opacity:0.85;}
 .card-dark,.chapter-block .anchors,.law-card,.ch-card,
@@ -636,6 +645,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <section>
   <div class="wrap">
       <div class="card-dark card-hover reveal " id="book1" style="margin-bottom:26px;">
+        <figure class="art-banner art-card"><img src="art/book-1-fractured-horizons-1600.webp" srcset="art/book-1-fractured-horizons-960.webp 960w, art/book-1-fractured-horizons-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Fractured Horizons — the image of the book&#x27;s central movement." loading="lazy" decoding="async"></figure>
         <div class="accent-bar"></div>
         <span class="tag">Book 1 &middot; Acts 1&ndash;3 &middot; Chapters 1&ndash;30</span>
         <h3>Fractured Horizons</h3>
@@ -664,6 +674,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
         <a class="btn-card" style="margin-top:22px;" href="book1.html">Open Book 1 treatment &rarr;</a>
       </div>
       <div class="card-dark card-hover reveal " id="book2" style="margin-bottom:26px;">
+        <figure class="art-banner art-card"><img src="art/book-2-resonant-faultlines-1600.webp" srcset="art/book-2-resonant-faultlines-960.webp 960w, art/book-2-resonant-faultlines-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Resonant Faultlines — the image of the book&#x27;s central movement." loading="lazy" decoding="async"></figure>
         <div class="accent-bar"></div>
         <span class="tag">Book 2 &middot; Acts 4&ndash;6 &middot; Chapters 31&ndash;60</span>
         <h3>Resonant Faultlines</h3>
@@ -691,6 +702,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
         <a class="btn-card" style="margin-top:22px;" href="book2.html">Open Book 2 treatment &rarr;</a>
       </div>
       <div class="card-dark card-hover reveal " id="book3" style="margin-bottom:26px;">
+        <figure class="art-banner art-card"><img src="art/book-3-harmonic-worlds-1600.webp" srcset="art/book-3-harmonic-worlds-960.webp 960w, art/book-3-harmonic-worlds-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Harmonic Worlds — the image of the book&#x27;s central movement." loading="lazy" decoding="async"></figure>
         <div class="accent-bar"></div>
         <span class="tag">Book 3 &middot; Acts 7&ndash;9 &middot; Chapters 61&ndash;90</span>
         <h3>Harmonic Worlds</h3>

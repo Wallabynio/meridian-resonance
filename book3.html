@@ -190,6 +190,15 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
+.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
+.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;
+  object-fit:cover;max-height:min(58vh,620px);}
+.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
+.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
+  border-radius:14px 14px 0 0;}
+.art-card img{max-height:230px;}
+@media(max-width:900px){.art-card img{max-height:200px;}}
+@media(max-width:640px){.art-banner img{max-height:44vh;}.art-card img{max-height:170px;}}
 .band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
 .band.bloc{opacity:0.85;}
 .card-dark,.chapter-block .anchors,.law-card,.ch-card,
@@ -605,6 +614,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <a href="characters.html">Characters</a>
 <a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
+<figure class="art-banner art-bleed"><img src="art/book-3-harmonic-worlds-1600.webp" srcset="art/book-3-harmonic-worlds-960.webp 960w, art/book-3-harmonic-worlds-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Harmonic Worlds — the image of the book&#x27;s central movement." loading="eager" fetchpriority="high"></figure>
 <div class="page-hero">
   <div class="page-glow"></div>
   <span class="tag">Chapter Outlines</span><h1>Book 3 &middot; Harmonic Worlds</h1>
@@ -651,6 +661,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   
     <div class="band-group">
       <div class="wrap">
+      <figure class="art-banner art-band"><img src="art/act-7-1600.webp" srcset="art/act-7-960.webp 960w, art/act-7-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 7: Inheritance, Preparation, and Moral Framing." loading="lazy" decoding="async"></figure>
       <div class="act-head"><span class="ghost" aria-hidden="true">7</span><span class="tag">Act 7 &middot; Chapters 61&ndash;70</span><h2>Inheritance, Preparation, and Moral Framing</h2></div>
       
       <div class="chapter-block" id="ch61">
@@ -757,6 +768,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
     </div>
     <div class="band-group">
       <div class="wrap">
+      <figure class="art-banner art-band"><img src="art/act-8-1600.webp" srcset="art/act-8-960.webp 960w, art/act-8-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 8: Siege, Contact, and Boundary Testing." loading="lazy" decoding="async"></figure>
       <div class="act-head"><span class="ghost" aria-hidden="true">8</span><span class="tag">Act 8 &middot; Chapters 71&ndash;80</span><h2>Siege, Contact, and Boundary Testing</h2></div>
       
       <div class="chapter-block" id="ch71">
@@ -863,6 +875,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
     </div>
     <div class="band-group">
       <div class="wrap">
+      <figure class="art-banner art-band"><img src="art/act-9-1600.webp" srcset="art/act-9-960.webp 960w, art/act-9-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 9: Integration, Accountability, and the Long Work." loading="lazy" decoding="async"></figure>
       <div class="act-head"><span class="ghost" aria-hidden="true">9</span><span class="tag">Act 9 &middot; Chapters 81&ndash;90</span><h2>Integration, Accountability, and the Long Work</h2></div>
       
       <div class="chapter-block" id="ch81">

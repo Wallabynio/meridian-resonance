@@ -233,6 +233,15 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
+.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
+.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;
+  object-fit:cover;max-height:min(58vh,620px);}
+.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
+.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
+  border-radius:14px 14px 0 0;}
+.art-card img{max-height:230px;}
+@media(max-width:900px){.art-card img{max-height:200px;}}
+@media(max-width:640px){.art-banner img{max-height:44vh;}.art-card img{max-height:170px;}}
 .band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
 .band.bloc{opacity:0.85;}
 .card-dark,.chapter-block .anchors,.law-card,.ch-card,
@@ -648,6 +657,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <a href="characters.html">Characters</a>
 <a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
+<figure class="art-banner art-bleed"><img src="art/hero-locations-1600.webp" srcset="art/hero-locations-960.webp 960w, art/hero-locations-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Locations — the page&#x27;s opening image." loading="eager" fetchpriority="high"></figure>
 <div class="page-hero">
   <div class="page-glow"></div>
   <span class="tag">Environmental Codex</span><h1>Locations</h1>
