@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design — Meridian Resonance</title>
+<meta name="description" content="Design references for Meridian Resonance: the built environment, wardrobe and objects of 2087.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Meridian"><meta name="robots" content="noindex, nofollow">
+<style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{
+  --black:#000000; --white:#FFFFFF; --paper:#FFFFFF;
+  --grey:#404040;
+  --grey-d:var(--grey); --grey-l:var(--grey); --anthracite:var(--grey);
+  --hairline:var(--grey); --card-hairline:var(--grey);
+  --ground:#FFFFFF;
+  --surface:var(--grey); --surface-2:var(--grey);
+  --surface-ink:#FFFFFF;
+  --cu:#A8692A; --sc:#427AB8; --la:#947238; --lh:#298578; --mp:#CC4F27; --mp2:#427AB8;
+  --tz:#57824E; --um:#9267AB;
+  --earth:#087DC2; --mars:#D93D4A;
+  --acc:#087DC2;
+  --ns:var(--grey);
+  --accent:var(--grey);
+  --ink:#000000;
+  --accent-text:var(--ink);
+  --nav-h:65px;
+  --gutter:clamp(20px,5.5vw,88px);
+  --band-y:clamp(64px,7.5vw,110px);
+  --band-y-tight:calc(var(--band-y) * 0.8);
+  --flow:clamp(14px,1.6vw,22px);
+  --flow-lg:clamp(26px,3vw,40px);
+  --pad-box:clamp(20px,2.2vw,30px);
+  --pad-row:clamp(13px,1.3vw,18px);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
+.anchor-nav.sticky,.dash-tabs,
+.mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
+img,svg,video,iframe,table,pre{max-width:100%;}
+p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
+body{background:var(--ground);color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  -webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+::selection{background:var(--earth);color:#FFFFFF;}
+p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
+.serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--nav-h);box-sizing:border-box;
+  display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
+  background:var(--black);border-bottom:1px solid rgba(255,255,255,0.14);
+  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);}
+.back-to-top{position:fixed;right:var(--gutter);bottom:28px;z-index:190;
+  width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#087DC2;border:none;color:#FFFFFF;
+  box-shadow:0 10px 28px -12px rgba(0,0,0,0.55);
+  cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .3s ease,transform .3s ease,background .3s ease;}
+.back-to-top.visible{opacity:1;pointer-events:all;transform:translateY(0);}
+.back-to-top:hover{background:#D93D4A;}
+.back-to-top:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+.back-to-top svg{width:20px;height:20px;}
+@media(max-width:640px){.back-to-top{bottom:20px;width:46px;height:46px;}}
+.logo{display:flex;align-items:center;text-decoration:none;}
+.logo-svg{display:block;height:38px;width:auto;}
+.footer-logo{display:inline-block;text-decoration:none;}
+.footer-logo .logo-svg{height:130px;}
+.mr-spark{mix-blend-mode:screen;}
+@media (prefers-reduced-motion:reduce){.mr-spark{display:none}}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none;}
+.nav-links a{color:var(--white);text-decoration:none;font-size:14.5px;font-weight:500;
+  opacity:0.78;transition:opacity .25s ease;letter-spacing:0.01em;}
+.nav-links a:hover,.nav-links a.active{opacity:1;color:var(--earth);}
+.nav-links li.has-sub{position:relative;}
+.sub-caret{margin-left:5px;font-size:10px;opacity:.65;}
+.nav-sub{position:absolute;top:100%;left:-14px;min-width:196px;margin-top:14px;
+  padding:calc(var(--pad-row) * .5) 0;list-style:none;background:var(--black);
+  border:1px solid rgba(255,255,255,0.14);border-radius:14px;
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .18s ease,transform .18s ease,visibility .18s ease;}
+.nav-links li.has-sub:hover>.nav-sub,
+.nav-links li.has-sub:focus-within>.nav-sub{opacity:1;visibility:visible;
+  transform:translateY(0);}
+.nav-sub::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px;}
+.nav-sub a{display:block;padding:9px 18px;font-size:14px;white-space:nowrap;}
+.mobile-menu a.sub{font-size:clamp(1rem,3.2vw,1.3rem);font-weight:500;
+  padding:5px 0;opacity:.72;}
+.nav-cta{background:var(--mars);color:#FFFFFF !important;padding:9px 20px !important;border-radius:100px;
+  font-weight:700 !important;opacity:1 !important;font-family:'Space Grotesk',sans-serif;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1) !important;}
+.nav-cta:hover{transform:translateY(-2px);color:#000000 !important;}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
+  cursor:pointer;padding:6px;background:none;border:none;z-index:300;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);
+  border-radius:2px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{position:fixed;inset:0;z-index:150;background:rgba(10,10,10,0.98);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .4s ease;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{color:var(--white);text-decoration:none;font-weight:700;
+  font-size:clamp(1.6rem,6vw,2.6rem);padding:14px 0;transition:color .2s ease;}
+.mobile-menu a:hover{color:var(--earth);}
+.triband{height:4px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));}
+section{padding:var(--band-y) var(--gutter);}
+section.band-host{padding:0;}
+section.band-host > :not(.band-group):not(.anchor-nav){
+  padding:var(--band-y-tight) var(--gutter);}
+.wrap{max-width:1180px;margin:0 auto;}
+.section-head{text-align:center;max-width:620px;margin:0 auto 64px;}
+h2{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;
+  font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.2;color:var(--ink);}
+h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;line-height:1.3;color:var(--ink);margin-bottom:8px;}
+h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--accent-text);margin:20px 0 8px;}
+p,li{line-height:1.7;}
+p{margin-bottom:1.5em;}
+p:last-child{margin-bottom:0;}
+.tag,.bloc-pill,.ch-num,.footer-nav-title,.law-item .n,.timeline-item .date,.hero .eyebrow{
+  font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
+.tag{display:block;margin-bottom:14px;color:var(--accent-text);}
+.meta,.chapter-block .tagline,.anchor-nav a{
+  font-size:13px;}
+.hero p.lede,.page-hero p,.section-head p{
+  font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--ink);font-family:'Inter',sans-serif;margin-top:18px;}
+.hero{min-height:78vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;position:relative;overflow:hidden;
+  padding:calc(var(--band-y) + 60px) var(--gutter) var(--band-y-tight);}
+.hero .eyebrow{margin-bottom:20px;}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.4rem,7vw,5.2rem);letter-spacing:-0.035em;line-height:1.04;max-width:960px;color:var(--ink);}
+@supports ((background-clip:text) or (-webkit-background-clip:text)){
+  .hero h1{width:fit-content;margin-left:auto;margin-right:auto;
+    background-image:linear-gradient(90deg,var(--earth) 0%,var(--mars) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;}}
+.hero p.lede{max-width:620px;margin-left:auto;margin-right:auto;}
+.hero-byline{margin-top:22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;
+  letter-spacing:0.02em;color:var(--ink);}
+.hero-byline span{color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--mars);padding-bottom:1px;}
+.page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
+.hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
+.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
+  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
+.globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
+.globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
+.globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
+.globe-coast{fill:none;stroke:#CDEBFF;stroke-width:1.15;opacity:0.78;stroke-linejoin:round;filter:drop-shadow(0 0 2px rgba(120,200,255,.5));}
+#aurora .aur{mix-blend-mode:screen;filter:blur(8px);}
+#aurora .aur1{animation:aur-breathe 13s ease-in-out infinite;}
+#aurora .aur2{animation:aur-breathe 17s ease-in-out infinite;}
+#aurora .aur3{animation:aur-breathe 15s ease-in-out infinite;}
+@keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
+#globeSpec{opacity:.75;}
+#globeFresnel{opacity:.9;}
+.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
+.globe-dot-glow{filter:blur(7px);}
+.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
+text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
+  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
+text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
+  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
+.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
+.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
+.lat-node{fill:var(--globe-line);}
+.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
+.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
+@keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
+.globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
+@keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
+@media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
+@media(max-width:640px){.globe-stage{max-width:none;}}
+.page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;position:relative;overflow:hidden;background:var(--black);
+  --ink:#FFFFFF;--accent-text:var(--ink);
+  padding:calc(var(--band-y) + 44px) var(--gutter) var(--band-y-tight);}
+.page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
+.page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
+.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
+.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;}
+.art-bleed{margin-top:var(--nav-h);}
+.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
+.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
+  border-radius:14px 14px 0 0;}
+.art-banner.art-card ~ .ghost{top:auto;}
+.band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
+.band.bloc{opacity:0.85;}
+.card-dark,.chapter-block .anchors,.law-card,.ch-card,
+.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a{
+  background:var(--black);border-radius:14px;padding:var(--pad-box);
+  --grey:#BFBFBF;border:1px solid var(--grey);
+  --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
+  --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
+:where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a) :where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a){
+  background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
+  --accent-text:var(--ink);color:var(--ink);}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
+.bloc-card{position:relative;overflow:hidden;}
+.bloc-card::before{content:'';position:absolute;inset:-40% -40% auto auto;width:70%;height:70%;
+  background:radial-gradient(circle,color-mix(in srgb, var(--accent) 30%, transparent) 0%,transparent 72%);
+  opacity:0;transition:opacity .4s ease;pointer-events:none;}
+.bloc-card:hover::before{opacity:1;}
+.bloc-card .accent-bar{transition:width .35s cubic-bezier(.2,.8,.2,1);}
+.bloc-card:hover .accent-bar{width:72px;}
+section .wrap > p{margin-bottom:28px;}
+.bloc-cu{--accent:var(--cu);}
+.bloc-sc{--accent:var(--sc);}
+.bloc-la{--accent:var(--la);}
+.bloc-lh{--accent:var(--lh);}
+.bloc-mp{--accent:var(--mp);}
+.bloc-ns{--accent:var(--ns);}
+.bloc-tz{--accent:var(--tz);}
+.bloc-um{--accent:var(--um);}
+.tier-protagonist{--accent:var(--grey);}
+.tier-antagonist{--accent:var(--grey);}
+.tier-deuteragonist{--accent:var(--grey);}
+.tier-secondary{--accent:var(--grey);}
+.tier-minor{--accent:var(--grey);}
+.tier-anchor{--accent:var(--grey);}
+.tier-recurring{--accent:var(--grey);}
+.tier-site{--accent:var(--grey);}
+.accent-bar{height:3px;width:44px;background:var(--accent);border-radius:2px;margin-bottom:16px;}
+.bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
+  background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
+.grid{display:grid;gap:26px;}
+.grid,.law-grid,.gloss-grid,.ch-grid,.gtree-grid{
+  margin-block:var(--flow-lg);}
+.grid>*,.law-grid>*,.gloss-grid>*,.ch-grid>*,.gtree-grid>*{
+  margin-block:0;}
+.wrap>.card-dark{margin-block:var(--flow-lg);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.bloc-pill.mode-state{background:var(--ground);border:2px solid var(--grey);
+  color:var(--grey);padding:3px 10px;}
+.globe-caption{text-align:center;color:var(--ink);font-size:13px;line-height:1.7;
+  max-width:600px;margin:22px auto 0;padding:0 var(--gutter);}
+.stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
+  border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:44px 0;}
+.stat{text-align:center;}
+.stat .n{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;
+  font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1;color:var(--ink);}
+.stat.teal .n{color:var(--accent-text);}
+.stat .l{margin-top:9px;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
+@media(max-width:900px){.stat-band{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:560px){.stat-band{grid-template-columns:repeat(2,1fr);gap:28px 18px;}}
+.progress-band{padding:var(--band-y-tight) var(--gutter);}
+.progress-band .progress-row{margin-top:0;}
+.progress-row{max-width:720px;margin:44px auto 0;text-align:center;}
+.progress-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--earth),var(--mars));
+  transition:width 1.4s cubic-bezier(.2,.8,.2,1) .3s;}
+.reveal.visible .progress-fill{width:var(--w);}
+.progress-row .cap{margin-top:13px;font-size:13px;color:var(--ink);}
+.home-split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
+.home-split .section-head{text-align:left;margin:0;max-width:none;}
+.home-split .btn-group{justify-content:flex-start;}
+@media(max-width:900px){.home-split{grid-template-columns:1fr;gap:40px;}}
+.latest-card{--accent:var(--grey);text-decoration:none;display:block;}
+.latest-card .ch-num{color:var(--ink);display:block;margin-bottom:10px;}
+.latest-card .read-on{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--mars);}
+  font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
+.book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
+  display:block;margin-bottom:10px;}
+.book-card .bloc-pill{margin-top:14px;}
+.scroll-cue{margin-top:44px;opacity:0.45;animation:cue-bob 2.4s ease-in-out infinite;color:var(--ink);}
+.scroll-cue svg{width:22px;height:22px;display:block;}
+@keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+.hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
+.hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
+  font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.04em;color:#000000;}
+.hero-stats .hs b{color:#000000;font-weight:700;}
+.anchor-nav.sticky{position:sticky;top:var(--nav-h);z-index:100;background:var(--ground);
+  padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
+.anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
+.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+@media(max-width:800px){.law-grid{grid-template-columns:1fr;}}
+.law-card{position:relative;overflow:hidden;transition:border-color .3s ease,transform .3s ease;}
+.law-card > *:not(.ghost){position:relative;z-index:1;}
+.law-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
+.ghost{position:absolute;pointer-events:none;user-select:none;z-index:0;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1;
+  color:var(--grey);}
+.law-card .ghost{top:0;right:8px;font-size:96px;}
+.ch-card{position:relative;overflow:hidden;}
+.ch-card > *:not(.ghost){position:relative;z-index:1;}
+.ch-card .ghost{top:0;right:6px;font-size:64px;}
+.act-head{position:relative;overflow:hidden;}
+.act-head > *:not(.ghost){position:relative;z-index:1;}
+.act-head .ghost{top:0;right:0;font-size:68px;letter-spacing:-0.03em;}
+.timeline-item{position:relative;overflow:hidden;}
+.timeline-item > *:not(.ghost){position:relative;z-index:1;}
+.timeline-item .ghost{top:50%;transform:translateY(-50%);left:0;width:112px;
+  text-align:right;font-size:44px;}
+.book-card{position:relative;overflow:hidden;}
+.book-card > *:not(.ghost){position:relative;z-index:1;}
+.book-card .ghost{top:0;right:10px;font-size:88px;}
+.book-placeholder{background:#BFBFBF;--ink:#000000;--accent-text:var(--ink);color:var(--ink);}
+@media(max-width:600px){
+  .law-card .ghost{font-size:68px;}
+  .book-card .ghost{font-size:64px;}
+  .act-head .ghost{font-size:60px;}
+  .ch-card .ghost{font-size:48px;}
+}
+.law-card .n{color:var(--accent-text);display:block;margin-bottom:8px;}
+.law-card h3{margin-bottom:8px;}
+.law-card p{color:var(--ink);margin-bottom:0;}
+.tl-wrap{position:relative;padding-left:28px;}
+.tl-wrap::before{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--hairline);}
+.tl-wrap .timeline-item{position:relative;border-bottom:none;padding:var(--pad-row) 0;}
+.tl-wrap .timeline-item::before{content:'';position:absolute;left:-25.5px;top:25px;width:8px;height:8px;
+  border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(166,166,166,0.45);}
+.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:800px){.gloss-grid{grid-template-columns:1fr;}}
+.gloss-grid .gloss-item{margin:0;transition:border-color .3s ease;}
+.gloss-grid .gloss-item:hover{border-color:color-mix(in srgb, var(--accent) 45%, transparent);}
+.pacing-row{display:flex;gap:14px;align-items:flex-start;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
+.pacing-row .chip{flex:0 0 auto;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
+  letter-spacing:0.05em;color:var(--accent-text);border:1px solid color-mix(in srgb, var(--accent) 45%, var(--ground));
+  padding:4px 11px;border-radius:100px;margin-top:2px;white-space:nowrap;}
+.pacing-row p{color:var(--ink);margin:0;font-size:15.5px;line-height:1.7;}
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.ch-grid{grid-template-columns:1fr;}}
+.ch-card{display:block;text-decoration:none;transition:transform .3s ease,border-color .3s ease;
+  position:relative;overflow:hidden;}
+.ch-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
+.ch-card .ch-num{color:var(--accent-text);display:block;margin-bottom:8px;}
+.ch-card h3{font-size:17px;margin-bottom:8px;}
+.ch-card .go{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12.5px;color:var(--accent-text);}
+.ch-card.latest{border-color:var(--earth);
+  background:color-mix(in srgb, var(--earth) 8%, var(--ground));}
+.ch-card .latest-pill{position:absolute;top:56px;right:12px;z-index:2;
+  background:var(--mars);color:#FFFFFF;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;
+  letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:100px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.35);}
+.ch-card.latest h3{padding-right:74px;}
+@media(max-width:600px){
+  .ch-card .latest-pill{top:44px;}
+  .ch-card.latest h3{padding-right:70px;}
+}
+.bp-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:16px;}
+.bp-fill{height:100%;background:linear-gradient(90deg,var(--earth),var(--mars));border-radius:3px;}
+.chapnav{display:flex;justify-content:space-between;gap:14px;max-width:700px;margin:56px auto 0;flex-wrap:wrap;}
+.chapnav a{flex:1 1 240px;text-decoration:none;transition:border-color .3s ease;}
+.chapnav a:hover{border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
+.chapnav .dir{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.07em;
+  text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
+.chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
+.chapnav a.next{text-align:right;}
+.act-head[id],.entry-block[id],.chapter-block[id],.territory-head[id],.gloss-item[id]{scroll-margin-top:150px;}
+.btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
+  font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
+.btn-primary:hover{transform:translateY(-3px);}
+.btn-outline{background:var(--ground);color:var(--ink);border:1.5px solid var(--hairline);
+  padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
+  font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
+.btn-outline:hover{background:var(--surface-2);}
+.btn-card{background:var(--accent);color:var(--ground);border:none;padding:12px 26px;border-radius:100px;
+  font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  font-family:'Space Grotesk',sans-serif;transition:.3s cubic-bezier(.2,.8,.2,1);}
+.btn-card:hover{transform:translateY(-3px);filter:brightness(1.08);}
+.btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.chapter-block{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:46px;}
+.chapter-block h3{margin:6px 0 6px;}
+.chapter-block .tagline{margin-bottom:14px;font-style:italic;}
+.chapter-block p{color:var(--ink);}
+.chapter-block .anchors{margin-top:14px;padding:var(--pad-box);font-size:14px;}
+.chapter-block .anchors p{color:var(--ink);margin-bottom:0;}
+.chapter-block .anchors b{color:var(--ink);}
+.act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
+.act-head .tag{margin-bottom:6px;}
+.ms-status{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:700;
+  letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);}
+.ms-status.ms-drafted{color:var(--accent-text);}
+.ms-status a{color:var(--earth);text-decoration:underline;}
+.manuscript-wrap{max-width:700px;margin:0 auto;}
+.manuscript-wrap p{font-size:17.5px;line-height:1.85;color:var(--ink);margin-bottom:24px;}
+.scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
+  margin:56px 0 30px;}
+.scene-header:first-of-type{margin-top:8px;}
+.scene-plate,.scene-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;
+  margin:36px 0;display:block;object-fit:cover;border:3px solid var(--accent);
+  background:var(--surface);}
+.scene-placeholder{display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb, var(--accent) 22%, var(--surface));
+  color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:600;
+  font-size:14px;text-transform:uppercase;letter-spacing:0.04em;text-align:center;
+  padding:var(--pad-row);}
+.manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
+.entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
+.entry-block h3{margin-bottom:4px;}
+.entry-block .meta{margin-bottom:16px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
+.entry-block p{color:var(--ink);}
+details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
+details.story-panel{margin-top:22px;padding:0;overflow:hidden;}
+a.bloc-pill{text-decoration:none;}
+.design-links{font-size:14px;max-width:760px;margin-top:var(--flow);}
+.design-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
+.sp-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
+.sp-body h3,.sp-body h4{margin-top:var(--flow-lg);margin-bottom:calc(var(--flow) * .5);}
+.sp-body>h3:first-child{margin-top:0;}
+.story-panel summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
+  list-style:none;display:flex;align-items:center;gap:8px;}
+.story-panel summary::-webkit-details-marker{display:none;}
+.story-panel summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
+.story-panel[open] summary::before{transform:rotate(90deg);}
+.pd-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);
+  display:flex;flex-direction:column;gap:var(--pad-row);}
+.pd-body>*{margin:0;}
+.prompt-details summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
+  list-style:none;display:flex;align-items:center;gap:8px;}
+.prompt-details summary::-webkit-details-marker{display:none;}
+.demand-list{font-size:14px;padding-left:1.15em;}
+.demand-list li{margin:3px 0;}
+.demand-list-plain{list-style:none;padding-left:0;}
+.scope-note{color:var(--grey);font-size:14.5px;margin-top:calc(var(--flow) * -0.5);}
+.doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
+.doc-note{font-family:'Space Grotesk',sans-serif;font-size:11px;
+  letter-spacing:.08em;text-transform:none;color:var(--grey);white-space:nowrap;}
+.doc-table-wrap{overflow-x:auto;margin-block:var(--flow-lg);}
+.doc-table{border-collapse:collapse;width:100%;font-size:14px;}
+.doc-table th,.doc-table td{text-align:left;vertical-align:top;
+  padding:var(--pad-row) var(--pad-row);border-bottom:1px solid var(--hairline);}
+.queue{list-style:none;margin-block:var(--flow-lg);display:flex;
+  flex-direction:column;gap:14px;}
+.queue li{display:flex;gap:14px;align-items:baseline;}
+.q-tag{flex:0 0 62px;text-align:center;padding:3px 0;border-radius:100px;
+  font-family:'Space Grotesk',sans-serif;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;}
+.q-next{background:var(--earth);color:#FFFFFF;}
+.q-fix{background:var(--mars);color:#FFFFFF;}
+.q-ask{background:var(--grey);color:#000000;}
+.q-x b{display:block;font-weight:600;font-size:15.5px;}
+.q-x em{display:block;font-style:normal;font-size:13.5px;color:var(--grey);
+  margin-top:3px;}
+.chip-st{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
+.chip-st i{width:7px;height:7px;border-radius:100px;background:var(--grey);}
+.chip-st.is-ok i{background:var(--earth);}
+.chip-st.is-no i{background:var(--mars);}
+.ref-dl{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:13.5px;
+  margin-top:12px;}
+.ref-dl dt{color:var(--grey);}
+.meter{height:6px;border-radius:100px;background:var(--grey);margin-top:10px;
+  overflow:hidden;}
+.meter i{display:block;height:100%;background:var(--earth);border-radius:100px;}
+.meter-l{display:flex;justify-content:space-between;align-items:baseline;
+  font-size:13px;color:var(--ink);}
+.meter-l b{font-family:'Space Grotesk',sans-serif;font-size:19px;}
+.doc-table th{font-family:'Space Grotesk',sans-serif;font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
+.prompt-details .pd-file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:12px;color:var(--grey);}
+.prompt-details .pd-note{font-size:12px;color:var(--grey);}
+.prompt-details summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
+.prompt-details[open] summary::before{transform:rotate(90deg);}
+.prompt-details pre{margin:0;padding:0;font-family:'Inter',sans-serif;font-size:13px;
+  line-height:1.6;color:var(--ink);white-space:pre-wrap;word-break:break-word;
+  max-height:420px;overflow-y:auto;}
+.anchor-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:50px;}
+.anchor-nav a{font-weight:600;padding:7px 14px;border-radius:100px;white-space:nowrap;
+  background:var(--ground);border:1px solid var(--grey);color:var(--ink);text-decoration:none;transition:.2s ease;}
+.anchor-nav a:hover{border-color:var(--mars);color:var(--mars);}
+@media(max-width:760px){
+  .anchor-nav.sticky{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;gap:8px;touch-action:pan-x;background:var(--ground);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 30px),transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 30px),transparent);}
+  .anchor-nav.sticky::-webkit-scrollbar{display:none;}
+  .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
+}
+.law-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
+.law-item .n{color:var(--accent-text);}
+.law-item h3{margin:4px 0 8px;}
+.law-item p{color:var(--ink);}
+.timeline-item{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
+.timeline-item .date{color:var(--accent-text);}
+.timeline-item .label{font-weight:700;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;font-size:16px;}
+.timeline-item p{color:var(--ink);}
+.gloss-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
+.gloss-item dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink);}
+.gloss-item dd{color:var(--ink);}
+footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
+.footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
+.footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
+.footer-nav{display:flex;flex-direction:column;gap:10px;}
+.footer-nav-title{font-size:11.5px;font-weight:700;color:var(--ink);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
+.footer-nav a{color:var(--ink);text-decoration:none;font-size:14px;transition:color .2s ease;}
+.footer-nav a:hover{color:var(--white);}
+.footer-bottom{border-top:1px solid var(--hairline);padding-top:22px;margin-top:32px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:12.5px;color:var(--ink);}
+@media(max-width:900px){
+  .timeline-item .ghost{display:none;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .grid-3,.grid-4{grid-template-columns:1fr 1fr;}
+  .timeline-item{grid-template-columns:1fr;}
+}
+@media(max-width:420px){
+  .bloc-pill{font-size:10.5px;padding:5px 9px;letter-spacing:0.04em;}
+  .entry-block .meta{gap:6px;}
+  .footer-nav{gap:2px;}
+  .footer-nav a{padding:7px 0;}
+}
+@media(max-width:600px){
+  .grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}
+  .footer-inner{flex-direction:column;}
+}
+section,.band-group{background:var(--ground);color:var(--ink);}
+.band-group{padding:var(--band-y) var(--gutter);}
+.band-group + .band-group{padding-top:var(--band-y-tight);}
+.hero-stats .hs{color:#000000;}
+.cast-strip-outer,.loc-strip-outer{scrollbar-color:rgba(0,0,0,0.25) transparent;}
+.cast-strip-outer::-webkit-scrollbar-thumb,.loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);}
+.logo{color:#000000;}
+.logo .lg{color:var(--earth);}
+.bloc-cu .btn-card,.bloc-la .btn-card,.bloc-lh .btn-card{color:#000000;}
+.bloc-sc .btn-card,.bloc-mp .btn-card{color:#FFFFFF;}
+.bloc-cu{--accent:var(--cu);}
+.bloc-sc{--accent:var(--sc);}
+.bloc-la{--accent:var(--la);}
+.bloc-lh{--accent:var(--lh);}
+.bloc-mp{--accent:var(--mp);}
+.bloc-ns{--accent:var(--ns);}
+.bloc-tz{--accent:var(--tz);}
+.bloc-um{--accent:var(--um);}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 468 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Meridian Resonance">
+  <defs>
+    <path id="mrPathNav" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"/>
+    <linearGradient id="mrGradNav" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#087DC2"/><stop offset="0.26" stop-color="#3FA8E0"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#E8737D"/>
+      <stop offset="1" stop-color="#D93D4A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0,10) scale(0.80)">
+    <use xlink:href="#mrPathNav" href="#mrPathNav" fill="url(#mrGradNav)" opacity="0.62"/>
+    <circle class="mr-spark" r="2.8" fill="#3FA8E0" opacity="0">
+      <animateMotion dur="17s" begin="-0s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-0s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.1" fill="#FFFFFF" opacity="0">
+      <animateMotion dur="17s" begin="-4.25s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-4.25s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.6" fill="#E8737D" opacity="0">
+      <animateMotion dur="17s" begin="-8.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-8.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="1.9" fill="#3FA8E0" opacity="0">
+      <animateMotion dur="17s" begin="-12.75s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-12.75s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+  </g>
+  <text x="170" y="45" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="1.2" fill="#FFFFFF">MERIDIAN</text>
+  <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
+</svg></a>
+  <ul class="nav-links"><li><a href="world.html">World</a></li>
+<li class="has-sub"><a href="codex.html" class="active" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="design.html">Design</a></li></ul></li>
+<li><a href="locations.html">Locations</a></li>
+<li><a href="characters.html">Characters</a></li>
+<li><a href="books.html">Books</a></li>
+    <li><a href="manuscript.html" class="nav-cta">Manuscript &rarr;</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu"><a href="world.html">World</a>
+<a href="codex.html">Codex</a>
+<a class="sub" href="craft.html">Craft</a>
+<a class="sub" href="laws.html">Laws &amp; Codex</a>
+<a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
+<a class="sub" href="glossary.html">Glossary</a>
+<a class="sub" href="design.html">Design</a>
+<a href="locations.html">Locations</a>
+<a href="characters.html">Characters</a>
+<a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
+
+<div class="page-hero">
+  <div class="page-glow"></div>
+  <span class="tag">Design references</span><h1>Design</h1>
+  <p>How 2087 looks: the buildings and public places of every territory, what each territory wears, and the objects people carry.</p>
+  <div class="hero-stats">
+    <span class="hs"><b>28</b> places</span>
+    <span class="hs"><b>5</b> wardrobes</span>
+    <span class="hs"><b>10</b> objects</span>
+  </div>
+</div>
+<div class="triband"></div>
+<section class="band-host">
+<div class="anchor-nav sticky bleed">
+      <a href="#built-environment-luna-haven">Built environment</a>
+      <a href="#wardrobe">Wardrobe</a>
+      <a href="#objects">Objects</a>
+    </div>
+<div class="band-group"><div class="wrap"><div class="act-head" id="built-environment-luna-haven"><span class="tag">Built environment</span><h2>Luna Haven</h2></div><div id="district-vault-and-the-protected-skyline"><details class="story-panel"><summary>District vault and the protected skyline</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Public space / structure</td></tr><tr><td><b>Where</b></td><td>Luna Haven, Lunar Accord</td></tr><tr><td><b>Kept by</b></td><td>District assemblies; households</td></tr><tr><td><b>Function</b></td><td>The city&#x27;s great sealed districts: homes, terraces, water courts, gardens</td></tr><tr><td><b>Visual constants</b></td><td>A sealed lava-tube vault hundreds of metres across; grown-composite towers rising part-way to the roof, never touching the inner membrane; terraces down the flanks; a water court along the floor; teal ambient light banked for night</td></tr><tr><td><b>Variation</b></td><td>Vault span within the agreed bound (about 300–900 m); tower forms vary by district; cap-view terraces only where the vault reaches the surface</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Sintered-regolith ribs, grown composite, load-bearing glazing at the caps, living walls; compartment bulkheads; membrane and bulkhead crews</td></tr><tr><td><b>Meaning</b></td><td>Volume is the air reserve; a cap-view terrace is the colony&#x27;s scarce luxury; a bulkhead closes for a district, never a person</td></tr><tr><td><b>In the books</b></td><td>Book 2: Elena&#x27;s first full view; Ch 48 the bulkhead; Book 3 siege light</td></tr></tbody></table></div></div></details></div><div id="residential-loops-the-habitat-corridors"><details class="story-panel"><summary>Residential loops (the Habitat Corridors)</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Domestic interior / public space</td></tr><tr><td><b>Where</b></td><td>Luna Haven, Lunar Accord</td></tr><tr><td><b>Kept by</b></td><td>Households</td></tr><tr><td><b>Function</b></td><td>Where people live and pass through</td></tr><tr><td><b>Visual constants</b></td><td>Corridor-scale, living-walled in blue-green, residents passing rather than working; the mycorrhizal network visible and responsive</td></tr><tr><td><b>Variation</b></td><td>Width and finish by district age; stress discolouration when the walls are hurt</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Living walls, grown composite; wall maintenance crews</td></tr><tr><td><b>Meaning</b></td><td>The intimate scale of Luna Haven; arrivals live in the loops furthest from a cap</td></tr><tr><td><b>In the books</b></td><td>Ch 2 (first anomaly), Ch 18 (Mara)</td></tr></tbody></table></div></div></details></div><div id="the-dome-plazas-civic-bowl"><details class="story-panel"><summary>The Dome Plaza&#x27;s civic bowl</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Public space / civic</td></tr><tr><td><b>Where</b></td><td>Luna Haven, Lunar Accord</td></tr><tr><td><b>Kept by</b></td><td>Consultation and council</td></tr><tr><td><b>Function</b></td><td>Governing and deliberative centre</td></tr><tr><td><b>Visual constants</b></td><td>The largest civic bowl in the sealed lava-tube districts; every speaking position equal; bounded by living walls; the first Apollo flag in its vacuum case; one synthetic citizen among the gathering</td></tr><tr><td><b>Variation</b></td><td>Gathering size from a handful to thousands; the bowl itself never changes</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Grown composite, living walls; the flag case as the preserved landmark</td></tr><tr><td><b>Meaning</b></td><td>Equal standing made into architecture; where Kythara stands at Ch 77</td></tr><tr><td><b>In the books</b></td><td>Ch 77 (Kythara&#x27;s body; the presence rule), Ch 90 (Interplanetary Council)</td></tr></tbody></table></div></div></details></div><div id="the-surface-five-glazing-domes-nine-shaft-head-collars-radiator-fins-solar-fields"><details class="story-panel"><summary>The surface: five glazing domes, nine shaft-head collars, radiator fins, solar fields</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure</td></tr><tr><td><b>Where</b></td><td>Luna Haven, Lunar Accord</td></tr><tr><td><b>Kept by</b></td><td>Colony infrastructure</td></tr><tr><td><b>Function</b></td><td>The colony&#x27;s only surface evidence: light, heat rejection, power, transit</td></tr><tr><td><b>Visual constants</b></td><td>Five unequal pressurised domes in a crescent; nine flush shaft-head collars, radiator fins on six; tracking solar arrays; the maglev and transit apron; glazing as small deep ports in a ribbed pressure vessel</td></tr><tr><td><b>Variation</b></td><td>Dome sizes vary; fin and array layout follows the collars</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Self-healing composite, sintered regolith; radiator crews (rare EVA)</td></tr><tr><td><b>Meaning</b></td><td>Most of the colony is out of sight below: the iceberg</td></tr><tr><td><b>In the books</b></td><td>Lunar Dawn opens the caps</td></tr></tbody></table></div></div></details></div><div id="tether-reception"><details class="story-panel"><summary>Tether Reception</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Transport hub / threshold</td></tr><tr><td><b>Where</b></td><td>Luna Haven, Lunar Accord</td></tr><tr><td><b>Kept by</b></td><td>Arrivals</td></tr><tr><td><b>Function</b></td><td>The windowless deep transit space where arrivals enter</td></tr><tr><td><b>Visual constants</b></td><td>Windowless by design; the first room that does not measure the arrival</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Grown composite; arrivals staff</td></tr><tr><td><b>Meaning</b></td><td>The colony&#x27;s welcome is an absence of scanning</td></tr><tr><td><b>In the books</b></td><td>Ch 31, 36</td></tr></tbody></table></div></div></details></div></div></div><div class="band-group"><div class="wrap"><div class="act-head" id="built-environment-lunar-accord-earth"><span class="tag">Built environment</span><h2>Lunar Accord, Earth</h2></div><div id="mediterranean-seawall-district"><details class="story-panel"><summary>Mediterranean seawall district</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>Mediterranean Zone, Lunar Accord</td></tr><tr><td><b>Kept by</b></td><td>District assemblies</td></tr><tr><td><b>Function</b></td><td>Homes, markets, allotments, workshops behind the adaptive seawall</td></tr><tr><td><b>Visual constants</b></td><td>Sandstone-composite towers stepping back from the seawall in terraces, each terrace a market or garden; a public winter garden in the seawall&#x27;s mass; the Sagrada Família as the heritage peak; nothing emissive</td></tr><tr><td><b>Variation</b></td><td>Terrace forms and heights vary; every repair visible and excellent</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Thermal mass, courts, deep loggias; master repairers; repair rosters</td></tr><tr><td><b>Meaning</b></td><td>Rebuilt by people who intended to stay</td></tr><tr><td><b>In the books</b></td><td>Coastal Seawall and Sagrada Spire scenes</td></tr></tbody></table></div></div></details></div><div id="sydney-harbour-edge-district-hub-concourse-and-mast-plaza"><details class="story-panel"><summary>Sydney harbour-edge district, Hub concourse and mast plaza</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>Australasian Ring, Lunar Accord</td></tr><tr><td><b>Kept by</b></td><td>Sydney Hub; the tether</td></tr><tr><td><b>Function</b></td><td>Reception, the ascent, harbour life</td></tr><tr><td><b>Visual constants</b></td><td>Harbour-edge towers in timber-reinforced composite, living lattices translucent in direct sun; the Hub&#x27;s grown composite over a century-old steel frame in the retasked Opera House complex; the mast as the territory&#x27;s vertical; drowned suburbs as the honest margin</td></tr><tr><td><b>Variation</b></td><td>Tower forms vary; the mast and the Opera House never</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Timber composite, sandstone, living composite; warm morning light</td></tr><tr><td><b>Meaning</b></td><td>Every arrival passes through here</td></tr><tr><td><b>In the books</b></td><td>Ch 1 (Sydney Hub), Ch 35 (the ascent)</td></tr></tbody></table></div></div></details></div><div id="african-belt-slope-city-and-terrace-amphitheatres"><details class="story-panel"><summary>African Belt slope city and terrace amphitheatres</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>African Belt, Lunar Accord</td></tr><tr><td><b>Kept by</b></td><td>Nairobi Relay; districts</td></tr><tr><td><b>Function</b></td><td>Relay city beside the park</td></tr><tr><td><b>Visual constants</b></td><td>Rammed-earth and mycelium-composite towers on visible structural lattices, window bands cut through the mass; terraced agriculture beside them; Nairobi National Park unbroken</td></tr><tr><td><b>Variation</b></td><td>Tower heights and lattices vary; the park boundary never moves</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Earth and fungus as mass, insulation and finish around an engineered lattice</td></tr><tr><td><b>Meaning</b></td><td>The safest buildings are also the most beautiful</td></tr><tr><td><b>In the books</b></td><td>Nairobi Relay scenes; Ch 90</td></tr></tbody></table></div></div></details></div><div id="cool-halls"><details class="story-panel"><summary>Cool halls</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Public space</td></tr><tr><td><b>Where</b></td><td>All Accord Earth territories</td></tr><tr><td><b>Kept by</b></td><td>Districts; roster-keepers</td></tr><tr><td><b>Function</b></td><td>Heat refuge in the heat season</td></tr><tr><td><b>Visual constants</b></td><td>Deep thermal mass in rammed earth, sandstone composite and masonry; night-sky radiative cooling surfaces on the roofs; shaded courts</td></tr><tr><td><b>Variation</b></td><td>Size by district; evaporative cooling only in dry territories</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Mechanical cooling on the public energy ledger; roster-keepers</td></tr><tr><td><b>Meaning</b></td><td>The late arrival is never turned away</td></tr><tr><td><b>In the books</b></td><td>Heat Call scenes; the Belt&#x27;s heat networks in Book 3</td></tr></tbody></table></div></div></details></div></div></div><div class="band-group"><div class="wrap"><div class="act-head" id="built-environment-corporate-union"><span class="tag">Built environment</span><h2>Corporate Union</h2></div><div id="new-manhattan-the-atlantic-financial-spine-and-the-covered-terrace-decks"><details class="story-panel"><summary>New Manhattan: the Atlantic Financial Spine and the covered terrace decks</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>New Manhattan, Corporate Union</td></tr><tr><td><b>Kept by</b></td><td>Financial and model operators</td></tr><tr><td><b>Function</b></td><td>The covered city on the flood terraces</td></tr><tr><td><b>Visual constants</b></td><td>One linear megastructure that is seawall, pumping hall, cooling plant and transit spine; sculptural towers above the amber; covered terrace decks with pumping halls visible beneath glass floors; the uncovered seawall edge in sight of the drowned blocks</td></tr><tr><td><b>Variation</b></td><td>Tower silhouettes deliberately varied; never repetitive glass boxes</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Black PV glazing, mirrored lacquer, bio-reactor walls, grown stone at the bases; amber scan-light</td></tr><tr><td><b>Meaning</b></td><td>Covered inside, uncovered at the edge</td></tr><tr><td><b>In the books</b></td><td>Ch 1; Surveillance Spire scenes</td></tr></tbody></table></div></div></details></div><div id="sao-verde-crop-towers-and-crop-galleries"><details class="story-panel"><summary>São Verde: crop towers and crop galleries</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>São Verde, Corporate Union</td></tr><tr><td><b>Kept by</b></td><td>Food optimisation</td></tr><tr><td><b>Function</b></td><td>Vertical farms as the skyline</td></tr><tr><td><b>Visual constants</b></td><td>Glazed crop towers stacked up the former favela hillsides, each tier&#x27;s profile distinct; public walkways through forty storeys of crops; Cristo Redentor instrumented above</td></tr><tr><td><b>Variation</b></td><td>Tier profiles vary</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Glazing, bio-reactors; contracted labour</td></tr><tr><td><b>Meaning</b></td><td>Food as optimisation and display</td></tr><tr><td><b>In the books</b></td><td>Verdant Citadel scenes</td></tr></tbody></table></div></div></details></div><div id="gulf-crescent-the-domes-and-the-marine-lock-arc"><details class="story-panel"><summary>Gulf Crescent: the domes and the marine-lock arc</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>Gulf Crescent, Corporate Union</td></tr><tr><td><b>Kept by</b></td><td>Logistics; marine locks</td></tr><tr><td><b>Function</b></td><td>Life lived permanently inside a climate</td></tr><tr><td><b>Visual constants</b></td><td>Seven climate domes and the thirty-kilometre arc read as one designed object; photovoltaic sails along the arc; dome-level walkways over the sheltered lagoon; the outer gulf lethal</td></tr><tr><td><b>Variation</b></td><td>Dome forms vary</td></tr><tr><td><b>Materials, climate and labour</b></td><td>PV membrane, marine-lock engineering; salt bloom outside</td></tr><tr><td><b>Meaning</b></td><td>The territory itself is the cool hall</td></tr><tr><td><b>In the books</b></td><td>Logistics Command, Container Verge scenes</td></tr></tbody></table></div></div></details></div><div id="berth-towers"><details class="story-panel"><summary>Berth towers</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building</td></tr><tr><td><b>Where</b></td><td>Corporate Union</td></tr><tr><td><b>Kept by</b></td><td>Coverage contract</td></tr><tr><td><b>Function</b></td><td>Heat refuge assigned by the forecast</td></tr><tr><td><b>Visual constants</b></td><td>Sealed, mechanically cooled, climate-controlled; amber arcs at every threshold</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Grid cooling; the forecast assigns the berth</td></tr><tr><td><b>Meaning</b></td><td>Shelter as a contract term</td></tr><tr><td><b>In the books</b></td><td>Book 3 heat events</td></tr></tbody></table></div></div></details></div></div></div><div class="band-group"><div class="wrap"><div class="act-head" id="built-environment-sovereign-coalition"><span class="tag">Built environment</span><h2>Sovereign Coalition</h2></div><div id="beijing-broadcast-squares-on-the-ceremonial-axis"><details class="story-panel"><summary>Beijing: broadcast squares on the ceremonial axis</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>Beijing Command, Sovereign Coalition</td></tr><tr><td><b>Kept by</b></td><td>The state</td></tr><tr><td><b>Function</b></td><td>A crowd addressed by architecture</td></tr><tr><td><b>Visual constants</b></td><td>Broadcast squares set along one ceremonial axis anchored by the Tiananmen Gate and the Great Hall; screens of state voice; cold, immaculate monumentality</td></tr><tr><td><b>Variation</b></td><td>Hall forms vary; the axis never</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Polished grey composite, military-grade alloys; state-blue light</td></tr><tr><td><b>Meaning</b></td><td>Everyone is seen and everyone sees the state</td></tr><tr><td><b>In the books</b></td><td>Broadcast Chamber, Ministry Annex scenes</td></tr></tbody></table></div></div></details></div><div id="pearl-delta-manufacturing-stacks-and-sky-bridges"><details class="story-panel"><summary>Pearl Delta: manufacturing stacks and sky-bridges</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>Pearl Delta, Sovereign Coalition</td></tr><tr><td><b>Kept by</b></td><td>State manufacturing</td></tr><tr><td><b>Function</b></td><td>Production displayed as civic pride</td></tr><tr><td><b>Visual constants</b></td><td>Stacks with working faces lit floor by floor; public sky-bridges with views into production; the seawall terrace</td></tr><tr><td><b>Variation</b></td><td>Stack profiles vary</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Grey composite; blue-lit factory windows</td></tr><tr><td><b>Meaning</b></td><td>Labour as national pride</td></tr><tr><td><b>In the books</b></td><td>Quantum Quarter scenes</td></tr></tbody></table></div></div></details></div><div id="baikal-towers-on-the-ice-and-the-warm-halls"><details class="story-panel"><summary>Baikal: towers on the ice and the warm halls</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family / public space</td></tr><tr><td><b>Where</b></td><td>Baikal Complex, Sovereign Coalition</td></tr><tr><td><b>Kept by</b></td><td>State research</td></tr><tr><td><b>Function</b></td><td>Warmth inside ice</td></tr><tr><td><b>Visual constants</b></td><td>Insulated towers on ice anchors; warm-lit interiors seen through frost glass; the Circum-Baikal Railway carrying maglev; the thermal plant as the heart</td></tr><tr><td><b>Variation</b></td><td>Tower silhouettes vary</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Insulation, thermal plant; aurora</td></tr><tr><td><b>Meaning</b></td><td>Energy displayed</td></tr><tr><td><b>In the books</b></td><td>Resonance Laboratory, Ice Citadel scenes</td></tr></tbody></table></div></div></details></div><div id="thresholds-visible-gates-and-credential-stations"><details class="story-panel"><summary>Thresholds: visible gates and credential stations</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Civic marker / structure</td></tr><tr><td><b>Where</b></td><td>All Coalition territories</td></tr><tr><td><b>Kept by</b></td><td>Security services</td></tr><tr><td><b>Function</b></td><td>Control made visible</td></tr><tr><td><b>Visual constants</b></td><td>Visible gates, credentialing stations, doors with state-blue indicator arrays</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Alloy and composite</td></tr><tr><td><b>Meaning</b></td><td>The state&#x27;s presence is the point</td></tr><tr><td><b>In the books</b></td><td>Ch 33</td></tr></tbody></table></div></div></details></div><div id="allocation-halls"><details class="story-panel"><summary>Allocation halls</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building</td></tr><tr><td><b>Where</b></td><td>Sovereign Coalition</td></tr><tr><td><b>Kept by</b></td><td>State heat service</td></tr><tr><td><b>Function</b></td><td>Heat refuge by allocation</td></tr><tr><td><b>Visual constants</b></td><td>Large, mechanically cooled, grid-dependent</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Central grid</td></tr><tr><td><b>Meaning</b></td><td>Brownouts and heat events collide</td></tr><tr><td><b>In the books</b></td><td>Ch 67</td></tr></tbody></table></div></div></details></div></div></div><div class="band-group"><div class="wrap"><div class="act-head" id="built-environment-treaty-zone-and-margins"><span class="tag">Built environment</span><h2>Treaty Zone and Margins</h2></div><div id="neo-singapore-crossings-pavilions-and-the-transit-platform"><details class="story-panel"><summary>Neo Singapore: crossings, pavilions and the Transit Platform</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Public space / structure</td></tr><tr><td><b>Where</b></td><td>Neo Singapore</td></tr><tr><td><b>Kept by</b></td><td>Treaty administration</td></tr><tr><td><b>Function</b></td><td>A city of crossings that belongs to no one</td></tr><tr><td><b>Visual constants</b></td><td>Retasked towers carrying customs corridors; supertrees as relay infrastructure; neutral stone-and-glass pavilions, each its own profile; tri-colour boundary light</td></tr><tr><td><b>Variation</b></td><td>Pavilion forms vary</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Funded by all three blocs, owned by none</td></tr><tr><td><b>Meaning</b></td><td>Maintenance is a treaty obligation</td></tr><tr><td><b>In the books</b></td><td>Ch 9; Treaty Night</td></tr></tbody></table></div></div></details></div><div id="turan-waste-self-built-settlements-and-the-hand-kept-landmark"><details class="story-panel"><summary>Turan Waste: self-built settlements and the hand-kept landmark</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure / public space</td></tr><tr><td><b>Where</b></td><td>Turan Waste, Unregulated Margins</td></tr><tr><td><b>Kept by</b></td><td>None</td></tr><tr><td><b>Function</b></td><td>Settlements around water</td></tr><tr><td><b>Visual constants</b></td><td>Each wall a different material; gravity water; the dish array; the hand-kept landmark and its worn path; daylight and hand-made dark</td></tr><tr><td><b>Variation</b></td><td>Everything varies; nothing standard</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Salvage</td></tr><tr><td><b>Meaning</b></td><td>Beauty without authority</td></tr><tr><td><b>In the books</b></td><td>Kazakh Scar scenes</td></tr></tbody></table></div></div></details></div></div></div><div class="band-group"><div class="wrap"><div class="act-head" id="built-environment-martian-preserve"><span class="tag">Built environment</span><h2>Martian Preserve</h2></div><div id="gates-and-lattices"><details class="story-panel"><summary>Gates and lattices</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure</td></tr><tr><td><b>Where</b></td><td>Martian Preserve</td></tr><tr><td><b>Kept by</b></td><td>Guardians; custodians</td></tr><tr><td><b>Function</b></td><td>Boundary, access, the threshold</td></tr><tr><td><b>Visual constants</b></td><td>Lattice-woven, grown rather than built; rust-dark fibres threaded with faint bioluminescence; shallow anchor cuts worked by hand</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Grown fibre; only biological light, dim</td></tr><tr><td><b>Meaning</b></td><td>Nothing is built that the Preserve was not asked for</td></tr><tr><td><b>In the books</b></td><td>Ch 5, 14; Ch 88 (the threshold reorganises)</td></tr></tbody></table></div></div></details></div><div id="root-wall-halls-grove-pavilions-and-the-researcher-quarters"><details class="story-panel"><summary>Root-wall halls, grove pavilions and the researcher quarters</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Building family</td></tr><tr><td><b>Where</b></td><td>Council Grove, Martian Preserve</td></tr><tr><td><b>Kept by</b></td><td>Guardians; custodians; researchers</td></tr><tr><td><b>Function</b></td><td>Council, shelter, work</td></tr><tr><td><b>Visual constants</b></td><td>Halls trained out of living wood; the researcher quarters a small grown hall at the Grove&#x27;s edge with sleeping alcoves, a seep-fed wash-room, a work hall and a gear room</td></tr><tr><td><b>Variation</b></td><td>Hall size by use</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Living wood, root; custodial care</td></tr><tr><td><b>Meaning</b></td><td>The quarters were grown for visitors long before any came (disclosed after Ch 58)</td></tr><tr><td><b>In the books</b></td><td>Ch 14; after Ch 58</td></tr></tbody></table></div></div></details></div><div id="stratum-and-canyon-archives"><details class="story-panel"><summary>Stratum and canyon archives</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure</td></tr><tr><td><b>Where</b></td><td>Martian Preserve</td></tr><tr><td><b>Kept by</b></td><td>Custodians (archive-keepers)</td></tr><tr><td><b>Function</b></td><td>The record</td></tr><tr><td><b>Visual constants</b></td><td>Galleries in canyon walls and the grove floor</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Cut basalt, root</td></tr><tr><td><b>Meaning</b></td><td>The record kept for its readers</td></tr><tr><td><b>In the books</b></td><td>Ch 22 (Misha)</td></tr></tbody></table></div></div></details></div><div id="water-terraces-weirs-and-seeps"><details class="story-panel"><summary>Water terraces, weirs and seeps</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure / ecological marker</td></tr><tr><td><b>Where</b></td><td>Cobalt Basin, Martian Preserve</td></tr><tr><td><b>Kept by</b></td><td>Custodians (water-keepers)</td></tr><tr><td><b>Function</b></td><td>Water held and released</td></tr><tr><td><b>Visual constants</b></td><td>Small crater lakes on the lower benches, margins green, mist at dawn; weirs and seeps</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Basalt, root; water-keepers</td></tr><tr><td><b>Meaning</b></td><td>Kept water</td></tr><tr><td><b>In the books</b></td><td>Book 2 at distance; a weir fails in the Book 3 siege</td></tr></tbody></table></div></div></details></div><div id="rim-refuges-escarpment-observatories-and-canopy-paths"><details class="story-panel"><summary>Rim refuges, escarpment observatories and canopy paths</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure</td></tr><tr><td><b>Where</b></td><td>Martian Preserve</td></tr><tr><td><b>Kept by</b></td><td>Custodians; Guardians</td></tr><tr><td><b>Function</b></td><td>Watch and passage</td></tr><tr><td><b>Visual constants</b></td><td>Rim refuges on mesas; canopy paths only where corridors must stay clear</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Grown and cut</td></tr><tr><td><b>Meaning</b></td><td>Primate-analogues use the paths too</td></tr><tr><td><b>In the books</b></td><td>Book 2 onward</td></tr></tbody></table></div></div></details></div><div id="the-kept-places"><details class="story-panel"><summary>The kept places</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure</td></tr><tr><td><b>Where</b></td><td>Martian Preserve</td></tr><tr><td><b>Kept by</b></td><td>Custodians</td></tr><tr><td><b>Function</b></td><td>The homes of the persons carried out, kept clean</td></tr><tr><td><b>Visual constants</b></td><td>Kept, not lived in</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Custodial care</td></tr><tr><td><b>Meaning</b></td><td>Reunion without rescue at accession</td></tr><tr><td><b>In the books</b></td><td>Unexplained Ch 42–57; named after Ch 58</td></tr></tbody></table></div></div></details></div></div></div><div class="band-group"><div class="wrap"><div class="act-head" id="built-environment-cross-cutting"><span class="tag">Built environment</span><h2>Cross-cutting</h2></div><div id="preserved-landmarks-and-ruin-anchors"><details class="story-panel"><summary>Preserved landmarks and ruin anchors</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure / civic marker</td></tr><tr><td><b>Where</b></td><td>Every territory</td></tr><tr><td><b>Function</b></td><td>The third visual register; the honest margin</td></tr><tr><td><b>Visual constants</b></td><td>Silhouette recognisable; condition impeccable; function updated; new technology additive; contrast against real ruin</td></tr><tr><td><b>Variation</b></td><td>Only as the register allows</td></tr><tr><td><b>Meaning</b></td><td>Continuity with the world before</td></tr></tbody></table></div></div></details></div><div id="engineered-flood-terraces-and-adaptive-seawalls"><details class="story-panel"><summary>Engineered flood terraces and adaptive seawalls</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Structure</td></tr><tr><td><b>Where</b></td><td>New Manhattan, Mediterranean Zone and others</td></tr><tr><td><b>Function</b></td><td>The default flood vocabulary</td></tr><tr><td><b>Visual constants</b></td><td>A wet side and a dry side, both named</td></tr><tr><td><b>Variation</b></td><td>By territory</td></tr><tr><td><b>Materials, climate and labour</b></td><td>Pumping halls; seawall crews</td></tr><tr><td><b>Meaning</b></td><td>What a territory is defending</td></tr></tbody></table></div></div></details></div></div></div><div class="band-group"><div class="wrap"><div class="act-head" id="wardrobe"><span class="tag">Wardrobe</span><h2>What each territory wears</h2></div><div id="wardrobe-luna-haven"><details class="story-panel"><summary>Luna Haven</summary><div class="sp-body"><h3>Wardrobe family</h3>
+    <ul><li><b>Name:</b> Luna Haven everyday dress.</li><li><b>Who wears it:</b> everyone who lives on Luna Haven: Moon-born, arrivals, synthetic citizens, visitors who stay.</li><li><b>Territory / bloc:</b> Luna Haven, Lunar Accord.</li></ul>
+    <h3>Core wardrobe brief</h3>
+    <ul><li><b>One-sentence brief:</b> a colony that dresses in its own biology: grown, fitted, quietly lit, and worn the way any people dress for the place that made them.</li><li><b>Primary impression:</b> ease and belonging; competence without uniformity.</li><li><b>Social function:</b> local identity; legibility in low light, from the piping; privacy (see diagnostics below).</li><li><b>Why it exists in-world:</b> every interior is pressurised and breathable, so the suit is <b>chosen, not demanded</b>: lifestyle dress, never survival gear.</li><li><b>Scenes that most need it:</b> Elena walked into a district vault (Book 2); the Dome Plaza sessions (Ch 77, 90); the siege; arrivals after the Ch 35 influx; grief after Ch 86.</li></ul>
+    <h3>The variation the colony needs</h3>
+    <p>One garment for five million people is the gap. Variation runs along these axes, all inside the suit&#x27;s rules:</p>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Axis</th><th>How it shows</th></tr></thead><tbody><tr><td><b>Membrane colour</b></td><td>A muted living range: undyed pale membrane, basalt and regolith greys, lichen and moss greens, deep teal-blacks. The colour comes from what the membrane is grown with, never from a printed pattern</td></tr><tr><td><b>Cut</b></td><td>Close-fitted to loose; long or short sleeve; high or open collar; panelled for work or plain for civic hours</td></tr><tr><td><b>Wear</b></td><td>Membranes pale and soften at the knees, cuffs and shoulders with age; a long-worn suit is visibly comfortable</td></tr><tr><td><b>Work</b></td><td>Reinforced panels, tool loops and stained gloves on the crews (below)</td></tr><tr><td><b>Moon-born or arrival</b></td><td>Moon-born wear the suit as second nature, often open at the collar; an arrival&#x27;s first suit is new and stiff, given with First Breath, and their Earth clothes are kept for home</td></tr><tr><td><b>Occasion</b></td><td>Overlayer for formal hours; piping brightened for ceremony; dimmed for grief</td></tr><tr><td><b>Household</b></td><td>A wall cutting carried, a small light at the belt</td></tr></tbody></table></div>
+    <h3>Context coverage</h3>
+    <h4>Civic / everyday</h4>
+    <ul><li><b>Core silhouette:</b> the bio-tech suit, sleek and fitted, with breathable membrane panels, integrated diagnostics and bioluminescent edge piping at the seams.</li><li><b>Typical garments:</b> the suit. Over it, at need, the light grown overlayer.</li><li><b>Footwear:</b> soft-soled grown boots, flexible, made for walking in one-sixth gravity and quiet on living floors.</li><li><b>Accessories:</b> a small light, and a cutting from the household&#x27;s wall. Forearm diagnostics where the suit carries them; several Look demands already place them there.</li><li><b>Everyday palette:</b> the membrane range above; the piping&#x27;s low teal is the only light on the body.</li></ul>
+    <h4>Professional / labour</h4>
+    <ul><li><b>Membrane and bulkhead crews:</b> abrasion panels at the knees and forearms, a tool loop at the hip, gloves worn to the substrate&#x27;s stain. Maintenance crews hold the highest everyday standing and stop authority. That standing shows as wear, never as insignia.</li><li><b>Wall-tenders:</b> gloves and sleeves stained by the mycorrhizal substrate; piping often dimmed by habit, as the Look demands already say of Habitat Corridors workers.</li><li><b>Research staff (Meridian Levels, Archive):</b> the suit, with sleeves closed and the collar high in the cold strata.</li><li><b>Security:</b> the suit &quot;cut for civic rather than militarised work&quot;. No armour, no visor.</li><li><b>Radiator and surface crews:</b> outside the pressure envelope, and only there, a true pressurised EVA suit: sealed helmet, life support, thermal protection, visually unmistakable from the bio-tech suit. Synthetic crews wear the surface suit instead.</li><li><b>Rank markers:</b> none by rank (Accord).</li></ul>
+    <h4>Formal / ceremonial</h4>
+    <ul><li><b>Ceremony:</b> the suit with its piping brightened. Over it, the <b>light overlayer</b>: grown, long, falling straight from the shoulder, in a deeper tone of the wearer&#x27;s membrane.</li><li><b>A wedding in the lunar night:</b> brightened piping is an extravagance of the body&#x27;s own light, when the colony&#x27;s margin is narrowest.</li></ul>
+    <h4>Domestic / intimate</h4>
+    <ul><li><b>At home:</b> the suit open over its under-layer.</li><li><b>Arrivals at home:</b> their Earth garments, kept and worn there or on days that matter, which read as where someone came from.</li><li><b>Grief:</b> the mourner&#x27;s piping turned down for a lunar cycle.</li></ul>
+    <h4>Climate / field / travel</h4>
+    <ul><li><b>Colder districts and strata:</b> the overlayer.</li><li><b>The tether passage:</b> arrivals travel in Earth clothes and are given their first suit at First Breath.</li><li><b>The open surface:</b> the EVA suit only, and a surface scene reads as exceptional.</li></ul>
+    <h3>Materials and construction</h3>
+    <ul><li><b>Membrane:</b> grown from the same bio-integrated materials as the colony; breathable; colour from its growth medium.</li><li><b>Piping:</b> bioluminescent and biological, honestly dim, never a lamp; the colony&#x27;s teal.</li><li><b>Diagnostics:</b> report to the wearer only. The colony&#x27;s walls sense a body to light the way and are forbidden to know who it is, and the suit keeps the same rule.</li><li><b>Fastening:</b> grown seams that close by pressure.</li><li><b>How it ages:</b> pales and softens at the joints.</li><li><b>How it is repaired:</b> <b>re-grown, not stitched.</b> The Earth register shows its repairs; Luna Haven&#x27;s membrane heals its own, and a re-grown patch reads only as a slightly fresher shade. The two registers differ here as they do in light.</li></ul>
+    <h3>Silhouette and styling rules</h3>
+    <ul><li><b>Always:</b> sleek and fitted; piping at the seams; the membrane&#x27;s living colours; worn as clothing, open at the collar when at ease</li><li><b>Never:</b> helmets, seals or anything reading as EVA indoors; a superhero catsuit sheen; the whole garment glowing; neon colours; armour plates; logos or bloc insignia; present-day sportswear</li></ul>
+    <h3>Further notes</h3>
+    <ul><li>Children&#x27;s suits are re-grown at each stage of growth; outgrown membrane goes back to the walls.</li></ul><details class="prompt-details"><summary>Prompt clauses</summary><div class="pd-body"><ul><li><b>Everyday:</b> &quot;A fitted Luna Haven bio-tech suit of grown membrane in [one colour from the living range], soft and worn at the joints, with a thin low teal bioluminescent piping along the seams; soft-soled grown boots; no helmet, no seals, nothing of a spacesuit.&quot;</li><li><b>Formal:</b> &quot;…under a long grown overlayer falling straight from the shoulder, piping brightened.&quot;</li><li><b>Grief:</b> &quot;…the piping turned down almost to nothing.&quot;</li><li><b>Avoid:</b> &quot;No spacesuit, helmet or visor; no glowing garment; no neon; no armour; no logo; no present-day sportswear.&quot;</li></ul></div></details></div></details></div><div id="wardrobe-lunar-accord-earth-territories"><details class="story-panel"><summary>Lunar Accord, Earth territories</summary><div class="sp-body"><h3>Wardrobe family</h3>
+    <ul><li><b>Name:</b> Accord Earth eco-tailoring.</li><li><b>Who wears it:</b> the residents of the three Earth territories. Synthetic citizens wear the same tailoring, adapted; arrivals wear it as they settle.</li></ul>
+    <h3>Core wardrobe brief</h3>
+    <ul><li><b>One-sentence brief:</b> clothes made to be kept: cut so nothing is wasted, mended so the mending shows, and worn by people who intend to stay.</li><li><b>Primary impression:</b> warmth, craft, unhurried dignity.</li><li><b>Social function:</b> provenance carried on the body (the etched coordinates); repair as a value, not a shortage; class shown only in the finish</li><li><b>The one absolute:</b> <b>no emissive element of any kind</b>, no piping, no integrated light. It is a rule, not a tendency, and it is the whole contrast with Luna Haven.</li></ul>
+    <h3>Shared grammar (all three territories)</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Element</th><th>Rule</th></tr></thead><tbody><tr><td><b>Construction</b></td><td>Zero-wastage heritage tailoring: interlocking geometric panels that consume the whole cloth</td></tr><tr><td><b>Fibre</b></td><td>Reclaimed high-end fibre: bio-cellulose, recovered ocean polymer, micro-woven hemp; linen and denim among them</td></tr><tr><td><b>Cut</b></td><td>Structured European drape and asymmetric lapels married to relaxed, fluid, oversized silhouettes: duster coats, wide-brimmed solar shields</td></tr><tr><td><b>Detail</b></td><td>Worked into the material, never added on; pre-collapse map coordinates laser-etched fine along the seams</td></tr><tr><td><b>The mark</b></td><td>Every garment carries at least one mark of provenance or repair, made to a couture standard; etched coordinates count as one</td></tr><tr><td><b>Palette</b></td><td>Ochre, sun-bleached sage, terracotta, raw clay, linen, denim, with restored warm gold accents</td></tr><tr><td><b>Light</b></td><td>None. Daylight on craft is the whole effect</td></tr></tbody></table></div>
+    <h3>Regional accents</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Territory</th><th>Accent</th><th>Climate and craft it answers</th></tr></thead><tbody><tr><td><b>Mediterranean Zone</b></td><td>Linen-dominant; stone-dust and sea-faded tones within the palette; loose loggia-cool cuts; the duster longest here, for sea wind</td><td>Hot dry summers, salt air, stone and seawall work</td></tr><tr><td><b>Australasian Ring</b></td><td>Salt-hardy hemp and recovered ocean polymer; timber and harbour tones; shorter, close-cut work layers; sleeves that roll and pin</td><td>Harbour work, sun, the mast and the Hub</td></tr><tr><td><b>African Belt</b></td><td>Earth and clay tones; woven panels in micro-woven hemp; shade wraps and the widest solar shields for highland sun; layers for cold mornings</td><td>High-altitude sun, dry seasons, terraces and the park&#x27;s edge</td></tr></tbody></table></div>
+    <h3>Context coverage</h3>
+    <h4>Civic / everyday</h4>
+    <ul><li><b>Core silhouette:</b> clean, well-fitted panel-cut garments; the duster or long coat; a solar shield outdoors.</li><li><b>Typical garments:</b> civic clothing in hemp canvas or linen; the civic overlayer (Elowen&#x27;s is the canon example).</li><li><b>Footwear:</b> grown or resoled leather-substitute shoes and boots, resoled visibly.</li><li><b>Accessories:</b> a notebook and a mended bag.</li><li><b>Everyday palette:</b> as the shared grammar.</li></ul>
+    <h4>Professional / labour</h4>
+    <ul><li><b>Repair rosters and master repairers:</b> aprons and sleeve guards in heavy hemp; tools carried in sewn loops. A master repairer&#x27;s own garments carry the finest marks in the district, the trade&#x27;s quiet signature.</li><li><b>Roster-keepers and heat-call staff:</b> shade-cut layers and a wide solar shield, worn long hours; repairs quick and sturdy.</li><li><b>Field monitors and terrace workers:</b> Earth-side field clothing, shade-cut, in sandstone and terracotta (Thandi&#x27;s demand is the canon example).</li><li><b>Civic and processing staff (the Sydney Hub):</b> eco-tailored hemp-canvas civic clothing, matte, mended visibly at cuff and hem (Priya&#x27;s demand).</li><li><b>Rank markers:</b> none (Accord).</li></ul>
+    <h4>Formal / ceremonial</h4>
+    <ul><li><b>Ceremony:</b> the <b>best mended garment</b> a person owns. Formal coats keep structured European drape over a visibly ordered panel cut (Alexandre&#x27;s demand).</li><li><b>High-status materials:</b> the same fibres. Ceremony shows in the finish and the age of the mending, never in new cloth.</li></ul>
+    <h4>Domestic / intimate</h4>
+    <ul><li><b>At home:</b> old, soft, mended things.</li><li><b>Intimacy:</b> intimates mend each other&#x27;s clothes.</li><li><b>Gifts:</b> a mended thing, mended by the giver.</li><li><b>Grief:</b> one tear left unmended for a year in a garment the mourner wears daily — the repair ethic inverted.</li></ul>
+    <h4>Climate / field / travel</h4>
+    <ul><li><b>Heat season:</b> the widest solar shields; shade-cut layers; the duster worn open. On heat-call nights, people arrive at the cool halls in whatever they were wearing, and nobody is turned away.</li><li><b>Travel:</b> travel clothing in the ochre-and-terracotta palette, mended with visible, careful stitching (Ines&#x27;s demand).</li></ul>
+    <h3>Class, quietly</h3>
+    <ul><li><b>The time-rich:</b> marks finished to couture standard, repairs that have been redone and refined over years.</li><li><b>The busy poor,</b> who carry the rosters and cannot afford slowness: repairs that are honest, quick and sturdier, made to last a season of work. Never shabby, never patched carelessly.</li></ul>
+    <p>The difference is visible only up close, to people who know cloth. It is the Accord&#x27;s hidden inequality made physical, and the prose may notice it.</p>
+    <h3>Arrivals</h3>
+    <p>People who cross into the Accord at the Sydney Hub arrive in their own bloc&#x27;s clothes. Their first Accord garment is given by the district as a gift, mended by the giver (the gift custom). They may go on wearing their own clothes as long as they like. Lǐ Jūn&#x27;s later linen and denim &quot;with skilfully stitched visible repair&quot; is the canon example of a settled arrival.</p>
+    <h3>Materials and construction</h3>
+    <ul><li><b>Fibres:</b> as the shared grammar.</li><li><b>Fastening:</b> sewn and buttoned; buttons often recovered.</li><li><b>How it ages:</b> fades in sun along the shoulders and shield brims; wears soft.</li><li><b>How it is repaired:</b> visibly, as craft: stitching, patchwork, darning in a contrasting but palette-true thread; every repair excellent; nothing hidden; the contrast with Luna Haven, which re-grows its membrane</li></ul>
+    <h3>Silhouette and styling rules</h3>
+    <ul><li><b>Always:</b> panel-cut and fitted; one couture-standard mark; the palette; daylight</li><li><b>Never:</b> anything emissive; shabbiness or rags, which read as poverty rather than craft; logos; present-day sportswear or fast fashion; the same &quot;mended at one…&quot; placement on every character</li></ul>
+    <h3>Synthetic citizens</h3>
+    <ul><li>the same tailoring, with seams following the body&#x27;s</li><li>fine gloves over the reading fingertips</li><li>the column overlayer for ceremony</li><li>the glove left off for a day in grief</li></ul>
+    <h3>Further notes</h3>
+    <ul><li>Children&#x27;s clothing is cut down and re-pieced from household garments; a child&#x27;s first etched coordinate comes when they choose a place as their own.</li></ul><details class="prompt-details"><summary>Prompt clauses</summary><div class="pd-body"><ul><li><b>Everyday:</b> &quot;Accord Earth eco-tailoring: a panel-cut [garment] in [fibre] in [palette colour], [regional accent], pre-collapse coordinates laser-etched fine along one seam, and one repair worked in visible, skilful stitching; a wide-brimmed solar shield; lit only by daylight.&quot;</li><li><b>Avoid:</b> &quot;No glowing seams or piping, no integrated light, no rags, no logos, no present-day sportswear.&quot;</li></ul></div></details></div></details></div><div id="wardrobe-corporate-union"><details class="story-panel"><summary>Corporate Union</summary><div class="sp-body"><h3>Core wardrobe brief</h3>
+    <ul><li><b>One-sentence brief:</b> clothes as a service: beautifully made, leased by the season, and scored on the body.</li><li><b>Primary impression:</b> polish, competence, the comfort of being looked after, and the faint cold of being looked at.</li><li><b>Social function:</b> coverage made visible; the corporate optic; dress is scored.</li></ul>
+    <h3>Shared grammar</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Element</th><th>Rule</th></tr></thead><tbody><tr><td><b>Ownership</b></td><td>Most clothing is leased by subscription, refreshed each season and returned. Owned clothes are either the premium &quot;off-profile&quot; choice of the very rich, or the uncovered&#x27;s</td></tr><tr><td><b>Cut</b></td><td>Tech-wear and lab coats; executive tailoring in black lacquer tones; sculptural, deliberately varied silhouettes at the top, as the bloc&#x27;s towers are</td></tr><tr><td><b>Palette</b></td><td>Black and anthracite, with biometric amber as the single accent</td></tr><tr><td><b>Surface</b></td><td>Fine technical fabrics; mirrored and lacquered finishes; seams bonded rather than sewn</td></tr><tr><td><b>The scoring</b></td><td>Garments read their wearer&#x27;s movements and report to the subscription, which feeds the score. A small amber tell at the collar or cuff shows the garment is live</td></tr><tr><td><b>Visors</b></td><td>Mirrored visors on security and on executive floors: a sign of being watched-for. Ordinary people rarely wear them</td></tr><tr><td><b>Writing</b></td><td>Brand marks are the Union&#x27;s in-world writing: small, exact, on the garment&#x27;s tab or lining, never a slogan</td></tr></tbody></table></div>
+    <h3>Territories</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Territory</th><th>Accent</th></tr></thead><tbody><tr><td><b>New Manhattan</b></td><td>Executive tailoring and lacquer at the Spine; tech-wear on the terraces; the uncovered at the seawall edge</td></tr><tr><td><b>São Verde</b></td><td>Agricultural workwear on the crop terraces: sealed, cleanable, amber-tabbed; executives above in the Citadel</td></tr><tr><td><b>Gulf Crescent</b></td><td>Dome dress: light layers for permanent indoor climate; the marine-lock crews in heavy sealed workwear, salt-streaked</td></tr></tbody></table></div>
+    <h3>Context coverage</h3>
+    <h4>Civic / everyday</h4>
+    <ul><li><b>Covered citizens:</b> this season&#x27;s subscription in black and anthracite, amber at the tell; tech-wear for most work, lab coats in research (Ines&#x27;s institutional researchwear).</li><li><b>Carried:</b> a licensed, scored handheld, and a contraband notebook if they are brave.</li></ul>
+    <h4>Professional / labour</h4>
+    <ul><li><b>Security:</b> an anthracite-and-black uniform, rank markers in amber as its only ornament (Marcus&#x27;s demand); mirrored visors on duty. Facilities security in plain anthracite with a small amber shoulder tab (Viktor&#x27;s demand).</li><li><b>Executive floors:</b> tailoring in black lacquer tones (Rachel&#x27;s demand).</li><li><b>Military:</b> unadorned, functional military tailoring (Hartwell&#x27;s demand).</li><li><b>Workers on terraces and docks:</b> hard-wearing subscription workwear, cleaned and swapped by the service. Daniel&#x27;s hard-worn civilian work clothing is the edge of the system.</li></ul>
+    <h4>Formal / ceremonial</h4>
+    <ul><li><b>Ceremony:</b> brand-new and scored. A new season&#x27;s release is itself a social occasion.</li></ul>
+    <h4>Domestic / intimate</h4>
+    <ul><li><b>Home:</b> branded comfort.</li><li><b>Gifts:</b> a subscription, which Accord people take as an insult.</li><li><b>Grief:</b> a muted badge, and the household&#x27;s score frozen for a quarter.</li></ul>
+    <h4>The uncovered</h4>
+    <ul><li>Owned garments outside any subscription, kept going for years and repaired by hand; no amber anywhere, because nothing reports.</li><li>In the Union it reads as poverty. To an Accord eye it reads as something close to freedom.</li></ul>
+    <h3>Synthetic persons in the Union</h3>
+    <p>Synthetic persons in the Union are licensed devices in law. What they wear is the licensee&#x27;s choice and usually a livery. That is the contrast the Accord&#x27;s rule, &quot;dress is chosen, never a livery&quot;, is written against.</p>
+    <h3>Silhouette and styling rules</h3>
+    <ul><li><b>Always:</b> a single amber accent; impeccable finish; variety and luxury at the top.</li><li><b>Never:</b> repetitive anonymous uniforms on civilians; present-day logos; the Accord&#x27;s visible mending; Luna Haven&#x27;s grown membrane; glowing garments: the amber is a small tell, not a light source</li></ul><details class="prompt-details"><summary>Prompt clauses</summary><div class="pd-body"><ul><li><b>Everyday:</b> &quot;Corporate Union subscription tech-wear in black and anthracite, impeccably finished, a single small biometric-amber tell at the collar.&quot;</li><li><b>Avoid:</b> &quot;No present-day logos, no sportswear, no visible mending, no glowing garment.&quot;</li></ul></div></details></div></details></div><div id="wardrobe-sovereign-coalition"><details class="story-panel"><summary>Sovereign Coalition</summary><div class="sp-body"><h3>Core wardrobe brief</h3>
+    <ul><li><b>One-sentence brief:</b> clothes issued by the state: crisp, correct, legible at a glance, and cut to say where you stand.</li><li><b>Primary impression:</b> order, discipline, a cold elegance.</li><li><b>Social function:</b> credential class worn on the body; dress is issued.</li></ul>
+    <h3>Shared grammar</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Element</th><th>Rule</th></tr></thead><tbody><tr><td><b>Issue</b></td><td>Everyday clothes come from the work unit, by credential class. Private garments are rare and kept out of sight</td></tr><tr><td><b>Cut</b></td><td>Institutional uniforms, high collars, military tailoring</td></tr><tr><td><b>Class</b></td><td>Shown in the collar and the tailoring: the higher the class, the higher and more structured the collar and the finer the cut</td></tr><tr><td><b>Palette</b></td><td>Polished grey composite, with cold state-blue piping as the colour of the trim (a colour, not a light)</td></tr><tr><td><b>Honours</b></td><td>Worn on the uniform for ceremony; refusing an honour is taboo</td></tr><tr><td><b>Writing</b></td><td>State writing is official: credential numbers, unit marks and honours in Mandarin, Cantonese in the Pearl Delta and Russian at Baikal, small and exact</td></tr></tbody></table></div>
+    <h3>Territories</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Territory</th><th>Accent</th></tr></thead><tbody><tr><td><b>Beijing Command</b></td><td>Formal state dress at its most immaculate; collars highest here</td></tr><tr><td><b>Baikal Complex</b></td><td>Insulated issue: quilted grey composite outer layers, fur-free hoods, cold-rated gloves; warm interior dress in the tower bases</td></tr><tr><td><b>Pearl Delta</b></td><td>Manufacturing issue: sealed coveralls in grey with blue trim, unit marks at the shoulder, worn on the lit floors of the stacks</td></tr></tbody></table></div>
+    <h3>Context coverage</h3>
+    <h4>Civic / everyday</h4>
+    <ul><li><b>Issued basics in grey composite,</b> trimmed in state blue (Lǐ Jūn&#x27;s grey composite basics; Arjun&#x27;s muted, unmarked civilian clothes).</li><li><b>Carried:</b> a credential and a state handheld.</li></ul>
+    <h4>Professional / labour</h4>
+    <ul><li><b>Officials and ministers:</b> immaculate, dark, precise tailoring cut to read as authority on camera, with a high structured collar (Wáng Sù&#x27;s demand).</li><li><b>Military:</b> institutional grey military tailoring, high-collared (Tán Měi&#x27;s demand).</li><li><b>Research:</b> grey composite dress under an insulated lab coat, state-blue piping at collar and cuffs (Xiàng&#x27;s demand).</li><li><b>Workers:</b> issue by work unit, as in the territory accents.</li></ul>
+    <h4>Formal / ceremonial</h4>
+    <ul><li><b>Ceremony:</b> uniform with honours. Emergency Day&#x27;s state ceremony is the year&#x27;s great uniformed occasion, and after the renunciation its meaning is contested.</li></ul>
+    <h4>Domestic / intimate</h4>
+    <ul><li><b>Home:</b> issued wear. A grandparent&#x27;s pre-war object, hidden, is the household&#x27;s heirloom. A private garment, kept at home, is the same kind of quiet act.</li><li><b>Grief:</b> a white band with the credential number.</li></ul>
+    <h3>Synthetic persons</h3>
+    <p>Autonomous synthetic minds are prohibited in the Coalition, and the renunciation leaves the prohibition standing. There is no synthetic wardrobe here.</p>
+    <h3>Silhouette and styling rules</h3>
+    <ul><li><b>Always:</b> crisp; high-collared; grey and state blue; legible class.</li><li><b>Never:</b> Union amber or lacquer; visible mending; glowing trim: the blue is cloth, not light; present-day military camouflage</li></ul><details class="prompt-details"><summary>Prompt clauses</summary><div class="pd-body"><ul><li><b>Everyday:</b> &quot;Sovereign Coalition issued dress in polished grey composite, crisply tailored, a high structured collar, cold state-blue piping at the collar and cuffs.&quot;</li><li><b>Avoid:</b> &quot;No amber, no visible mending, no camouflage, no glowing trim.&quot;</li></ul></div></details></div></details></div><div id="wardrobe-neo-singapore-and-the-unregulated-margins"><details class="story-panel"><summary>Neo Singapore and the Unregulated Margins</summary><div class="sp-body"><h3>1. Neo Singapore</h3>
+    <h4>Core brief</h4>
+    <ul><li><b>One sentence:</b> legible as belonging somewhere, unreadable as belonging fully anywhere.</li><li><b>Social function:</b> the patch — belonging or neutrality, worn or withheld.</li></ul>
+    <h4>Grammar</h4>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Element</th><th>Rule</th></tr></thead><tbody><tr><td><b>Garments</b></td><td>Mixed-bloc civilian transit wear; layered garments in grey, stone and linen</td></tr><tr><td><b>The patch</b></td><td>Each garment can carry one bloc&#x27;s accent patch without visual conflict. You do not ask anyone&#x27;s bloc; a patch is worn and its absence is respected</td></tr><tr><td><b>Tri-colour light</b></td><td>Amber, blue and gold boundary light is in the environment, never worn</td></tr><tr><td><b>Treaty staff</b></td><td>Plain stone-grey and linen, never a patch: the one people in the city who may not show a bloc</td></tr><tr><td><b>Grief</b></td><td>A plain grey patch</td></tr><tr><td><b>Objects</b></td><td>A neutral bag with patches of every bloc; treaty passes framed at home</td></tr></tbody></table></div>
+    <h4>Variation</h4>
+    <ul><li><b>Transit travellers:</b> the most layered, dressed for two climates at once.</li><li><b>Residents:</b> the plainest, with linen worn soft.</li><li><b>The patchless:</b> by choice or by loss. A missing patch can read as defection before anyone has defected (the Xiàng seed).</li></ul>
+    <h4>Never</h4>
+    <ul><li>One bloc&#x27;s full grammar.</li><li>Tri-colour light on the body.</li><li>Present-day airport clothing: the period test of the Transit Lounge.</li></ul>
+    <h3>2. The Unregulated Margins</h3>
+    <h4>Core brief</h4>
+    <ul><li><b>One sentence:</b> clothes made by hand from what the walkers found, worn by people who chose to leave every counter.</li><li><b>Social function:</b> exit, freedom from every counter. Hospitality: water is offered before any question.</li></ul>
+    <h4>Grammar</h4>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Element</th><th>Rule</th></tr></thead><tbody><tr><td><b>Making</b></td><td>Hand-made; each piece its own material, as each wall in Turan Waste is its own material</td></tr><tr><td><b>Salvage</b></td><td>Bloc garments salvaged and re-cut until no bloc reads in them; Union subscription cloth loses its tell; Coalition grey is re-dyed or patched over</td></tr><tr><td><b>Climate</b></td><td>Layered for hard sun, salt wind and cold nights: head wraps, long sleeves, a heavy outer layer</td></tr><tr><td><b>Palette</b></td><td>The settlement&#x27;s own hand-worked register: pale salt clay, sun-bleached timber tones, undyed fibre, faded salvage colour</td></tr><tr><td><b>Repair</b></td><td>Visible everywhere and better than what it replaced (Turan Waste&#x27;s own rule for its buildings, carried to cloth)</td></tr><tr><td><b>Objects</b></td><td>A water vessel and tools, carried and handed down</td></tr><tr><td><b>Grief</b></td><td>Ash on cloth</td></tr><tr><td><b>Light</b></td><td>Unmediated daylight; after dusk, the hand-made dark of filament, cook-fire and lamp. Nothing on the body is lit</td></tr></tbody></table></div>
+    <h4>Variation</h4>
+    <ul><li><b>Walkers:</b> lightest and most layered, for travel.</li><li><b>Settled households:</b> heavier work clothes; aprons and gloves at the waterworks and the dish array.</li></ul>
+    <h4>Never</h4>
+    <ul><li>A bloc&#x27;s recognisable uniform worn whole.</li><li>Rags or squalor: the Margins are inhabited by choice, not abandoned.</li><li>Anything emissive.</li><li>Present-day clothing worn as found.</li></ul><details class="prompt-details"><summary>Prompt clauses</summary><div class="pd-body"><ul><li><b>Neo Singapore:</b> &quot;Layered transit wear in neutral grey, stone and linen, one small bloc accent patch [or none]; tri-colour boundary light in the environment only.&quot;</li><li><b>Margins:</b> &quot;Hand-made layered clothing, each piece a different material, salvaged cloth re-cut so no bloc reads, head wrap against hard sun, visibly and skilfully mended; lit only by open daylight.&quot;</li></ul></div></details></div></details></div></div></div><div class="band-group"><div class="wrap"><div class="act-head" id="objects"><span class="tag">Objects</span><h2>What people carry and use</h2></div><div id="maglev-fleet"><details class="story-panel"><summary>Maglev fleet</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Vehicle family</td></tr><tr><td><b>Where</b></td><td>All Earth blocs; Luna Haven; crossing the Margins</td></tr><tr><td><b>Kept by</b></td><td>Bloc transit authorities</td></tr><tr><td><b>Function</b></td><td>Movement between and within territories</td></tr><tr><td><b>Identity</b></td><td><b>One engineering family, cars finished by bloc</b>: a car resting on its beam, never hanging, never wheeled</td></tr><tr><td><b>Constants</b></td><td>The car rests on the guideway beam; stations give platform, stairs, lift and ramp; no wheels, no rails, no overhead wires; quiet</td></tr><tr><td><b>Variation</b></td><td><b>Union:</b> mirrored black cars with an amber tell, on multi-layered guideways threaded with drone corridors (the Union has no roads). <b>Coalition:</b> long grey trains with state-blue trim, on monumental viaducts; the Circum-Baikal Railway&#x27;s bridges carry it at Baikal. <b>Accord Earth:</b> cars lined in timber and hemp, windows wide, nothing lit. <b>Luna Haven:</b> the surface car on its piers; inside, guideway cars in sealed tubes between districts. <b>Turan Waste:</b> a corridor crosses without a station</td></tr><tr><td><b>Never</b></td><td>A present-day bullet train or monorail; a car hanging under its beam; wheels; overhead catenary; a sci-fi capsule with no windows</td></tr><tr><td><b>Materials and wear</b></td><td>Self-healing composite bodies; beams of grown or sintered composite; Accord cars visibly repaired</td></tr><tr><td><b>Meaning</b></td><td>The guideway goes everywhere except where people are not counted: the Margins watch it pass</td></tr></tbody></table></div></div></details></div><div id="the-designed-2087-handheld-the-proses-tablet-and-handheld"><details class="story-panel"><summary>The designed 2087 handheld (the prose&#x27;s &quot;tablet&quot; and &quot;handheld&quot;)</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Object / interface</td></tr><tr><td><b>Where</b></td><td>All blocs</td></tr><tr><td><b>Function</b></td><td>Field and civic work; logging; messages</td></tr><tr><td><b>Identity</b></td><td><b>A folding slate</b>: a slim slate of composite or grown material whose screen folds or rolls; thin, light, made for its work</td></tr><tr><td><b>Constants</b></td><td>It folds or rolls; its screen is a 2087 sheet; it <b>speaks in its bloc&#x27;s system voice</b>, short and diegetic (&quot;Vector logged&quot;, Ch 5); it can be propped on a knee</td></tr><tr><td><b>Variation</b></td><td><b>Union:</b> licensed and scored, black with an amber tell. <b>Coalition:</b> state-issued grey, credential-linked. <b>Accord:</b> worn and repaired, often beside a paper notebook. <b>Luna Haven:</b> grown casing, piping-teal at the hinge. <b>Preserve researchers:</b> dust-sealed, cleaned at the Gate. <b>Margins:</b> salvaged, hand-cased</td></tr><tr><td><b>Never</b></td><td>A present-day phone or tablet; a rectangle of glass; holographic projection from a wrist as a gimmick</td></tr><tr><td><b>Materials and wear</b></td><td>Casing wear by bloc as above; hinges are the part that is repaired</td></tr><tr><td><b>Meaning</b></td><td>What a bloc lets a device know about you</td></tr></tbody></table></div></div></details></div><div id="2087-screens-by-bloc"><details class="story-panel"><summary>2087 screens, by bloc</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Interface family</td></tr><tr><td><b>Where</b></td><td>All</td></tr><tr><td><b>Function</b></td><td>Information surfaces</td></tr><tr><td><b>Identity</b></td><td>Thin, flexible or transparent sheets, edge-lit glass, surfaces grown into walls and furniture, volumetric light</td></tr><tr><td><b>Constants</b></td><td>Never a boxy monitor or a bezelled panel on a stand; light from a screen is diegetic light</td></tr><tr><td><b>Variation</b></td><td><b>Union:</b> mirrored black glass, amber type, everywhere and watching back. <b>Coalition:</b> large state walls in cold blue on the broadcast squares; small credential screens at gates. <b>Accord Earth:</b> rare and matte, framed in timber or stone; paper is often preferred. <b>Luna Haven:</b> grown into the walls, the teal of the colony&#x27;s light. <b>Preserve:</b> none of its own (Vaera&#x27;s skin is the only display there). <b>Margins:</b> salvaged screens in hand-made housings</td></tr><tr><td><b>Never</b></td><td>Present-day monitors, keyboards, mice; floating UI overlays laid on the picture; screens in the Accord Earth everywhere</td></tr><tr><td><b>Meaning</b></td><td>How much each bloc lets information into a room</td></tr></tbody></table></div></div></details></div><div id="in-world-lettering-by-bloc"><details class="story-panel"><summary>In-world lettering, by bloc</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Civic marker family</td></tr><tr><td><b>Where</b></td><td>All</td></tr><tr><td><b>Function</b></td><td>Signs, marks, pages, words on screens</td></tr><tr><td><b>Identity</b></td><td>Sporadic, in the place&#x27;s language, only where life puts it</td></tr><tr><td><b>Constants</b></td><td>Never annotation, caption or overlay; a prompt quotes the words or makes the surface form-only</td></tr><tr><td><b>Variation</b></td><td><b>Union:</b> small exact brand marks and amber type; English, Portuguese, Arabic and Persian as the territory has them. <b>Coalition:</b> official plaques, credential numbers and unit marks in Mandarin, Cantonese at the Pearl Delta, Russian at Baikal. <b>Accord Earth:</b> carved, inlaid or hand-lettered in stone and timber, in the territory&#x27;s languages. <b>Luna Haven:</b> etched or grown into wall surfaces, faintly. <b>Neo Singapore:</b> every language, with English and Malay at the counters. <b>Margins:</b> hand-painted, salvaged lettering</td></tr><tr><td><b>Never</b></td><td>Slogans; neon signs; English everywhere by default; invented glyphs</td></tr><tr><td><b>Materials and wear</b></td><td>Ageing by bloc: Accord lettering worn and recut; Union replaced each season</td></tr><tr><td><b>Meaning</b></td><td>Who writes on the world, and in whose language</td></tr></tbody></table></div></div></details></div><div id="the-accord-notebook"><details class="story-panel"><summary>The Accord notebook</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Object</td></tr><tr><td><b>Where</b></td><td>Lunar Accord (and carried in other blocs at risk)</td></tr><tr><td><b>Function</b></td><td>Private record; witness</td></tr><tr><td><b>Identity</b></td><td>Reclaimed-cellulose paper, ink, no electronics</td></tr><tr><td><b>Constants</b></td><td>Bound by hand; written in a person&#x27;s own hand</td></tr><tr><td><b>Variation</b></td><td>Size from pocket to ledger; covers mended; in the Union it is contraband</td></tr><tr><td><b>Never</b></td><td>A present-day branded notebook; anything with a chip</td></tr><tr><td><b>Materials and wear</b></td><td>The paper softens; covers re-bound</td></tr><tr><td><b>Meaning</b></td><td>The 2087 privacy technology; after Ch 77, a witness in law</td></tr></tbody></table></div></div></details></div><div id="the-luna-haven-light-overlayer"><details class="story-panel"><summary>The Luna Haven light overlayer</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Wardrobe</td></tr><tr><td><b>Where</b></td><td>Luna Haven</td></tr><tr><td><b>Function</b></td><td>Formal hours; colder districts</td></tr><tr><td><b>Identity</b></td><td>Grown, long, falling straight from the shoulder, a deeper tone of the wearer&#x27;s membrane</td></tr><tr><td><b>Constants</b></td><td>Unlit; worn over the suit</td></tr><tr><td><b>Variation</b></td><td>Length and weight by district temperature</td></tr><tr><td><b>Never</b></td><td>Robes, capes, anything ecclesiastical</td></tr><tr><td><b>Materials and wear</b></td><td>Re-grown, not stitched</td></tr><tr><td><b>Meaning</b></td><td>Occasion and warmth</td></tr></tbody></table></div></div></details></div><div id="the-eva-suit"><details class="story-panel"><summary>The EVA suit</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Wardrobe / equipment</td></tr><tr><td><b>Where</b></td><td>Luna Haven (outside the pressure envelope only)</td></tr><tr><td><b>Kept by</b></td><td>Surface and radiator crews</td></tr><tr><td><b>Function</b></td><td>Work on the open lunar surface</td></tr><tr><td><b>Identity</b></td><td>A true pressurised EVA suit: sealed helmet, life support, thermal protection, visually unmistakable from the bio-tech suit</td></tr><tr><td><b>Constants</b></td><td>Never indoors; a surface scene reads as exceptional</td></tr><tr><td><b>Variation</b></td><td>Radiator crews&#x27; tool rigs; synthetic crews wear the surface suit instead</td></tr><tr><td><b>Never</b></td><td>Shown indoors; confused with the bio-tech suit; a present-day NASA suit copied</td></tr><tr><td><b>Materials and wear</b></td><td>Dust-scoured at the joints</td></tr><tr><td><b>Meaning</b></td><td>Rarity: the colony&#x27;s one survival garment</td></tr></tbody></table></div></div></details></div><div id="the-small-carried-light"><details class="story-panel"><summary>The small carried light</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Object</td></tr><tr><td><b>Where</b></td><td>Luna Haven</td></tr><tr><td><b>Kept by</b></td><td>Households</td></tr><tr><td><b>Function</b></td><td>Light in the banked night of the corridors</td></tr><tr><td><b>Identity</b></td><td>A small light carried by everyone; a sealed living culture from the walls, honestly dim</td></tr><tr><td><b>Constants</b></td><td>Biological, never a torch beam</td></tr><tr><td><b>Variation</b></td><td>Cases by household</td></tr><tr><td><b>Never</b></td><td>A present-day torch or phone light</td></tr><tr><td><b>Materials and wear</b></td><td>The culture is refreshed from a household wall</td></tr><tr><td><b>Meaning</b></td><td>A piece of the household&#x27;s wall carried on the body</td></tr></tbody></table></div></div></details></div><div id="kytharas-chosen-body"><details class="story-panel"><summary>Kythara&#x27;s chosen body</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Character</td></tr><tr><td><b>Where</b></td><td>Martian Preserve</td></tr><tr><td><b>Kept by</b></td><td>Guardian AIs</td></tr><tr><td><b>Never</b></td><td>&quot;No crown, no glow, no throne, not a tree-person, not a ghost&quot;</td></tr><tr><td><b>Meaning</b></td><td>Answerable in human law</td></tr></tbody></table></div></div></details></div><div id="accord-synthetic-civic-family"><details class="story-panel"><summary>Accord synthetic civic family</summary><div class="sp-body"><div class="doc-table-wrap"><table class="doc-table"><tbody><tr><td><b>Type</b></td><td>Character family</td></tr><tr><td><b>Where</b></td><td>Lunar Accord</td></tr><tr><td><b>Never</b></td><td>&quot;A separate synthetic uniform; a bodysuit; armour; a livery&quot;</td></tr><tr><td><b>Meaning</b></td><td>Unremarked presence</td></tr></tbody></table></div></div></details></div>
+  </div></div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 400 212" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Meridian Resonance">
+  <defs>
+    <path id="mrPathFooter" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"/>
+    <linearGradient id="mrGradFooter" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#087DC2"/><stop offset="0.26" stop-color="#3FA8E0"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#E8737D"/>
+      <stop offset="1" stop-color="#D93D4A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(106,4) scale(0.95)">
+    <use xlink:href="#mrPathFooter" href="#mrPathFooter" fill="url(#mrGradFooter)" opacity="0.62"/>
+    <circle class="mr-spark" r="3.0" fill="#3FA8E0" opacity="0">
+      <animateMotion dur="18s" begin="-0s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-0s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.3" fill="#FFFFFF" opacity="0">
+      <animateMotion dur="18s" begin="-4.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-4.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.8" fill="#E8737D" opacity="0">
+      <animateMotion dur="18s" begin="-9s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-9s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.1" fill="#3FA8E0" opacity="0">
+      <animateMotion dur="18s" begin="-13.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-13.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+  </g>
+  <text x="200" y="152" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="2" fill="#FFFFFF">MERIDIAN</text>
+  <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
+</svg></a>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and the Martian Preserve.</p>
+    </div>
+    <div class="footer-nav">
+      <span class="footer-nav-title">Explore</span>
+      <a href="world.html">World</a>
+      <a href="locations.html">Locations</a>
+      <a href="characters.html">Characters</a>
+      <a href="books.html">Books</a>
+      <a href="manuscript.html">Manuscript</a>
+    </div>
+    <div class="footer-nav">
+      <span class="footer-nav-title">Codex</span>
+      <a href="craft.html">Craft</a>
+      <a href="laws.html">Laws &amp; Codex</a>
+      <a href="timeline.html">Timeline &amp; Pacing</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="design.html">Design</a>
+    </div>
+  </div>
+  <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
+    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; a living Story Bible, and the manuscript now being written from it.</span>
+    <span class="footer-copy">Fractured Horizons &middot; Resonant Faultlines &middot; Harmonic Worlds</span>
+  </div>
+</footer>
+
+<button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
+  </svg>
+</button>
+<script>
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+const hb = document.querySelector('.hamburger');
+const mm = document.querySelector('.mobile-menu');
+if (hb) { hb.addEventListener('click', () => { hb.classList.toggle('open'); mm.classList.toggle('open'); }); }
+const backToTop = document.getElementById('back-to-top');
+if (backToTop) {
+  const toggleBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 500);
+  toggleBackToTop();
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+(function(){
+  function openHash(){
+    var id = decodeURIComponent(location.hash.slice(1)); if(!id) return;
+    var el = document.getElementById(id); if(!el) return;
+    var d = el.querySelector('details'); if(!d) return; d.open = true;
+    setTimeout(function(){ window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - 180); }, 0);
+  }
+  window.addEventListener('hashchange', openHash); openHash();
+})();
+</script>
+</body>
+</html>

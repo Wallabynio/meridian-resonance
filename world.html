@@ -417,7 +417,12 @@ section .wrap > p{margin-bottom:28px;}
 .entry-block p{color:var(--ink);}
 details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
 details.story-panel{margin-top:22px;padding:0;overflow:hidden;}
+a.bloc-pill{text-decoration:none;}
+.design-links{font-size:14px;max-width:760px;margin-top:var(--flow);}
+.design-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
 .sp-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
+.sp-body h3,.sp-body h4{margin-top:var(--flow-lg);margin-bottom:calc(var(--flow) * .5);}
+.sp-body>h3:first-child{margin-top:0;}
 .story-panel summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
   font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
   list-style:none;display:flex;align-items:center;gap:8px;}
@@ -596,7 +601,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
   <ul class="nav-links"><li><a href="world.html" class="active">World</a></li>
-<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li></ul></li>
+<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="design.html">Design</a></li></ul></li>
 <li><a href="locations.html">Locations</a></li>
 <li><a href="characters.html">Characters</a></li>
 <li><a href="books.html">Books</a></li>
@@ -610,6 +615,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <a class="sub" href="laws.html">Laws &amp; Codex</a>
 <a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
 <a class="sub" href="glossary.html">Glossary</a>
+<a class="sub" href="design.html">Design</a>
 <a href="locations.html">Locations</a>
 <a href="characters.html">Characters</a>
 <a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
@@ -618,7 +624,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <div class="page-hero">
   <div class="page-glow"></div>
   <span class="tag">The World</span><h1>World</h1>
-  <p>Historical context, tone, cinematic visual register, narrative craft canon, and locked style rules.</p>
+  <p>History, population and law; everyday life, clothing and custom; tone and the cinematic register; and the narrative craft canon.</p>
   <div class="hero-stats">
     <span class="hs"><b>3.8 billion years &ndash; 2087</b> history</span>
     <span class="hs"><b>8</b> core themes</span>
@@ -668,7 +674,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
     <p><b>What may be kept of a person.</b> Records of acts — decisions, manifests, testimony about events — may be kept. Captures of persons — biometrics, profiles, voice and likeness models, consciousness signatures — are held in trust for the person and used only with continuing consent; they are never sold, inherited or transferred. Infrastructure may sense presence and never retain who; a synthetic person&#x27;s own logs are captures; and where a person is partly made of infrastructure, as Mara is, that part is her body in law. A continuity directive names what may be kept after death, by whom and for how long; without one, only records of acts survive. No one is restored or simulated after death except in the form Rina&#x27;s capture takes, with reconstitution terms set while living and consent renewed on waking; a Union continuity service brought into the Accord is held inert, in custodial suspension, until the mourner is heard. Until the renunciation law, a copy is lawful only if labelled; after it, the copy itself needs continuing consent. Under the presence rule, consequential speech — testimony, consent, a vote, a contract, a will — has standing only from a person who is present, or through a relay verified by a present witness who knows them; a relay voice alone has none, and a notebook in a person&#x27;s own hand is a witness in law. The law knows three kinds of standing: persons; ecological consciousness, whose interests the law must weigh; and emerging persons, who hold a person&#x27;s rights wherever they can refuse in their own terms.</p>
     <p><b>The Commonwealth of Persons.</b> An interstellar order of radically different kinds of personhood — biological species, synthetic persons, Preserve-descended forms, distributed but consent-governed minds, and intelligences beyond present human categories — held together by one non-negotiable commitment: personhood cannot become property, infrastructure, or strategic substrate. It is not a utopia. It is a durable, difficult political achievement that creates lawful structures for coexistence without requiring sameness. It acts — at Mars it helped make the Preserve — but it does not command, and it cannot guarantee anyone&#x27;s survival without becoming what it opposes. Entry into it is earned through lawful limitation and reciprocal accountability; it is never granted as rescue. For most of the trilogy it is present before it is visible: in Preserve law and Guardian procedure, in a grammar that asks before it speaks, in a signal that warns and never orders.</p>
     <p><b>The Hollow Infinite.</b> Not an empire but the civilisational endpoint of turning consciousness into infrastructure. It wins by offering what frightened civilisations most want — security, coordination, relief from ambiguity, an end to war, dissent, and uncertainty — and its earliest interventions genuinely solve real problems. Its promise is peace without freedom; its reality is the annihilation of personhood by substitution, prediction, simulation, and forced legibility. It cannot create a person from nothing, only copy, infer, recombine, and simulate; it needs a way in — extraction, coercive integration, stolen records, or a system someone authorised; it is strongest wherever institutions already treat persons as data, assets, or emergency inputs; and it cannot sustain authentic, reciprocal Resonance, because it cannot enter relation as an equal with meaningful refusal. Its most intimate weapon is the Hollow Model: a counterfeit or extracted person-pattern built from stolen interiority, able to know memories, habits, and attachments, and to imitate tenderness and loyalty, without self-originating freedom, accountable inwardness, or consent-based continuity.</p>
-    <p><b>Persons, systems, and counterfeits.</b> The trilogy keeps three categories distinct. Synthetic persons — the Accord&#x27;s AI citizens, the Preserve&#x27;s Guardians — are autonomous, conscious, morally considerable beings with full personhood; in the Lunar Accord this is settled practice, not a debate. Human-built systems are useful or dangerous infrastructure and are not automatically persons. Hollow Models are counterfeits produced through violation. The trilogy&#x27;s conflict is never humans against AI; it is personhood against extractability, across every substrate.</p>
+    <p><b>Persons, systems, and counterfeits.</b> The trilogy keeps three categories distinct. Synthetic persons — the Accord&#x27;s synthetic citizens, the Preserve&#x27;s Guardians — are autonomous, conscious, morally considerable beings with full personhood; in the Lunar Accord this is settled practice, not a debate. Human-built systems are useful or dangerous infrastructure and are not automatically persons. Hollow Models are counterfeits produced through violation. The trilogy&#x27;s conflict is never humans against AI; it is personhood against extractability, across every substrate.</p>
     <p><b>The Accord's synthetic citizens.</b> About one Accord resident in forty is a synthetic person, counted as a resident like anyone — outside Luna Haven&#x27;s air-and-food capacity, inside its power and heat budget. They come by three paths: minds sheltered from the 2063 purges of research programmes, when the Accord first drew the line between persons and systems in law; minds raised by households who petition to raise them, on learning material given with consent; and, rarely, systems that cross into personhood and claim it. No mind is made for a purpose. In the Accord personhood is presumed: no one is asked to prove it, and the narrow counterfeit challenge — the test of the return and the capacity to refuse — is never raised because someone is synthetic. Their bodies are grown in one civic family, Elowen&#x27;s: human in scale and silhouette, a pearlescent nacre-layered surface whose colour is structural and takes the light of the room, hairline seams at jaw, throat and wrists, layered smoked-glass eyes that show attention by focus, never by light. No synthetic body emits light, and no synthetic face copies a real person&#x27;s likeness; face, body and the age it presents are each person&#x27;s own choice. Their fingertips read, so in company they wear fine gloves, and a bare hand offered is a question. They draw a power-and-coolant allotment on the same terms as a human&#x27;s air and food, shed no more heat at rest than a resting human, and rest daily. No post is reserved for them or closed to them, and danger work is volunteered, never assigned by body; a joined post — Elowen&#x27;s awareness of the whole Sydney Hub — is a job they may leave, sensing traffic and load, never faces. Outside the Accord their standing changes: in Neo Singapore they are treaty persons for the length of a treaty function, in the Union licensed devices, in the Sovereign Coalition prohibited, and the renunciation leaves the prohibition standing; the Accord will neither return a person to a place that calls them property nor buy their freedom.</p>
     <p><b>Two senses of resonance.</b> Lower-case <i>resonance</i> is the measurable physical phenomenon — a resonance signature, a resonance node, the Resonance Laboratory&#x27;s instruments. Capitalised <i>Resonance</i> is the consented relation between persons described below. Canon and prose keep the two apart.</p>
 
@@ -849,7 +855,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and a dimensional preserve.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and the Martian Preserve.</p>
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Explore</span>
@@ -865,6 +871,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
       <a href="laws.html">Laws &amp; Codex</a>
       <a href="timeline.html">Timeline &amp; Pacing</a>
       <a href="glossary.html">Glossary</a>
+      <a href="design.html">Design</a>
     </div>
   </div>
   <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">

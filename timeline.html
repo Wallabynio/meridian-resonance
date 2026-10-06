@@ -417,7 +417,12 @@ section .wrap > p{margin-bottom:28px;}
 .entry-block p{color:var(--ink);}
 details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
 details.story-panel{margin-top:22px;padding:0;overflow:hidden;}
+a.bloc-pill{text-decoration:none;}
+.design-links{font-size:14px;max-width:760px;margin-top:var(--flow);}
+.design-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
 .sp-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
+.sp-body h3,.sp-body h4{margin-top:var(--flow-lg);margin-bottom:calc(var(--flow) * .5);}
+.sp-body>h3:first-child{margin-top:0;}
 .story-panel summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
   font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
   list-style:none;display:flex;align-items:center;gap:8px;}
@@ -596,7 +601,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
   <ul class="nav-links"><li><a href="world.html">World</a></li>
-<li class="has-sub"><a href="codex.html" class="active" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li></ul></li>
+<li class="has-sub"><a href="codex.html" class="active" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="design.html">Design</a></li></ul></li>
 <li><a href="locations.html">Locations</a></li>
 <li><a href="characters.html">Characters</a></li>
 <li><a href="books.html">Books</a></li>
@@ -610,6 +615,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <a class="sub" href="laws.html">Laws &amp; Codex</a>
 <a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
 <a class="sub" href="glossary.html">Glossary</a>
+<a class="sub" href="design.html">Design</a>
 <a href="locations.html">Locations</a>
 <a href="characters.html">Characters</a>
 <a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
@@ -619,7 +625,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <h1>Timeline &amp; Pacing</h1>
   <p>Two views of the same trilogy. The timeline is a dependency-driven chronology — earlier events are included not only for date reference but because they establish the causal conditions for later chapter outcomes — from the 2040s Climate Wars to the Chapter 90 close. The pacing notes are editorial: what improves clarity, causality, and chapter-to-chapter payoff. Neither is a second canon source — where an entry or note touches a rule or mechanic, Laws &amp; Codex remains authoritative.</p>
   <div class="hero-stats">
-    <span class="hs"><b>32</b> timeline entries</span>
+    <span class="hs"><b>34</b> timeline entries</span>
     <span class="hs"><b>40</b> pacing notes</span>
     <span class="hs">2040s &rarr; <b>Chapter 90</b></span>
   </div>
@@ -628,7 +634,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
 <section class="band-host">
 <div class="anchor-nav sticky bleed">
       <a href="#eras">Eras &middot; 4</a>
-      <a href="#chronology">Chapter chronology &middot; 28</a>
+      <a href="#chronology">Chapter chronology &middot; 30</a>
       <a href="#pbook1">Book 1 pacing &middot; 11</a>
       <a href="#pbook2">Book 2 pacing &middot; 18</a>
       <a href="#pbook3">Book 3 pacing &middot; 11</a>
@@ -758,6 +764,12 @@ section,.band-group{background:var(--ground);color:var(--ink);}
       </div>
 
       <div class="timeline-item">
+        <span class="ghost" aria-hidden="true">58</span>
+        <div class="date">Bk2 Ch58</div>
+        <div><div class="label">The losing side&#x27;s record</div><p>The compulsory joining was contested. Its dissenters and the first Guardians quarantined the Hollow in the Preserve, at the cost of the Preserve&#x27;s arrest; the record names Soria Vale.</p></div>
+      </div>
+
+      <div class="timeline-item">
         <span class="ghost" aria-hidden="true">60</span>
         <div class="date">Bk2 Ch60</div>
         <div><div class="label">Tán Měi defects</div><p>The first consultation phase closes and Book 2 ends.</p></div>
@@ -785,6 +797,12 @@ section,.band-group{background:var(--ground);color:var(--ink);}
         <span class="ghost" aria-hidden="true">71</span>
         <div class="date">Bk3 Ch71–73</div>
         <div><div class="label">The Siege of Consciousness</div><p>Unfolds in three movements and reshapes the logic of defence.</p></div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="ghost" aria-hidden="true">77</span>
+        <div class="date">Bk3 Ch77</div>
+        <div><div class="label">Kythara takes a body; the presence rule</div><p>The counterfeit speaks in Soria Vale&#x27;s voice. The Guardians gain legal standing, Kythara names the Commonwealth of Persons, and the Consultation passes the presence rule.</p></div>
       </div>
 
       <div class="timeline-item">
@@ -889,7 +907,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and a dimensional preserve.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and the Martian Preserve.</p>
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Explore</span>
@@ -905,6 +923,7 @@ section,.band-group{background:var(--ground);color:var(--ink);}
       <a href="laws.html">Laws &amp; Codex</a>
       <a href="timeline.html">Timeline &amp; Pacing</a>
       <a href="glossary.html">Glossary</a>
+      <a href="design.html">Design</a>
     </div>
   </div>
   <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
