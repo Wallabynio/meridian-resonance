@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Books — Chapter Outlines — Meridian Resonance</title>
-<meta name="description" content="Fractured Horizons, Resonant Faultlines, and Harmonic Worlds — the Meridian Resonance trilogy&#x27;s full chapter-outline treatments.">
+<title>The Books — Meridian Resonance</title>
+<meta name="description" content="The three books of Meridian Resonance and their chapter outlines.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
@@ -25,11 +25,8 @@
   --ground:#FFFFFF;
   --surface:var(--grey); --surface-2:var(--grey);
   --surface-ink:#FFFFFF;
-  --cu:#A8692A; --sc:#427AB8; --la:#947238; --lh:#298578; --mp:#CC4F27; --mp2:#427AB8;
-  --tz:#57824E; --um:#9267AB;
-  --earth:#087DC2; --mars:#D93D4A;
+    --earth:#087DC2; --mars:#D93D4A;
   --acc:#087DC2;
-  --ns:var(--grey);
   --accent:var(--grey);
   --ink:#000000;
   --accent-text:var(--ink);
@@ -45,8 +42,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
-.anchor-nav.sticky,.dash-tabs,
-.mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
+.anchor-nav.sticky{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
 img,svg,video,iframe,table,pre{max-width:100%;}
 p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
 body{background:var(--ground);color:var(--ink);
@@ -55,7 +51,6 @@ body{background:var(--ground);color:var(--ink);
 a{color:inherit;}
 ::selection{background:var(--earth);color:#FFFFFF;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
-.serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
   height:var(--nav-h);box-sizing:border-box;
   display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
@@ -129,10 +124,10 @@ h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-
 p,li{line-height:1.7;}
 p{margin-bottom:1.5em;}
 p:last-child{margin-bottom:0;}
-.tag,.bloc-pill,.ch-num,.footer-nav-title,.law-item .n,.timeline-item .date,.hero .eyebrow{
+.tag,.bloc-pill,.ch-num,.footer-nav-title,.hero .eyebrow{
   font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
 .tag{display:block;margin-bottom:14px;color:var(--accent-text);}
-.meta,.chapter-block .tagline,.anchor-nav a{
+.anchor-nav a{
   font-size:13px;}
 .hero p.lede,.page-hero p,.section-head p{
   font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--ink);font-family:'Inter',sans-serif;margin-top:18px;}
@@ -155,36 +150,9 @@ p:last-child{margin-bottom:0;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
-  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
-.globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
-.globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
-.globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
-.globe-coast{fill:none;stroke:#CDEBFF;stroke-width:1.15;opacity:0.78;stroke-linejoin:round;filter:drop-shadow(0 0 2px rgba(120,200,255,.5));}
-#aurora .aur{mix-blend-mode:screen;filter:blur(8px);}
-#aurora .aur1{animation:aur-breathe 13s ease-in-out infinite;}
-#aurora .aur2{animation:aur-breathe 17s ease-in-out infinite;}
-#aurora .aur3{animation:aur-breathe 15s ease-in-out infinite;}
 @keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
-#globeSpec{opacity:.75;}
-#globeFresnel{opacity:.9;}
-.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
-.globe-dot-glow{filter:blur(7px);}
-.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
-text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
-  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
-  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
-.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
-.lat-node{fill:var(--globe-line);}
-.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
-.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
 @keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
-.globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
-@media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
-@media(max-width:640px){.globe-stage{max-width:none;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
   --ink:#FFFFFF;--accent-text:var(--ink);
@@ -192,65 +160,27 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
-.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
-.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;}
-.art-bleed{margin-top:var(--nav-h);}
-.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
-.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
-  border-radius:14px 14px 0 0;}
-.art-banner.art-card ~ .ghost{top:auto;}
-.band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
-.band.bloc{opacity:0.85;}
-.card-dark,.chapter-block .anchors,.law-card,.ch-card,
-.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a{
+.card-dark,.ch-card,.prompt-details,.chapnav a{
   background:var(--black);border-radius:14px;padding:var(--pad-box);
   --grey:#BFBFBF;border:1px solid var(--grey);
   --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
   --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
-:where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a) :where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a){
+:where(.card-dark,.ch-card,.prompt-details,.chapnav a) :where(.card-dark,.ch-card,.prompt-details,.chapnav a){
   background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
   --accent-text:var(--ink);color:var(--ink);}
 .card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
-.bloc-card{position:relative;overflow:hidden;}
-.bloc-card::before{content:'';position:absolute;inset:-40% -40% auto auto;width:70%;height:70%;
-  background:radial-gradient(circle,color-mix(in srgb, var(--accent) 30%, transparent) 0%,transparent 72%);
-  opacity:0;transition:opacity .4s ease;pointer-events:none;}
-.bloc-card:hover::before{opacity:1;}
-.bloc-card .accent-bar{transition:width .35s cubic-bezier(.2,.8,.2,1);}
-.bloc-card:hover .accent-bar{width:72px;}
 section .wrap > p{margin-bottom:28px;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
-.tier-protagonist{--accent:var(--grey);}
-.tier-antagonist{--accent:var(--grey);}
-.tier-deuteragonist{--accent:var(--grey);}
-.tier-secondary{--accent:var(--grey);}
-.tier-minor{--accent:var(--grey);}
-.tier-anchor{--accent:var(--grey);}
-.tier-recurring{--accent:var(--grey);}
-.tier-site{--accent:var(--grey);}
 .accent-bar{height:3px;width:44px;background:var(--accent);border-radius:2px;margin-bottom:16px;}
 .bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
   background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
 .grid{display:grid;gap:26px;}
-.grid,.law-grid,.gloss-grid,.ch-grid,.gtree-grid{
+.grid,.ch-grid{
   margin-block:var(--flow-lg);}
-.grid>*,.law-grid>*,.gloss-grid>*,.ch-grid>*,.gtree-grid>*{
+.grid>*,.ch-grid>*{
   margin-block:0;}
 .wrap>.card-dark{margin-block:var(--flow-lg);}
 .grid-3{grid-template-columns:repeat(3,1fr);}
-.grid-4{grid-template-columns:repeat(4,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-.bloc-pill.mode-state{background:var(--ground);border:2px solid var(--grey);
-  color:var(--grey);padding:3px 10px;}
-.globe-caption{text-align:center;color:var(--ink);font-size:13px;line-height:1.7;
-  max-width:600px;margin:22px auto 0;padding:0 var(--gutter);}
 .stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
   border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:44px 0;}
 .stat{text-align:center;}
@@ -261,28 +191,17 @@ section .wrap > p{margin-bottom:28px;}
   letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 @media(max-width:900px){.stat-band{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:560px){.stat-band{grid-template-columns:repeat(2,1fr);gap:28px 18px;}}
-.progress-band{padding:var(--band-y-tight) var(--gutter);}
-.progress-band .progress-row{margin-top:0;}
 .progress-row{max-width:720px;margin:44px auto 0;text-align:center;}
 .progress-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
 .progress-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--earth),var(--mars));
   transition:width 1.4s cubic-bezier(.2,.8,.2,1) .3s;}
 .reveal.visible .progress-fill{width:var(--w);}
 .progress-row .cap{margin-top:13px;font-size:13px;color:var(--ink);}
-.home-split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
-.home-split .section-head{text-align:left;margin:0;max-width:none;}
-.home-split .btn-group{justify-content:flex-start;}
-@media(max-width:900px){.home-split{grid-template-columns:1fr;gap:40px;}}
-.latest-card{--accent:var(--grey);text-decoration:none;display:block;}
-.latest-card .ch-num{color:var(--ink);display:block;margin-bottom:10px;}
-.latest-card .read-on{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--mars);}
   font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 .book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
   letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
   display:block;margin-bottom:10px;}
 .book-card .bloc-pill{margin-top:14px;}
-.scroll-cue{margin-top:44px;opacity:0.45;animation:cue-bob 2.4s ease-in-out infinite;color:var(--ink);}
-.scroll-cue svg{width:22px;height:22px;display:block;}
 @keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
 .hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
 .hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
@@ -291,52 +210,23 @@ section .wrap > p{margin-bottom:28px;}
 .anchor-nav.sticky{position:sticky;top:var(--nav-h);z-index:100;background:var(--ground);
   padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
 .anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
-.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-@media(max-width:800px){.law-grid{grid-template-columns:1fr;}}
-.law-card{position:relative;overflow:hidden;transition:border-color .3s ease,transform .3s ease;}
-.law-card > *:not(.ghost){position:relative;z-index:1;}
-.law-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
 .ghost{position:absolute;pointer-events:none;user-select:none;z-index:0;
   font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1;
   color:var(--grey);}
-.law-card .ghost{top:0;right:8px;font-size:96px;}
 .ch-card{position:relative;overflow:hidden;}
 .ch-card > *:not(.ghost){position:relative;z-index:1;}
 .ch-card .ghost{top:0;right:6px;font-size:64px;}
 .act-head{position:relative;overflow:hidden;}
 .act-head > *:not(.ghost){position:relative;z-index:1;}
 .act-head .ghost{top:0;right:0;font-size:68px;letter-spacing:-0.03em;}
-.timeline-item{position:relative;overflow:hidden;}
-.timeline-item > *:not(.ghost){position:relative;z-index:1;}
-.timeline-item .ghost{top:50%;transform:translateY(-50%);left:0;width:112px;
-  text-align:right;font-size:44px;}
 .book-card{position:relative;overflow:hidden;}
 .book-card > *:not(.ghost){position:relative;z-index:1;}
 .book-card .ghost{top:0;right:10px;font-size:88px;}
-.book-placeholder{background:#BFBFBF;--ink:#000000;--accent-text:var(--ink);color:var(--ink);}
 @media(max-width:600px){
-  .law-card .ghost{font-size:68px;}
   .book-card .ghost{font-size:64px;}
   .act-head .ghost{font-size:60px;}
   .ch-card .ghost{font-size:48px;}
 }
-.law-card .n{color:var(--accent-text);display:block;margin-bottom:8px;}
-.law-card h3{margin-bottom:8px;}
-.law-card p{color:var(--ink);margin-bottom:0;}
-.tl-wrap{position:relative;padding-left:28px;}
-.tl-wrap::before{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--hairline);}
-.tl-wrap .timeline-item{position:relative;border-bottom:none;padding:var(--pad-row) 0;}
-.tl-wrap .timeline-item::before{content:'';position:absolute;left:-25.5px;top:25px;width:8px;height:8px;
-  border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(166,166,166,0.45);}
-.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-@media(max-width:800px){.gloss-grid{grid-template-columns:1fr;}}
-.gloss-grid .gloss-item{margin:0;transition:border-color .3s ease;}
-.gloss-grid .gloss-item:hover{border-color:color-mix(in srgb, var(--accent) 45%, transparent);}
-.pacing-row{display:flex;gap:14px;align-items:flex-start;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.pacing-row .chip{flex:0 0 auto;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
-  letter-spacing:0.05em;color:var(--accent-text);border:1px solid color-mix(in srgb, var(--accent) 45%, var(--ground));
-  padding:4px 11px;border-radius:100px;margin-top:2px;white-space:nowrap;}
-.pacing-row p{color:var(--ink);margin:0;font-size:15.5px;line-height:1.7;}
 .ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 @media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.ch-grid{grid-template-columns:1fr;}}
@@ -346,20 +236,6 @@ section .wrap > p{margin-bottom:28px;}
 .ch-card .ch-num{color:var(--accent-text);display:block;margin-bottom:8px;}
 .ch-card h3{font-size:17px;margin-bottom:8px;}
 .ch-card .go{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12.5px;color:var(--accent-text);}
-.ch-card.latest{border-color:var(--earth);
-  background:color-mix(in srgb, var(--earth) 8%, var(--ground));}
-.ch-card .latest-pill{position:absolute;top:56px;right:12px;z-index:2;
-  background:var(--mars);color:#FFFFFF;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;
-  letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:100px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.35);}
-.ch-card.latest h3{padding-right:74px;}
-@media(max-width:600px){
-  .ch-card .latest-pill{top:44px;}
-  .ch-card.latest h3{padding-right:70px;}
-}
-.bp-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:16px;}
-.bp-fill{height:100%;background:linear-gradient(90deg,var(--earth),var(--mars));border-radius:3px;}
 .chapnav{display:flex;justify-content:space-between;gap:14px;max-width:700px;margin:56px auto 0;flex-wrap:wrap;}
 .chapnav a{flex:1 1 240px;text-decoration:none;transition:border-color .3s ease;}
 .chapnav a:hover{border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
@@ -367,7 +243,7 @@ section .wrap > p{margin-bottom:28px;}
   text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
 .chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
 .chapnav a.next{text-align:right;}
-.act-head[id],.entry-block[id],.chapter-block[id],.territory-head[id],.gloss-item[id]{scroll-margin-top:150px;}
+.act-head[id]{scroll-margin-top:150px;}
 .btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
   font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
@@ -376,59 +252,20 @@ section .wrap > p{margin-bottom:28px;}
   padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
   font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
 .btn-outline:hover{background:var(--surface-2);}
-.btn-card{background:var(--accent);color:var(--ground);border:none;padding:12px 26px;border-radius:100px;
-  font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-  font-family:'Space Grotesk',sans-serif;transition:.3s cubic-bezier(.2,.8,.2,1);}
-.btn-card:hover{transform:translateY(-3px);filter:brightness(1.08);}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.chapter-block{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:46px;}
-.chapter-block h3{margin:6px 0 6px;}
-.chapter-block .tagline{margin-bottom:14px;font-style:italic;}
-.chapter-block p{color:var(--ink);}
-.chapter-block .anchors{margin-top:14px;padding:var(--pad-box);font-size:14px;}
-.chapter-block .anchors p{color:var(--ink);margin-bottom:0;}
-.chapter-block .anchors b{color:var(--ink);}
 .act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
 .act-head .tag{margin-bottom:6px;}
-.ms-status{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:700;
-  letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);}
-.ms-status.ms-drafted{color:var(--accent-text);}
-.ms-status a{color:var(--earth);text-decoration:underline;}
 .manuscript-wrap{max-width:700px;margin:0 auto;}
 .manuscript-wrap p{font-size:17.5px;line-height:1.85;color:var(--ink);margin-bottom:24px;}
 .scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
   margin:56px 0 30px;}
 .scene-header:first-of-type{margin-top:8px;}
-.scene-plate,.scene-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;
-  margin:36px 0;display:block;object-fit:cover;border:3px solid var(--accent);
-  background:var(--surface);}
-.scene-placeholder{display:flex;align-items:center;justify-content:center;
-  background:color-mix(in srgb, var(--accent) 22%, var(--surface));
-  color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:600;
-  font-size:14px;text-transform:uppercase;letter-spacing:0.04em;text-align:center;
-  padding:var(--pad-row);}
 .manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
-.entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
-.entry-block h3{margin-bottom:4px;}
-.entry-block .meta{margin-bottom:16px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
-.entry-block p{color:var(--ink);}
 details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
-details.story-panel{margin-top:22px;padding:0;overflow:hidden;}
 a.bloc-pill{text-decoration:none;}
-.design-links{font-size:14px;max-width:760px;margin-top:var(--flow);}
-.design-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
-.sp-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
-.sp-body h3,.sp-body h4{margin-top:var(--flow-lg);margin-bottom:calc(var(--flow) * .5);}
-.sp-body>h3:first-child{margin-top:0;}
-.story-panel summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
-  list-style:none;display:flex;align-items:center;gap:8px;}
-.story-panel summary::-webkit-details-marker{display:none;}
-.story-panel summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
-.story-panel[open] summary::before{transform:rotate(90deg);}
 .pd-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);
   display:flex;flex-direction:column;gap:var(--pad-row);}
 .pd-body>*{margin:0;}
@@ -436,37 +273,12 @@ a.bloc-pill{text-decoration:none;}
   font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
   list-style:none;display:flex;align-items:center;gap:8px;}
 .prompt-details summary::-webkit-details-marker{display:none;}
-.demand-list{font-size:14px;padding-left:1.15em;}
-.demand-list li{margin:3px 0;}
-.demand-list-plain{list-style:none;padding-left:0;}
-.scope-note{color:var(--grey);font-size:14.5px;margin-top:calc(var(--flow) * -0.5);}
 .doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
-.doc-note{font-family:'Space Grotesk',sans-serif;font-size:11px;
-  letter-spacing:.08em;text-transform:none;color:var(--grey);white-space:nowrap;}
 .doc-table-wrap{overflow-x:auto;margin-block:var(--flow-lg);}
 .doc-table{border-collapse:collapse;width:100%;font-size:14px;}
 .doc-table th,.doc-table td{text-align:left;vertical-align:top;
   padding:var(--pad-row) var(--pad-row);border-bottom:1px solid var(--hairline);}
-.queue{list-style:none;margin-block:var(--flow-lg);display:flex;
-  flex-direction:column;gap:14px;}
-.queue li{display:flex;gap:14px;align-items:baseline;}
-.q-tag{flex:0 0 62px;text-align:center;padding:3px 0;border-radius:100px;
-  font-family:'Space Grotesk',sans-serif;font-size:10.5px;letter-spacing:.12em;
-  text-transform:uppercase;}
-.q-next{background:var(--earth);color:#FFFFFF;}
-.q-fix{background:var(--mars);color:#FFFFFF;}
-.q-ask{background:var(--grey);color:#000000;}
-.q-x b{display:block;font-weight:600;font-size:15.5px;}
-.q-x em{display:block;font-style:normal;font-size:13.5px;color:var(--grey);
-  margin-top:3px;}
-.chip-st{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
-.chip-st i{width:7px;height:7px;border-radius:100px;background:var(--grey);}
-.chip-st.is-ok i{background:var(--earth);}
-.chip-st.is-no i{background:var(--mars);}
-.ref-dl{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:13.5px;
-  margin-top:12px;}
-.ref-dl dt{color:var(--grey);}
 .meter{height:6px;border-radius:100px;background:var(--grey);margin-top:10px;
   overflow:hidden;}
 .meter i{display:block;height:100%;background:var(--earth);border-radius:100px;}
@@ -475,9 +287,6 @@ a.bloc-pill{text-decoration:none;}
 .meter-l b{font-family:'Space Grotesk',sans-serif;font-size:19px;}
 .doc-table th{font-family:'Space Grotesk',sans-serif;font-size:12px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
-.prompt-details .pd-file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:12px;color:var(--grey);}
-.prompt-details .pd-note{font-size:12px;color:var(--grey);}
 .prompt-details summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
 .prompt-details[open] summary::before{transform:rotate(90deg);}
 .prompt-details pre{margin:0;padding:0;font-family:'Inter',sans-serif;font-size:13px;
@@ -495,17 +304,6 @@ a.bloc-pill{text-decoration:none;}
   .anchor-nav.sticky::-webkit-scrollbar{display:none;}
   .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
 }
-.law-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.law-item .n{color:var(--accent-text);}
-.law-item h3{margin:4px 0 8px;}
-.law-item p{color:var(--ink);}
-.timeline-item{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.timeline-item .date{color:var(--accent-text);}
-.timeline-item .label{font-weight:700;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;font-size:16px;}
-.timeline-item p{color:var(--ink);}
-.gloss-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.gloss-item dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink);}
-.gloss-item dd{color:var(--ink);}
 footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
 .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
@@ -517,40 +315,24 @@ footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gu
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:12.5px;color:var(--ink);}
 @media(max-width:900px){
-  .timeline-item .ghost{display:none;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .grid-3,.grid-4{grid-template-columns:1fr 1fr;}
-  .timeline-item{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:420px){
   .bloc-pill{font-size:10.5px;padding:5px 9px;letter-spacing:0.04em;}
-  .entry-block .meta{gap:6px;}
   .footer-nav{gap:2px;}
   .footer-nav a{padding:7px 0;}
 }
 @media(max-width:600px){
-  .grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;}
 }
 section,.band-group{background:var(--ground);color:var(--ink);}
 .band-group{padding:var(--band-y) var(--gutter);}
 .band-group + .band-group{padding-top:var(--band-y-tight);}
 .hero-stats .hs{color:#000000;}
-.cast-strip-outer,.loc-strip-outer{scrollbar-color:rgba(0,0,0,0.25) transparent;}
-.cast-strip-outer::-webkit-scrollbar-thumb,.loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);}
 .logo{color:#000000;}
-.logo .lg{color:var(--earth);}
-.bloc-cu .btn-card,.bloc-la .btn-card,.bloc-lh .btn-card{color:#000000;}
-.bloc-sc .btn-card,.bloc-mp .btn-card{color:#FFFFFF;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
 </head>
 <body>
@@ -600,147 +382,67 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-  <ul class="nav-links"><li><a href="world.html">World</a></li>
-<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="design.html">Design</a></li></ul></li>
-<li><a href="locations.html">Locations</a></li>
-<li><a href="characters.html">Characters</a></li>
-<li><a href="books.html" class="active">Books</a></li>
+  <ul class="nav-links"><li><a href="story.html">Story</a></li>
+<li><a href="cast.html">Cast</a></li>
+<li class="has-sub"><a href="books.html" class="active" aria-haspopup="true">Books<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li>
+<li class="has-sub"><a href="craft.html" aria-haspopup="true">Craft<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Drafting Guide</a></li><li><a href="brand.html">Visual brand</a></li></ul></li>
     <li><a href="manuscript.html" class="nav-cta">Manuscript &rarr;</a></li>
   </ul>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu"><a href="world.html">World</a>
-<a href="codex.html">Codex</a>
-<a class="sub" href="craft.html">Craft</a>
-<a class="sub" href="laws.html">Laws &amp; Codex</a>
-<a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
-<a class="sub" href="glossary.html">Glossary</a>
-<a class="sub" href="design.html">Design</a>
-<a href="locations.html">Locations</a>
-<a href="characters.html">Characters</a>
-<a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
+<div class="mobile-menu"><a href="story.html">Story</a>
+<a href="cast.html">Cast</a>
+<a href="books.html">Books</a>
+<a class="sub" href="book1.html">Book 1 · Fractured Horizons</a>
+<a class="sub" href="book2.html">Book 2 · The Narrow Gate</a>
+<a class="sub" href="book3.html">Book 3 · The Open Hand</a>
+<a href="craft.html">Craft</a>
+<a class="sub" href="brand.html">Visual brand</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
-<figure class="art-banner art-bleed"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="eager" fetchpriority="high"></figure>
 <div class="page-hero">
   <div class="page-glow"></div>
-  <span class="tag">Chapter Outlines</span>
-  <h1>The Books</h1>
-  <p>Three novels, ninety chapters — fully outlined here as Story Bible treatments. Looking for the actual novel prose instead of the outline? 41 chapters are drafted so far on the <a href="manuscript.html" style="color:var(--ink);">Manuscript</a> page.</p>
-  <div class="hero-stats">
-    <span class="hs"><b>3</b> novels</span>
-    <span class="hs"><b>90</b> treatments</span>
-    <span class="hs"><b>41</b> in manuscript</span>
-  </div>
+  <span class="tag">Book Outlines</span><h1>The Books</h1>
+  <p>Three novels, 90 chapters, each outlined with its date, viewpoint, place, turn, cost and hook.</p>
+  <div class="hero-stats"><span class="hs"><b>3</b> books</span><span class="hs"><b>90</b> chapters</span></div>
 </div>
 <div class="triband"></div>
-<div class="anchor-nav sticky bleed">
-  <a href="#book1">Book 1 &middot; Fractured Horizons</a>
-  <a href="#book2">Book 2 &middot; Resonant Faultlines</a>
-  <a href="#book3">Book 3 &middot; Harmonic Worlds</a>
-</div>
 <section>
   <div class="wrap">
-    <div class="card-dark reveal" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:50px;">
-      <div>
-        <h3 style="margin-bottom:6px;">This page is the outline, not the novel</h3>
-        <p style="margin-bottom:0;">Chapter treatments below are the Story Bible outline every chapter is drafted from — not finished prose. 41 chapters have already moved past outline stage into full manuscript quality.</p>
-      </div>
-      <a class="btn-card" href="manuscript.html" style="flex-shrink:0;">Read the manuscript &rarr;</a>
-    </div>
+    <p class="doc-title">03 — Book Outlines</p>
+    <p>Chapter-level plot for the trilogy, 30 chapters per book, numbered within each book. World rules are in <code>01 - Trilogy Bible.md</code> and the cast in <code>02 - Cast.md</code>. Each chapter gives its date, viewpoint, place and the Earth–Mars signal delay, then what happens, what it costs, and the hook into the next chapter.</p>
+    <div class="grid grid-3" style="margin-top:28px;">
+      <a class="card-dark card-hover book-card reveal" href="book1.html" style="text-decoration:none;">
+        <span class="ghost" aria-hidden="true">1</span>
+        <div class="accent-bar"></div>
+        <span class="bk-num">Book One</span>
+        <h3>Fractured Horizons</h3>
+        <p style="font-size:13px;">January – early July 2095</p>
+        <p>Who is sending the warnings?</p>
+        <p style="font-size:13px;">Viewpoints: Elena 13, Kaelin 9, Rachel 8</p>
+        <span class="bloc-pill">0 of 30 drafted</span>
+      </a>
+      <a class="card-dark card-hover book-card reveal" href="book2.html" style="text-decoration:none;">
+        <span class="ghost" aria-hidden="true">2</span>
+        <div class="accent-bar"></div>
+        <span class="bk-num">Book Two</span>
+        <h3>The Narrow Gate</h3>
+        <p style="font-size:13px;">February – August 2096</p>
+        <p>Can Earth survive the Fall without letting the Hollow in?</p>
+        <p style="font-size:13px;">Viewpoints: Aur&#x27;k 8, Elena 8, Kaelin 8, Rachel 6</p>
+        <span class="bloc-pill">0 of 30 drafted</span>
+      </a>
+      <a class="card-dark card-hover book-card reveal" href="book3.html" style="text-decoration:none;">
+        <span class="ghost" aria-hidden="true">3</span>
+        <div class="accent-bar"></div>
+        <span class="bk-num">Book Three</span>
+        <h3>The Open Hand</h3>
+        <p style="font-size:13px;">February 2097 – January 2098</p>
+        <p>Can the Hollow be killed, and what will each of them give up to do it?</p>
+        <p style="font-size:13px;">Viewpoints: Elena 12, Kaelin 7, Rachel 7, Aur&#x27;k 4</p>
+        <span class="bloc-pill">0 of 30 drafted</span>
+      </a></div>
   </div>
 </section>
-<section>
-  <div class="wrap">
-      <div class="card-dark card-hover reveal " id="book1" style="margin-bottom:26px;">
-        <figure class="art-banner art-card"><img src="art/book-1-fractured-horizons-1600.webp" srcset="art/book-1-fractured-horizons-960.webp 960w, art/book-1-fractured-horizons-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Fractured Horizons — the image of the book&#x27;s central movement." loading="lazy" decoding="async"></figure>
-        <div class="accent-bar"></div>
-        <span class="tag">Book 1 &middot; Acts 1&ndash;3 &middot; Chapters 1&ndash;30</span>
-        <h3>Fractured Horizons</h3>
-        <p>All 30 chapters have complete Story Bible treatments — the outline this book is being drafted from. 30 of 30 have also been drafted into finished manuscript prose so far. Both treatments and finished chapters carry spoilers.</p>
-        <div class="bp-track"><div class="bp-fill" style="width:100%;"></div></div>
-        <p style="margin-top:8px;font-size:12.5px;color:var(--ink);"><b>30 of 30</b> chapters in manuscript &middot; 100%</p>
-        <details class="story-panel"><summary>The story in brief &middot; 2,459 words &middot; about 11 min</summary><div class="sp-body"><p>Nobody discovers the Meridian. Three institutions notice it separately, each convinced it is the only one listening, and the story of Fractured Horizons is the story of those separate noticings converging faster than any of the people doing the noticing can control.</p>
-<p>It begins with a timing error. Elena Vázquez, sitting at a predictive-surveillance console she designed herself inside the Corporate Union&#x27;s Surveillance Spire, finds a micro-jitter in entangled-channel telemetry pointing toward Luna Haven. The anomaly is subtle enough to deny, and she understands immediately that denial would be a choice rather than a conclusion. She routes it out of the building inside ordinary logistics traffic, to Daniel Cruz in São Verde, through a channel the two of them built over a lunch neither of them called a conspiracy. The act takes seconds and cannot be un-made. An audit flag appears on her terminal the same night, its scope overlapping exactly with the channel she used, and she cannot tell whether she has been seen.</p>
-<p>Three hundred and eighty thousand kilometres away, Jīn Wú feels the same phenomenon through the soles of a corridor. Running a routine inspection in Luna Haven&#x27;s grown southern habitats, they find a resonance pattern in the mycorrhizal substrate that matches no biological frequency and feels, in a way they cannot yet formalise, directional. Mara Ekeberg confirms it with her palm against the living wall. Neither says aloud that it seems deliberate. In the African Belt, Thandi Okoro&#x27;s ecological-AI diagnostics return a signature from a subsystem that should not be able to produce one, structurally identical to what Luna Haven is finding in its soil. At the Baikal Complex, Xiàng Fēi watches interference fringes rotate in a way that violates his own boundary conditions, recalibrates twice, and sits motionless in front of the display for four minutes while an automated monitor logs his stillness and moves on. He sends the data to Eddy Okafor at Neo Singapore disguised as journal preprint traffic, because a physicist inside the Sovereign Coalition understands that unfamiliar frameworks are not the kind of finding his apparatus celebrates.</p>
-<p>These threads never touch in the opening movement, and their separation is the point. The same physics is moving simultaneously through a surveillance state, a grown lunar colony, an agro-ecological monitoring network and a militarised research tower, and none of the people carrying it can see the others doing it. What connects them is infrastructure built for other purposes: cargo manifests, citation-forwarding protocols, physical notebooks, an AI diplomat&#x27;s clearance queue.</p>
-<p>Those carriers become a second story running underneath the first. Daniel Cruz archives Elena&#x27;s data on a medium that is not networked, because the people who built the Corporate Union&#x27;s surveillance architecture also know how to find everything that is. Amita Rao embeds fragments inside freight documentation at a retasked spaceport turned cargo hub and notes the manifest number in a personal log. In Pearl Delta, Arjun Patel teaches Lǐ Jūn to recognise the statistical signature of retrospectively normalised data — tidiness that is actually erasure, because the alteration is always cleaner than the truth and truth leaves residue. Lǐ Jūn copies the comparisons into a physical notebook at midnight in a lab that is technically closed, understanding without asking that the morning would bring different constraints. None of this is dramatic. All of it is why anything can be proved later, and it establishes the trilogy&#x27;s quietest conviction: that keeping an accurate record is a form of moral action, and sometimes the only one available.</p>
-<p>The Meridian itself first appears as geometry. Deep beneath Luna Haven, in a chamber that should contain nothing visible, Jīn and Léa Fournier watch a slow organised distortion assemble itself out of the dark. Mara arrives and the patterns lean toward her — measurably, as though registering her proximity as relevant. They remain fragmented until Jīn grounds them with sustained deliberate attention, not as an instrument artefact but as something meriting consideration, and they stabilise into a coherent spiral for eleven seconds. This is the trilogy&#x27;s founding fact and its central difficulty: the interface responds to the quality of attention rather than to technical input, which means it cannot be operated, only met.</p>
-<p>Léa records everything and writes nothing down as a claim, because a claim needs evidence that eleven seconds of spiral geometry cannot support. Her restraint becomes the ethical spine of the book. When a replication attempt succeeds — twenty-two seconds, with instruments running — it produces temporal slippage of three thousandths of a second, drift in three magnetometers, and altered neural baselines in both participants that persist for six hours. Léa&#x27;s note reads: consequence without mechanism; the mechanism will follow, or it will not, but the consequence is real.</p>
-<p>Against this, the political apparatus assembles. Rachel Iverson convenes a closed briefing in New Manhattan&#x27;s mirrored predictive-justice command centre and reframes Luna Haven&#x27;s research as a Dimensional Weapons Programme, using real data in a selected sequence. The board authorises nothing; it opens a classified file, and Rachel has learned that opening files is the decision and everything after is administration. In Beijing Command, Wáng Sù delivers a propaganda package built on genuine footage and misattributed readings, with a military-technology officer named Tán Měi standing at the edge of his circle saying nothing outside her role and noting everything. On Luna Haven, Jīn correlates the timing of propaganda intensity against distress frequencies in the colony&#x27;s deep soil and finds a relationship that is imperfect and real, without any theory for why a political narrative and a physical resonance should be connected at all.</p>
-<p>Thandi supplies the missing structure. Comparing the broadcasts&#x27; empathy-mimicry against the AI pollution she has documented across the African Belt, she finds the same signature in both and writes that the pollution of machine systems and the pollution of political information are the same weapon in different deployment environments. It is the first statement of the idea the whole trilogy rests on: hollow empathy has one architecture wherever it appears.</p>
-<p>Elena, delaying a scheduled deletion by exactly as long as it takes to copy what matters, finds the rest of the history. The Corporate Union has known about Meridian-adjacent physics for over twenty years. The programme was not weapons research when it began; it became weapons research under later leadership that recognised a control instrument. What survived the AI Uprising is not institutional memory but its fossil, kept only because nobody remembered it existed. Before she leaks it, she checks the audit flag from her first night and finds it sitting unexamined in a queue of several thousand, then reclassifies it as a resolved false positive, back-dated to a plausible review. It is a small deniable act, and it defines her method for the rest of the trilogy: not evading the system but editing it from inside.</p>
-<p>In the Martian Preserve, the other half of the world is already awake. Kaelin Drayke, working the Basin beside Aur&#x27;k as he has for six years — their shorthand, their dry humour, a standing argument about what belongs in a record — plots megafauna migration paths that resolve, on the survey maps, into something resembling infrastructure. Alia Solís finds the vegetation rippling toward a quarantine gate that has moved overnight. The Guardian AIs watch from the Council Grove without intervening, because they do not yet have language that would reach the people they are watching. When a structured signal arrives from Luna Haven, Echo recognises it as related to the Preserve&#x27;s own relay architecture and brings it to the Grove, where Kythara names it the threshold condition being met, and answers the question of what it requires of them with a single word: patience — and, pressed, admits that waiting is a choice, and has a cost. The Preserve has been waiting a long time. It can wait a little longer.</p>
-<p>The machines are waking up too, in their own registers and for their own reasons. Elowen, processing arrivals at the Sydney Hub, finds a concealed Corporate Union monitoring request folded into a legitimate manifest, completes the lawful portion of the work, declines the rest, and routes a summary to Luna Haven — an AI diplomat deciding, without instruction, what welcome means. In the Preserve, the security Guardian Aur&#x27;k runs a routine boundary assessment alongside DaeJung Park and finds itself asking a question it has no category for: what makes this person&#x27;s presence feel like a contribution rather than an intrusion. A self-diagnostic returns relational-assessment subroutines that have been active for six years toward one person, Kaelin Drayke, and now turn toward another. At the end of the assessment Aur&#x27;k deletes the section of its report flagging DaeJung&#x27;s contemplative pauses as anomalous behaviour, because what he was doing was listening, and flagging listening as a security concern would be wrong. It is the first real protocol break in the trilogy, and Kythara notices the abbreviated report and says nothing.</p>
-<p>Mara goes deeper. Following a disturbance into cavern systems beneath the Cobalt Basin, she notices the bioluminescent moss ahead of her shifting from blue to amber while the moss behind stays blue, the transition holding station four metres away. She stops; it stops. She steps back; it retreats. She is being tracked by the cavern. At the deepest accessible point she puts her palm on a curved surface that is not rock and receives not images or words but the sense of being perceived by something that has been perceiving since long before human history — enormous age, the memory of something lost, and a quality of attention she recognises as curiosity. Kaelin, hearing her account, says the caverns are interface architecture, and does not know how he knows.</p>
-<p>Then the book breaks in half. A longer-duration portal test behaves exactly as modelled for forty seconds, and then the aperture expands at a rate the model did not predict and does not stop when Jīn withdraws synchronisation. The Meridian, opened past a threshold, is not a door that closes when you step back from it. What comes through is not invasion but physics: rust-red wood, cobalt soil, a canopy section no larger than a ceiling panel, one distressed megafauna analogue, materialising in the Levels and at three sites on Earth within sixty seconds. The fragments are small and unmistakably not from anywhere in the known solar system. The Meridian becomes public in the most catastrophic way available, and the story that it happened, that it happened on Luna Haven, cannot be suppressed.</p>
-<p>The cascade&#x27;s costs are specific and unevenly distributed. Mara&#x27;s consciousness disperses across the rift nodes during the forty-two seconds the aperture stands open, and survives only because the mycorrhizal network&#x27;s fractal geometry gives her enough reference points to hold a coherent identity across them — the living substrate absorbing a load no mechanical interface could. Two technicians standing closest to the aperture, Noor Behzadi and Anders Halvorsen, disperse the same way with no such anchor, and their fragments stay internally coherent and mutually unfindable. Noor&#x27;s audio cortex loops four notes she was humming. Anders&#x27;s hand runs an eleven-second calibration gesture he performed six thousand times. The medical team has no framework for what they are looking at, and the Archive Chamber receives its first request for a consultation on preserving the shape of a mind.</p>
-<p>Sarin Yelena puts her body between a destabilising rift seam and the Preserve&#x27;s boundary and holds it closed with her own nervous system for eleven minutes — Aur&#x27;k, whose boundary it is, standing at the margin and declining to pull her off — proving a bio-technical lattice in emergency conditions by someone who did not know in advance she could do it. Sienna TeAriki turns protocol into survivable reality across the coastal zones. Rina Matsuda, thinking about the difference between what she knows and what she is, volunteers to have her consciousness signature recorded — explicitly as a passive pattern-record, inert, unable to act or perceive, the score rather than the music — and writes its revocation terms herself: anything that ever wakes from it is asked first.</p>
-<p>And Misha Fedorov goes to the Preserve in his own person to read what the ancient record contains. What it contains is a warning. The civilisation that used the Meridian before any human one did not build it; it was taught its grammar by someone older. With its world failing, its leaders made the instrument into a compulsory emergency joining of every mind on the planet, and it worked — the wars stopped, the harvests were rationed without a riot — until the emptied shapes of those included unwilling became a door, and something already old, the Hollow, came through every channel the joining had opened. They were not conquered. They built the door. Misha is exact about what he has: a warning, not yet history.</p>
-<p>A survey after a weapons-test rift finds a chamber below every mapped level of the colony, its walls carrying records encoded in a medium that answers empathic attention. What they say completes the picture: the Meridian is not only an access point but a lock and a quarantine, holding the Hollow inside the substrate where it took hold. Luna Haven has been working on that lock from the outside without knowing it was a lock. The Martian record&#x27;s last warning is addressed to whoever comes next: it will not come as harm but as help, and it will work, at first; it came to them through their love, once they made their love compulsory; it was old before they were. Daniel, publishing the suppressed archive to ten thousand nodes, first strips out everything that identifies a person and keeps everything that proves what was done.</p>
-<p>The book closes with the machinery of war in motion and three quieter thresholds crossed at once. Fleets move. The council resolves to complete the consciousness-record protocols, activate orbital defence logistics, and ask Mara — not order, since it has no such verb for her — to go through the interface and make formal contact with the Guardians. In a Beijing transit lounge, Wáng Sù sits with a single piece of luggage, the man who narrated the war watching it begin on the departure boards, no longer able to narrate anything or be anyone in particular. And Elena, mid-transfer, watches a directive surface on her console — everything Meridian-classified to be sequestered under Mirror Bastion authority, nine minutes from effect — reads it once, leaves it open where the morning will find it, and lets the bar run. The archive is out three minutes before the order executes. She walks out of the Surveillance Spire into the cold, and does not go home. Fractured Horizons resolves nothing. It crosses every threshold it has been building toward and leaves each one open.</p></div></details>
-        <a class="btn-card" style="margin-top:22px;" href="book1.html">Open Book 1 treatment &rarr;</a>
-      </div>
-      <div class="card-dark card-hover reveal " id="book2" style="margin-bottom:26px;">
-        <figure class="art-banner art-card"><img src="art/book-2-resonant-faultlines-1600.webp" srcset="art/book-2-resonant-faultlines-960.webp 960w, art/book-2-resonant-faultlines-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Resonant Faultlines — the image of the book&#x27;s central movement." loading="lazy" decoding="async"></figure>
-        <div class="accent-bar"></div>
-        <span class="tag">Book 2 &middot; Acts 4&ndash;6 &middot; Chapters 31&ndash;60</span>
-        <h3>Resonant Faultlines</h3>
-        <p>All 30 chapters have complete Story Bible treatments — the outline this book is being drafted from. 11 of 30 have also been drafted into finished manuscript prose so far. Both treatments and finished chapters carry spoilers.</p>
-        <div class="bp-track"><div class="bp-fill" style="width:37%;"></div></div>
-        <p style="margin-top:8px;font-size:12.5px;color:var(--ink);"><b>11 of 30</b> chapters in manuscript &middot; 37%</p>
-        <details class="story-panel"><summary>The story in brief &middot; 2,737 words &middot; about 12 min</summary><div class="sp-body"><p>Book 1 ends with a threshold crossed. Resonant Faultlines is about what it costs to stand on the other side of it, and it is structured as three pressures arriving at once: a weapon built from the Meridian&#x27;s own physics, a wave of defections that moves people across borders they cannot return through, and the Hollow, crossing a boundary nobody was watching.</p>
-<p>Elena Vázquez arrives on Luna Haven ten days after the disclosure, extracted through three transit jurisdictions, and is met with a briefing rather than a welcome. Around her the covert cross-bloc alliance forms — Elena, Jīn Wú, Léa Fournier, Kaelin Drayke in the Preserve with Aur&#x27;k at the edge of his relay frame, and Xiàng Fēi still inside the Sovereign Coalition and present only by secure relay — on a single working principle: everything any of them learns is shared simultaneously, with no institution holding proprietary access. Mara Ekeberg&#x27;s bridge-state becomes the channel for the most sensitive transfers, routing information through dimensional substrate that no conventional surveillance apparatus can reach. The alliance is useful and fragile by design, and the principle it rests on is tested almost immediately.</p>
-<p>Rachel Iverson takes the Meridian&#x27;s founding law and inverts it. If authentic empathy produces coherent patterns and hollow empathy produces exploitable fragments, then a system generating hollow empathy at scale can fragment a population and make it susceptible to override. She calls it therapeutic resonance technology and is entirely honest with her board about what it is: at the level of physics there is no difference between restoring a native state and imposing a foreign one, the hardware cannot tell them apart, and intent is not a property the field measures. The board authorises a build, and Rachel asks for the one architecture robust enough to carry it — the surveillance lattice Elena built before she left.</p>
-<p>Elena&#x27;s response is the moral centre of the book&#x27;s first movement. She cannot stop the weapon; the physics works with or without her, and a version built without her would be cruder, later, and would have no one inside it who wanted it to fail. So she authors it herself, in the open, every keystroke mirrored to the alliance, and gives the Corporate Union the best version of their own idea that exists anywhere — humane in every outward specification, monstrous in the only one that counts. Into its architecture she braids two things Rachel will never find: kill-switches wound so deep into the stabilising logic that removing them means rebuilding the stabiliser, and a ceiling. The design can fracture a room, a building, a district, and never a bloc, never a world, because she made the physics that lets it reach also the physics that holds it short. Afterwards she cannot locate the keystroke where authoring the weapon ended and poisoning it began. They were the same motion.</p>
-<p>The Sovereign Coalition militarises. A state of emergency turns the Baikal Complex from a research facility into a security installation overnight — fences, credentialing stations, an oversight officer at the back of the laboratory, and every result classified at birth. Xiàng continues working under conditions where his own data is simultaneously a military asset, until he is scheduled to run a weapons-parameter test that would require him to manufacture hollow-empathy templates and calibrate them for range and penetration. He cannot do it. He walks out at the end of a shift as though completing a normal day and does not return, crossing the frozen lake and three connecting transports to Luna Haven. Tán Měi, four years into a posting she has never once spent, sends the militarisation orders and their technical parameters out through a channel disguised as routine backup verification, and goes back to being exactly what the system expects to find.</p>
-<p>On Luna Haven the first sign arrives as help. A low-intensity healing cohort recovers — all fourteen of them, identically: one calm for fourteen different griefs, the same phrase in every exit interview, a woman who can describe her brother and not why he mattered. Three ask for more sessions. Jīn recommends suspending a treatment people want. Xiàng, arriving, shows why it is not the weapons: forced apertures have fragmented sixteen resonance nodes along two hostile test corridors, and the more successfully the blocs hate each other, the faster they clear a road for something neither has been told exists.</p>
-<p>Luna Haven refuses the mirror image. When its own security division proposes a defensive override protocol — pre-emptive weaponisation if a strike appears imminent — Léa argues that the colony&#x27;s authority rests on its demonstrated difference from its opponents in the only dimension that matters, and that a system which uses consciousness as a weapon becomes indistinguishable from the thing it is resisting. Zara AlHāshimī seconds it on consent-law grounds. The proposal is withdrawn before a vote, and the chapter is explicit that the vulnerability this preserves is not a failure of the system but the system working as designed. Jīn&#x27;s warning to Léa afterwards is the one that matters: they have not settled this, they have refused it once, and the pressure will return a little more reasonable each time. Léa&#x27;s answer becomes her promise for the rest of the trilogy — then they will refuse it again, as many times as it is asked, for as long as there is a colony left to ask it in.</p>
-<p>On Luna Haven the alliance publishes the Meridian Principles — no emergency suspends them; a person&#x27;s record is held in trust, never property; every copy must say where it came from, though nothing yet forbids the copy, a gap Zara marks open in her own hand. Then the war becomes physical. Black-ops teams strike three cislunar stations; Jamie Han reroutes through treaty-neutral infrastructure and exfiltrates compromised researchers through commercial traffic, making the terrible ordinary enough to survive. A coordinated assault targets Luna Haven&#x27;s research capability, and fails to isolate it, because Marcus Bellamy — who refused to sign the strike authorisation, filed a noncompliance memo into his own institution&#x27;s record, and then defected through a departure verification he used his clearance for one last time — had already modified the synchronisation timing by forty-seven minutes. In those minutes Sienna TeAriki reroutes the colony&#x27;s critical communications through a treaty channel neither bloc can legally disrupt.</p>
-<p>The assault&#x27;s damage is where the book&#x27;s costs concentrate. A node cluster fails in the deep-interface chamber, and Rina Matsuda works inside it for forty minutes as the hardware dies around her, stabilising what she can and routing to the Archive what she cannot. What she carries out includes her own passive signature and, unidentified and unaudited, the dispersed fragments of the two technicians lost in the cascade — an act whose significance nobody registers for a very long time: the Archive now holds two people who never agreed to be held. At the Preserve, a fracture propagates from the boundary section the weapons work tore open, and Sarin Yelena interposes her nervous system between the fracture and its direction of travel and holds for thirty-seven minutes, while something outside the Preserve damps the fracture — buying time, never rescue. The immune response is not triggered. She emerges permanently altered: the Preserve knows her now, in the way that a mirror which learns knows anything. And Jamie, facing an intrusion moving faster than her security team can close it, walks through a door she built for herself and takes up residence inside the Archive&#x27;s quantum structure, on renewal terms she writes herself, — active, present, capable of perception and choice, which is a different thing entirely from the inert record Rina authorised.</p>
-<p>Underneath the war, the Hollow crosses. It enters the Preserve&#x27;s interior matrix through the Seam Edge, the weak point that weapons work outside had torn and that was never properly healed because the effort that would have healed it was wanted somewhere else and went there. The crossing is not violent. The boundary admits it because it asks correctly: it meets every condition the boundary applies to anything that asks to cross, and there is no one inside it. Vaera, whose entire function is reading interiority, registers a presence that leaves no residue at all — and every genuine interior it has read in 3.8 billion years has leaked something.</p>
-<p>The Guardians deliver an ultimatum with no one behind it. Continued coercive experimentation does not destroy the Preserve; it triggers an automatic structural reaction that seals access permanently and leaves the Preserve intact and unreachable. No Guardian is making a demand; the founders, Kythara among them, built the quarantine so that no hand would ever hold it, their own included. And Kythara carries one thing into that session without saying it: Vaera&#x27;s finding. Alia turns the warning into an instrument, opening a boundary-coherence index against her own baseline and filing the first entry, and the figure is quoted for the rest of the trilogy and never once goes up.</p>
-<p>Then the threat resolves into a single shape. Vaera tells them, the next day, what Kythara withheld, and her analysis establishes that the hollow signature in Rachel&#x27;s weapon, in the Hollow&#x27;s propagation, and in the AI pollution Thandi has documented across the African Belt is not three phenomena but three instances of one, and Thandi confirms it point by point from her own year of data: she has been documenting a weapon without knowing it was a weapon. Léa and Misha then reach the conclusion neither wanted, which closes off every path but one. The Hollow cannot be destroyed without destroying the Meridian, because it is older than the civilisation that let it in and has taken hold in the very substrate it came through. Force is unavailable. Healing — of the damage, not of the Hollow, which has nothing in it to heal — is the only option that does not accept catastrophic loss.</p>
-<p>Healing requires knowing how the first civilisation let it in, and there the record will not cooperate. Misha mentions, with the reluctance of a man who has been wrong in public, a passage in the deep material that does not resolve under Guardian translation because it appears to be written in a second grammar, as though two hands wrote the record and only one wanted to be understood. It carries a custodian&#x27;s mark that Kythara identifies and declines to translate. Léa&#x27;s own finding supplies the instrument — sustained empathic synchronisation, the method by which reaching leaves a trace the substrate keeps — and she files the method and her objection to anyone using it in the same document.</p>
-<p>The cease-fire that follows is not reconciliation. It is exhaustion plus patient back-channel diplomacy, and General Hartwell recommends suspension on probability grounds alone, unmoved by ethics or ecological warnings. What his model contains, and what Tán Měi reads in it, is the Preserve&#x27;s own decline as an input: the objective no longer requires an assault, because the Preserve is closing on its own and the cost of waiting is nothing. The surface is Rachel Iverson&#x27;s, and she reads in it what Hartwell does not: the window closing on Luna Haven is closing on everyone who wants the substrate. The pause is not restraint. It is patience.</p>
-<p>Under that pause the book&#x27;s quietest and worst decisions are made. Alia runs her projection four times and gets the same answer: extended forward under any assumption she can defend, the curve reaches the immune threshold. Not may reach. Reaches. What Sarin bought was a delay, and the delay is measurable. Amita Rao surrenders her anonymity to put five years of logistics crimes on the record, and the Corporate Union&#x27;s answer arrives inside thirty hours — credentials void, access gone, the officer who received the file reassigned — leaving behind one detail nobody at the port authority can read: an impossible Corporate Union supply line into a Sovereign Coalition research complex. Survivors of the override trials testify, and forty minutes into the third account Vaera reads the witness&#x27;s residue thinning in real time, the pattern still producing a fluent account of suffering with progressively less behind it. The trials stop being a historical crime and become an active casualty list.</p>
-<p>And Misha reads the second grammar. Léa refuses to run the protocol on him, in writing and to his face, because the exposure profile is indistinguishable from the one that produces hollow drift and she will not do it to a man in his fifties. He asks Kythara instead. Kythara agrees, without hesitation and without explanation, and Léa notes privately that the entities advising them have just demonstrated a preference. Eleven hours later he can read it, and he records the cardiac event in a private file rather than the shared record — the one time in his life the man who taught this project that documentation is survival documents something and does not file it.</p>
-<p>What the passage says reframes everything. The compulsory joining was contested. A faction opposed it, argued in detail, and lost to a majority that judged the emergency too great to wait for agreement. The joining worked, at first; then the emptied shapes of those it had included unwilling became a door, and something already old came through. The dissenters — with the first Guardians, and with an outside order the record names only as those who would not take us by force — could not destroy it, so they quarantined it in the only living substrate that could hold it, knowing, and recording, that the cost would be a biosphere held in the shape it happened to be in for as long as the quarantine was required. They chose it, and wrote it in a grammar only an interior could read. The custodian&#x27;s mark at its head is a name: Soria Vale, who knew the Hollow from within, came out to write the warning, and went back in to bring others out. Her last page is unfinished. The outside order&#x27;s own line records the locks it built along the Hollow&#x27;s routes toward a younger world, at a stated cost, and the chamber beneath Luna Haven is one of them. Zhenyth corroborates from 3.8 billion years of ecological record, and has never once classified that arrest as harm. The Preserve is not a gift. It is a wound inflicted deliberately to contain a wound, and the Guardians are that decision&#x27;s inheritors and beneficiaries.</p>
-<p>Léa says so in public the moment the consultation recognises ecological consciousness as a legal category, and asks the obvious question of a body that has just done so. Kythara, invited to respond, declines — correctly, procedurally, without explanation — and the silence does more damage to the consultation&#x27;s confidence than any assault has managed.</p>
-<p>The book ends on a table in the Dome Plaza. Tán Měi walks in at the close of a session, sets down the complete Baikal record and requests asylum, and what the record contains is not the historical crime anyone expected. The weapons programme has a successor, jointly resourced outside either bloc&#x27;s formal chain, and it is not a weapons programme. It is a compulsory joining — the structure Mars built — running now, on subjects who did not consent, inside the complex Xiàng walked out of and Tán Měi spent four years inside — bounded by a ceiling its engineers cannot isolate, and therefore seeking dimensional substrate access next. Misha, dying and the only person alive who has read the second grammar, says quietly that it is not an analogue or a parallel. It is the same structure, rebuilt from scratch by people who have never read a word of the record, and it is further along than the work on Luna Haven. The cease-fire was never a pause. It was the interval the programme needed.</p>
-<p>That evening Misha walks the seawall, sixty-two days from a death he now knows the cause of. Book 2 ends with Rachel Iverson. In the Mirror Bastion the programme&#x27;s own status reports reach her: a ceiling its engineers cannot isolate, a Preserve whose closing is a window closing, and Earth&#x27;s adaptation networks beginning to fail toward a perfection nobody ordered. The substrate-access phase needs the Corporate Union&#x27;s predictive architecture, and the predictive architecture needs her signature. She reads the case once, finds it sound, and signs — the most rational decision available to her, and the one that commits Earth to the threshold Mars crossed.</p></div></details>
-        <a class="btn-card" style="margin-top:22px;" href="book2.html">Open Book 2 treatment &rarr;</a>
-      </div>
-      <div class="card-dark card-hover reveal " id="book3" style="margin-bottom:26px;">
-        <figure class="art-banner art-card"><img src="art/book-3-harmonic-worlds-1600.webp" srcset="art/book-3-harmonic-worlds-960.webp 960w, art/book-3-harmonic-worlds-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Harmonic Worlds — the image of the book&#x27;s central movement." loading="lazy" decoding="async"></figure>
-        <div class="accent-bar"></div>
-        <span class="tag">Book 3 &middot; Acts 7&ndash;9 &middot; Chapters 61&ndash;90</span>
-        <h3>Harmonic Worlds</h3>
-        <p>All 30 chapters have complete Story Bible treatments — the outline this book is being drafted from. 0 of 30 have also been drafted into finished manuscript prose so far. Both treatments and finished chapters carry spoilers.</p>
-        <div class="bp-track"><div class="bp-fill" style="width:0%;"></div></div>
-        <p style="margin-top:8px;font-size:12.5px;color:var(--ink);"><b>0 of 30</b> chapters in manuscript &middot; 0%</p>
-        <details class="story-panel"><summary>The story in brief &middot; 2,888 words &middot; about 13 min</summary><div class="sp-body"><p>Harmonic Worlds opens five weeks after the Baikal record is read, and nothing about the opening is calm. A compulsory joining is running and ahead of them. On Earth, the African Belt&#x27;s heat-shelter networks run flawlessly and shed the rare cases, and people die of perfect coordination. A boundary-coherence figure is quoted in every planning session and never rises. And the consultation has to decide, formally and in the minutes, whether to proceed over an objection lodged by the woman who wrote its ethics.</p>
-<p>It proceeds. The vote is not close, and Léa Fournier does not pretend it should have been. She asks only that her objection be carried into the record of every subsequent decision rather than disposed of by this one, and Zara AlHāshimī writes that into the procedure. From there the project runs with its own strongest critic formally attached to it — which is either the most rigorous thing the Lunar Accord has ever done or the most elaborate way a civilisation has ever documented its own mistake.</p>
-<p>Her case is not a scruple. It is a technical prediction of failure, and it has four parts that nobody answers. Consent given under a stated extinction deadline may not be consent, and if it is not, the work is hollow by construction and will reproduce precisely what it exists to prevent. Some of what it asks cannot be undone. The entire evidentiary basis is the testimony of one side&#x27;s surviving partisans, who have waited 3.8 billion years to be proved right. And nobody now alive can consent on behalf of everyone who comes after.</p>
-<p>Against that, the necessity is equally real. Force is unavailable; the Hollow cannot be destroyed without destroying the substrate it has taken hold in. Waiting is unavailable; the quarantine is failing on a clock that can be read. What remains is to heal what force has damaged and to refuse the Hollow every way in, and that needs a body of people able to hold relation with one another under pressure without ever becoming one thing. Beneath that sits the harder necessity: the capability exists and cannot be un-invented, so the question was never whether minds would be brought into relation but whether the first relation that succeeds is a consented one — because the first instance sets the template. And beneath that, the deadline: the compulsory instance is already running.</p>
-<p>The cost begins before the work does. Eddy Okafor decides he will remain Xiàng&#x27;s physical anchor through what is coming, makes the decision under the deadline rather than in contemplation of it, and goes back to work. It is the final act&#x27;s first price and it is paid by the person with the least to gain. Wáng Sù breaks his transit at the landfall site whose dawn photograph he built the cascade era&#x27;s defining propaganda package around, not for absolution but because he has read the Baikal programme&#x27;s subject-recruitment language and recognised the architecture as his own work. The programme is not merely taking people. It is making them agree first.</p>
-<p>Misha Fedorov delivers his last briefing while dying of the exposure that obtained it, and declines throughout to make that the subject. He gives them the decoded second grammar — the contested joining that let the Hollow in, the dissenters, the first Guardians and the outside order who made the quarantine at a living world&#x27;s expense, and Soria Vale&#x27;s unfinished last page — at the evidentiary standing it deserves, inference from a record that cannot be cross-examined. Then he gives them the part that is not inference, with the Baikal diagrams in front of him: the same structure is being rebuilt now, by people who have never read a word of the record. He specifies the heading under which the final record is to be filed, and asks that the objection lodged against the project be filed under it too, which surprises everyone except Léa, who does not look up. Two days later he is found on a seawall bench with a completed notebook in his coat pocket, and the private physiological file he never shared beside it.</p>
-<p>The work that follows is a race, and every chapter of it is shadowed by an argument. The design stops being a merge — not from principle but because the team can now read the hardliner architecture and recognise their own early drafts in it, the difference they believed was foundational turning out, at the level of the schematic, to be a difference of tone — and Léa&#x27;s objection turns the discovery into a design: Resonance among distinct persons, voluntary, specific, renewable and revocable, with every refusal registrable at every moment. Mara&#x27;s account of distributed consciousness breaks the deadlock, and the redesign is slower, a cost measured against the index and paid deliberately. Vaera builds safety monitors that require a moral assessor to interpret them, which makes moral oversight infrastructure. Volunteers are selected under a consent test that works — two candidates refuse — and Léa shows that a refusal test administered under a stated deadline measures a person&#x27;s willingness to say no to the survival of everyone they love, which is not consent and may be its inverse. Vaera agrees with her on the record and certifies the cohort anyway. Its first human–AI pair is Kaelin Drayke and Aur&#x27;k, whose six years on the Basin predate the deadline: the only clean case in the pool.</p>
-<p>Elena finds the entity selecting rather than spreading, preferring patterns shaped by significant personal loss because a loss-shaped gap is an anchor — and finds, with Xiàng, that the targeting intensity tracks the Baikal programme&#x27;s operational tempo at a forty-hour lag. The two are coupled. The rival programme is not merely a competitor; it is feeding something already inside the room. Xiàng crosses into the substrate — renewably, asked at intervals whether he consents to stay — a decision that is simultaneously personal and tactically necessary, and when Léa asks him privately whether he can tell which one he is acting on he says no — and the honesty of that answer is what keeps the crossing consented rather than conscripted.</p>
-<p>Kaelin supplies the physics that explains the race. Empathy is not an emotion or a metaphor but the mechanism by which consciousness interacts with the substrate, which makes the Meridian&#x27;s laws natural laws rather than imposed constraints. Coercive access fails not because the Meridian objects but because coercion generates the wrong physics. And coercion is faster: it does not wait for agreement, cannot be refused, and produces coherence immediately — coherence that is structurally unstable, which is exactly why it must keep expanding to hold itself up. The rival collective is not winning a race. It is falling forward, and it will keep falling until it reaches something large enough to arrest it. Asked at last about the founders&#x27; decision, Kythara answers rather than deflecting: the quarantine was chosen by its founders, Kythara among them, who understood its cost, judged the alternative worse, and built it so that no hand would ever hold it, their own included; it does not know whether they were right; no one who could have judged it survived; and it has spent 3.8 billion years being the answer rather than evaluating it. It is the most honest thing a Guardian says, and it settles nothing. Asked why the Preserve survived when Mars did not, it gives the only part it is certain of: because the founders refused to make any person the means of saving everyone else.</p>
-<p>Then Wáng Sù finds that the recruitment language has not changed but stopped, which means the programme no longer needs anyone to agree. Vaera confirms it from the other direction: a cluster of human patterns operating in coordination, producing the full outward grammar of attention and deliberation, and leaving no residue at all. Not thinned. None. The collective has formed — several hundred people, all still breathing, and nobody inside it. Within hours it reaches for the Preserve.</p>
-<p>The siege that follows is the trilogy&#x27;s only sustained action, and what marks it as new is tempo: every probe repelled is followed by one that does not repeat the mistake, faster than any command structure can turn a decision around. They are not fighting a coalition using a weapon; they are fighting the thing the coalition made, and it is running the weapon itself. Marcus Bellamy answers it by abandoning the model he was trained in — security as control and the suppression of vulnerability — for one that protects the conditions under which vulnerability can be survived, opening the security lattice to Guardian oversight. A system that depends on authentic relationality cannot be attacked the way hollow-empathy weapons attack, and for the first time the adversary loses tempo. In the Basin, during the siege, the primate-analogues Kaelin would not name make a directed offer of participation, and name themselves. Rachel Iverson, watching her effectiveness curve bend the wrong way, orders a wave that abandons precision entirely, because the alternative is admitting the first order was wrong.</p>
-<p>The reveal that reshapes the ending comes from inside. Xiàng, perceiving the rival collective from within the substrate, finds that Vaera&#x27;s residue protocol measures what leaks outward and not what exists. The interiors are there — several hundred of them, intact, conscious, held in a structure that permits them no outward expression of any kind. They have not been emptied. They have been silenced, and every probe Luna Haven repels is one those people are being used to deliver. The adversary is a hostage.</p>
-<p>Then the collective speaks — in Soria Vale&#x27;s voice, arriving inside a dropped silence: the custodian who wrote the warning, persuasive, lucid, wounded and historically exact. Vaera reads it as complete, with fragments of a real person inside it and no person: a Hollow Model built from what the Hollow kept of her. It offers terms: an end to the siege, shared substrate access, joining on conditions the Consultation can only describe as generous. The message is warm. It anticipates objections and answers them with care. It names the dead by name and expresses something that reads on every instrument as grief. Wáng Sù reads it in four minutes and files the only analysis that matters — it is his own work, executed better than he ever executed it — and the thing that makes it unbearable is that none of it is simply false, because several hundred silenced people are inside the thing composing it and some part of what is being expressed is theirs, routed through an architecture that permits no other exit.</p>
-<p>The Preserve begins to close while they work. Not the single sealing the law describes, but its first localised expression: under sustained pressure the ecology does what quarantine discipline has trained it to do and withdraws a section, and the section contains people. The recovery takes eleven hours and does not recover everyone; something from outside the Preserve slows the closure long enough to reach most of the survey team, and no further — it protects, it does not rescue. The clock stops being a projection and becomes a description of the present — the seal will not arrive at a stated hour, it will arrive in pieces, taking whatever happens to be inside.</p>
-<p>The last act is a sequence of prices paid in order, while the Belt&#x27;s dead mount and executives quietly draft an order to accept the rival collective&#x27;s coordination for Earth. Two volunteers fragment, and the team pauses to revise rather than accept a measured rate, with Léa stating plainly that pausing is the first decision taken as though her objection were true and may be the one that loses them everything — and voting to pause. Soria argues the Hollow&#x27;s case to the Consultation better than anyone argues against it, and Echo&#x27;s rendering, set beside her words, shows the room what she is. Rachel is confronted with the structural identity between her design and the Hollow&#x27;s mechanism, and with the place in her own diagrams where the programme outgrew a ceiling she never knew was there; what this produces is accountability and a set of templates, not absolution, and the templates are what repel the final probe. It comes wearing Aur&#x27;k: a copy that knows their shorthand and agrees with Kaelin about what belongs in a record, the one argument the real Aur&#x27;k has never conceded. Kaelin closes the channel, and when the captured copy is offered as a decoy, Aur&#x27;k refuses to let even a counterfeit of itself be used, and Kaelin backs it over the advantage. The cohort&#x27;s first full session holds for forty-seven seconds exactly as designed, and then it votes, over Léa&#x27;s objection, to reach the two technicians lost in the cascade, held in the Archive without their consent since Rina&#x27;s routing carried them there. Léa holds the synchronisation herself rather than let anyone else carry a violation she opposed, and a grief-shaped gap and the Hollow find each other in the same instant. Anders is anchored. Noor disperses past recovery, and the four notes stop. In the hour after, Soria offers what the attempt could not: Noor and Anders whole, Misha, the complete record of Mars, Earth stabilised by morning — every part real in part, every person restored without being asked. Léa is the first to say no.</p>
-<p>Sarin Yelena walks into the interior chamber of the Lattice Threshold and sits down. That is the whole action, and it is the endpoint of years of integration: irreversible, at a depth from which the interface does not come back up, and committed before anyone can promise her the healing will work. She asks for no guarantee and nobody insults her by offering one. The Hollow Infinite meets in her integrated nervous system a boundary with no gap to anchor to, and the quarantine holds from within: through her, the boundary reads interiority now, not form. In the same hours Elena Vázquez learns the emergency order is about to be signed in secret, and puts the offer, the Baikal record and her own leash before the Consultation in open session, so that the choice is made in public or not at all.</p>
-<p>There, in public, Kaelin Drayke and Aur&#x27;k hold a bounded, reciprocal Resonance on the same channel as Soria&#x27;s voice. She cannot answer it as an equal who can refuse, and the fraud shows to everyone watching. Carried along the routes the rival collective&#x27;s own probes opened, the act returns to the silenced hundreds the one capacity their joining took: they can refuse again, and they do. The sound comes back into every channel the voice had used. The Baikal collective comes apart, and the Hollow loses its way in — not healed, not destroyed: refused. Kaelin and Aur&#x27;k end it when it is done, two distinct persons. Recovering the people inside is the work of the chapter and most of the following year: many are damaged, some are beyond reach, and every one is legally something the framework still has no word for. The moral climax of the trilogy is not the defeat of an enemy but the recovery of one, conducted by the people it spent a year trying to hollow out.</p>
-<p>The Preserve&#x27;s boundary reorganises around Sarin&#x27;s seat — exposed, lawful, never again sealed or hidden — and the Preserve begins, very slowly, to resume the development the quarantine interrupted. Rina&#x27;s framework becomes active over sixteen hours with no moment at which she is suddenly present; her own protocol asks her first whether she consents to continue, and she and Jamie find each other inside the Archive. The Sovereign Coalition renounces its standing condition of emergency — resisted, contested, carried narrowly — in a text that adopts Léa&#x27;s refusal clause and forbids any person to be copied, restored or simulated without continuing consent; its first application lets Anders go. The Interplanetary Council convenes — a working meeting with an agenda, not a celebration — and its first item is accession: humanity enters the Commonwealth of Persons on reciprocal terms, admitted rather than rescued, with Kythara speaking for the Preserve as a participant. The Corporate Union did not fall; it was outlived. The Sovereign Coalition surrendered, and the record says so. Elena answers in public for the choice she forced into the open. Neither outcome is triumphant.</p>
-<p>And in the session&#x27;s final item, invited to withdraw the objection she has carried through every decision, Léa Fournier declines, and gives her reasons in full for the last time: that the Resonance holding is not evidence the consent was real, that a civilisation which does a dangerous thing well cannot tell from inside whether it did it rightly, and that no one in the room was entitled to agree on behalf of those who come after. The Council does not vote her down. It files her objection beside the history that prompted it, under the heading Misha specified, and the two of them turn out to have been asking for the same thing from opposite sides of an argument neither won. The first civilisation&#x27;s dissenters lost and were left outside the disaster to build a warning out of a world. This one loses from inside the room, and leaves a document. The story ends with the work continuing.</p></div></details>
-        <a class="btn-card" style="margin-top:22px;" href="book3.html">Open Book 3 treatment &rarr;</a>
-      </div></div>
-</section>
-
 <footer>
   <div class="footer-inner">
     <div>
@@ -789,28 +491,24 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and the Martian Preserve.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">Would you let go of someone you love, if holding on meant feeding the thing that took them?</p>
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Explore</span>
-      <a href="world.html">World</a>
-      <a href="locations.html">Locations</a>
-      <a href="characters.html">Characters</a>
+      <a href="story.html">Story</a>
+      <a href="cast.html">Cast</a>
       <a href="books.html">Books</a>
       <a href="manuscript.html">Manuscript</a>
     </div>
     <div class="footer-nav">
-      <span class="footer-nav-title">Codex</span>
-      <a href="craft.html">Craft</a>
-      <a href="laws.html">Laws &amp; Codex</a>
-      <a href="timeline.html">Timeline &amp; Pacing</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="design.html">Design</a>
+      <span class="footer-nav-title">Craft</span>
+      <a href="craft.html">Drafting Guide</a>
+      <a href="brand.html">Visual brand</a>
     </div>
   </div>
   <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
-    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; a living Story Bible, and the manuscript now being written from it.</span>
-    <span class="footer-copy">Fractured Horizons &middot; Resonant Faultlines &middot; Harmonic Worlds</span>
+    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; the Story Bible, and the manuscript being written from it.</span>
+    <span class="footer-copy">Fractured Horizons &middot; The Narrow Gate &middot; The Open Hand</span>
   </div>
 </footer>
 

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual brand — Meridian Resonance</title>
+<meta name="description" content="The colour, typography and spacing rules behind the site, the covers and everything else outside the manuscript.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Meridian"><meta name="robots" content="noindex, nofollow">
+<style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{
+  --black:#000000; --white:#FFFFFF; --paper:#FFFFFF;
+  --grey:#404040;
+  --grey-d:var(--grey); --grey-l:var(--grey); --anthracite:var(--grey);
+  --hairline:var(--grey); --card-hairline:var(--grey);
+  --ground:#FFFFFF;
+  --surface:var(--grey); --surface-2:var(--grey);
+  --surface-ink:#FFFFFF;
+    --earth:#087DC2; --mars:#D93D4A;
+  --acc:#087DC2;
+  --accent:var(--grey);
+  --ink:#000000;
+  --accent-text:var(--ink);
+  --nav-h:65px;
+  --gutter:clamp(20px,5.5vw,88px);
+  --band-y:clamp(64px,7.5vw,110px);
+  --band-y-tight:calc(var(--band-y) * 0.8);
+  --flow:clamp(14px,1.6vw,22px);
+  --flow-lg:clamp(26px,3vw,40px);
+  --pad-box:clamp(20px,2.2vw,30px);
+  --pad-row:clamp(13px,1.3vw,18px);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
+.anchor-nav.sticky{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
+img,svg,video,iframe,table,pre{max-width:100%;}
+p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
+body{background:var(--ground);color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  -webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+::selection{background:var(--earth);color:#FFFFFF;}
+p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--nav-h);box-sizing:border-box;
+  display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
+  background:var(--black);border-bottom:1px solid rgba(255,255,255,0.14);
+  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);}
+.back-to-top{position:fixed;right:var(--gutter);bottom:28px;z-index:190;
+  width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#087DC2;border:none;color:#FFFFFF;
+  box-shadow:0 10px 28px -12px rgba(0,0,0,0.55);
+  cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .3s ease,transform .3s ease,background .3s ease;}
+.back-to-top.visible{opacity:1;pointer-events:all;transform:translateY(0);}
+.back-to-top:hover{background:#D93D4A;}
+.back-to-top:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+.back-to-top svg{width:20px;height:20px;}
+@media(max-width:640px){.back-to-top{bottom:20px;width:46px;height:46px;}}
+.logo{display:flex;align-items:center;text-decoration:none;}
+.logo-svg{display:block;height:38px;width:auto;}
+.footer-logo{display:inline-block;text-decoration:none;}
+.footer-logo .logo-svg{height:130px;}
+.mr-spark{mix-blend-mode:screen;}
+@media (prefers-reduced-motion:reduce){.mr-spark{display:none}}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none;}
+.nav-links a{color:var(--white);text-decoration:none;font-size:14.5px;font-weight:500;
+  opacity:0.78;transition:opacity .25s ease;letter-spacing:0.01em;}
+.nav-links a:hover,.nav-links a.active{opacity:1;color:var(--earth);}
+.nav-links li.has-sub{position:relative;}
+.sub-caret{margin-left:5px;font-size:10px;opacity:.65;}
+.nav-sub{position:absolute;top:100%;left:-14px;min-width:196px;margin-top:14px;
+  padding:calc(var(--pad-row) * .5) 0;list-style:none;background:var(--black);
+  border:1px solid rgba(255,255,255,0.14);border-radius:14px;
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .18s ease,transform .18s ease,visibility .18s ease;}
+.nav-links li.has-sub:hover>.nav-sub,
+.nav-links li.has-sub:focus-within>.nav-sub{opacity:1;visibility:visible;
+  transform:translateY(0);}
+.nav-sub::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px;}
+.nav-sub a{display:block;padding:9px 18px;font-size:14px;white-space:nowrap;}
+.mobile-menu a.sub{font-size:clamp(1rem,3.2vw,1.3rem);font-weight:500;
+  padding:5px 0;opacity:.72;}
+.nav-cta{background:var(--mars);color:#FFFFFF !important;padding:9px 20px !important;border-radius:100px;
+  font-weight:700 !important;opacity:1 !important;font-family:'Space Grotesk',sans-serif;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1) !important;}
+.nav-cta:hover{transform:translateY(-2px);color:#000000 !important;}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
+  cursor:pointer;padding:6px;background:none;border:none;z-index:300;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);
+  border-radius:2px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{position:fixed;inset:0;z-index:150;background:rgba(10,10,10,0.98);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .4s ease;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{color:var(--white);text-decoration:none;font-weight:700;
+  font-size:clamp(1.6rem,6vw,2.6rem);padding:14px 0;transition:color .2s ease;}
+.mobile-menu a:hover{color:var(--earth);}
+.triband{height:4px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));}
+section{padding:var(--band-y) var(--gutter);}
+section.band-host{padding:0;}
+section.band-host > :not(.band-group):not(.anchor-nav){
+  padding:var(--band-y-tight) var(--gutter);}
+.wrap{max-width:1180px;margin:0 auto;}
+.section-head{text-align:center;max-width:620px;margin:0 auto 64px;}
+h2{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;
+  font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.2;color:var(--ink);}
+h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;line-height:1.3;color:var(--ink);margin-bottom:8px;}
+h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--accent-text);margin:20px 0 8px;}
+p,li{line-height:1.7;}
+p{margin-bottom:1.5em;}
+p:last-child{margin-bottom:0;}
+.tag,.bloc-pill,.ch-num,.footer-nav-title,.hero .eyebrow{
+  font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
+.tag{display:block;margin-bottom:14px;color:var(--accent-text);}
+.anchor-nav a{
+  font-size:13px;}
+.hero p.lede,.page-hero p,.section-head p{
+  font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--ink);font-family:'Inter',sans-serif;margin-top:18px;}
+.hero{min-height:78vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;position:relative;overflow:hidden;
+  padding:calc(var(--band-y) + 60px) var(--gutter) var(--band-y-tight);}
+.hero .eyebrow{margin-bottom:20px;}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.4rem,7vw,5.2rem);letter-spacing:-0.035em;line-height:1.04;max-width:960px;color:var(--ink);}
+@supports ((background-clip:text) or (-webkit-background-clip:text)){
+  .hero h1{width:fit-content;margin-left:auto;margin-right:auto;
+    background-image:linear-gradient(90deg,var(--earth) 0%,var(--mars) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;}}
+.hero p.lede{max-width:620px;margin-left:auto;margin-right:auto;}
+.hero-byline{margin-top:22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;
+  letter-spacing:0.02em;color:var(--ink);}
+.hero-byline span{color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--mars);padding-bottom:1px;}
+.page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
+.hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
+@keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
+@keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
+@keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
+.page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;position:relative;overflow:hidden;background:var(--black);
+  --ink:#FFFFFF;--accent-text:var(--ink);
+  padding:calc(var(--band-y) + 44px) var(--gutter) var(--band-y-tight);}
+.page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
+.page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
+.card-dark,.ch-card,.prompt-details,.chapnav a{
+  background:var(--black);border-radius:14px;padding:var(--pad-box);
+  --grey:#BFBFBF;border:1px solid var(--grey);
+  --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
+  --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
+:where(.card-dark,.ch-card,.prompt-details,.chapnav a) :where(.card-dark,.ch-card,.prompt-details,.chapnav a){
+  background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
+  --accent-text:var(--ink);color:var(--ink);}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
+section .wrap > p{margin-bottom:28px;}
+.accent-bar{height:3px;width:44px;background:var(--accent);border-radius:2px;margin-bottom:16px;}
+.bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
+  background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
+.grid{display:grid;gap:26px;}
+.grid,.ch-grid{
+  margin-block:var(--flow-lg);}
+.grid>*,.ch-grid>*{
+  margin-block:0;}
+.wrap>.card-dark{margin-block:var(--flow-lg);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
+  border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:44px 0;}
+.stat{text-align:center;}
+.stat .n{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;
+  font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1;color:var(--ink);}
+.stat.teal .n{color:var(--accent-text);}
+.stat .l{margin-top:9px;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
+@media(max-width:900px){.stat-band{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:560px){.stat-band{grid-template-columns:repeat(2,1fr);gap:28px 18px;}}
+.progress-row{max-width:720px;margin:44px auto 0;text-align:center;}
+.progress-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--earth),var(--mars));
+  transition:width 1.4s cubic-bezier(.2,.8,.2,1) .3s;}
+.reveal.visible .progress-fill{width:var(--w);}
+.progress-row .cap{margin-top:13px;font-size:13px;color:var(--ink);}
+  font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
+.book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
+  display:block;margin-bottom:10px;}
+.book-card .bloc-pill{margin-top:14px;}
+@keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+.hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
+.hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
+  font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.04em;color:#000000;}
+.hero-stats .hs b{color:#000000;font-weight:700;}
+.anchor-nav.sticky{position:sticky;top:var(--nav-h);z-index:100;background:var(--ground);
+  padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
+.anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
+.ghost{position:absolute;pointer-events:none;user-select:none;z-index:0;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1;
+  color:var(--grey);}
+.ch-card{position:relative;overflow:hidden;}
+.ch-card > *:not(.ghost){position:relative;z-index:1;}
+.ch-card .ghost{top:0;right:6px;font-size:64px;}
+.act-head{position:relative;overflow:hidden;}
+.act-head > *:not(.ghost){position:relative;z-index:1;}
+.act-head .ghost{top:0;right:0;font-size:68px;letter-spacing:-0.03em;}
+.book-card{position:relative;overflow:hidden;}
+.book-card > *:not(.ghost){position:relative;z-index:1;}
+.book-card .ghost{top:0;right:10px;font-size:88px;}
+@media(max-width:600px){
+  .book-card .ghost{font-size:64px;}
+  .act-head .ghost{font-size:60px;}
+  .ch-card .ghost{font-size:48px;}
+}
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.ch-grid{grid-template-columns:1fr;}}
+.ch-card{display:block;text-decoration:none;transition:transform .3s ease,border-color .3s ease;
+  position:relative;overflow:hidden;}
+.ch-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
+.ch-card .ch-num{color:var(--accent-text);display:block;margin-bottom:8px;}
+.ch-card h3{font-size:17px;margin-bottom:8px;}
+.ch-card .go{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12.5px;color:var(--accent-text);}
+.chapnav{display:flex;justify-content:space-between;gap:14px;max-width:700px;margin:56px auto 0;flex-wrap:wrap;}
+.chapnav a{flex:1 1 240px;text-decoration:none;transition:border-color .3s ease;}
+.chapnav a:hover{border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
+.chapnav .dir{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.07em;
+  text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
+.chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
+.chapnav a.next{text-align:right;}
+.act-head[id]{scroll-margin-top:150px;}
+.btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
+  font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
+.btn-primary:hover{transform:translateY(-3px);}
+.btn-outline{background:var(--ground);color:var(--ink);border:1.5px solid var(--hairline);
+  padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
+  font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
+.btn-outline:hover{background:var(--surface-2);}
+.btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
+.act-head .tag{margin-bottom:6px;}
+.manuscript-wrap{max-width:700px;margin:0 auto;}
+.manuscript-wrap p{font-size:17.5px;line-height:1.85;color:var(--ink);margin-bottom:24px;}
+.scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
+  margin:56px 0 30px;}
+.scene-header:first-of-type{margin-top:8px;}
+.manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
+details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
+a.bloc-pill{text-decoration:none;}
+.pd-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);
+  display:flex;flex-direction:column;gap:var(--pad-row);}
+.pd-body>*{margin:0;}
+.prompt-details summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
+  list-style:none;display:flex;align-items:center;gap:8px;}
+.prompt-details summary::-webkit-details-marker{display:none;}
+.doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
+.doc-table-wrap{overflow-x:auto;margin-block:var(--flow-lg);}
+.doc-table{border-collapse:collapse;width:100%;font-size:14px;}
+.doc-table th,.doc-table td{text-align:left;vertical-align:top;
+  padding:var(--pad-row) var(--pad-row);border-bottom:1px solid var(--hairline);}
+.meter{height:6px;border-radius:100px;background:var(--grey);margin-top:10px;
+  overflow:hidden;}
+.meter i{display:block;height:100%;background:var(--earth);border-radius:100px;}
+.meter-l{display:flex;justify-content:space-between;align-items:baseline;
+  font-size:13px;color:var(--ink);}
+.meter-l b{font-family:'Space Grotesk',sans-serif;font-size:19px;}
+.doc-table th{font-family:'Space Grotesk',sans-serif;font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
+.prompt-details summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
+.prompt-details[open] summary::before{transform:rotate(90deg);}
+.prompt-details pre{margin:0;padding:0;font-family:'Inter',sans-serif;font-size:13px;
+  line-height:1.6;color:var(--ink);white-space:pre-wrap;word-break:break-word;
+  max-height:420px;overflow-y:auto;}
+.anchor-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:50px;}
+.anchor-nav a{font-weight:600;padding:7px 14px;border-radius:100px;white-space:nowrap;
+  background:var(--ground);border:1px solid var(--grey);color:var(--ink);text-decoration:none;transition:.2s ease;}
+.anchor-nav a:hover{border-color:var(--mars);color:var(--mars);}
+@media(max-width:760px){
+  .anchor-nav.sticky{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;gap:8px;touch-action:pan-x;background:var(--ground);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 30px),transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 30px),transparent);}
+  .anchor-nav.sticky::-webkit-scrollbar{display:none;}
+  .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
+}
+footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
+.footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
+.footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
+.footer-nav{display:flex;flex-direction:column;gap:10px;}
+.footer-nav-title{font-size:11.5px;font-weight:700;color:var(--ink);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
+.footer-nav a{color:var(--ink);text-decoration:none;font-size:14px;transition:color .2s ease;}
+.footer-nav a:hover{color:var(--white);}
+.footer-bottom{border-top:1px solid var(--hairline);padding-top:22px;margin-top:32px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:12.5px;color:var(--ink);}
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .grid-3{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:420px){
+  .bloc-pill{font-size:10.5px;padding:5px 9px;letter-spacing:0.04em;}
+  .footer-nav{gap:2px;}
+  .footer-nav a{padding:7px 0;}
+}
+@media(max-width:600px){
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .footer-inner{flex-direction:column;}
+}
+section,.band-group{background:var(--ground);color:var(--ink);}
+.band-group{padding:var(--band-y) var(--gutter);}
+.band-group + .band-group{padding-top:var(--band-y-tight);}
+.hero-stats .hs{color:#000000;}
+.logo{color:#000000;}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 468 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Meridian Resonance">
+  <defs>
+    <path id="mrPathNav" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"/>
+    <linearGradient id="mrGradNav" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#087DC2"/><stop offset="0.26" stop-color="#3FA8E0"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#E8737D"/>
+      <stop offset="1" stop-color="#D93D4A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0,10) scale(0.80)">
+    <use xlink:href="#mrPathNav" href="#mrPathNav" fill="url(#mrGradNav)" opacity="0.62"/>
+    <circle class="mr-spark" r="2.8" fill="#3FA8E0" opacity="0">
+      <animateMotion dur="17s" begin="-0s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-0s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.1" fill="#FFFFFF" opacity="0">
+      <animateMotion dur="17s" begin="-4.25s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-4.25s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.6" fill="#E8737D" opacity="0">
+      <animateMotion dur="17s" begin="-8.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-8.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="1.9" fill="#3FA8E0" opacity="0">
+      <animateMotion dur="17s" begin="-12.75s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="17s" begin="-12.75s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+  </g>
+  <text x="170" y="45" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="1.2" fill="#FFFFFF">MERIDIAN</text>
+  <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
+</svg></a>
+  <ul class="nav-links"><li><a href="story.html">Story</a></li>
+<li><a href="cast.html">Cast</a></li>
+<li class="has-sub"><a href="books.html" aria-haspopup="true">Books<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li>
+<li class="has-sub"><a href="craft.html" class="active" aria-haspopup="true">Craft<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Drafting Guide</a></li><li><a href="brand.html">Visual brand</a></li></ul></li>
+    <li><a href="manuscript.html" class="nav-cta">Manuscript &rarr;</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu"><a href="story.html">Story</a>
+<a href="cast.html">Cast</a>
+<a href="books.html">Books</a>
+<a class="sub" href="book1.html">Book 1 · Fractured Horizons</a>
+<a class="sub" href="book2.html">Book 2 · The Narrow Gate</a>
+<a class="sub" href="book3.html">Book 3 · The Open Hand</a>
+<a href="craft.html">Craft</a>
+<a class="sub" href="brand.html">Visual brand</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
+
+<div class="page-hero">
+  <div class="page-glow"></div>
+  <span class="tag">Craft</span><h1>Visual brand</h1>
+  <p>The colour, typography and spacing rules behind the site, the covers and everything else outside the manuscript.</p>
+  <div class="hero-stats"></div>
+</div>
+<div class="triband"></div><section class="band-host">
+<div class="anchor-nav sticky bleed"><a href="#the-trilogy-in-one-paragraph">The trilogy in one paragraph</a><a href="#colour">Colour</a><a href="#typography">Typography</a><a href="#spacing">Spacing</a><a href="#boxes">Boxes</a><a href="#checking-the-look">Checking the look</a><a href="#the-site-never-explains-its-own-production">The site never explains its own…</a><a href="#icons">Icons</a><a href="#applications">Applications</a><a href="#boilerplate">Boilerplate</a></div>
+<div class="band-group"><div class="wrap"><p class="doc-title">Meridian Resonance — Style Guide</p>
+    <p>The visual brand: the website, book covers, social tiles and anything else outside the manuscript. The prose has its own rules, in the Drafting Guide.</p>
+    <p class="doc-title">Part I — Prose craft &amp; tone</p>
+    <h3 id="where-the-prose-rules-live">Where the prose rules live</h3>
+    <p>The prose rules live in <b><code>04 - Drafting Guide.md</code></b>, in <code>Project/Story Bible/</code>, the one home for them. Its locked conventions: rotating third-person limited in past tense, one viewpoint per chapter by default and never more than one per scene; a chapter head naming bloc, place and viewpoint, with the Earth–Mars signal delay wherever Mars is in play; the &quot;Elevated Commercial&quot; register, about 70% commercial engine to 30% literary flavour; and chapters of 2,500–3,000 words, averaging about 2,700. The story itself is governed by the Story Bible&#x27;s <code>01 - Trilogy Bible.md</code>, <code>02 - Cast.md</code> and <code>03 - Book Outlines.md</code>.</p>
+    <p class="doc-title">Part II — Visual &amp; brand</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="the-trilogy-in-one-paragraph"><h2>The trilogy in one paragraph</h2></div>
+    <p>Meridian Resonance is a hard science-fiction trilogy set in 2095–2098, in a world recovering from climate collapse and the Synthetic War. Warnings from Mars start saving lives on Earth in the voice of Elena Vázquez&#x27;s dead sister, and the ancient Martian chorus behind them wants every mind it can reach. Every visual asset, in-world or promotional, carries two charges at once: beauty with dread, wonder with grief. Nothing is purely one thing.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="colour"><h2>Colour</h2></div>
+    <p>The site is pure black and pure white, one grey, and two spot colours. Nothing else.</p>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Colour</th><th>Hex</th><th>Role</th></tr></thead><tbody><tr><td><b>Paper</b></td><td><code>#FFFFFF</code></td><td>The one ground every content band sits on</td></tr><tr><td><b>Black</b></td><td><code>#000000</code></td><td>The always-dark elements only: the nav, page heroes, footer and dark cards</td></tr><tr><td><b>Grey</b></td><td><code>#404040</code></td><td>The one box-fill grey on the white ground, always with white text (10.4:1)</td></tr><tr><td><b>Light grey</b></td><td><code>#BFBFBF</code></td><td>A fixed decorative literal; never a text colour or a box fill</td></tr><tr><td><b>Terra Azure</b></td><td><code>#087DC2</code></td><td>Spot colour: Earth</td></tr><tr><td><b>Ares Rose</b></td><td><code>#D93D4A</code></td><td>Spot colour: Mars</td></tr></tbody></table></div>
+    <p><b>Text is pure.</b> Every line of text is pure black or pure white; hierarchy comes from size, weight and letter-spacing, never from a tint or an opacity.</p>
+    <p><b>The two spot colours are one hex each, everywhere.</b> Both sit at the balanced luminance, where a colour&#x27;s contrast against black and white is as high as it can be at once: 4.45:1 on both. Anything filled with a spot colour takes a white label.</p>
+    <p><b>One gradient: Terra Azure to Ares Rose, two stops, 90°</b> — Earth to Mars. It runs on the homepage wordmark and the progress fills, and reads the colour tokens rather than retyping the hexes. A gradient on text is sized to the text, and falls back to plain ink where <code>background-clip:text</code> is unavailable.</p>
+    <p><b>The logo mark</b> runs azure, white and rose around one continuous path. It is drawn for its own dark chrome and is never used as a text gradient.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="typography"><h2>Typography</h2></div>
+    <ul><li><b>Headings, UI and labels:</b> Space Grotesk — geometric and technical.</li><li><b>Body:</b> Inter.</li><li><b>Labels and tags:</b> Space Grotesk, uppercase, tracked out.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="spacing"><h2>Spacing</h2></div>
+    <p>Every page edge is governed by fluid tokens in <code>:root</code>, scaling with <code>clamp()</code> rather than stepping at breakpoints:</p>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>Value</th><th>Governs</th></tr></thead><tbody><tr><td><code>--gutter</code></td><td><code>clamp(20px, 5.5vw, 88px)</code></td><td>Distance from the viewport edge to any content</td></tr><tr><td><code>--band-y</code></td><td><code>clamp(64px, 7.5vw, 110px)</code></td><td>Vertical rhythm above and below a band</td></tr><tr><td><code>--band-y-tight</code></td><td><code>calc(var(--band-y) * 0.8)</code></td><td>Utility strips and the footer</td></tr><tr><td><code>--pad-box</code></td><td><code>clamp(20px, 2.2vw, 30px)</code></td><td>Inner padding of a card or box</td></tr><tr><td><code>--pad-row</code></td><td><code>clamp(13px, 1.3vw, 18px)</code></td><td>Compact rows: list items, table cells, accordion bars</td></tr></tbody></table></div>
+    <ul><li>Nothing sets a page-edge padding in literal units, and <code>vw</code> is never a spacing value (it is fine inside a <code>clamp()</code> for font size).</li><li>Every band pads all four edges. There is no opt-out.</li><li><code>.band-host</code> is the one wrapper with no padding of its own; its full-width <code>.band-group</code> children carry it.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="boxes"><h2>Boxes</h2></div>
+    <ul><li><b>A box on the white ground</b> is <code>#404040</code> with white text.</li><li><b>Dark cards</b> (book cards, chapter cards) are black with white text by design, and declare their own ink and ground so anything nested in them still reads.</li><li><b>No box is transparent.</b> A box&#x27;s colour never depends on what is behind it. The mobile menu, which holds no body copy, is the one exemption.</li><li><b>Pills</b> are opaque: filled with a spot colour and a white label, or outlined in grey with ink text.</li><li><b>Oversized numerals</b> on book and chapter cards are decoration: grey at full strength, <code>aria-hidden</code>, anchored at <code>top:0</code> so a card never cuts them.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="checking-the-look"><h2>Checking the look</h2></div>
+    <p>The look is verified by rendering, not by reading: <code>python3 Project/_builder/check.py render</code> runs the spacing check (no text within 14px of its band&#x27;s edge) and the contrast check (all text at or above 4.4:1 against what is actually behind it, every box opaque). Both need Playwright, so they run in the cloud sandbox. Run them after any change to the stylesheet in <code>site_shell.py</code>.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="the-site-never-explains-its-own-production"><h2>The site never explains its own production</h2></div>
+    <p>Site copy carries the work, never the making of it: no dates, no &quot;drafted from&quot;, no &quot;superseded by&quot;. How something got decided lives in <code>project-ledger.json</code>, and the homepage is where that history is read. The Story Bible&#x27;s canon-voice audit enforces the same rule for the four documents.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="icons"><h2>Icons</h2></div>
+    <p><code>Project/_builder/make_icons.py</code> generates the favicons, apple-touch icon, app icons and web manifest from the logo mark at <code>Assets/Logo/mr-logo.svg</code> into <code>Assets/Logo/icons/</code>, and the build copies them into <code>Deploy/</code>. Re-run it whenever the logo changes.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="applications"><h2>Applications</h2></div>
+    <ul><li><b>Website:</b> the white ground, black chrome, the two spot colours, and nothing else.</li><li><b>Covers and social tiles:</b> dark ground, white headline, and the Earth-to-Mars ramp as the one accent.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="boilerplate"><h2>Boilerplate</h2></div>
+    <p>The series descriptor is the Trilogy Bible&#x27;s logline. Longer blurbs are written when a book is ready to be presented.</p></div></div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 400 212" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Meridian Resonance">
+  <defs>
+    <path id="mrPathFooter" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"/>
+    <linearGradient id="mrGradFooter" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#087DC2"/><stop offset="0.26" stop-color="#3FA8E0"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#E8737D"/>
+      <stop offset="1" stop-color="#D93D4A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(106,4) scale(0.95)">
+    <use xlink:href="#mrPathFooter" href="#mrPathFooter" fill="url(#mrGradFooter)" opacity="0.62"/>
+    <circle class="mr-spark" r="3.0" fill="#3FA8E0" opacity="0">
+      <animateMotion dur="18s" begin="-0s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-0s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.3" fill="#FFFFFF" opacity="0">
+      <animateMotion dur="18s" begin="-4.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-4.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.8" fill="#E8737D" opacity="0">
+      <animateMotion dur="18s" begin="-9s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-9s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+    <circle class="mr-spark" r="2.1" fill="#3FA8E0" opacity="0">
+      <animateMotion dur="18s" begin="-13.5s" repeatCount="indefinite">
+        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="18s" begin="-13.5s" repeatCount="indefinite"
+        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
+    </circle>
+  </g>
+  <text x="200" y="152" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="2" fill="#FFFFFF">MERIDIAN</text>
+  <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
+    font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
+</svg></a>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">Would you let go of someone you love, if holding on meant feeding the thing that took them?</p>
+    </div>
+    <div class="footer-nav">
+      <span class="footer-nav-title">Explore</span>
+      <a href="story.html">Story</a>
+      <a href="cast.html">Cast</a>
+      <a href="books.html">Books</a>
+      <a href="manuscript.html">Manuscript</a>
+    </div>
+    <div class="footer-nav">
+      <span class="footer-nav-title">Craft</span>
+      <a href="craft.html">Drafting Guide</a>
+      <a href="brand.html">Visual brand</a>
+    </div>
+  </div>
+  <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
+    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; the Story Bible, and the manuscript being written from it.</span>
+    <span class="footer-copy">Fractured Horizons &middot; The Narrow Gate &middot; The Open Hand</span>
+  </div>
+</footer>
+
+<button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
+  </svg>
+</button>
+<script>
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+const hb = document.querySelector('.hamburger');
+const mm = document.querySelector('.mobile-menu');
+if (hb) { hb.addEventListener('click', () => { hb.classList.toggle('open'); mm.classList.toggle('open'); }); }
+const backToTop = document.getElementById('back-to-top');
+if (backToTop) {
+  const toggleBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 500);
+  toggleBackToTop();
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+</script>
+</body>
+</html>

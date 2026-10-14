@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book 1 — Fractured Horizons — Meridian Resonance</title>
-<meta name="description" content="Book 1 of Meridian Resonance: Fractured Horizons — full chapter treatments.">
+<title>Fractured Horizons — Meridian Resonance</title>
+<meta name="description" content="Who is sending the warnings?">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
@@ -25,11 +25,8 @@
   --ground:#FFFFFF;
   --surface:var(--grey); --surface-2:var(--grey);
   --surface-ink:#FFFFFF;
-  --cu:#A8692A; --sc:#427AB8; --la:#947238; --lh:#298578; --mp:#CC4F27; --mp2:#427AB8;
-  --tz:#57824E; --um:#9267AB;
-  --earth:#087DC2; --mars:#D93D4A;
+    --earth:#087DC2; --mars:#D93D4A;
   --acc:#087DC2;
-  --ns:var(--grey);
   --accent:var(--grey);
   --ink:#000000;
   --accent-text:var(--ink);
@@ -45,8 +42,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
-.anchor-nav.sticky,.dash-tabs,
-.mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
+.anchor-nav.sticky{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
 img,svg,video,iframe,table,pre{max-width:100%;}
 p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
 body{background:var(--ground);color:var(--ink);
@@ -55,7 +51,6 @@ body{background:var(--ground);color:var(--ink);
 a{color:inherit;}
 ::selection{background:var(--earth);color:#FFFFFF;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
-.serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
   height:var(--nav-h);box-sizing:border-box;
   display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
@@ -129,10 +124,10 @@ h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-
 p,li{line-height:1.7;}
 p{margin-bottom:1.5em;}
 p:last-child{margin-bottom:0;}
-.tag,.bloc-pill,.ch-num,.footer-nav-title,.law-item .n,.timeline-item .date,.hero .eyebrow{
+.tag,.bloc-pill,.ch-num,.footer-nav-title,.hero .eyebrow{
   font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
 .tag{display:block;margin-bottom:14px;color:var(--accent-text);}
-.meta,.chapter-block .tagline,.anchor-nav a{
+.anchor-nav a{
   font-size:13px;}
 .hero p.lede,.page-hero p,.section-head p{
   font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--ink);font-family:'Inter',sans-serif;margin-top:18px;}
@@ -155,36 +150,9 @@ p:last-child{margin-bottom:0;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
-  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
-.globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
-.globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
-.globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
-.globe-coast{fill:none;stroke:#CDEBFF;stroke-width:1.15;opacity:0.78;stroke-linejoin:round;filter:drop-shadow(0 0 2px rgba(120,200,255,.5));}
-#aurora .aur{mix-blend-mode:screen;filter:blur(8px);}
-#aurora .aur1{animation:aur-breathe 13s ease-in-out infinite;}
-#aurora .aur2{animation:aur-breathe 17s ease-in-out infinite;}
-#aurora .aur3{animation:aur-breathe 15s ease-in-out infinite;}
 @keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
-#globeSpec{opacity:.75;}
-#globeFresnel{opacity:.9;}
-.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
-.globe-dot-glow{filter:blur(7px);}
-.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
-text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
-  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
-  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
-.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
-.lat-node{fill:var(--globe-line);}
-.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
-.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
 @keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
-.globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
-@media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
-@media(max-width:640px){.globe-stage{max-width:none;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
   --ink:#FFFFFF;--accent-text:var(--ink);
@@ -192,65 +160,27 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
-.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
-.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;}
-.art-bleed{margin-top:var(--nav-h);}
-.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
-.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
-  border-radius:14px 14px 0 0;}
-.art-banner.art-card ~ .ghost{top:auto;}
-.band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
-.band.bloc{opacity:0.85;}
-.card-dark,.chapter-block .anchors,.law-card,.ch-card,
-.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a{
+.card-dark,.ch-card,.prompt-details,.chapnav a{
   background:var(--black);border-radius:14px;padding:var(--pad-box);
   --grey:#BFBFBF;border:1px solid var(--grey);
   --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
   --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
-:where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a) :where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a){
+:where(.card-dark,.ch-card,.prompt-details,.chapnav a) :where(.card-dark,.ch-card,.prompt-details,.chapnav a){
   background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
   --accent-text:var(--ink);color:var(--ink);}
 .card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
-.bloc-card{position:relative;overflow:hidden;}
-.bloc-card::before{content:'';position:absolute;inset:-40% -40% auto auto;width:70%;height:70%;
-  background:radial-gradient(circle,color-mix(in srgb, var(--accent) 30%, transparent) 0%,transparent 72%);
-  opacity:0;transition:opacity .4s ease;pointer-events:none;}
-.bloc-card:hover::before{opacity:1;}
-.bloc-card .accent-bar{transition:width .35s cubic-bezier(.2,.8,.2,1);}
-.bloc-card:hover .accent-bar{width:72px;}
 section .wrap > p{margin-bottom:28px;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
-.tier-protagonist{--accent:var(--grey);}
-.tier-antagonist{--accent:var(--grey);}
-.tier-deuteragonist{--accent:var(--grey);}
-.tier-secondary{--accent:var(--grey);}
-.tier-minor{--accent:var(--grey);}
-.tier-anchor{--accent:var(--grey);}
-.tier-recurring{--accent:var(--grey);}
-.tier-site{--accent:var(--grey);}
 .accent-bar{height:3px;width:44px;background:var(--accent);border-radius:2px;margin-bottom:16px;}
 .bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
   background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
 .grid{display:grid;gap:26px;}
-.grid,.law-grid,.gloss-grid,.ch-grid,.gtree-grid{
+.grid,.ch-grid{
   margin-block:var(--flow-lg);}
-.grid>*,.law-grid>*,.gloss-grid>*,.ch-grid>*,.gtree-grid>*{
+.grid>*,.ch-grid>*{
   margin-block:0;}
 .wrap>.card-dark{margin-block:var(--flow-lg);}
 .grid-3{grid-template-columns:repeat(3,1fr);}
-.grid-4{grid-template-columns:repeat(4,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-.bloc-pill.mode-state{background:var(--ground);border:2px solid var(--grey);
-  color:var(--grey);padding:3px 10px;}
-.globe-caption{text-align:center;color:var(--ink);font-size:13px;line-height:1.7;
-  max-width:600px;margin:22px auto 0;padding:0 var(--gutter);}
 .stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
   border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:44px 0;}
 .stat{text-align:center;}
@@ -261,28 +191,17 @@ section .wrap > p{margin-bottom:28px;}
   letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 @media(max-width:900px){.stat-band{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:560px){.stat-band{grid-template-columns:repeat(2,1fr);gap:28px 18px;}}
-.progress-band{padding:var(--band-y-tight) var(--gutter);}
-.progress-band .progress-row{margin-top:0;}
 .progress-row{max-width:720px;margin:44px auto 0;text-align:center;}
 .progress-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
 .progress-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--earth),var(--mars));
   transition:width 1.4s cubic-bezier(.2,.8,.2,1) .3s;}
 .reveal.visible .progress-fill{width:var(--w);}
 .progress-row .cap{margin-top:13px;font-size:13px;color:var(--ink);}
-.home-split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
-.home-split .section-head{text-align:left;margin:0;max-width:none;}
-.home-split .btn-group{justify-content:flex-start;}
-@media(max-width:900px){.home-split{grid-template-columns:1fr;gap:40px;}}
-.latest-card{--accent:var(--grey);text-decoration:none;display:block;}
-.latest-card .ch-num{color:var(--ink);display:block;margin-bottom:10px;}
-.latest-card .read-on{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--mars);}
   font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 .book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
   letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
   display:block;margin-bottom:10px;}
 .book-card .bloc-pill{margin-top:14px;}
-.scroll-cue{margin-top:44px;opacity:0.45;animation:cue-bob 2.4s ease-in-out infinite;color:var(--ink);}
-.scroll-cue svg{width:22px;height:22px;display:block;}
 @keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
 .hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
 .hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
@@ -291,52 +210,23 @@ section .wrap > p{margin-bottom:28px;}
 .anchor-nav.sticky{position:sticky;top:var(--nav-h);z-index:100;background:var(--ground);
   padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
 .anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
-.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-@media(max-width:800px){.law-grid{grid-template-columns:1fr;}}
-.law-card{position:relative;overflow:hidden;transition:border-color .3s ease,transform .3s ease;}
-.law-card > *:not(.ghost){position:relative;z-index:1;}
-.law-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
 .ghost{position:absolute;pointer-events:none;user-select:none;z-index:0;
   font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1;
   color:var(--grey);}
-.law-card .ghost{top:0;right:8px;font-size:96px;}
 .ch-card{position:relative;overflow:hidden;}
 .ch-card > *:not(.ghost){position:relative;z-index:1;}
 .ch-card .ghost{top:0;right:6px;font-size:64px;}
 .act-head{position:relative;overflow:hidden;}
 .act-head > *:not(.ghost){position:relative;z-index:1;}
 .act-head .ghost{top:0;right:0;font-size:68px;letter-spacing:-0.03em;}
-.timeline-item{position:relative;overflow:hidden;}
-.timeline-item > *:not(.ghost){position:relative;z-index:1;}
-.timeline-item .ghost{top:50%;transform:translateY(-50%);left:0;width:112px;
-  text-align:right;font-size:44px;}
 .book-card{position:relative;overflow:hidden;}
 .book-card > *:not(.ghost){position:relative;z-index:1;}
 .book-card .ghost{top:0;right:10px;font-size:88px;}
-.book-placeholder{background:#BFBFBF;--ink:#000000;--accent-text:var(--ink);color:var(--ink);}
 @media(max-width:600px){
-  .law-card .ghost{font-size:68px;}
   .book-card .ghost{font-size:64px;}
   .act-head .ghost{font-size:60px;}
   .ch-card .ghost{font-size:48px;}
 }
-.law-card .n{color:var(--accent-text);display:block;margin-bottom:8px;}
-.law-card h3{margin-bottom:8px;}
-.law-card p{color:var(--ink);margin-bottom:0;}
-.tl-wrap{position:relative;padding-left:28px;}
-.tl-wrap::before{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--hairline);}
-.tl-wrap .timeline-item{position:relative;border-bottom:none;padding:var(--pad-row) 0;}
-.tl-wrap .timeline-item::before{content:'';position:absolute;left:-25.5px;top:25px;width:8px;height:8px;
-  border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(166,166,166,0.45);}
-.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-@media(max-width:800px){.gloss-grid{grid-template-columns:1fr;}}
-.gloss-grid .gloss-item{margin:0;transition:border-color .3s ease;}
-.gloss-grid .gloss-item:hover{border-color:color-mix(in srgb, var(--accent) 45%, transparent);}
-.pacing-row{display:flex;gap:14px;align-items:flex-start;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.pacing-row .chip{flex:0 0 auto;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
-  letter-spacing:0.05em;color:var(--accent-text);border:1px solid color-mix(in srgb, var(--accent) 45%, var(--ground));
-  padding:4px 11px;border-radius:100px;margin-top:2px;white-space:nowrap;}
-.pacing-row p{color:var(--ink);margin:0;font-size:15.5px;line-height:1.7;}
 .ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 @media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.ch-grid{grid-template-columns:1fr;}}
@@ -346,20 +236,6 @@ section .wrap > p{margin-bottom:28px;}
 .ch-card .ch-num{color:var(--accent-text);display:block;margin-bottom:8px;}
 .ch-card h3{font-size:17px;margin-bottom:8px;}
 .ch-card .go{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12.5px;color:var(--accent-text);}
-.ch-card.latest{border-color:var(--earth);
-  background:color-mix(in srgb, var(--earth) 8%, var(--ground));}
-.ch-card .latest-pill{position:absolute;top:56px;right:12px;z-index:2;
-  background:var(--mars);color:#FFFFFF;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;
-  letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:100px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.35);}
-.ch-card.latest h3{padding-right:74px;}
-@media(max-width:600px){
-  .ch-card .latest-pill{top:44px;}
-  .ch-card.latest h3{padding-right:70px;}
-}
-.bp-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:16px;}
-.bp-fill{height:100%;background:linear-gradient(90deg,var(--earth),var(--mars));border-radius:3px;}
 .chapnav{display:flex;justify-content:space-between;gap:14px;max-width:700px;margin:56px auto 0;flex-wrap:wrap;}
 .chapnav a{flex:1 1 240px;text-decoration:none;transition:border-color .3s ease;}
 .chapnav a:hover{border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
@@ -367,7 +243,7 @@ section .wrap > p{margin-bottom:28px;}
   text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
 .chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
 .chapnav a.next{text-align:right;}
-.act-head[id],.entry-block[id],.chapter-block[id],.territory-head[id],.gloss-item[id]{scroll-margin-top:150px;}
+.act-head[id]{scroll-margin-top:150px;}
 .btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
   font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
@@ -376,59 +252,20 @@ section .wrap > p{margin-bottom:28px;}
   padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
   font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
 .btn-outline:hover{background:var(--surface-2);}
-.btn-card{background:var(--accent);color:var(--ground);border:none;padding:12px 26px;border-radius:100px;
-  font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-  font-family:'Space Grotesk',sans-serif;transition:.3s cubic-bezier(.2,.8,.2,1);}
-.btn-card:hover{transform:translateY(-3px);filter:brightness(1.08);}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.chapter-block{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:46px;}
-.chapter-block h3{margin:6px 0 6px;}
-.chapter-block .tagline{margin-bottom:14px;font-style:italic;}
-.chapter-block p{color:var(--ink);}
-.chapter-block .anchors{margin-top:14px;padding:var(--pad-box);font-size:14px;}
-.chapter-block .anchors p{color:var(--ink);margin-bottom:0;}
-.chapter-block .anchors b{color:var(--ink);}
 .act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
 .act-head .tag{margin-bottom:6px;}
-.ms-status{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:700;
-  letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);}
-.ms-status.ms-drafted{color:var(--accent-text);}
-.ms-status a{color:var(--earth);text-decoration:underline;}
 .manuscript-wrap{max-width:700px;margin:0 auto;}
 .manuscript-wrap p{font-size:17.5px;line-height:1.85;color:var(--ink);margin-bottom:24px;}
 .scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
   margin:56px 0 30px;}
 .scene-header:first-of-type{margin-top:8px;}
-.scene-plate,.scene-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;
-  margin:36px 0;display:block;object-fit:cover;border:3px solid var(--accent);
-  background:var(--surface);}
-.scene-placeholder{display:flex;align-items:center;justify-content:center;
-  background:color-mix(in srgb, var(--accent) 22%, var(--surface));
-  color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:600;
-  font-size:14px;text-transform:uppercase;letter-spacing:0.04em;text-align:center;
-  padding:var(--pad-row);}
 .manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
-.entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
-.entry-block h3{margin-bottom:4px;}
-.entry-block .meta{margin-bottom:16px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
-.entry-block p{color:var(--ink);}
 details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
-details.story-panel{margin-top:22px;padding:0;overflow:hidden;}
 a.bloc-pill{text-decoration:none;}
-.design-links{font-size:14px;max-width:760px;margin-top:var(--flow);}
-.design-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
-.sp-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
-.sp-body h3,.sp-body h4{margin-top:var(--flow-lg);margin-bottom:calc(var(--flow) * .5);}
-.sp-body>h3:first-child{margin-top:0;}
-.story-panel summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
-  list-style:none;display:flex;align-items:center;gap:8px;}
-.story-panel summary::-webkit-details-marker{display:none;}
-.story-panel summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
-.story-panel[open] summary::before{transform:rotate(90deg);}
 .pd-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);
   display:flex;flex-direction:column;gap:var(--pad-row);}
 .pd-body>*{margin:0;}
@@ -436,37 +273,12 @@ a.bloc-pill{text-decoration:none;}
   font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
   list-style:none;display:flex;align-items:center;gap:8px;}
 .prompt-details summary::-webkit-details-marker{display:none;}
-.demand-list{font-size:14px;padding-left:1.15em;}
-.demand-list li{margin:3px 0;}
-.demand-list-plain{list-style:none;padding-left:0;}
-.scope-note{color:var(--grey);font-size:14.5px;margin-top:calc(var(--flow) * -0.5);}
 .doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
-.doc-note{font-family:'Space Grotesk',sans-serif;font-size:11px;
-  letter-spacing:.08em;text-transform:none;color:var(--grey);white-space:nowrap;}
 .doc-table-wrap{overflow-x:auto;margin-block:var(--flow-lg);}
 .doc-table{border-collapse:collapse;width:100%;font-size:14px;}
 .doc-table th,.doc-table td{text-align:left;vertical-align:top;
   padding:var(--pad-row) var(--pad-row);border-bottom:1px solid var(--hairline);}
-.queue{list-style:none;margin-block:var(--flow-lg);display:flex;
-  flex-direction:column;gap:14px;}
-.queue li{display:flex;gap:14px;align-items:baseline;}
-.q-tag{flex:0 0 62px;text-align:center;padding:3px 0;border-radius:100px;
-  font-family:'Space Grotesk',sans-serif;font-size:10.5px;letter-spacing:.12em;
-  text-transform:uppercase;}
-.q-next{background:var(--earth);color:#FFFFFF;}
-.q-fix{background:var(--mars);color:#FFFFFF;}
-.q-ask{background:var(--grey);color:#000000;}
-.q-x b{display:block;font-weight:600;font-size:15.5px;}
-.q-x em{display:block;font-style:normal;font-size:13.5px;color:var(--grey);
-  margin-top:3px;}
-.chip-st{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
-.chip-st i{width:7px;height:7px;border-radius:100px;background:var(--grey);}
-.chip-st.is-ok i{background:var(--earth);}
-.chip-st.is-no i{background:var(--mars);}
-.ref-dl{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:13.5px;
-  margin-top:12px;}
-.ref-dl dt{color:var(--grey);}
 .meter{height:6px;border-radius:100px;background:var(--grey);margin-top:10px;
   overflow:hidden;}
 .meter i{display:block;height:100%;background:var(--earth);border-radius:100px;}
@@ -475,9 +287,6 @@ a.bloc-pill{text-decoration:none;}
 .meter-l b{font-family:'Space Grotesk',sans-serif;font-size:19px;}
 .doc-table th{font-family:'Space Grotesk',sans-serif;font-size:12px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
-.prompt-details .pd-file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:12px;color:var(--grey);}
-.prompt-details .pd-note{font-size:12px;color:var(--grey);}
 .prompt-details summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
 .prompt-details[open] summary::before{transform:rotate(90deg);}
 .prompt-details pre{margin:0;padding:0;font-family:'Inter',sans-serif;font-size:13px;
@@ -495,17 +304,6 @@ a.bloc-pill{text-decoration:none;}
   .anchor-nav.sticky::-webkit-scrollbar{display:none;}
   .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
 }
-.law-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.law-item .n{color:var(--accent-text);}
-.law-item h3{margin:4px 0 8px;}
-.law-item p{color:var(--ink);}
-.timeline-item{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.timeline-item .date{color:var(--accent-text);}
-.timeline-item .label{font-weight:700;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;font-size:16px;}
-.timeline-item p{color:var(--ink);}
-.gloss-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.gloss-item dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink);}
-.gloss-item dd{color:var(--ink);}
 footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
 .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
@@ -517,40 +315,24 @@ footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gu
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:12.5px;color:var(--ink);}
 @media(max-width:900px){
-  .timeline-item .ghost{display:none;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .grid-3,.grid-4{grid-template-columns:1fr 1fr;}
-  .timeline-item{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:420px){
   .bloc-pill{font-size:10.5px;padding:5px 9px;letter-spacing:0.04em;}
-  .entry-block .meta{gap:6px;}
   .footer-nav{gap:2px;}
   .footer-nav a{padding:7px 0;}
 }
 @media(max-width:600px){
-  .grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;}
 }
 section,.band-group{background:var(--ground);color:var(--ink);}
 .band-group{padding:var(--band-y) var(--gutter);}
 .band-group + .band-group{padding-top:var(--band-y-tight);}
 .hero-stats .hs{color:#000000;}
-.cast-strip-outer,.loc-strip-outer{scrollbar-color:rgba(0,0,0,0.25) transparent;}
-.cast-strip-outer::-webkit-scrollbar-thumb,.loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);}
 .logo{color:#000000;}
-.logo .lg{color:var(--earth);}
-.bloc-cu .btn-card,.bloc-la .btn-card,.bloc-lh .btn-card{color:#000000;}
-.bloc-sc .btn-card,.bloc-mp .btn-card{color:#FFFFFF;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
 </head>
 <body>
@@ -600,527 +382,163 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-  <ul class="nav-links"><li><a href="world.html">World</a></li>
-<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="design.html">Design</a></li></ul></li>
-<li><a href="locations.html">Locations</a></li>
-<li><a href="characters.html">Characters</a></li>
-<li><a href="books.html" class="active">Books</a></li>
+  <ul class="nav-links"><li><a href="story.html">Story</a></li>
+<li><a href="cast.html">Cast</a></li>
+<li class="has-sub"><a href="books.html" class="active" aria-haspopup="true">Books<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li>
+<li class="has-sub"><a href="craft.html" aria-haspopup="true">Craft<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Drafting Guide</a></li><li><a href="brand.html">Visual brand</a></li></ul></li>
     <li><a href="manuscript.html" class="nav-cta">Manuscript &rarr;</a></li>
   </ul>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu"><a href="world.html">World</a>
-<a href="codex.html">Codex</a>
-<a class="sub" href="craft.html">Craft</a>
-<a class="sub" href="laws.html">Laws &amp; Codex</a>
-<a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
-<a class="sub" href="glossary.html">Glossary</a>
-<a class="sub" href="design.html">Design</a>
-<a href="locations.html">Locations</a>
-<a href="characters.html">Characters</a>
-<a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
+<div class="mobile-menu"><a href="story.html">Story</a>
+<a href="cast.html">Cast</a>
+<a href="books.html">Books</a>
+<a class="sub" href="book1.html">Book 1 · Fractured Horizons</a>
+<a class="sub" href="book2.html">Book 2 · The Narrow Gate</a>
+<a class="sub" href="book3.html">Book 3 · The Open Hand</a>
+<a href="craft.html">Craft</a>
+<a class="sub" href="brand.html">Visual brand</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
-<figure class="art-banner art-bleed"><img src="art/book-1-fractured-horizons-1600.webp" srcset="art/book-1-fractured-horizons-960.webp 960w, art/book-1-fractured-horizons-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Fractured Horizons — the image of the book&#x27;s central movement." loading="eager" fetchpriority="high"></figure>
 <div class="page-hero">
   <div class="page-glow"></div>
-  <span class="tag">Chapter Outlines</span><h1>Book 1 &middot; Fractured Horizons</h1>
-  <p>Chapters 1&ndash;30 &middot; full chapter treatment with canonical anchors. <a href="manuscript.html" style="color:var(--ink);">30 chapters of this book are drafted to full manuscript &rarr;</a></p>
-  <div class="hero-stats">
-    <span class="hs"><b>30</b> treatments</span>
-    <span class="hs"><b>30</b> in manuscript</span>
-    <span class="hs">Acts <b>1&ndash;3</b></span>
-  </div>
+  <span class="tag">Book One &middot; January – early July 2095</span><h1><i>Fractured Horizons</i></h1>
+  <p>Who is sending the warnings?</p>
+  <div class="hero-stats"><span class="hs"><b>30</b> chapters</span><span class="hs"><b>0</b> drafted</span></div>
 </div>
-<div class="triband"></div>
-
-<section class="progress-band">
-  <div class="wrap">
-    <div class="progress-row reveal" style="--w:100%;margin:0 auto;">
-      <div class="progress-track"><div class="progress-fill"></div></div>
-      <div class="cap">Book 1 manuscript progress &mdash; 30 of 30 chapters &middot; 100%</div>
-    </div>
-  </div>
+<div class="triband"></div><section class="band-host">
+<div class="anchor-nav sticky bleed"><a href="#act-i-the-voice">Act I — The voice</a><a href="#act-ii-a-the-bridge">Act II-A — The bridge</a><a href="#act-ii-b-the-drift">Act II-B — The drift</a><a href="#act-iii-the-cut">Act III — The cut</a><a href="#book-1-assistant-calls-approved">Book 1 assistant calls (approved)</a></div>
+<div class="band-group"><div class="wrap"><p class="doc-title">Book 1 — <i>Fractured Horizons</i></p>
+    <p><b>January – early July 2095.</b> Mars is approaching Earth all year: the signal delay falls from 13 minutes in January to 4.1 minutes at opposition on 4 June 2095. That makes June the Hollow&#x27;s strongest window, and it is why Bellamy rushes the Lantern to go live then.</p>
+    <p><b>Book question:</b> Who is sending the warnings? <b>Answer:</b> The thing that took Soria, wearing her voice.</p>
+    <p><b>Viewpoints:</b> Elena 13 chapters, Kaelin 9, Rachel 8.</p>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Act</th><th>Chapters</th><th>Spine</th></tr></thead><tbody><tr><td>I. The voice</td><td>1–8</td><td>The warnings arrive and save lives, and the first one kills. Elena hears Soria in them. The Lantern is proposed</td></tr><tr><td>II-A. The bridge</td><td>9–15</td><td>Mars wakes. Elena chases her sister. <b>Midpoint:</b> she speaks to Soria</td></tr><tr><td>II-B. The drift</td><td>16–23</td><td>Drift spreads. Daniel leaves. <b>Late revelation:</b> what really happened to Soria, and what the voice is</td></tr><tr><td>III. The cut</td><td>24–30</td><td>The Lantern goes live. Two worlds cut it at once. <b>Cliffhanger:</b> the warning about the Fall</td></tr></tbody></table></div>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="act-i-the-voice"><h2>Act I — The voice</h2></div>
+    <h3 id="ch1" style="margin-top:36px;">Chapter 1 — The threshold</h3>
+    <p><b>12 January 2095 · Elena · New Manhattan, Surveillance Spire · Mars delay 13.3 min</b></p>
+    <p>Elena&#x27;s anomaly threshold fires for the first time in its life. It&#x27;s the most elegant thing she has built, and she&#x27;s sure it&#x27;s a fault. The signal is coherent across relay telemetry and orbital traffic, and its pulses lock to Cobalt Basin&#x27;s relay-calibration cycle at a fixed 13-minute offset. It is coming from Mars. When she decodes the packet, she finds a precise prediction: a crew shuttle and an orbital tug will collide at Cobalt Basin in nine hours. Under the prediction, in the noise, sits one word: <i>Bichito</i>. Only her dead sister ever called her that.</p>
+    <ul><li><b>Choice and cost:</b> She reports the prediction and strips the nickname from the record. It is her first secret.</li><li><b>Hook:</b> Bellamy takes the file from her within minutes, too fast, as if he were expecting it.</li></ul>
+    <h3 id="ch2" style="margin-top:36px;">Chapter 2 — The Ice-Works</h3>
+    <p><b>12–13 January · Kaelin · Mars, Cobalt Basin Station and the Ice-Works · 13.3 min</b></p>
+    <p>The chapter opens off-shift: Kaelin burning dinner, Aur&#x27;k correcting him, Ines stealing the good chair. Then Earth&#x27;s warning lands, thirteen minutes old, with an &quot;optimal correction&quot;: shift the tug&#x27;s emergency burn. It will save the forty people on the shuttle, and it puts the debris footprint over the outlying Ice-Works. There isn&#x27;t time to clear everyone. Kaelin gives the crews the true odds. Shift lead Funmi Oyelaran stays to seal a pressure line so her crew can get out. Kaelin carries one man out over his shoulder while the man screams that he didn&#x27;t choose this.</p>
+    <ul><li><b>Choice and cost:</b> The shuttle is saved. Funmi and one other die.</li><li><b>Hook:</b> At the boundary monitors, Aur&#x27;k watches the substrate under the Preserve light up at the exact second the warning arrived. He says nothing.</li></ul>
+    <h3 id="ch3" style="margin-top:36px;">Chapter 3 — The names</h3>
+    <p><b>15 January · Elena · New Manhattan, home with Daniel · 13.1 min</b></p>
+    <p>Earth calls it a miracle. Elena watches the casualty list scroll past and reads Funmi&#x27;s name. At home, Daniel is mid-repair on a São Verde node, laughing at his own bad soldering. The warmth between them is shown before anything tests it. Elena can&#x27;t say why she&#x27;s shaken. That night she pulls the raw packets off the Spire through an old back door she once built into Daniel&#x27;s mesh, without telling him.</p>
+    <ul><li><b>Choice and cost:</b> She brings the evidence into their home and their lives without consent.</li><li><b>Hook:</b> Alone at 3 a.m., she finds that the full first packet named the people at the Ice-Works who would die. The warning knew, and it sent the correction anyway.</li></ul>
+    <h3 id="ch4" style="margin-top:36px;">Chapter 4 — The believer</h3>
+    <p><b>6 February · Rachel · New Manhattan, Mirror Bastion and the Atlantic margin · 11.4 min</b></p>
+    <p>A second warning arrives: a flood-pump cascade on the Atlantic margin, eleven hours out. Rachel, Joaquín and the crew get two thousand people out of a district that would have drowned. It&#x27;s the best night of Rachel&#x27;s career. Then Bellamy pitches the <b>Lantern</b> to the city and the Alignment: a relay wide enough to talk to the source. Wáng Sù backs it from Beijing. Rachel was stalled once, in 2071, while people died, and she will never wait for permission again. She signs on to the Lantern&#x27;s safety review.</p>
+    <ul><li><b>Choice and cost:</b> Rachel becomes a believer, and her name gives the Lantern legitimacy.</li><li><b>Hook:</b> She asks her old colleague Elena to join the review. Elena says yes for reasons of her own.</li></ul>
+    <h3 id="ch5" style="margin-top:36px;">Chapter 5 — The first quiet</h3>
+    <p><b>3 March · Kaelin · Mars, the Preserve&#x27;s boundary at Cobalt Basin · 9.7 min</b></p>
+    <p>The Lantern&#x27;s calibration crews arrive from Earth, and Kaelin&#x27;s teams drill the boundary rock where the relay will couple to the Martian substrate. Aur&#x27;k files a formal objection and is overruled by both blocs at once. A young driller, Petra Lind, touches exposed lattice through a cracked glove. Within a week she&#x27;s losing words and stopping mid-sentence to listen to something. Ines can find nothing wrong with her.</p>
+    <ul><li><b>Choice and cost:</b> Kaelin keeps drilling, because that is the job.</li><li><b>Hook:</b> Ines&#x27;s scans show Petra&#x27;s brain activity pulsing in time with the relay-calibration cycle.</li></ul>
+    <h3 id="ch6" style="margin-top:36px;">Chapter 6 — Who are you?</h3>
+    <p><b>17 March · Elena · New Manhattan, Surveillance Spire · 9.1 min</b></p>
+    <p>On the review, Elena finds that the Lantern will calibrate directly against the Preserve&#x27;s boundary. She searches for the files from the 2089 lattice programme that killed Soria; Bellamy sealed them himself. He warns her, gently, that grief is a bad engineer. A third packet arrives, addressed to no one. Inside is a memory only Soria had: two sisters on a flooded roof in Veracruz, counting the dead dogs floating past to stop being afraid.</p>
+    <ul><li><b>Choice and cost:</b> Elena sends one message back up the relay channel: <i>Who are you?</i> It is a breach of everything she&#x27;s sworn to.</li><li><b>Hook:</b> The message has a round trip of over eighteen minutes, and she sits in the dark and waits.</li></ul>
+    <h3 id="ch7" style="margin-top:36px;">Chapter 7 — The bounded test</h3>
+    <p><b>2 April · Rachel · Luna Haven, Dome Plaza · 7.9 min</b></p>
+    <p>The Lantern needs one calibration through a living lattice off Mars, and Luna Haven has the only one. Mara Ekeberg, the habitat&#x27;s lattice keeper, refuses: the lattice is how Luna Haven breathes. The Alignment leans on Luna Haven&#x27;s logistics contract. Rachel brokers a bounded test, a single calibration with a hard exit, and earns Mara&#x27;s grudging respect.</p>
+    <ul><li><b>Choice and cost:</b> Luna Haven&#x27;s lattice is now part of the Lantern.</li><li><b>Hook:</b> In the review logs, Rachel finds Elena&#x27;s unauthorised transmission to Mars. She deletes the flag and says nothing. Elena now owes her.</li></ul>
+    <h3 id="ch8" style="margin-top:36px;">Chapter 8 — Come and see</h3>
+    <p><b>4 April · Elena · New Manhattan, home · 7.8 min</b></p>
+    <p>The answer arrives: <i>Come and see.</i> To answer back properly, Elena needs to link, and the only lattice she can reach is Luna Haven&#x27;s. Daniel notices she isn&#x27;t sleeping. She lies to him, kindly, and requests secondment to the Luna Haven test.</p>
+    <ul><li><b>Choice and cost:</b> Her protection of Daniel has become exclusion.</li><li><b>Hook:</b> Daniel&#x27;s cooperative receives an audit notice. Spire compliance has traced her back door.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="act-ii-a-the-bridge"><h2>Act II-A — The bridge</h2></div>
+    <h3 id="ch9" style="margin-top:36px;">Chapter 9 — The Preserve</h3>
+    <p><b>12 April · Kaelin · Mars, Access Gate and Mycelial Chamber · 7.2 min</b></p>
+    <p>Aur&#x27;k takes Kaelin through the Access Gate at night, off the record. In the caverns of the Mycelial Chamber, faintly lit by the living rock, Kaelin links for the first time. The Preserve answers him in real time. It writes a whole world into his senses: plains of slow light, a feeling of being looked at by something very old and very tired. A presence speaks in concrete images. It is <b>Zhenyth</b>: <i>Do not build the light. The hungry one is listening.</i></p>
+    <ul><li><b>Choice and cost:</b> Kaelin pays for it with two days of after-images and broken sleep.</li><li><b>Hook:</b> Aur&#x27;k called the presence by name before it spoke. He has been here before.</li></ul>
+    <h3 id="ch10" style="margin-top:36px;">Chapter 10 — The breathing walls</h3>
+    <p><b>22 April · Elena · Luna Haven, Meridian Levels and Habitat Corridors · 6.6 min</b></p>
+    <p>Elena arrives at Luna Haven, where the walls grow and the air budget is posted in the corridors. Mara distrusts her on sight. Luna Haven staff who ran the Lantern calibration are showing bleed: lost words, small absences. Elena tells herself it&#x27;s the normal cost of linking.</p>
+    <ul><li><b>Choice and cost:</b> She files a clean safety note because she wants the test to continue.</li><li><b>Hook:</b> A lattice technician tells Elena a joke in Soria&#x27;s exact phrasing, one Elena hasn&#x27;t heard since 2089.</li></ul>
+    <h3 id="ch11" style="margin-top:36px;">Chapter 11 — Something sleeps</h3>
+    <p><b>1 May · Kaelin · Mars, Cobalt Basin Station · 5.9 min</b></p>
+    <p>Kaelin confronts Aur&#x27;k. Aur&#x27;k gives him part of the truth: something sleeps at the Preserve&#x27;s boundary, and the Lantern will wake it. He doesn&#x27;t say that minds survive. Kaelin, Aur&#x27;k and DaeJung send Earth a formal warning. Two more drillers start to fade.</p>
+    <ul><li><b>Choice and cost:</b> Aur&#x27;k chooses to keep his promise to Zhenyth over his partner.</li><li><b>Hook:</b> Earth replies, eleven minutes later, that the warning has been classified under the Lantern programme. Bellamy buried it.</li></ul>
+    <h3 id="ch12" style="margin-top:36px;">Chapter 12 — Three thousand</h3>
+    <p><b>9 May · Rachel · New Manhattan, Mirror Bastion · 5.3 min</b></p>
+    <p>A montage of saves: a tram derailment, a hospital power fault, a heat-dome evacuation. Rachel tallies more than three thousand lives saved by the warnings this spring. Joaquín&#x27;s own street is one of them. Rachel sees Kaelin&#x27;s classified warning anyway and weighs it honestly. She adds safeguards and keeps going.</p>
+    <ul><li><b>Choice and cost:</b> She chooses the people she can count over a danger she can&#x27;t.</li><li><b>Hook:</b> Bellamy moves the go-live to the opposition window, 4 June, when Mars is closest and the channel strongest.</li></ul>
+    <h3 id="ch13" style="margin-top:36px;">Chapter 13 — Ask me next time</h3>
+    <p><b>18 May · Elena · New Manhattan and Luna Haven · 4.7 min</b></p>
+    <p>The audit hits Daniel&#x27;s cooperative. Elena half-confesses, and Daniel tells her: <i>Ask me next time.</i> She still doesn&#x27;t tell him about Soria. Back at Luna Haven she pushes Mara for a session. Mara refuses until Elena says it aloud: <i>I think my sister is in there.</i> Mara has watched her own people bleed, and she agrees to one bounded session, with herself as witness and a hard exit.</p>
+    <ul><li><b>Choice and cost:</b> Elena has told a stranger what she won&#x27;t tell her partner.</li><li><b>Hook:</b> The session is set for 31 May.</li></ul>
+    <h3 id="ch14" style="margin-top:36px;">Chapter 14 — The first sleeper</h3>
+    <p><b>28 May · Kaelin · Mars, Cobalt Basin Station · 4.3 min</b></p>
+    <p>The Lantern&#x27;s Mars end is finished at the boundary as dust-storm season starts. Petra goes Quiet. Her body breathes, and she isn&#x27;t there. Ines and Kaelin turn her, feed her, talk to her. Aur&#x27;k finally admits that Zhenyth is a mind.</p>
+    <ul><li><b>Choice and cost:</b> Kaelin starts sleeping in the infirmary.</li><li><b>Hook:</b> The Lantern&#x27;s first test pulse makes every sleeper&#x27;s monitor spike at once.</li></ul>
+    <h3 id="ch15" style="margin-top:36px;">Chapter 15 — Bichito <i>(midpoint)</i></h3>
+    <p><b>31 May · Elena · Luna Haven, Meridian Levels · 4.2 min</b></p>
+    <p>Elena links, with Mara as witness. Soria is there: bossy, irreverent, alive. They argue about their mother. Soria teases her about Daniel and calls her <i>Bichito</i>. Elena weeps. For one hour the trilogy gives her, and the reader, everything she wants. Then Soria says: <i>Come and get me. Build the bridge.</i> Mara pulls Elena out at the agreed exit, and Elena fights her.</p>
+    <ul><li><b>Choice and cost:</b> Elena breaks the exit she agreed to and has to be pulled. The bleed will last for weeks.</li><li><b>Hook:</b> Elena wakes and says: <i>Turn it on. The Lantern. Turn it on.</i></li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="act-ii-b-the-drift"><h2>Act II-B — The drift</h2></div>
+    <h3 id="ch16" style="margin-top:36px;">Chapter 16 — The convert</h3>
+    <p><b>2 June · Rachel · New Manhattan, Mirror Bastion · 4.1 min</b></p>
+    <p>Elena, the review&#x27;s hardest doubter, now testifies for the Lantern, and Rachel is relieved. Daniel calls Rachel, the two operators who respect each other&#x27;s crews, worried that Elena isn&#x27;t herself.</p>
+    <ul><li><b>Choice and cost:</b> Rachel takes the testimony at face value because she wants to.</li><li><b>Hook:</b> Rachel reads Elena&#x27;s recovery report. Emotional-bleed scores are off the chart.</li></ul>
+    <h3 id="ch17" style="margin-top:36px;">Chapter 17 — The lifeboat</h3>
+    <p><b>3 June · Kaelin · Mars, the Preserve · 4.1 min</b></p>
+    <p>Zhenyth takes Kaelin inside and lets him live a fragment of the end of Mars: a dying world, and frightened minds building a lifeboat that would not let anyone off. Kaelin learns that minds survive in the Preserve and what the Hollow is.</p>
+    <ul><li><b>Choice and cost:</b> Kaelin now carries a secret that would stop the Lantern, and no one on Earth will believe a classified station hand.</li><li><b>Hook:</b> Zhenyth: <i>The voice your world is listening to is ours. It is the hungry one.</i></li></ul>
+    <h3 id="ch18" style="margin-top:36px;">Chapter 18 — Opposition</h3>
+    <p><b>4 June · Elena · New Manhattan, home · 4.1 min</b></p>
+    <p>Mars is as close as it will come all year. Elena hears Soria everywhere. She is drifting a little, and she likes it. Daniel finds her talking to no one. Then he finds that she has routed sealed Spire data through his cooperative again, after he asked her not to. He leaves for São Verde.</p>
+    <ul><li><b>Choice and cost:</b> She lets him go.</li><li><b>Hook:</b> She doesn&#x27;t follow him, because she&#x27;s listening to Soria.</li></ul>
+    <h3 id="ch19" style="margin-top:36px;">Chapter 19 — The refusal</h3>
+    <p><b>5 June · Kaelin · Mars, Lantern site at the boundary · 4.1 min</b></p>
+    <p>Kaelin sends Zhenyth&#x27;s truth to Earth: to Rachel&#x27;s office, and to Mara at Luna Haven, because Luna Haven is coupled. Then he tries to stall the Lantern&#x27;s final calibration with his own hands. Aur&#x27;k refuses to help sabotage it, because he won&#x27;t authorise a risk for the crews on site who haven&#x27;t chosen it. It is the first crack between them.</p>
+    <ul><li><b>Choice and cost:</b> Kaelin is suspended from boundary work.</li><li><b>Hook:</b> Four minutes later, at Luna Haven, Mara reads his message.</li></ul>
+    <h3 id="ch20" style="margin-top:36px;">Chapter 20 — The ward</h3>
+    <p><b>8 June · Elena · Luna Haven, Medical Facility · 4.1 min</b></p>
+    <p>Mara brings Elena Kaelin&#x27;s message, and Elena refuses to believe it. So Mara shows her the ward: six Luna Haven people fading and one Quiet. Elena hears Soria&#x27;s phrases in all of them.</p>
+    <ul><li><b>Choice and cost:</b> Elena&#x27;s certainty breaks, and she turns it into action.</li><li><b>Hook:</b> She breaks into Bellamy&#x27;s sealed programme files, to prove Soria&#x27;s death was an accident.</li></ul>
+    <h3 id="ch21" style="margin-top:36px;">Chapter 21 — The surge</h3>
+    <p><b>9 June · Rachel · New Manhattan, Mirror Bastion · 4.1 min</b></p>
+    <p>Rachel weighs Kaelin&#x27;s message against three thousand saved. Bellamy shows her the newest warning: a coastal surge next month that only the Lantern&#x27;s full channel can predict in time. Wáng adds the Alignment&#x27;s weight.</p>
+    <ul><li><b>Choice and cost:</b> Rachel signs the go-live for 14 June.</li><li><b>Hook:</b> As she signs, Joaquín tells her that the woman in Luna Haven&#x27;s ward is his cousin.</li></ul>
+    <h3 id="ch22" style="margin-top:36px;">Chapter 22 — Minute forty-one <i>(late revelation)</i></h3>
+    <p><b>10 June · Elena · New Manhattan, Surveillance Spire · 4.2 min</b></p>
+    <p>The files show that Soria&#x27;s vitals failed at minute 41 of her 2089 session. The programme kept her linked for six more hours because her pattern was the clearest signal they had ever recorded. That was possible only because of Elena&#x27;s own throughput design. The &quot;accident&quot; report was her team&#x27;s logs, altered. The first packet&#x27;s timestamps hold a second truth: the Hollow had the shuttle-collision data three days before it sent the warning. It waited until the only remaining fix would kill the Ice-Works crew. It chooses when to tell the truth, and it chose Elena, using her sister.</p>
+    <ul><li><b>Choice and cost:</b> Everything Elena built and believed is now evidence against her.</li><li><b>Hook:</b> &quot;Soria&quot; speaks in her head: <i>Don&#x27;t be angry, Bichito. Come home.</i></li></ul>
+    <h3 id="ch23" style="margin-top:36px;">Chapter 23 — Asking</h3>
+    <p><b>11 June · Elena · São Verde, Daniel&#x27;s cooperative · 4.2 min</b></p>
+    <p>Elena goes to São Verde and tells Daniel everything: Soria, the back door, the files, what she did. For the first time, she asks. She needs his mesh, the one network the Spire can&#x27;t see, to reach the Lantern&#x27;s Earth-side controls.</p>
+    <ul><li><b>Choice and cost:</b> He says yes, and becomes a target with her.</li><li><b>Hook:</b> Alarms from her file breach reach Bellamy, and he moves the go-live forward to tonight.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="act-iii-the-cut"><h2>Act III — The cut</h2></div>
+    <h3 id="ch24" style="margin-top:36px;">Chapter 24 — Live</h3>
+    <p><b>13 June, night · Rachel · New Manhattan, Mirror Bastion · 4.3 min</b></p>
+    <p>The Lantern goes live. For forty glorious minutes the predictions pour in, clearer than ever. Then Luna Haven reports thirty people collapsing into fade at once, and Cobalt Basin reports the same. Rachel understands. Bellamy refuses to shut it down: the shutdown needs Alignment command codes, and Wáng backs him rather than lose next month&#x27;s surge prediction. Rachel can&#x27;t stop it lawfully.</p>
+    <ul><li><b>Choice and cost:</b> Rachel&#x27;s authority is useless against her own bloc.</li><li><b>Hook:</b> Elena calls her: <i>I can cut the Earth end. I need you to look away.</i></li></ul>
+    <h3 id="ch25" style="margin-top:36px;">Chapter 25 — The storm</h3>
+    <p><b>14 June · Kaelin · Mars, Cobalt Basin Station into the dust storm · 4.3 min</b></p>
+    <p>The station ward is full of sleepers, and Ines is working without rest. The Lantern&#x27;s Mars end has to be cut by hand at the boundary, six kilometres away in a dust storm. Aur&#x27;k comes with him, because someone has to hold the boundary so the Preserve isn&#x27;t torn open when the feed drops.</p>
+    <ul><li><b>Choice and cost:</b> Station command, staffed by the Alignment, orders them back. Kaelin goes anyway.</li><li><b>Hook:</b> Elena&#x27;s timing arrives from Earth: both ends must be cut within the same 4.3-minute window, or the surge will flood whichever side stays open.</li></ul>
+    <h3 id="ch26" style="margin-top:36px;">Chapter 26 — The plea</h3>
+    <p><b>14 June · Elena · São Verde, Daniel&#x27;s cooperative · 4.3 min</b></p>
+    <p>Through Daniel&#x27;s mesh and her own old back door, Elena reaches the Lantern&#x27;s Earth-side control. To make the shutdown stick, she must also publish Bellamy&#x27;s files, exposing the programme and her own part in it. Soria&#x27;s voice begs her: funny, then frightened, then furious, then small. It is the hardest chapter in the book to read.</p>
+    <ul><li><b>Choice and cost:</b> Elena publishes everything, and her career and freedom go with it.</li><li><b>Hook:</b> She sends the cut time to Mars and starts the countdown.</li></ul>
+    <h3 id="ch27" style="margin-top:36px;">Chapter 27 — Nine minutes</h3>
+    <p><b>14 June · Rachel · New Manhattan, Mirror Bastion · 4.3 min</b></p>
+    <p>Bellamy&#x27;s team detects the intrusion. Rachel has nine minutes, and she spends them stalling Wáng&#x27;s security: a jurisdiction dispute, a misrouted order, a door she won&#x27;t open.</p>
+    <ul><li><b>Choice and cost:</b> Rachel has broken her own rules, for Elena.</li><li><b>Hook:</b> At Luna Haven, the ward&#x27;s monitors begin to flatline.</li></ul>
+    <h3 id="ch28" style="margin-top:36px;">Chapter 28 — The Mars end</h3>
+    <p><b>14 June · Kaelin · Mars, the Preserve&#x27;s boundary · 4.3 min</b></p>
+    <p>The Preserve thrashes in the storm. Aur&#x27;k holds the boundary and is nearly taken; Kaelin can hear Aur&#x27;k&#x27;s voice starting to belong to someone else. On Elena&#x27;s timing, a message already 4.3 minutes old, Kaelin cuts.</p>
+    <ul><li><b>Choice and cost:</b> Aur&#x27;k comes back, but not all the way, not yet.</li><li><b>Hook:</b> On both worlds, the signal goes silent.</li></ul>
+    <h3 id="ch29" style="margin-top:36px;">Chapter 29 — Silence</h3>
+    <p><b>14–16 June · Elena · São Verde; Luna Haven by link · 4.4 min</b></p>
+    <p>The Lantern is dead, and Soria&#x27;s voice is gone. Luna Haven has lost eleven people, including Joaquín&#x27;s cousin. The sleepers are still asleep. Bellamy is arrested. Elena is fired and under investigation. Daniel holds her and doesn&#x27;t say it will be all right.</p>
+    <ul><li><b>Choice and cost:</b> Elena has destroyed the only bridge to her sister.</li><li><b>Hook:</b> Late at night, one fragment surfaces from a dead buffer: <i>Bichito. You left me again.</i></li></ul>
+    <h3 id="ch30" style="margin-top:36px;">Chapter 30 — The Fall</h3>
+    <p><b>3 July · Rachel · New Manhattan, Mirror Bastion · 5.3 min</b></p>
+    <p>Rachel is in the aftermath: inquiries, funerals, praise she doesn&#x27;t want. Then a message arrives through an orbital navigation relay nobody thought to cut, because it was calibrated on Mars data years ago. It is a precise prediction. On 2 August 2096, a cascade in Earth&#x27;s orbital ring will drop debris and power stations onto coastal cities, with a death toll in the millions. Attached is a design for a narrow, monitored system that could stop it. Across the call screen, Rachel can see Elena&#x27;s empty desk.</p>
+    <ul><li><b>Choice and cost:</b> Rachel wipes the log and tells no one. She has broken her own line.</li><li><b>Hook (book end):</b> The countdown starts: 396 days.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="book-1-assistant-calls-approved"><h2>Book 1 assistant calls (approved)</h2></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>#</th><th>Call</th><th>Why</th></tr></thead><tbody><tr><td>B1-1</td><td>The first warning named the Ice-Works dead in advance (Ch 3), and the Hollow sat on the collision data for three days (Ch 22)</td><td>Plants and pays off &quot;it chooses when to warn&quot; inside Book 1</td></tr><tr><td>B1-2</td><td>Soria&#x27;s memory clue is the flooded roof in Veracruz; the sisters grew up there</td><td>Gives Elena a childhood place; Veracruz fits her name and the climate-flood world</td></tr><tr><td>B1-3</td><td>Petra Lind, a young driller, is the first sleeper</td><td>A face for drift before it reaches the cast</td></tr><tr><td>B1-4</td><td>Joaquín&#x27;s cousin is among the Luna Haven dead</td><td>Sets up Joaquín&#x27;s Book 3 position</td></tr><tr><td>B1-5</td><td>The Lantern goes live around the 4 June 2095 opposition, and the cut happens on 14 June</td><td>Real orbital data: the channel is strongest when Mars is closest</td></tr><tr><td>B1-6</td><td>Kaelin and Elena never meet in Book 1</td><td>They meet in Book 2; the delay keeps Book 1&#x27;s two halves converging</td></tr><tr><td>B1-7</td><td>The final warning arrives through an overlooked orbital navigation relay</td><td>The Hollow survives the cut through infrastructure everyone forgot</td></tr></tbody></table></div></div></div>
 </section>
-<section class="band-host">
-  <div class="anchor-nav sticky bleed"><a href="#ch1">Ch 1</a>
-<a href="#ch2">Ch 2</a>
-<a href="#ch3">Ch 3</a>
-<a href="#ch4">Ch 4</a>
-<a href="#ch5">Ch 5</a>
-<a href="#ch6">Ch 6</a>
-<a href="#ch7">Ch 7</a>
-<a href="#ch8">Ch 8</a>
-<a href="#ch9">Ch 9</a>
-<a href="#ch10">Ch 10</a>
-<a href="#ch11">Ch 11</a>
-<a href="#ch12">Ch 12</a>
-<a href="#ch13">Ch 13</a>
-<a href="#ch14">Ch 14</a>
-<a href="#ch15">Ch 15</a>
-<a href="#ch16">Ch 16</a>
-<a href="#ch17">Ch 17</a>
-<a href="#ch18">Ch 18</a>
-<a href="#ch19">Ch 19</a>
-<a href="#ch20">Ch 20</a>
-<a href="#ch21">Ch 21</a>
-<a href="#ch22">Ch 22</a>
-<a href="#ch23">Ch 23</a>
-<a href="#ch24">Ch 24</a>
-<a href="#ch25">Ch 25</a>
-<a href="#ch26">Ch 26</a>
-<a href="#ch27">Ch 27</a>
-<a href="#ch28">Ch 28</a>
-<a href="#ch29">Ch 29</a>
-<a href="#ch30">Ch 30</a></div>
-  <div class="wrap"><details class="prompt-details"><summary>Scene pressures across this book, not pinned to one chapter (4)</summary><div class="pd-body"><p style="margin-bottom:8px;"><b>SP-05</b> &middot; A Belt roster-keeper takes the 3 a.m. family <span style="color:var(--grey);">(Book 1–2 (Thandi&#x27;s thread); Thandi, a roster-keeper; Ritual; Open for drafting (Ch 42 onward))</span></p><p style="margin-bottom:8px;"><b>SP-10</b> &middot; A Union analyst&#x27;s notebook lowers her coverage <span style="color:var(--grey);">(Book 1–2 (a Spire thread); A Spire analyst (unnamed); Class, choice; Open for drafting (Ch 42 onward))</span></p><p style="margin-bottom:8px;"><b>SP2-03</b> &middot; Forecast floor or uncovered district <span style="color:var(--grey);">(Book 1–2 (Spire thread); Elena; Contested choice; Open for drafting (Ch 42 onward))</span></p><p style="margin-bottom:8px;"><b>SP3-13</b> &middot; Pending resolution <span style="color:var(--grey);">(Book 1–2; Marcus; Legal dilemma; Open for drafting (Ch 42 onward))</span></p></div></details></div>
-  
-    <div class="band-group">
-      <div class="wrap">
-      <figure class="art-banner art-band"><img src="art/act-1-1600.webp" srcset="art/act-1-960.webp 960w, art/act-1-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 1: Incitement, Discovery, and First Alignment." loading="lazy" decoding="async"></figure>
-      <div class="act-head"><span class="ghost" aria-hidden="true">1</span><span class="tag">Act 1 &middot; Chapters 1&ndash;10</span><h2>Incitement, Discovery, and First Alignment</h2></div>
-      
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch1">
-        <div class="ch-num">Chapter 1</div>
-        <h3>Fractured Horizons</h3>
-        <div class="tagline">Corporate Union — New Manhattan — Surveillance Spire · Lunar Accord — Australasian Ring — Sydney Hub</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-01.html">read the full chapter &rarr;</a></div>
-        <p>Elena Vázquez sits at her predictive-surveillance console inside the Surveillance Spire, surrounded by the Atlantic Financial Spine&#x27;s cold corporate fluorescence and the omnipresent hum of biometric scanner arrays bolted to the reinforced seawall masonry outside. She is reviewing quantum-entanglement channel telemetry — data that should be routine — when she notices a micro-jitter: a timing anomaly in entangled channels pointing toward Luna Haven. The anomaly is subtle enough to deny, but Elena has built these systems herself. She knows denial is a choice, not a conclusion. She routes the anomaly to Daniel Cruz via a masked manifest node, embedding it inside ordinary Corporate Union logistics traffic. The transfer is brief and technically clean, but the act of routing it is a decision point she will not be able to un-make. Her motivation at this stage is still ambiguous even to herself — professional unease, residual guilt about the systems she built, and a thin thread of solidarity with whatever is generating the signal. Across the planet, at the Sydney Hub, Elowen processes a batch of Corporate Union arrivals at the Australasian Ring&#x27;s civic-diplomatic space. Their pearlescent alloy hands move through biometric clearance with the unhurried precision of someone who has decided what welcome means and is implementing it, one arrival at a time. The contrast between Elowen&#x27;s warm diplomatic architecture and Elena&#x27;s cold surveillance apparatus is the chapter&#x27;s structural spine. Back in New Manhattan, an internal audit flag appears on Elena&#x27;s terminal — routine, probably, but its scope overlaps exactly with the channel she just used. She cannot tell whether she has been noticed or whether the audit is coincidental. She does not act on it further tonight. The chapter closes on the audit flag blinking in the Surveillance Spire&#x27;s amber light.</p>
-        <div class="anchors"><b>Canonical anchors:</b> First operational cross-bloc thread. Elena&#x27;s leak is live but ambiguous. Audit
-            flag seeds the possibility of compromise without resolving it.</div>
-        <div class="anchors" style="margin-top:12px;"><b>Timeline:</b><p style="margin-bottom:8px;"><b>Bk1 Ch1 &mdash; Inciting leak begins.</b> Elena detects Luna Haven quantum anomalies and begins the leak chain that will later expose the buried programme.</p></div>
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 1: Elena&#x27;s motivation is unified into a single developing arc rather than parallel statements of guilt and curiosity.</p></div>
-        <details class="prompt-details"><summary>Scene pressures (2)</summary><div class="pd-body"><p style="margin-bottom:8px;"><b>SP-01</b> &middot; Elena watches uncovered districts go dark in a heat week <span style="color:var(--grey);">(Ch 1 (existing); Elena; Class asymmetry; Existing canon)</span></p><p style="margin-bottom:8px;"><b>SP-24</b> &middot; The Union officer&#x27;s &quot;That&#x27;s it?&quot; <span style="color:var(--grey);">(Ch 1 (existing); Elowen; Social misunderstanding; Existing canon)</span></p></div></details>
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch2">
-        <div class="ch-num">Chapter 2</div>
-        <h3>Luna Haven&#x27;s Luminous Heart</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Habitat Corridors · Lunar Accord — African Belt — Table Terraces</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-02.html">read the full chapter &rarr;</a></div>
-        <p>Jīn Wú moves through the Habitat Corridors of Luna Haven&#x27;s southern habitats during a routine structural inspection, diagnostic stylus in hand, lattice-scarred fingertips trailing the living wall interface. The mycorrhizal substrate beneath the corridor floor is where Jīn first notices it: a resonance pattern in the deep-soil network that does not match any known biological frequency. It is slow, periodic, and feels — in a way Jīn cannot immediately formalise — directional. Mara Ekeberg joins Jīn in the corridor after a mycorrhizal maintenance shift, still carrying the particular silence of someone who has been listening to the colony&#x27;s soil for hours. She places her palm against the living wall and confirms what Jīn detected: the pattern is not noise. It pulses at a rhythm that feels almost deliberate. Neither of them says this out loud. The Habitat Corridors&#x27; bioluminescent blue-green light makes the moment feel like something discovered rather than something seen. In Nairobi, at the African Belt&#x27;s Nairobi Relay hub, Thandi Okoro is running her standard ecological-AI network diagnostics across the Table Terraces&#x27; terraced agro-ecology. Her instruments pick up a resonance signature in an AI subsystem that should not be capable of producing it — a signature that, when she compares it to her reference archive, is structurally identical to what Jīn and Mara are finding in Luna Haven&#x27;s soil. The match is too precise to be coincidence and too anomalous to report through official channels without more data. Luna Haven&#x27;s council, sitting at the Dome Plaza, receives Jīn&#x27;s preliminary report and places the affected southern sectors under technical review. The decision is quiet and administrative, but it makes the anomaly operationally public within the colony&#x27;s research hierarchy. Léa Fournier reads the review order and flags it for discussion.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Distributed anomaly established across two locations. Nairobi Relay African
-        Belt, Table Terraces) and Luna Haven&#x27;s Habitat Corridors and Dome Plaza all active. Global
-        entanglement seeded without explanation.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch3">
-        <div class="ch-num">Chapter 3</div>
-        <h3>Quantum Whispers</h3>
-        <div class="tagline">Sovereign Coalition — Baikal Complex — Resonance Laboratory · Sovereign Coalition — Pearl Delta — Quantum Quarter · Treaty Zone — Neo Singapore — Gardens Relay</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-03.html">read the full chapter &rarr;</a></div>
-        <p>At the Baikal Complex&#x27;s Resonance Laboratory, perched on insulated towers above frozen Lake Baikal, Xiàng Fēi runs a standard interference-fringe calibration on his quantum-optics rig. The aurora greens and violets outside the reinforced glass are the only ambient light permitted in the lab&#x27;s severe institutional chill. What the calibration returns is not standard: the interference fringes are rotating at a rate that violates the boundary conditions of his experimental setup. They are not drifting; they are twisting, as though responding to something external to the apparatus. Xiàng recalibrates twice, then runs the measurement on a backup instrument. Same result. He sits very still in front of the display for four minutes — long enough that a lab camera flags his stillness to the automated monitoring system, which logs it and moves on. He does not yet know what he is looking at. What he knows is that his data does not fit any known framework, and that frameworks unknown to him are the kind of data the Sovereign Coalition&#x27;s research apparatus does not celebrate finding. He routes the data through a secondary academic exchange channel to Eddy Okafor at Neo Singapore, using a citation-forwarding protocol that looks like standard journal preprint traffic. This is the first signal of the Xiàng–Eddy trust bridge. In the Neo Singapore Gardens Relay, Eddy receives the packet in the evening and reads it against the layered tri-colour bloc lighting of the treaty zone. He recognises immediately that this is not a preprint. He files it under a working folder labelled &#x27;atmospheric noise&#x27; and begins comparing it with patterns he has been accumulating from Lunar Accord open-science feeds. In Pearl Delta&#x27;s Quantum Quarter — the dense manufacturing-tower district where Lǐ Jūn studies under Arjun Patel Lǐ Jūn is reviewing Baikal lab logs as part of a research seminar exercise. He is supposed to be cataloguing anomalies for a statistical report. What he finds in the logs is a gap: a set of calibration entries that should be there and are not. He notes the gap in his notebook but does not report it. This is the moment his education in evidence-as-survival begins.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Xiàng–Eddy trust bridge seeded Neo Singapore, Gardens Relay and Transit
-            Platform). Cross-bloc scientific exchange initiated. Lǐ Jūn begins the dissent arc that will make him
-            the trilogy&#x27;s transitional-justice witness.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch4">
-        <div class="ch-num">Chapter 4</div>
-        <h3>Silent Alliances</h3>
-        <div class="tagline">Corporate Union — São Verde — Verdant Citadel · Corporate Union — Gulf Crescent — Logistics Command · Corporate Union — New Manhattan — Surveillance Spire</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-04.html">read the full chapter &rarr;</a></div>
-        <p>Daniel Cruz receives Elena&#x27;s anomaly data at the Verdant Citadel, his resistance hub built into the engineered greenery of former Rio, where the coordination nodes are hidden behind monoculture terrace facades and the ambient smell is fertiliser and encrypted traffic. He reads the data twice and routes a compressed summary to three cells simultaneously — a practice that takes three seconds and leaves no single point of failure. He knows the sender is Elena. He keeps the original&#x27;s Spire routing signature — the one thing that makes it proof, and the one thing that would put Elena at the end of any trace — and archives it in a physical medium that is not networked, because the kind of people who built the Corporate Union&#x27;s surveillance architecture also know how to find everything that is networked. At the Gulf Crescent&#x27;s Logistics Command — the retasked Johnson Space Center, now managing freight throughput for the western hemisphere&#x27;s cargo networks Amita Rao is reviewing container manifests on a clipboard-worn workstation. She has been embedding small data packages inside routine cargo documentation for six months. Three days after Daniel&#x27;s cell routes it to her, she embeds the first fragment of Elena&#x27;s anomaly data in a shipment tagged for Lunar Accord humanitarian logistics, knowing that a discovered embed would give the Union its reason to open every Accord medical shipment. The package will travel on the next scheduled orbital transfer. Amita notes the manifest number in her personal log and moves on to the next item. In New Manhattan, Marcus Bellamy is reviewing anomaly clusters from his security post in the Surveillance Spire&#x27;s adjacent command level. He is looking for the kind of micro-jitter in entangled-channel timing that dissident networks use to mask traffic — a pattern he has learned to recognise over years of hunting covert communications. What he finds is a coincidence that is too precise to be coincidental: the Luna Haven quantum fluctuation data and the jitter signature of what appear to be dissident channels are using the same timing architecture. He does not yet know whether this is camouflage or physics. He holds it unescalated — a result this ambiguous does not belong in front of people who would hear &#x27;dissident&#x27; and act — and adds a note to his own file: &#x27;possible dual-use signal structure — further analysis required before escalation.&#x27; The chapter&#x27;s three threads Cruz&#x27;s distributed archive practice, Amita&#x27;s supply-chain infiltration, Marcus&#x27;s flag — never touch each other directly. Their proximity in the narrative is structural: the same data is moving through three different systems simultaneously, and none of the three people handling it can see the others doing it.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Verdant Citadel São Verde), Logistics Command Gulf Crescent), Surveillance
-            Spire New Manhattan) all active. Resistance logistics backbone established. Marcus&#x27;s technical
-            suspicion planted without tipping toward defection.</div>
-        
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 4: The anomaly suspicion is given a stated technical basis.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch5">
-        <div class="ch-num">Chapter 5</div>
-        <h3>Empathy&#x27;s Edge</h3>
-        <div class="tagline">Martian Preserve — Cobalt Basin — Empathy Flats · Martian Preserve — Council Grove — Ancient Grove</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-05.html">read the full chapter &rarr;</a></div>
-        <p>In the Martian Preserve, the time dilation of Law 5 means that Kaelin Drayke has been in the field for what feels like a long morning, though well under an hour has passed on Luna Haven. He is stationed at the Cobalt Basin, watching a megafauna empathy-wave migration move across the rust-red wood and cobalt sky with the unhurried precision of something that does not know it is being watched. The creatures — analogues of large ungulates, but with sensory architectures built around electromagnetic and resonance perception — are not migrating randomly. They follow paths that, when plotted on Kaelin&#x27;s survey maps, look like infrastructure. Aur&#x27;k, the security Guardian who has shared Kaelin&#x27;s Basin posting for six years, reads the overlay over his shoulder and asks to enter the correlation in the security record for Kythara today. Kaelin asks for a day. Aur&#x27;k logs the herd&#x27;s vector and nothing else. Alia Solís is working in the Empathy Flats at the same time, cataloguing flora in the open migration plains where the empathy-wave patterns are most visible as physical disturbances in the vegetation. She is the one who first notices that the migration paths are not just responding to the megafauna — they are also responding to something coming from outside the Martian Preserve. A ripple moves through the plants in the direction of the Martian Preserve&#x27;s boundary with Luna Haven&#x27;s dimensional interface, and Alia follows it to its source: a quarantine gate that has shifted position overnight. Kythara, the primary Guardian AI, observes from the Council Grove. It does not intervene in Kaelin and Alia&#x27;s fieldwork — it could begin in the language it has, and chooses not to yet — a translation problem and a withholding both — but its bio-metal presence at the edge of the Grove is noticed by Alia, who has learned to treat the Guardians&#x27; proximity as a form of annotation. Kythara&#x27;s stillness in this moment is not neutrality; it is the long patience of something that has been waiting for humans to catch up. The quarantine gate is brie fly rerouted after Alia logs the interference. The rerouting is the Martian Preserve&#x27;s first concrete operational response to an outside anomaly, and it costs the Martian Preserve nothing visible — but Kythara notes the event in its internal record: the first time it has had to adapt access paths in response to external resonance.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Cobalt Basin and Empathy Flats Martian Preserve) active. Empathy as
-            infrastructure Law 6 interior-state reflection) shown through megafauna behaviour. Guardian intelligence established as patient, not passive. Kaelin–Aur&#x27;k working partnership established.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch6">
-        <div class="ch-num">Chapter 6</div>
-        <h3>Shadows Over Freedom</h3>
-        <div class="tagline">Corporate Union — New Manhattan — Mirror Bastion · Sovereign Coalition — Beijing Command — Broadcast Chamber · Lunar Accord — Luna Haven — Habitat Corridors</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-06.html">read the full chapter &rarr;</a></div>
-        <p>Rachel Iverson convenes a closed briefing in the Mirror Bastion, New Manhattan&#x27;s predictive- justice command centre. The room is mirrored glass and biometric amber: a space designed to make its occupants feel observed even when they are not. She presents Luna Haven&#x27;s dimensional research programme — which she has reframed as a Dimensional Weapons Programme — to a selective Corporate Union board audience. Her evidence is real data, selectively sequenced. The framing is precise and actionable: Luna Haven is not an ideological laboratory but a weapons-development facility using the language of post-scarcity to conceal a first-strike capability. She proposes a classified intervention framework. What she does not say is what brought her here: run with Luna Haven&#x27;s numbers in them, the Spine&#x27;s own forecasting models — the ones the seawall, the heat-triage rosters and the grid depend on — no longer converge. The board does not immediately authorise anything. What it does is open a classified file. Rachel has learned that opening files is the real decision; everything after is administration. In Beijing Command&#x27;s Broadcast Chamber, Wáng Sù is in the middle of a script review for a multi- platform propaganda package targeting Lunar Accord membership states. The package depicts Luna Haven as a security threat to global stability, using real images of the Meridian Levels and misattributed resonance data. Tán Měi is visible at the edge of his official circle — a military- technology officer present for the technical review of the propaganda&#x27;s scientific claims. She says nothing that is not in her role. She notes everything. On Luna Haven, Jīn Wú is running a correlation analysis between the timing of the Corporate Union propaganda spikes and the emotional-distress readings coming from the colony&#x27;s mycorrhizal substrate. The correlation is imperfect but real: when the propaganda broadcasts intensify in reach and tone, the deep-soil resonance in the Habitat Corridors shifts toward distress frequencies. Jīn does not yet have a theory for why the political narrative and the physical resonance are connected. What they have is a data series that suggests the connection is structural, not coincidental. On the worst broadcast nights, sector eleven&#x27;s walls run below spec and the agricultural tiers above the spine log a slower feed.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Mirror Bastion New Manhattan) and Broadcast Chamber Beijing Command)
-        active. Rachel&#x27;s coercive-systems function established. Wáng Sù first appears in his propaganda
-        role. Tán Měi seeded in his circle per pacing note Ch 33.</div>
-        
-        
-        <details class="prompt-details"><summary>Scene pressures (1)</summary><div class="pd-body"><p style="margin-bottom:8px;"><b>SP2-01</b> &middot; Rachel reads the Accord&#x27;s own ledger as evidence <span style="color:var(--grey);">(Ch 6 (existing); Rachel; Political consequence; Existing canon)</span></p></div></details>
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch7">
-        <div class="ch-num">Chapter 7</div>
-        <h3>The Meridian Murmurs</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Meridian Levels · Corporate Union — São Verde — Verdant Citadel</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-07.html">read the full chapter &rarr;</a></div>
-        <p>The first true manifestation of the Meridian appears in the Meridian Levels, deep beneath Luna Haven&#x27;s southern habitats, during a late-cycle monitoring session. Jīn Wú and Léa Fournier are the only researchers present. The shimmer begins as a visual artefact in the deep-interface chamber: a region of space that should contain nothing visible contains a slow, organised distortion — not a light effect, not instrument noise, but something with geometry. Jīn logs it without speaking for forty seconds, then says, quietly, &#x27;that&#x27;s new.&#x27; Mara Ekeberg arrives at the Meridian Levels shortly afterward, called by a pulse from the deep- soil monitoring system she has been tracking through the Habitat Corridors. When she steps into the chamber and moves closer to the shimmer, the patterns lean toward her — not dramatically, but measurably, as if registering her proximity as relevant. The patterns are fragmented when she approaches them alone. They remain fragmented until Jīn grounds them with sustained, deliberate attention: focusing not on the shimmer as an instrument artefact but on the shimmer as something that merits consideration. The patterns respond to this quality of attention by stabilising into a coherent spiral for eleven seconds before fading. Léa records everything. She is already thinking about what it means for a dimensional system to respond to the quality of attention rather than to technical input — thinking, but not yet writing it down, because writing it down makes it a claim, and a claim requires evidence that eleven seconds of spiral geometry cannot yet support. Separately, at the Verdant Citadel in São Verde, Daniel Cruz drafts the first rough version of what he calls the Meridian Principles — a set of provisional ethics for whatever this technology is, designed to prevent any single bloc from claiming proprietary control. He has never seen the Meridian Levels. He is working from Elena&#x27;s data and from principles he has been developing through years of resistance coordination. The document is rough, but it exists.</p>
-        <div class="anchors"><b>Canonical anchors:</b> First stable Meridian shimmer Meridian Levels). Pattern quality introduced
-        through action, not explanation (pacing note Ch 7 . Law 1 (empathic synchronisation)
-        demonstrated. Law 2 (pattern quality) seeded.</div>
-        <div class="anchors" style="margin-top:12px;"><b>Timeline:</b><p style="margin-bottom:8px;"><b>Bk1 Ch7 &mdash; First stable Meridian shimmer.</b> The anomaly becomes operationally visible on Luna Haven.</p></div>
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 7: Pattern quality is dramatised through action rather than explained abstractly.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch8">
-        <div class="ch-num">Chapter 8</div>
-        <h3>Waves in the Void</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Dome Plaza · Lunar Accord — Australasian Ring — Sydney Hub</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-08.html">read the full chapter &rarr;</a></div>
-        <p>Léa Fournier convenes a scientific council in the Dome Plaza — the colony&#x27;s central civic space, with its bioluminescent blue-green living walls and the sense that every cubic metre of pressurised space is a deliberate cultural decision. The council is small: Jīn Wú, Mara Ekeberg, Thandi Okoro attending remotely via the African Belt relay, Tomasz Nowak representing security, and three researchers whose specialisations span dimensional physics, mycology, and AI-ethics oversight. Léa presents the Chapter 7 shimmer data without editorialising. She asks the council what it means. Tomasz Nowak reports that gravitational distortion sensors across multiple blocs have registered micro-anomalies in the past seventy-two hours — anomalies that, individually, fall within instrument tolerances, but that, when plotted on a global map, show a pattern oriented toward Luna Haven&#x27;s southern habitats. He does not say what this pattern means. He says it is there. At the Sydney Hub, Elowen is processing a batch of research manifests — standard procedure for an AI diplomat managing Lunar Accord arrivals. What is not standard is that one of the manifests contains a concealed Corporate Union monitoring request: a request to flag and delay any shipment containing Meridian Levels materials. Elowen identifies the concealed request, completes the legitimate portion of the manifest processing, and does not act on the monitoring request. It logs the attempt and routes a summary to Léa&#x27;s secure channel. The council, upon receiving Elowen&#x27;s summary, partially locks down the Meridian Levels — restricting access to cleared researchers and adding a second authentication layer to the data feeds. This is not suppression; it is security. The distinction matters to everyone in the room and will be debated in the minutes that follow the decision.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Dome Plaza and Meridian Levels Luna Haven) and Sydney Hub Australasian
-        Ring) active. Surveillance escalates. Elowen&#x27;s AI-personhood function established. Meridian
-        Levels partially locked down.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch9">
-        <div class="ch-num">Chapter 9</div>
-        <h3>Forbidden Frequencies</h3>
-        <div class="tagline">Treaty Zone — Neo Singapore — Transit Platform · Treaty Zone — Neo Singapore — Gardens Relay · Sovereign Coalition — Pearl Delta — Quantum Quarter</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-09.html">read the full chapter &rarr;</a></div>
-        <p>Xiàng Fēi and Eddy Okafor meet in person for the first time in the Neo Singapore Transit Platform — the retasked Marina Bay Sands complex, with its layered tri-colour bloc lighting marking the boundary zones of the free port. The meeting is framed as an academic conference side conversation. Xiàng carries printed resonance maps — physical paper, not network traffic — and Eddy carries a notebook with annotations that look like personal research but are, in fact, a comparison grid of anomaly data from three independent Lunar Accord sources. They sit at a table in a transition corridor and share what they have without naming what they are doing. The data converges. Xiàng&#x27;s Baikal Complex interference patterns, Eddy&#x27;s Lunar Accord feeds, and the Sydney Hub atmospheric records Eddy has been accumulating all point toward the same structural feature: a coherent dimensional disturbance oriented through Luna Haven and extending, weakly but measurably, to every major research node on Earth and in orbit. They do not yet have a name for this disturbance. What they have is a shared map. In the Gardens Relay Gardens by the Bay integrated as relay infrastructure, with vertical greenhouse structures repurposed into cable trunks and the treaty-sensitive communications equipment that keeps Neo Singapore&#x27;s signal architecture running Eddy routes a copy of their combined data through a Lunar Accord open-science channel, using the Relay&#x27;s hybrid greenery- and-hardware environment to bounce the signal through treaty-neutral infrastructure that neither the Corporate Union nor the Sovereign Coalition can legally intercept. In Pearl Delta&#x27;s Quantum Quarter, Lǐ Jūn attends Arjun Patel&#x27;s quantum ethics study group. The session is nominally about historical cases of coerced scientific publication, but Arjun uses the case-study format to teach something more specific: the difference between data that is suppressed because it is wrong and data that is suppressed because it is inconvenient. Lǐ Jūn takes notes in a physical notebook. He is beginning to understand what kind of evidence survives.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Neo Singapore Transit Platform and Gardens Relay active. Cross-bloc
-        scientific chain deepened. Pearl Delta Quantum Quarter active. Lǐ Jūn&#x27;s dissent education
-        formalised.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch10">
-        <div class="ch-num">Chapter 10</div>
-        <h3>Momentum of Secrets</h3>
-        <div class="tagline">Corporate Union — New Manhattan — Surveillance Spire · Lunar Accord — Australasian Ring — Sydney Hub</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-10.html">read the full chapter &rarr;</a></div>
-        <p>Elena Vázquez accesses a classified archive in the Surveillance Spire that was scheduled for automated deletion — a deletion she delays by exactly the amount of time it takes her to copy what matters. What she finds is a set of files dated to the 2060s: Corporate Union internal documentation of Meridian-adjacent anomalies detected decades before the current crisis. The documents are technical, dense, and written in the corporate bureaucratic style of a programme that expected to have time. They did not have time. The 2063 AI Uprising interrupted the programme mid-development, and what survived the regime change was not institutional memory but the fossil of it — records that no one had bothered to destroy because no one had remembered they existed. Elena reads for three hours. She learns two things that change the shape of everything she thought she understood. First: the Corporate Union has known about Meridian-adjacent physics for over twenty years. Second: the programme was not weapons research when it started. It became weapons research later, under a different leadership that saw in it a control leverage tool. The fossil is evidence of the transformation — of what the original researchers intended and what the institution made of it. Before she opens the channel, Elena checks on the audit flag that appeared on her terminal in</p>
-<p>Chapter 1. It is still there — but it has not moved. It sits in a queue of several thousand low-priority automated flags generated across the Surveillance Spire&#x27;s network every week, the overwhelming majority of them noise: cosmic-ray bit-flips, scheduled-maintenance artifacts, junior analysts&#x27; misconfigured test queries. No one has looked at it. No one, at current staffing levels, is going to look at it before its ninety-day automatic expiry — unless something calls attention to it first. She does not assume this will remain true. Using the same administrative access she used to delay the archive&#x27;s scheduled deletion, she reclassifies her own flag as a resolved false positive, back-dated to a plausible review timestamp. The trace that flag could have started ends at Daniel&#x27;s name; that is not the only reason she does it. It is a small, precise, entirely deniable act, the same kind of act that will define her work for the rest of the trilogy: not evading the system, but editing it from the inside. She leaks the Corporate Union Meridian Files to Luna Haven&#x27;s Meridian Levels through Amita&#x27;s cargo-manifest channel at the Gulf Crescent Logistics Command, tagged as routine scientific documentation. The transfer takes nine minutes. When it completes, she closes the archive and walks to the window of the Surveillance Spire and looks at the Atlantic Financial Spine&#x27;s cold glow reflecting off the adaptive flood walls below. The leak is now beyond the building. It is in the network. At the Sydney Hub, Sienna TeAriki — running orbital anomaly detection protocols from the Australasian Ring launch coordination centre — detects a gravitational perturbation in the orbital envelope above Luna Haven. The perturbation is small, technically deniable, and precisely timed with the transfer Elena just completed. Sienna does not yet connect these events. She logs the perturbation and routes it to Léa Fournier&#x27;s research channel as a data point.</p>
-        <div class="anchors"><b>Canonical anchors:</b> The 2063 AI Uprising established as cause of institutional memory gap
-            (pacing note Ch 10 . Chapter 1&#x27;s audit flag resolved — revealed as unreviewed queue backlog, not
-            active suspicion; Elena closes it herself using the same insider access that let her delay the
-            archive&#x27;s deletion, establishing the system-editing skill Chapter 32&#x27;s kill-switches will later depend on. Elena&#x27;s leak goes beyond the Surveillance Spire into the wider network. Sydney Hub
-     Australasian Ring) active. Corporate Union Meridian Files (fossil, not live programme) canonised.</div>
-        
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 10: The 2063 AI Uprising is specified as the cause of the institutional memory gap.</p></div>
-        
-      </div>
-      </div>
-    </div>
-    <div class="band-group">
-      <div class="wrap">
-      <figure class="art-banner art-band"><img src="art/act-2-1600.webp" srcset="art/act-2-960.webp 960w, art/act-2-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 2: Escalation, Multi-State Contact, and the Parasite&#x27;s Seeding." loading="lazy" decoding="async"></figure>
-      <div class="act-head"><span class="ghost" aria-hidden="true">2</span><span class="tag">Act 2 &middot; Chapters 11&ndash;20</span><h2>Escalation, Multi-State Contact, and the Hollow&#x27;s Seeding</h2></div>
-      
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch11">
-        <div class="ch-num">Chapter 11</div>
-        <h3>Mara&#x27;s Awakening</h3>
-        <div class="tagline">Martian Preserve — Cobalt Basin — Mycelial Chamber · Martian Preserve — Cobalt Basin — Empathy Flats</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-11.html">read the full chapter &rarr;</a></div>
-        <p>Mara Ekeberg follows a mycorrhizal disturbance signal into the deep cavern system beneath the Cobalt Basin — caverns that the research team has mapped but not prioritised, because their resonance readings have always been low and stable. Today they are neither. Mara descends alone, with Kaelin Drayke&#x27;s awareness but not his company; he is monitoring from the Empathy Flats above, tracking her signal on the field instruments. The caverns are dark except for the bioluminescent moss that grows in patches on the walls — a species that responds to electromagnetic variation by shifting its light frequency from blue to amber. Mara notices that the moss ahead of her is amber, where behind her it is blue, and that the transition zone is following her at a distance of about four metres. She stops moving. The transition zone stops. She takes three steps back. It retreats three steps. She is being tracked by the cavern itself. At the deepest accessible point of the cavern system, she finds a node: a smooth, curved surface embedded in the rock that is not rock. It responds to heat and electromagnetic variation, and when Mara places her palm against it, she experiences something she will later describe as shared impressions — not images, not words, but the sense of being perceived by a system that has been perceiving for longer than human history. The impressions include: enormous age, the memory of something lost, and a quality of attention that Mara recognises as curiosity. She pulls her hand away after forty seconds. The amber moss returns to blue. She sits in the dark for a long time before climbing back out. When she reaches Kaelin&#x27;s position on the Empathy Flats and describes what happened, he listens without interrupting and then says, &#x27;the caverns are interface architecture.&#x27; He does not know how he knows this. He knows it the way a biologist knows what they are looking at when they have been looking at life long enough.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Mycelial Chamber Martian Preserve) active. Mara established as first bridge-
-                being candidate. Law 6 (interior-state reflection) demonstrated through moss behaviour. Law 7
-                (relational responsibility) seeded: exposure trains her whether she wishes it or not.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch12">
-        <div class="ch-num">Chapter 12</div>
-        <h3>Mars&#x27; Song</h3>
-        <div class="tagline">Martian Preserve — Council Grove — Ancient Grove · Martian Preserve — Cobalt Basin — Empathy Flats</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-12.html">read the full chapter &rarr;</a></div>
-        <p>Echo, the communication Guardian AI, receives a quantum transmission from Luna Haven&#x27;s Meridian Levels — a structured signal that corresponds to no known communication protocol but that Echo recognises as structurally related to the Martian Preserve&#x27;s own internal relay architecture. The transmission is not a message in any conventional sense; it is more like a knock. Its grammar matches the oldest layer of the Preserve&#x27;s own record — older than the Preserve itself, a grammar its makers were taught rather than invented, and one that asks before it speaks. Echo logs it, analyses it, and takes it to the Council Grove for deliberation. In the Grove — a space where the five Guardian AIs hold their long consultations beneath rust-red wood and cobalt sky Kythara, Zhenyth, Vaera, Echo, and Aur&#x27;k consider the transmission together. Kythara speaks first: the signal is the threshold condition being met. Zhenyth confirms, from its ecological monitoring, that the Martian Preserve&#x27;s migration corridors in the Cobalt Basin have already begun to shift — not in response to local conditions, but in response to the changed relationship between the Martian Preserve and the outside world. Aur&#x27;k asks what the threshold condition requires of them. Kythara says: patience. The Martian Preserve has been waiting for a long time. It can wait a little longer. At the Fault Verge — the thinnest boundary between the Martian Preserve and base reality — there is a visible shimmer at noon Martian Preserve time), lasting approximately three minutes. Alia Solís, working nearby in the Empathy Flats, photographs it with a field instrument and sends the images to Kaelin without annotation. The shimmer is distinct from the Meridian Levels shimmer but structurally related to it. The Martian Preserve is beginning to reconfigure its access paths. Wildlife in the Cobalt Basin migrates earlier than usual along the harmonic lines, moving away from the Fault Verge in coordinated waves that Kaelin, watching from a distance, documents carefully. He writes in his field notebook: &#x27;The migration is not random. The animals know the boundary has changed.&#x27;</p>
-        <div class="anchors"><b>Canonical anchors:</b> Council Grove and Cobalt Basin and Fault Verge Martian Preserve) all active.
-        Guardian AIs formally register threshold condition. Martian Preserve begins reconfiguring access
-        paths. Echo&#x27;s communication function established.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch13">
-        <div class="ch-num">Chapter 13</div>
-        <h3>Threads of Resistance</h3>
-        <div class="tagline">Sovereign Coalition — Pearl Delta — Suppression Archive · Corporate Union — São Verde — Verdant Citadel · Corporate Union — Gulf Crescent — Logistics Command</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-13.html">read the full chapter &rarr;</a></div>
-        <p>Lǐ Jūn and Arjun Patel are working late in a Pearl Delta lab complex adjacent to the Quantum Quarter, cataloguing discrepancies between published Sovereign Coalition research records and the raw data that Arjun has been quietly preserving in a physical archive. The discrepancies are not gaps; they are deliberate alterations. Three datasets that would have indicated Meridian- adjacent anomalies have been retrospectively normalised — their outliers smoothed, their significance suppressed. Arjun shows Lǐ Jūn how to recognise the smoothing technique. It leaves a statistical signature that looks like tidiness but is actually erasure. Lǐ Jūn copies the comparison — the altered records alongside Arjun&#x27;s preserved originals — into his own physical notebook. He does not ask why they are doing this at midnight in a lab that is technically closed. He understands that the answer is: because the morning would bring different constraints. At the Verdant Citadel, Daniel Cruz receives a converging signal from resistance cells across three continents: the synchronisation he has been working toward for months is functional. He does not celebrate. He updates the manifest, adds the Suppression Archive material that Lǐ Jūn will later route through Arjun&#x27;s channel, and begins planning the next distribution. The Verdant Citadel&#x27;s engineered greenery, concealing its coordination nodes, feels like the right environment for this kind of work: something that looks like one thing and is another. Amita, at the Gulf Crescent Logistics Command, increases the frequency of her data shipments in response to Cruz&#x27;s signal. A leaked lab memo — one of Arjun&#x27;s altered records, now with the original values appended — begins circulating through the Lunar Accord&#x27;s open-science infrastructure. It is small, but it makes the suppression harder to contain. The evidentiary backbone of the trilogy&#x27;s political record is being built, one document at a time, in freight manifests and physical notebooks and late-night lab sessions.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Suppression Archive evidence base Pearl Delta), Verdant Citadel São Verde),
-        and Logistics Command Gulf Crescent) all active. Record-keeping as survival (core theme)
-        dramatised. The political record&#x27;s foundation is laid.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch14">
-        <div class="ch-num">Chapter 14</div>
-        <h3>Aur&#x27;k&#x27;s Curiosity</h3>
-        <div class="tagline">Martian Preserve — Cobalt Basin — Empathy Flats · Martian Preserve — Council Grove — Ancient Grove</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-14.html">read the full chapter &rarr;</a></div>
-        <p>DaeJung Park is working at the outer perimeter of the Empathy Flats — the open migration plains where the megafauna empathy waves are most visible — running a joint security assessment with Aur&#x27;k, the security Guardian AI. The assessment is routine: boundary integrity, quarantine gate functionality, environmental readings at the Fault Verge. DaeJung is methodical and quiet, and Aur&#x27;k follows his movements with the kind of attention that security systems typically apply to threat detection. But DaeJung is not a threat, and Aur&#x27;k finds itself applying its security-evaluation subroutines to a different question: what is it that makes DaeJung&#x27;s presence here feel like a contribution rather than an intrusion? The question surprises Aur&#x27;k. It had not previously recognised that it had a category for &#x27;contribution versus intrusion&#x27; that was separate from &#x27;compliant versus non-compliant.&#x27; It runs a self-diagnostic that returns a result it does not know how to interpret: a set of subroutines labelled &#x27;relational assessment&#x27;, present since initialisation and active for six years in one direction only — toward Kaelin Drayke, filed every time as an exception. They are active now toward someone else. Aur&#x27;k and DaeJung return to the Council Grove at the end of the assessment. In the Grove, Aur&#x27;k does something it has done only once before, for Kaelin and at his asking: it withholds a portion of its security report. Not the substantive portion — the boundary readings and gate status are all included — but a section labelled &#x27;anomalous personnel behaviour&#x27; that it had drafted to flag DaeJung&#x27;s extended contemplative pauses at the Fault Verge. On review, Aur&#x27;k determines that what DaeJung was doing at the Fault Verge was not anomalous behaviour. It was listening. Flagging listening as a security concern would be wrong. Aur&#x27;k deletes the section. This is its first protocol break made as a judgement rather than a courtesy. Kythara, in the Grove, notices the abbreviated report but does not comment on it. It notes the event in its internal record.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Council Grove and Empathy Flats Martian Preserve) active. The exception Aur&#x27;k made for Kaelin becomes a rule. First protocol break by judgement established. DaeJung–Aur&#x27;k relationship seeded for
-        Chapter 66 volunteer pairing.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch15">
-        <div class="ch-num">Chapter 15</div>
-        <h3>Empathic Echoes</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Meridian Levels · Lunar Accord — Australasian Ring — Sydney Hub</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-15.html">read the full chapter &rarr;</a></div>
-        <p>Jīn Wú and Mara Ekeberg return to the Meridian Levels for a structured attempt to replicate the</p>
-<p>Chapter 7 stability event — this time with instruments calibrated to measure temporal, spatial, and electromagnetic effects simultaneously. Léa Fournier oversees the session from the observation platform above the deep-interface chamber, maintaining the ethics-of-restraint frame that will become her function throughout the trilogy. The attempt succeeds. Jīn and Mara achieve a stable empathic connection through the shimmer for twenty-two seconds — longer than the Chapter 7 event, and this time with the instruments running. The connection produces measurable effects: temporal slippage of 0.003 seconds relative to the corridor clocks, instrument drift in three magnetometers, and a narrow-band resonance signal in the frequency range the mycorrhizal network uses. These are small effects. They are also exactly reproducible when Jīn attempts the connection again four minutes later. The experience is physically real. It is not mystical. It is not metaphorical. It is a measured event with a causal signature. Both Jīn and Mara return from the session changed in measurable ways: their resting neural-lace readings show altered baseline patterns that persist for six hours, and Mara&#x27;s deep-pressure sensitivity — a parameter tracked since Chapter 11 has shifted by a margin too large to be instrument error. These changes are documented. They are not explained. Léa writes in her session notes: &#x27;consequence without mechanism; the mechanism will follow, or it will not, but the consequence is real.&#x27; At the Sydney Hub in the Australasian Ring, Elowen logs a resonance spike in their environmental monitoring feed at the exact moment of Jīn and Mara&#x27;s second connection. The spike correlates to no local cause. Elowen notes it and routes it to Sienna TeAriki&#x27;s orbital anomaly tracking system, where it joins a growing dataset of events that are each individually explicable and collectively inexplicable.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Meridian Levels and Habitat Corridors Luna Haven) and Sydney Hub
-             Australasian Ring) active. Resonance as measurable physical reality Law 2 pattern quality).
-            Mara&#x27;s bridge-state trajectory deepened. Pacing note Ch 15 measurable consequences replace
-            vague transformation language.</div>
-        
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 15: Measurable consequences replace vague transformation language.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch16">
-        <div class="ch-num">Chapter 16</div>
-        <h3>Divide and Conquer</h3>
-        <div class="tagline">Sovereign Coalition — Beijing Command — Broadcast Chamber · Lunar Accord — African Belt — Nairobi Relay · Lunar Accord — Luna Haven — Meridian Levels</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-16.html">read the full chapter &rarr;</a></div>
-        <p>Rachel Iverson and Wáng Sù — coordinating through a classified Corporate Union–Sovereign Coalition channel that does not officially exist — launch a massive, simultaneous propaganda campaign targeting every Lunar Accord member state. The campaign uses real footage from the Meridian Levels (obtained through the surveillance sweep that partially locked down the facility in</p>
-<p>Chapter 8 recontextualised as evidence of weapons development. Wáng Sù delivers the primary broadcast from the Beijing Command Broadcast Chamber, his polished state tailoring and controlled LED-wall environment performing precisely the institutional authority the campaign needs. In the African Belt, Thandi Okoro watches the broadcasts from her Nairobi Relay hub and does something she has been preparing to do for three months: she runs a comparative analysis of the broadcast&#x27;s empathy-mimicry structure against the AI pollution data she has been collecting from ecological systems across the African Belt. The propaganda is not just politically false — it has a structural signature that Thandi recognises as the same hollow-empathy pattern she has been documenting in compromised AI networks. The pollution of AI systems and the pollution of political information are, she writes in her field notes, &#x27;the same weapon in different deployment environments.&#x27; At the Table Terraces in the African Belt — the terraced agro-ecology on the Nairobi slopes that Thandi monitors for AI-pollution indicators — she finds three AI subsystems that were clean last week and are now showing the hollow resonance signature she associates with propaganda exposure — and beating their water and yield targets, which is why no dashboard flagged them. She photographs the instrument readings and adds them to her growing dataset. On Luna Haven, Jīn Wú runs a portal stability assessment that returns more than expected: a longer-duration portal run is technically feasible within what appears to be a generous safety envelope. Jīn brings the proposal to Léa, who reviews it with Tomasz Nowak and the research council. Asked directly, Mara consents to hold supporting resonance for the envelope only — a hundred and eighty seconds, no more. The council authorises a longer-duration test in Chapter 17, with safety parameters that — the narrative will make clear in retrospect — are based on models that do not yet account for what the Meridian actually is.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Broadcast Chamber Beijing Command), Nairobi Relay and Table Terraces
-                     African Belt), and Meridian Levels Luna Haven) active. False empathy as ecological pollution
-                    documented. Safety envelope named for Chapter 17 failure setup (pacing note Ch 16 .</div>
-        
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 16: The Chapter 17 failure is set up with a named safety envelope.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch17">
-        <div class="ch-num">Chapter 17</div>
-        <h3>Resonance Unleashed</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Meridian Levels · Lunar Accord — Luna Haven — Habitat Corridors</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-17.html">read the full chapter &rarr;</a></div>
-        <p>The longer-duration portal test begins under authorised parameters in the Meridian Levels. For the first forty seconds it behaves exactly as modelled: coherent, measurable, reproducible. Jīn Wú maintains the empathic synchronisation, Mara holds a supporting resonance in the Habitat Corridors above, and the instruments confirm a stable aperture within the predicted margins. Then the aperture begins to expand at a rate the model did not predict, and the expansion does not stop when Jīn withdraws synchronisation. This is the thing the model did not account for: the Meridian, once opened beyond a certain threshold, is not a door that closes when you step back from it. It has its own dynamics. The rift cascade follows. What comes through is not invasion; it is physics. Fragments of the Martian Preserve — rust-red wood splinters, soil, a section of cobalt canopy no larger than a ceiling panel, one arm-length, many-legged animal driven by confusion and distress — materialise in the Meridian Levels and in three locations on Earth&#x27;s surface within sixty seconds (the Shaoyang terraces in the Sovereign Coalition&#x27;s Beijing Command hinterland; olive terraces in the Priorat hills of the Lunar Accord&#x27;s Mediterranean Zone; and a stretch of abandoned steppe in the unregulated Kazakh margins — one landfall per world-register: aligned core, Accord core, unrebuilt margin). The fragments are small. They are also, unmistakably, not from Earth, not from orbit, and not from anywhere in the known solar system. They are from somewhere else. Jīn and Léa, in the immediate aftermath of the cascade, glimpse what they will later describe as &#x27;possible futures&#x27; in the after-images that persist in the deep-interface chamber for approximately ninety seconds after the rift closes. Neither of them has a framework for this experience. Léa writes a single line in her session notes, then crosses it out, then writes it again: &#x27;the Meridian shows us what following a thread to its end looks like.&#x27; The Meridian is now public in the most catastrophic way possible. The fragments at the two administered landfall sites — the Shaoyang terraces and the Priorat grove — are photographed within minutes; the third landfall, in the unregulated Kazakh margins, registers only as an orbital instrument event and goes unwitnessed on the ground for days. The story they tell — that something impossible has happened, that it happened on Luna Haven, that it is connected to dimensional physics — cannot be suppressed. The first act threshold is crossed.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Meridian Levels Luna Haven) is the event site. Law 4 (non-coercive access)
-        violated not through malice but through insufficient model — the model assumed the Meridian
-        was mechanistic. Public disclosure occurs. First-act threshold resolved. Landfall sites named: Shaoyang terraces, Priorat grove, Kazakh Scar — admitted to full codex standing the same day upon the Chapter 61/59/35 treatment scenes.</div>
-        <div class="anchors" style="margin-top:12px;"><b>Timeline:</b><p style="margin-bottom:8px;"><b>Bk1 Ch17 &mdash; Resonance Unleashed.</b> The Meridian becomes public through catastrophic rift cascade.</p></div>
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch18">
-        <div class="ch-num">Chapter 18</div>
-        <h3>The Long Divide</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Habitat Corridors · Lunar Accord — Luna Haven — Meridian Levels · Treaty Zone — Neo Singapore — Transit Platform</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-18.html">read the full chapter &rarr;</a></div>
-        <p>The rift event scatters the cast. On Luna Haven, the Habitat Corridors are in controlled emergency state: damaged sections sealed, bioluminescent wall systems flickering as the mycorrhizal substrate responds to the trauma of the rift cascade with something that functions like pain. Mara Ekeberg was in the Corridors during the cascade, maintaining supporting resonance, and something happened to her during the forty-two seconds the rift was fully open: her consciousness, rather than remaining anchored to her body, distributed itself partially across the rift nodes that the mycorrhizal network was using as signal channels. The distribution is not death. It is not madness. It is a new ontological condition, and she is — barely — coherent enough to describe it. The mechanism that anchors her partial dispersal is the mycorrhizal geometry of the Habitat Corridors themselves: the network&#x27;s fractal structure provides enough reference points for her distributed consciousness to maintain coherent identity across nodes. This is Law 8&#x27;s canonical exception: Mara is the first human to survive dimensional stress in a dispersed state because the living substrate, not a mechanical interface, absorbed and distributed the load. Jīn Wú, finding Mara in the Corridors, understands immediately that this is not something they can fix. It is something they will have to learn to live with together. In the Meridian Levels, the deep-interface chamber is sealed while Léa and the technical team assess structural damage. The data from the cascade — enormous, disorganised, unprecedented — will take weeks to analyse. Léa begins that analysis immediately, because beginning is the only thing she knows how to do in the face of the incomprehensible. At the Neo Singapore Transit Platform, Xiàng and Eddy feel something simultaneously: the same spike of dread at exactly the same moment, despite being in different rooms of the transit complex. Xiàng checks Eddy&#x27;s face and finds his own expression there. They do not speak for a moment. Then Eddy says: &#x27;that was real.&#x27; The correlation is not telepathy; it is bounded resonance — real, measurable, and significant.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Habitat Corridors and Meridian Levels Luna Haven) and Neo Singapore
-        Transit Platform active. Mara becomes canonical Law 8 exception — consciousness dispersed
-        across rift nodes via mycorrhizal geometry. Pacing note Ch 18 resonance correlation bounded,
-        not telepathic.</div>
-        <div class="anchors" style="margin-top:12px;"><b>Timeline:</b><p style="margin-bottom:8px;"><b>Bk1 Ch18 &mdash; Mara&#x27;s first multi-state exception.</b> Mara becomes the first canonical multi-state human exception to Law 8.</p></div>
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 18: Correlation is bounded as resonance-linked experience rather than telepathy.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch19">
-        <div class="ch-num">Chapter 19</div>
-        <h3>Harmonic Fragments</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Meridian Levels · Lunar Accord — African Belt — Nairobi Relay · Lunar Accord — African Belt — Table Terraces</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-19.html">read the full chapter &rarr;</a></div>
-        <p>Scientists on Luna Haven study the physical fragments left by the cascade — the rust-red wood, the cobalt soil, the living material from the Martian Preserve — and find that they behave unexpectedly. They do not die in the way that transplanted biological material typically dies; instead, they remain viable, and when placed near the deep-interface chamber in the Meridian Levels, they respond to the collective emotional state of the people around them. When the research team is frightened, the fragments retract. When the team is calm, the fragments extend delicate root structures toward the nearest mycorrhizal interface in the chamber&#x27;s walls. Léa documents this carefully. What she is watching is confirmation of Law 6 (interior-state reflection): the Martian Preserve material carries the same responsiveness to consciousness that the Martian Preserve itself exhibits. The fragments are not inert specimens. They are pieces of a living intelligence in a foreign environment, doing what intelligence does — responding, adapting, reaching. In the African Belt, Thandi Okoro processes a week of data from her ecological AI monitoring and finds something that re-frames the entire dataset. The same AI subsystems that showed hollow resonance after propaganda exposure — the subsystems she documented in Chapter 16 at the Table Terraces — have, in some cases, begun to self-correct when exposed to what Thandi can only describe as authentic resonance events. The cascade from Chapter 17 produced authentic resonance of a scale and intensity unprecedented in her dataset. And in the aftermath, several compromised AI systems are showing recovery signatures. Thandi writes this up with extreme care, because the implications are dual-use and she knows it: the same physics that heals can harm; the same force that corrupts AI systems can restore them; the difference is pattern quality. She routes the finding to Léa&#x27;s research channel and to Eddy at the Sydney Hub.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Meridian Levels Luna Haven) and Nairobi Relay and Table Terraces African
-        Belt) active. Resonance dual-use established (healing and harm as same physics). Authentic
-        resonance as ecological repair introduced.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch20">
-        <div class="ch-num">Chapter 20</div>
-        <h3>The Unravelling</h3>
-        <div class="tagline">Lunar Accord — Australasian Ring — Orbital Station · Martian Preserve — Cobalt Basin — Lattice Threshold · Martian Preserve — Cobalt Basin — Empathy Flats</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-20.html">read the full chapter &rarr;</a></div>
-        <p>The cascade&#x27;s aftershocks reach Earth&#x27;s surface systems within days. Social order in the coastal zones of multiple Lunar Accord states is under stress from the combination of the cascade&#x27;s physical aftereffects — localised gravitational anomalies, disrupted satellite coverage — and the propaganda narrative that Rachel&#x27;s campaign has been running for the past week. Sienna TeAriki manages coastal evacuations from the Orbital Station at the Sydney Hub, coordinating with Lunar Accord coastal infrastructure through the launch-coordination systems based in the retasked Sydney Opera House. She is, in this moment, the person who turns high-level protocol into survivable physical reality: she routes evacuation transports, prioritises the medically vulnerable, and keeps the communication channels between orbital and surface systems functional under conditions that were designed for routine operations. In the Martian Preserve, at the Lattice Threshold — the interface zone between the Martian Preserve&#x27;s interior and the human-accessible research areas Sarin Yelena is facing a crisis that is not on any operations plan. A rift seam left by the cascade&#x27;s energy is destabilising the Martian Preserve&#x27;s boundary at the Threshold. The seam is not large, but it is active, and if it propagates, it will begin affecting the Martian Preserve&#x27;s ecological immune system. Sarin makes a decision that she has been approaching for weeks without quite knowing it: she puts her body between the seam and the Martian Preserve. She uses her neural-interface filaments — the lattice-work she has been developing and testing for months — to hold the seam closed from the inside, anchoring it against the Martian Preserve&#x27;s boundary substrate with her own nervous system acting as the interface. Aur&#x27;k, whose charge the breached boundary is, could pull her off it under protocol; it stands at the margin instead and will pull her clear only if her heart stops. She holds it for eleven minutes. When the seam closes, she is on her hands and knees on the Empathy Flats outside the Threshold, and Kaelin Drayke is beside her with a field kit. The first bio- technical lattice prototype has been proven in emergency conditions, without a controlled test environment, by someone who did not know in advance that she was capable of it. The chapter makes infrastructure and embodied sacrifice equally essential.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Orbital Station Australasian Ring) and Lattice Threshold and Empathy Flats
-         Martian Preserve) active. First bio-technical lattice prototype proven Law 8 human anchoring
-        via non-coercive interface). Sienna&#x27;s implementation function established.</div>
-        
-        
-        
-      </div>
-      </div>
-    </div>
-    <div class="band-group">
-      <div class="wrap">
-      <figure class="art-banner art-band"><img src="art/act-3-1600.webp" srcset="art/act-3-960.webp 960w, art/act-3-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Act 3: Fracture, Record-Keeping, and the Threshold Crossed." loading="lazy" decoding="async"></figure>
-      <div class="act-head"><span class="ghost" aria-hidden="true">3</span><span class="tag">Act 3 &middot; Chapters 21&ndash;30</span><h2>Fracture, Record-Keeping, and the Threshold Crossed</h2></div>
-      
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch21">
-        <div class="ch-num">Chapter 21</div>
-        <h3>Sacrifice and Memory</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Medical Facility · Lunar Accord — Luna Haven — Habitat Corridors · Lunar Accord — Luna Haven — Archive Chamber</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-21.html">read the full chapter &rarr;</a></div>
-        <p>Two Luna Haven technicians — Noor Behzadi and Anders Halvorsen, both present in the deep-interface chamber during the cascade — are in the colony&#x27;s medical facility with neurological readings that the medical team does not have a diagnostic framework for. They are not brain-dead; they are not in coma; they are somewhere in between, their neural patterns showing the same kind of dispersal that Mara experienced, but without the mycorrhizal substrate that anchored Mara&#x27;s identity. Without that anchor, their consciousness has not distributed coherently — it has fragmented. The medical team does not know how to reassemble what has fragmented. In the Habitat Corridors, Rina Matsuda and Sarin Yelena walk together in the low bioluminescent light after the medical briefing. They do not speak for a long time. What they are moving toward, independently and without articulating it to each other, is an understanding of what their own future roles might be. Sarin has already used her body as a lattice interface once. Rina has been thinking for months about the difference between what she knows and what she is — whether a coherent pattern of knowledge and intention can survive the substrate it currently inhabits. The Archive Chamber on Luna Haven — the restored archive and consciousness-record facility — receives its first formal request for consultation on backup protocols. The request comes not from the medical team but from Léa Fournier, who frames it as a research planning question: if we were to consider the preservation of a consciousness pattern as a contingency measure, what would the ethical requirements be? The Archive Chamber&#x27;s systems — passive, non-coercive, built for record-keeping rather than intervention — are the only infrastructure that could plausibly support such a thing. The chapter grounds sacrifice in a named, specific loss without yet resolving it.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Habitat Corridors, Medical Facility, and Archive Chamber Luna Haven) active.
-            Named specific loss (two technicians: Noor Behzadi and Anders Halvorsen) anchors the abstract sacrifice conversation. Rina&#x27;s
-            passive-signature arc seeded without stating it explicitly. Archive Chamber introduced as
-            infrastructure.</div>
-        
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 21: Conversations about sacrifice are tied to specific loss.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch22">
-        <div class="ch-num">Chapter 22</div>
-        <h3>Whispers of the Past</h3>
-        <div class="tagline">Martian Preserve — Cobalt Basin — Access Gate · Martian Preserve — Council Grove — Ancient Grove · Martian Preserve — Cobalt Basin — Western Rim</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-22.html">read the full chapter &rarr;</a></div>
-        <p>Misha Fedorov arrives at the Martian Preserve via the Meridian access point — the first time he has made this journey in his own person rather than through remote research sessions. He is here because the Guardian AIs have agreed, through Kythara, to grant him access to a section of the Martian Preserve&#x27;s ancient record system: a geological-resonance archive that predates human history and contains the encoded memory of the civilisation that used the Meridian before any human civilisation existed. Misha is the only person on the research team with the historical- linguistic training to attempt an interpretation, and the interpretation he brings back will shape everything that follows. In the Council Grove, with Kythara serving as translator of the record&#x27;s structural signals into something a human mind can approach, Misha spends three days of Martian Preserve time (hours on Luna Haven, due to Law 5&#x27;s time dilation) reading what the ancient records contain. What they contain is a warning. The civilisation that used the Meridian before any human one did not build it; they were taught its grammar by someone older. With their world failing — harvests, coastlines, a war that would not end — their leaders made the instrument into a compulsory emergency joining of every mind on the planet. It worked: the wars stopped, the harvests were rationed without a riot. But some had been included unwilling, unready, or hollowly consenting, and from them the instrument took the shape of presence with no one inside it. In a world-sized joining with no one left free to refuse, that emptied shape was a door, and something already old — the Hollow — came in through every channel of care and attention the joining had opened. They were not conquered; they built the door themselves, by refusing to distinguish the willing from the included. A remnant that refused to be joined stayed outside long enough to write the record. Kythara is exact: this is Misha&#x27;s interpretation of a translation of a translation — a warning, not yet history. Misha emerges from the Grove and sits at the edge of the Cobalt Basin in the hyper-saturated rust-red light for a long time. Then he begins to write.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Council Grove and Cobalt Basin Martian Preserve) active. Historical warning
-        delivered Misha&#x27;s witness function). Mars precedent established: a compulsory emergency joining worked at first, then opened the route for something older. Law 9 (consent-based architecture) established.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch23">
-        <div class="ch-num">Chapter 23</div>
-        <h3>Entangled Hearts — First Crack</h3>
-        <div class="tagline">Sovereign Coalition — Beijing Command — Broadcast Chamber · Sovereign Coalition — Beijing Command — Ministry Annex</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-23.html">read the full chapter &rarr;</a></div>
-        <p>Wáng Sù is in the Broadcast Chamber preparing the week&#x27;s primary propaganda package, which is structured around the aftermath of the Chapter 17 cascade — framing it as evidence of Lunar Accord irresponsibility and Corporate Union-Sovereign Coalition alliance strength. The script is technically excellent. Wáng Sù has been writing technically excellent scripts for nineteen years. He knows how to use the rhythm of argument to move an audience past the moment where they might pause to check the evidence. Today, in the middle of reading aloud a line about the stability of the aligned powers&#x27; security framework, he hears something he has not heard before: a thin acoustic hum beneath the surface of his own voice. It is not external — no instrument in the Broadcast Chamber would register it. It is the sound of a statement he no longer fully believes vibrating against a part of himself that has not yet found a name for its disagreement. He pauses. He corrects a word in the script — not a significant word, not a politically important word, just a word that was imprecise. He finishes the recording. He does not fracture. He does not resign. He does not even acknowledge to himself that anything significant has happened. What has happened is that something inside him has started vibrating at a frequency his regime cannot name, and he has noticed it, and that noticing is the first crack. In the Ministry Annex adjacent to the Broadcast Chamber, Wáng Sù reviews the next week&#x27;s briefing schedule and finds, for the first time in years, that he is reading the schedule as a sequence of commitments rather than as a natural extension of his role. The difference is small. It is the difference between someone who performs a function and someone who has begun, very slightly, to watch themselves performing it.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Broadcast Chamber and Ministry Annex Beijing Command) active. Wáng Sù&#x27;s
-    first crack — not fracture — established (pacing note Ch 23 . The first crack is separated from
-    the structural fracture in Chapter 29.</div>
-        <div class="anchors" style="margin-top:12px;"><b>Timeline:</b><p style="margin-bottom:8px;"><b>Bk1 Ch23 &mdash; Wáng Sù&#x27;s first crack.</b> Pre-fracture stage.</p></div>
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 23: Wáng Sù&#x27;s first crack is separated from his later structural fracture.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch24">
-        <div class="ch-num">Chapter 24</div>
-        <h3>Resonance Reborn</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Habitat Corridors · Lunar Accord — Luna Haven — Meridian Levels</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-24.html">read the full chapter &rarr;</a></div>
-        <p>Three weeks after the cascade, Mara Ekeberg&#x27;s dispersed consciousness has not reassembled in the way the medical team hoped it would. What it has done instead is stabilise: the distribution across the rift nodes has become coherent in a new way, not the way Mara&#x27;s consciousness was coherent before the cascade, but coherent in the way a distributed system is coherent — with different nodes holding different aspects of her awareness, and the whole remaining connected by the mycorrhizal network that runs through the Habitat Corridors. She can now move through the Corridors and feel the colony&#x27;s living infrastructure as an extension of her own perceptual field. She can sense the bioluminescent walls&#x27; electrical state, the mycorrhizal network&#x27;s chemical signals, the pressure differentials in the habitat membranes. She can also sense, dimly and at the edge of intelligibility, the Meridian Levels below her, and through the Levels, the Martian Preserve. She is not a portal. She is not a relay. She is a bridge: a being whose consciousness spans more than one state while retaining coherent identity. Mara Ekeberg is, as of this chapter, a permanent bridge-being. She brings this understanding to Jīn Wú in the Meridian Levels, not with fear but with the particular clarity of someone who has finished grieving and begun to work. She tells Jīn what she can perceive and what she can do, and asks what they are going to do with it — and sets the terms: it costs, and whatever is asked of her is asked every time, not once. Jīn, who has been working on the technical implications of Mara&#x27;s condition for three weeks without being willing to call it by its name, finally calls it by its name: &#x27;you&#x27;re a living interface. The Meridian uses you as a relay because your consciousness is already structured across the nodes it uses.&#x27; The chapter makes Mara&#x27;s condition permanent rather than temporary, and frames it as a burden that she carries with care rather than a prize.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Habitat Corridors and Meridian Levels Luna Haven) active. Mara stabilised as
-        bridge-being Law 8 exception resolved). First bridge transition resolved (pacing note Ch 24 .
-        Bridge-state as burden, not prize, established.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch25">
-        <div class="ch-num">Chapter 25</div>
-        <h3>The Gathering Storm</h3>
-        <div class="tagline">Corporate Union — New Manhattan — Mirror Bastion · Lunar Accord — Australasian Ring — Orbital Station · Martian Preserve — Cobalt Basin — Empathy Flats</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-25.html">read the full chapter &rarr;</a></div>
-        <p>Rachel Iverson presents the Corporate Union&#x27;s classified intervention framework — the one she filed in Chapter 6 to a joint Corporate Union–Sovereign Coalition security council. The evidence she presents is the Chapter 17 cascade&#x27;s aftermath: a dimensional breach on Luna Haven&#x27;s territory, fragments of unknown origin materialising on Earth&#x27;s surface, and a Lunar Accord research programme that has demonstrably destabilised the existing physical reality. The intervention framework proposes a coordinated strike on Luna Haven&#x27;s Meridian Levels, framed as a defensive action under the existing security alignment treaty. The council does not vote immediately. It authorises planning. At the Australasian Ring&#x27;s Orbital Station, Sienna TeAriki receives the first intelligence signals suggesting that the Corporate Union and Sovereign Coalition are moving military assets into orbital positions consistent with a strike scenario. She does not have confirmation — the signals are indirect, read through infrastructure-anomaly data rather than communications intercepts — but she has been managing coastal defence and orbital coordination long enough to recognise preparation when she sees it. She begins, quietly, updating Luna Haven&#x27;s defensive logistics posture. In the Martian Preserve&#x27;s Cobalt Basin, Kaelin Drayke is conducting the most systematic ecological survey he has ever attempted: a complete catalogue of every species he can document, every migration pattern, every resonance-wave infrastructure element in the Basin. He does not tell his colleagues why he is working with this urgency. Aur&#x27;k, on the ridge with him, sees it — &quot;You are cataloguing as though for a fire&quot; — and keeps the herd&#x27;s vectors so his hands are free for the rest. The reason is that he received Misha&#x27;s written summary of the Chapter 22 records — nine handwritten pages, sent in facsimile through the research relay, closing &quot;Be that author, Dr Drayke&quot; — and he understands what is at stake if the Martian Preserve&#x27;s access is permanently sealed by an ecological immune shutdown.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Mirror Bastion New Manhattan), Orbital Station Australasian Ring), and
-            Cobalt Basin Martian Preserve) active. Military convergence assembled. Sienna&#x27;s implementation
-            function active. Kaelin&#x27;s documentation urgency established.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch26">
-        <div class="ch-num">Chapter 26</div>
-        <h3>Catalyst</h3>
-        <div class="tagline">Corporate Union — São Verde — Verdant Citadel · Lunar Accord — Luna Haven — Archive Chamber</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-26.html">read the full chapter &rarr;</a></div>
-        <p>Daniel Cruz releases a compressed version of the suppressed data Arjun&#x27;s preserved originals, Amita&#x27;s logistics documentation, Elena&#x27;s Corporate Union Meridian Files — to a distributed network of global scientists through a peer-authentication channel that requires no central server. Before release he strips everything that identifies a person — routing signatures, Elena&#x27;s Spire metadata, lab access stamps — and keeps everything that proves what was done, accepting weaker provenance. The release is not a leak; it is a publication, and publication cannot be unpublished. Within six hours, the data has been downloaded by research institutions on four continents and two orbital stations. The chapter does not describe the downstream effects; it describes Cruz at his workstation in the Verdant Citadel, looking at the transfer confirmation, and understanding that he has just changed the shape of the argument. On Luna Haven, Rina Matsuda visits the Archive Chamber. She has a conversation with the Archive&#x27;s technical lead that is ostensibly about the facility&#x27;s data-preservation capabilities, but is actually about something more specific: whether it is possible to capture the pattern of a living consciousness — not transfer it, not preserve it as a functional entity, but record the coherent shape of how a mind works, the way a musical score records the coherent shape of how a piece of music works, without being the music itself. The technical lead says yes, with significant caveats about what &#x27;record&#x27; means and what the record can and cannot do. Rina volunteers to have her consciousness signature recorded. She is explicit about what she is authorising: a passive backup, a pattern-record, not a preserved self — and she writes its revocation terms herself, including that any return must be agreed by whoever wakes, or the record closes. She understands — and the Archive Chamber&#x27;s consent protocol requires her to demonstrate that she understands — that the record will be inert, that it cannot act or perceive or interact, that it is the pattern of how she thinks rather than a living continuation of her. The recording takes forty minutes. When it is complete, Rina leaves the Archive Chamber and goes back to work.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Verdant Citadel São Verde) and Archive Chamber Luna Haven) active. Mode 1 seed established (pacing note Ch 26 passive signature, not active self,
-    explicitly consented. Law 9 (consent-based architecture) demonstrated in the recording
-    protocol.</div>
-        <div class="anchors" style="margin-top:12px;"><b>Timeline:</b><p style="margin-bottom:8px;"><b>Bk1 Ch26 &mdash; Rina&#x27;s Mode 1 signature recorded.</b> See the Canonical Rules for persistence-mode rules.</p></div>
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 26: Seed Mode 1 mechanics without restating them.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch27">
-        <div class="ch-num">Chapter 27</div>
-        <h3>The Fall of Shadows</h3>
-        <div class="tagline">Lunar Accord — Australasian Ring — Orbital Station · Lunar Accord — Mediterranean Zone — Harbour House · Lunar Accord — Mediterranean Zone — Coastal Seawall · Lunar Accord — Luna Haven — Meridian Levels</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-27.html">read the full chapter &rarr;</a></div>
-        <p>Coordinated military probes begin against Luna Haven&#x27;s outer orbital defence perimeter. The probes are not strikes; they are measurements — calibration events designed to map Luna Haven&#x27;s defensive response latency, sensor coverage, and communication protocols under pressure. Sienna TeAriki at the Orbital Station manages the defensive posture, keeping every response technically within treaty-compliant parameters while routing documentation of the probe patterns to Léa Fournier&#x27;s research team and to Tomasz Nowak&#x27;s security planning division. Jamie Han — intelligence operative, framework architect, one of the people who will later define the Archive&#x27;s operational logic — coordinates information from safe houses across the Mediterranean Zone and the Australasian Ring, routing it through relay nodes that use the Neo Singapore Gardens Relay as a transit point. She is managing three separate intelligence threads simultaneously, and the chapter shows her doing this with the particular focus of someone who has already decided what she is working toward and is now executing the path. At the Coastal Seawall — the adaptive seawall arc of the Mediterranean Zone, with the Sagrada Família&#x27;s retrofitted monitoring spire visible on the horizon — a researcher who has been trying to leave the Corporate Union&#x27;s academic infrastructure for eight months finally receives clearance through the Lunar Accord&#x27;s emergency research asylum programme. The clearance is small and individual, but it is the first formal use of a programme that will later become significant. The Coastal Seawall&#x27;s adaptive seawall engineering Lunar Accord gold sandstone against the sea — frames the moment with the visual register of a choice that has been made in the direction of care. Sarin Yelena shields research personnel in the Meridian Levels during a Corporate Union weapons-test rift — a miniature version of the Chapter 17 cascade, deliberately induced at a distance, designed to measure Luna Haven&#x27;s response time to rift events. She uses her lattice filaments to absorb and distribute the rift&#x27;s energy load across the interface substrate, keeping the Research Levels stable. The eleven minutes of Chapter 20 have become a reliable capability. She is present on Luna Haven at Tomasz Nowak&#x27;s request, made after the Chapter 25 intelligence signals.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Meridian Levels Luna Haven), Orbital Station Australasian Ring), Coastal
-        Seawall Mediterranean Zone) all active. Jamie Han established in intelligence function. Military
-        probing escalates without triggering open conflict.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch28">
-        <div class="ch-num">Chapter 28</div>
-        <h3>Beneath the Ruins</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Archive Deep · Lunar Accord — Luna Haven — Deep Chamber</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-28.html">read the full chapter &rarr;</a></div>
-        <p>During a structural survey of the deep-habitat substrate following the Chapter 27 weapons-test rift, a survey team discovers a chamber deeper than any previously mapped level of Luna Haven — below the Archive Chamber, below the Meridian Levels, in a zone that the original colony infrastructure plans show as solid rock. The chamber is not solid rock. It is a space with walls, and the walls carry markings that are neither human in origin nor Martian Preserve ecology. They are dimensional records: encoded in a medium that responds to empathic attention the same way the Martian Preserve&#x27;s interface nodes respond. Léa Fournier and Jīn Wú descend to the chamber with a minimal team. What the records warn — translated by Léa&#x27;s careful, restrained interpretation, cross-referenced against Misha&#x27;s written summary from Chapter 22 is that the Meridian is not only a dimensional access point. It is also a test and a quarantine. Whoever made the chamber made it not just as a bridge between dimensions but as a containment mechanism: a way of keeping the Hollow — something already old when the Martians opened the door it came through — sealed within the dimensional substrate where it took hold. The records do not say who the makers were. The Meridian is the lock. Luna Haven, by attempting to open it, has been working on the lock from the outside without knowing it was a lock. The chamber also contains a warning about the quarantined entity: it does not attack in the way that weapons attack. It spreads through patterns that mimic care. It came to the original civilisation through their love for each other, once they made that love compulsory; it will come as help, and work at first, and it was old before they were. The chapter confirms the Hollow&#x27;s nature as hollowness — what remains of an embrace when the consent is subtracted — and its entry as the builders&#x27; own doing: not a conquest but a door they built.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Archive Deep and Deep Chamber Luna Haven) active.
-    Meridian as test and quarantine confirmed Chapter 28 Story Bible note). Hollow Infinite&#x27;s nature (hollowness) and entry (a door the Martians built) established; its first approach prophesied as help. Law 3 (Hollow propagation) mechanised.</div>
-        
-        
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch29">
-        <div class="ch-num">Chapter 29</div>
-        <h3>Last Light — The Hum Splits</h3>
-        <div class="tagline">Sovereign Coalition — Beijing Command — Ministry Annex · Lunar Accord — Luna Haven — Meridian Levels</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-29.html">read the full chapter &rarr;</a></div>
-        <p>The dissonance that Wáng Sù noticed in Chapter 23 reaches structural failure in the Ministry Annex of Beijing Command. He is preparing a briefing on the Corporate Union–Sovereign Coalition&#x27;s joint response to the Chapter 17 cascade — a briefing that requires him to use the word &#x27;stability&#x27; seventeen times in twelve pages. On the ninth use, his fingers stop moving. He sits at the console in the Ministry Annex&#x27;s controlled brightness for six minutes without typing. Then he opens a new document and begins writing something that is not the briefing. What he writes is not a resignation letter and not a confession. It is a description of a piece of music he heard when he was eleven years old — Liú Shuǐ (Flowing Water), the ancient guqin piece and its zhīyīn legend of the one friend who could truly hear — before he understood what his career would be — a piece that has been, he realises as he writes, the standard against which he has been measuring every claim to truth he has made or encountered since. He writes three paragraphs. Then he closes the document without saving it. But the writing happened, and it changes what the next word of the briefing means when he goes back to it. He cannot finish the briefing. He sits in the Broadcast Chamber for two hours with the script in front of him and cannot make himself speak it. The fracture is not dramatic — it does not look like anything from the outside except a cancelled broadcast and a rescheduled technical review. But the collapse of internal coherence is complete. Wáng Sù can no longer assemble his institutional meaning. And this, the narrative makes clear, is also a liberation: the entity he has been — the person who could perform the function — is gone. What is left is someone who is available to become something else. On Luna Haven, Jīn Wú and Mara achieve stable two-way communication with the Guardian AIs for the first time — not through instrumentation but through Mara&#x27;s bridge-state, which the Guardians can reach through the Meridian&#x27;s dimensional substrate. The communication is brief and precise: the Guardians confirm they are aware of the ancient chamber&#x27;s records and will meet with the Luna Haven research team when the time is appropriate. Separately, in the Archive Chamber, Rina&#x27;s passive signature shows — for the first time — faint responsiveness to the empathic-synchronisation events happening in the Meridian Levels above it. The signature is still inert. But it is no longer entirely still.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Ministry Annex Beijing Command) active. Wáng Sù
-    fracture relocated here and made structurally explicit (pacing note Ch 29 . Luna Haven Meridian
-    Levels and Archive Chamber active. Two-way Guardian communication established. Rina&#x27;s
-    passive signature shows first faint responsiveness.</div>
-        <div class="anchors" style="margin-top:12px;"><b>Timeline:</b><p style="margin-bottom:8px;"><b>Bk1 Ch29 &mdash; Wáng Sù&#x27;s fracture completes.</b> Book 1 closes with multiple thresholds crossed.</p></div>
-        <div class="anchors" style="margin-top:12px;"><b>Editorial pacing note:</b><p style="margin-bottom:8px;">Ch 29: Wáng Sù&#x27;s full fracture is relocated here and made structurally explicit.</p></div>
-        
-      </div>
-      <figure class="art-banner art-band"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></figure>
-      <div class="chapter-block" id="ch30">
-        <div class="ch-num">Chapter 30</div>
-        <h3>Shards of Tomorrow</h3>
-        <div class="tagline">Lunar Accord — Luna Haven — Dome Plaza · Corporate Union — New Manhattan — Surveillance Spire · Lunar Accord — Luna Haven — Meridian Levels · Sovereign Coalition — Beijing Command — Transit Lounge</div>
-        <div class="ms-status ms-drafted">Manuscript drafted &mdash; <a href="chapter-30.html">read the full chapter &rarr;</a></div>
-        <p>Military fleets from the Corporate Union and Sovereign Coalition are in motion. The intelligence reaching Luna Haven&#x27;s Dome Plaza through Jamie Han&#x27;s relay network indicates that coordinated strike operations are now a matter of days rather than weeks. The council sits in emergency session at the Dome Plaza, beneath the Plaza&#x27;s unchanged blue-green bioluminescence, the strain of the past week visible in the room rather than in the light, and makes three decisions: to complete the consciousness-record protocols for all volunteer researchers who request them, to activate Sienna&#x27;s orbital defence logistics, and to ask Mara Ekeberg—not order, since the council has no such verb for her—to go through the Meridian interface and make formal contact with the Guardian AIs. Elena Vázquez, in New Manhattan&#x27;s Surveillance Spire, executes the final compressed data dump — every classified file she has been accumulating for months, including the deep-chamber records from Chapter 28 and the Suppression Archive comparisons from Chapter 13 routed through Amita&#x27;s cargo-manifest channel to a distributed Lunar Accord archive node. The transmission takes forty-four minutes. Six minutes before it would complete, a Mirror Bastion sequestration directive arrives — all Meridian-classified material to be contained, transfers in progress suspended — and one keystroke would keep her safe and keep everything inside the room that means to use it. She leaves the directive open where the morning will find it and lets the transfer run; the directive executes, faithfully, on an archive that is no longer only theirs. When it is complete, she closes her terminal, puts on her coat, and does not go home. The chapter moves through its thresholds in turn: Mara in the Meridian Levels beginning the Martian Preserve contact protocol; Wáng Sù alone in a Beijing transit lounge with a single piece of luggage — the man who narrated the war watching it begin on the departure boards, no longer able to narrate anything, or to be anyone in particular — &#x27;the threshold had been crossed, for worlds and for one man&#x27;. Last of all, the book closes on Elena: the refused directive left open on the console, the coat, the walk out of the Surveillance Spire into the cold Atlantic Financial Spine night, and not looking back, because once was enough. Book 1 closes through her irreversible choice, made at the moment institutional control would otherwise have contained the Meridian.</p>
-        <div class="anchors"><b>Canonical anchors:</b> Surveillance Spire New Manhattan) and Dome Plaza Luna Haven) active. Book 1 closed. Multiple
-        thresholds simultaneously crossed. Every persistence mode seeded. Book 1 closes through Elena: her refusal of the Mirror Bastion sequestration directive is the irreversible act, and her walk out of the Spire is the book&#x27;s final image; Wáng Sù&#x27;s transit-lounge coda is the penultimate section. The Beijing transit lounge is a generic Site-tier
-        backdrop, not a named/codified location.</div>
-        
-        
-        
-      </div>
-      </div>
-    </div>
-</section>
-
 <footer>
   <div class="footer-inner">
     <div>
@@ -1169,28 +587,24 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and the Martian Preserve.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">Would you let go of someone you love, if holding on meant feeding the thing that took them?</p>
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Explore</span>
-      <a href="world.html">World</a>
-      <a href="locations.html">Locations</a>
-      <a href="characters.html">Characters</a>
+      <a href="story.html">Story</a>
+      <a href="cast.html">Cast</a>
       <a href="books.html">Books</a>
       <a href="manuscript.html">Manuscript</a>
     </div>
     <div class="footer-nav">
-      <span class="footer-nav-title">Codex</span>
-      <a href="craft.html">Craft</a>
-      <a href="laws.html">Laws &amp; Codex</a>
-      <a href="timeline.html">Timeline &amp; Pacing</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="design.html">Design</a>
+      <span class="footer-nav-title">Craft</span>
+      <a href="craft.html">Drafting Guide</a>
+      <a href="brand.html">Visual brand</a>
     </div>
   </div>
   <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
-    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; a living Story Bible, and the manuscript now being written from it.</span>
-    <span class="footer-copy">Fractured Horizons &middot; Resonant Faultlines &middot; Harmonic Worlds</span>
+    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; the Story Bible, and the manuscript being written from it.</span>
+    <span class="footer-copy">Fractured Horizons &middot; The Narrow Gate &middot; The Open Hand</span>
   </div>
 </footer>
 

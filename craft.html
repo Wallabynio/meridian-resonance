@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Craft — Meridian Resonance</title>
-<meta name="description" content="The locked decisions behind the writing and the look: point of view, tense, chapter head convention, register and length; then the colour, typography and spacing rules that govern the site, the covers and everything else outside the manuscript.">
+<title>Drafting Guide — Meridian Resonance</title>
+<meta name="description" content="How the prose is written: point of view, chapter heads, register, length, voices, and the checklist every chapter goes through.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
@@ -25,11 +25,8 @@
   --ground:#FFFFFF;
   --surface:var(--grey); --surface-2:var(--grey);
   --surface-ink:#FFFFFF;
-  --cu:#A8692A; --sc:#427AB8; --la:#947238; --lh:#298578; --mp:#CC4F27; --mp2:#427AB8;
-  --tz:#57824E; --um:#9267AB;
-  --earth:#087DC2; --mars:#D93D4A;
+    --earth:#087DC2; --mars:#D93D4A;
   --acc:#087DC2;
-  --ns:var(--grey);
   --accent:var(--grey);
   --ink:#000000;
   --accent-text:var(--ink);
@@ -45,8 +42,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
-.anchor-nav.sticky,.dash-tabs,
-.mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
+.anchor-nav.sticky{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
 img,svg,video,iframe,table,pre{max-width:100%;}
 p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
 body{background:var(--ground);color:var(--ink);
@@ -55,7 +51,6 @@ body{background:var(--ground);color:var(--ink);
 a{color:inherit;}
 ::selection{background:var(--earth);color:#FFFFFF;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
-.serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
   height:var(--nav-h);box-sizing:border-box;
   display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
@@ -129,10 +124,10 @@ h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-
 p,li{line-height:1.7;}
 p{margin-bottom:1.5em;}
 p:last-child{margin-bottom:0;}
-.tag,.bloc-pill,.ch-num,.footer-nav-title,.law-item .n,.timeline-item .date,.hero .eyebrow{
+.tag,.bloc-pill,.ch-num,.footer-nav-title,.hero .eyebrow{
   font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
 .tag{display:block;margin-bottom:14px;color:var(--accent-text);}
-.meta,.chapter-block .tagline,.anchor-nav a{
+.anchor-nav a{
   font-size:13px;}
 .hero p.lede,.page-hero p,.section-head p{
   font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--ink);font-family:'Inter',sans-serif;margin-top:18px;}
@@ -155,36 +150,9 @@ p:last-child{margin-bottom:0;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
-  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
-.globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
-.globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
-.globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
-.globe-coast{fill:none;stroke:#CDEBFF;stroke-width:1.15;opacity:0.78;stroke-linejoin:round;filter:drop-shadow(0 0 2px rgba(120,200,255,.5));}
-#aurora .aur{mix-blend-mode:screen;filter:blur(8px);}
-#aurora .aur1{animation:aur-breathe 13s ease-in-out infinite;}
-#aurora .aur2{animation:aur-breathe 17s ease-in-out infinite;}
-#aurora .aur3{animation:aur-breathe 15s ease-in-out infinite;}
 @keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
-#globeSpec{opacity:.75;}
-#globeFresnel{opacity:.9;}
-.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
-.globe-dot-glow{filter:blur(7px);}
-.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
-text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
-  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
-  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
-.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
-.lat-node{fill:var(--globe-line);}
-.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
-.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
 @keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
-.globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
-@media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
-@media(max-width:640px){.globe-stage{max-width:none;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
   --ink:#FFFFFF;--accent-text:var(--ink);
@@ -192,65 +160,27 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
-.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
-.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;}
-.art-bleed{margin-top:var(--nav-h);}
-.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
-.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
-  border-radius:14px 14px 0 0;}
-.art-banner.art-card ~ .ghost{top:auto;}
-.band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
-.band.bloc{opacity:0.85;}
-.card-dark,.chapter-block .anchors,.law-card,.ch-card,
-.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a{
+.card-dark,.ch-card,.prompt-details,.chapnav a{
   background:var(--black);border-radius:14px;padding:var(--pad-box);
   --grey:#BFBFBF;border:1px solid var(--grey);
   --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
   --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
-:where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a) :where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a){
+:where(.card-dark,.ch-card,.prompt-details,.chapnav a) :where(.card-dark,.ch-card,.prompt-details,.chapnav a){
   background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
   --accent-text:var(--ink);color:var(--ink);}
 .card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
-.bloc-card{position:relative;overflow:hidden;}
-.bloc-card::before{content:'';position:absolute;inset:-40% -40% auto auto;width:70%;height:70%;
-  background:radial-gradient(circle,color-mix(in srgb, var(--accent) 30%, transparent) 0%,transparent 72%);
-  opacity:0;transition:opacity .4s ease;pointer-events:none;}
-.bloc-card:hover::before{opacity:1;}
-.bloc-card .accent-bar{transition:width .35s cubic-bezier(.2,.8,.2,1);}
-.bloc-card:hover .accent-bar{width:72px;}
 section .wrap > p{margin-bottom:28px;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
-.tier-protagonist{--accent:var(--grey);}
-.tier-antagonist{--accent:var(--grey);}
-.tier-deuteragonist{--accent:var(--grey);}
-.tier-secondary{--accent:var(--grey);}
-.tier-minor{--accent:var(--grey);}
-.tier-anchor{--accent:var(--grey);}
-.tier-recurring{--accent:var(--grey);}
-.tier-site{--accent:var(--grey);}
 .accent-bar{height:3px;width:44px;background:var(--accent);border-radius:2px;margin-bottom:16px;}
 .bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
   background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
 .grid{display:grid;gap:26px;}
-.grid,.law-grid,.gloss-grid,.ch-grid,.gtree-grid{
+.grid,.ch-grid{
   margin-block:var(--flow-lg);}
-.grid>*,.law-grid>*,.gloss-grid>*,.ch-grid>*,.gtree-grid>*{
+.grid>*,.ch-grid>*{
   margin-block:0;}
 .wrap>.card-dark{margin-block:var(--flow-lg);}
 .grid-3{grid-template-columns:repeat(3,1fr);}
-.grid-4{grid-template-columns:repeat(4,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-.bloc-pill.mode-state{background:var(--ground);border:2px solid var(--grey);
-  color:var(--grey);padding:3px 10px;}
-.globe-caption{text-align:center;color:var(--ink);font-size:13px;line-height:1.7;
-  max-width:600px;margin:22px auto 0;padding:0 var(--gutter);}
 .stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
   border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:44px 0;}
 .stat{text-align:center;}
@@ -261,28 +191,17 @@ section .wrap > p{margin-bottom:28px;}
   letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 @media(max-width:900px){.stat-band{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:560px){.stat-band{grid-template-columns:repeat(2,1fr);gap:28px 18px;}}
-.progress-band{padding:var(--band-y-tight) var(--gutter);}
-.progress-band .progress-row{margin-top:0;}
 .progress-row{max-width:720px;margin:44px auto 0;text-align:center;}
 .progress-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
 .progress-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--earth),var(--mars));
   transition:width 1.4s cubic-bezier(.2,.8,.2,1) .3s;}
 .reveal.visible .progress-fill{width:var(--w);}
 .progress-row .cap{margin-top:13px;font-size:13px;color:var(--ink);}
-.home-split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
-.home-split .section-head{text-align:left;margin:0;max-width:none;}
-.home-split .btn-group{justify-content:flex-start;}
-@media(max-width:900px){.home-split{grid-template-columns:1fr;gap:40px;}}
-.latest-card{--accent:var(--grey);text-decoration:none;display:block;}
-.latest-card .ch-num{color:var(--ink);display:block;margin-bottom:10px;}
-.latest-card .read-on{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--mars);}
   font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 .book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
   letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
   display:block;margin-bottom:10px;}
 .book-card .bloc-pill{margin-top:14px;}
-.scroll-cue{margin-top:44px;opacity:0.45;animation:cue-bob 2.4s ease-in-out infinite;color:var(--ink);}
-.scroll-cue svg{width:22px;height:22px;display:block;}
 @keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
 .hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
 .hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
@@ -291,52 +210,23 @@ section .wrap > p{margin-bottom:28px;}
 .anchor-nav.sticky{position:sticky;top:var(--nav-h);z-index:100;background:var(--ground);
   padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
 .anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
-.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-@media(max-width:800px){.law-grid{grid-template-columns:1fr;}}
-.law-card{position:relative;overflow:hidden;transition:border-color .3s ease,transform .3s ease;}
-.law-card > *:not(.ghost){position:relative;z-index:1;}
-.law-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
 .ghost{position:absolute;pointer-events:none;user-select:none;z-index:0;
   font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1;
   color:var(--grey);}
-.law-card .ghost{top:0;right:8px;font-size:96px;}
 .ch-card{position:relative;overflow:hidden;}
 .ch-card > *:not(.ghost){position:relative;z-index:1;}
 .ch-card .ghost{top:0;right:6px;font-size:64px;}
 .act-head{position:relative;overflow:hidden;}
 .act-head > *:not(.ghost){position:relative;z-index:1;}
 .act-head .ghost{top:0;right:0;font-size:68px;letter-spacing:-0.03em;}
-.timeline-item{position:relative;overflow:hidden;}
-.timeline-item > *:not(.ghost){position:relative;z-index:1;}
-.timeline-item .ghost{top:50%;transform:translateY(-50%);left:0;width:112px;
-  text-align:right;font-size:44px;}
 .book-card{position:relative;overflow:hidden;}
 .book-card > *:not(.ghost){position:relative;z-index:1;}
 .book-card .ghost{top:0;right:10px;font-size:88px;}
-.book-placeholder{background:#BFBFBF;--ink:#000000;--accent-text:var(--ink);color:var(--ink);}
 @media(max-width:600px){
-  .law-card .ghost{font-size:68px;}
   .book-card .ghost{font-size:64px;}
   .act-head .ghost{font-size:60px;}
   .ch-card .ghost{font-size:48px;}
 }
-.law-card .n{color:var(--accent-text);display:block;margin-bottom:8px;}
-.law-card h3{margin-bottom:8px;}
-.law-card p{color:var(--ink);margin-bottom:0;}
-.tl-wrap{position:relative;padding-left:28px;}
-.tl-wrap::before{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--hairline);}
-.tl-wrap .timeline-item{position:relative;border-bottom:none;padding:var(--pad-row) 0;}
-.tl-wrap .timeline-item::before{content:'';position:absolute;left:-25.5px;top:25px;width:8px;height:8px;
-  border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(166,166,166,0.45);}
-.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-@media(max-width:800px){.gloss-grid{grid-template-columns:1fr;}}
-.gloss-grid .gloss-item{margin:0;transition:border-color .3s ease;}
-.gloss-grid .gloss-item:hover{border-color:color-mix(in srgb, var(--accent) 45%, transparent);}
-.pacing-row{display:flex;gap:14px;align-items:flex-start;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.pacing-row .chip{flex:0 0 auto;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
-  letter-spacing:0.05em;color:var(--accent-text);border:1px solid color-mix(in srgb, var(--accent) 45%, var(--ground));
-  padding:4px 11px;border-radius:100px;margin-top:2px;white-space:nowrap;}
-.pacing-row p{color:var(--ink);margin:0;font-size:15.5px;line-height:1.7;}
 .ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 @media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.ch-grid{grid-template-columns:1fr;}}
@@ -346,20 +236,6 @@ section .wrap > p{margin-bottom:28px;}
 .ch-card .ch-num{color:var(--accent-text);display:block;margin-bottom:8px;}
 .ch-card h3{font-size:17px;margin-bottom:8px;}
 .ch-card .go{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12.5px;color:var(--accent-text);}
-.ch-card.latest{border-color:var(--earth);
-  background:color-mix(in srgb, var(--earth) 8%, var(--ground));}
-.ch-card .latest-pill{position:absolute;top:56px;right:12px;z-index:2;
-  background:var(--mars);color:#FFFFFF;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;
-  letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:100px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.35);}
-.ch-card.latest h3{padding-right:74px;}
-@media(max-width:600px){
-  .ch-card .latest-pill{top:44px;}
-  .ch-card.latest h3{padding-right:70px;}
-}
-.bp-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:16px;}
-.bp-fill{height:100%;background:linear-gradient(90deg,var(--earth),var(--mars));border-radius:3px;}
 .chapnav{display:flex;justify-content:space-between;gap:14px;max-width:700px;margin:56px auto 0;flex-wrap:wrap;}
 .chapnav a{flex:1 1 240px;text-decoration:none;transition:border-color .3s ease;}
 .chapnav a:hover{border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
@@ -367,7 +243,7 @@ section .wrap > p{margin-bottom:28px;}
   text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
 .chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
 .chapnav a.next{text-align:right;}
-.act-head[id],.entry-block[id],.chapter-block[id],.territory-head[id],.gloss-item[id]{scroll-margin-top:150px;}
+.act-head[id]{scroll-margin-top:150px;}
 .btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
   font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
@@ -376,59 +252,20 @@ section .wrap > p{margin-bottom:28px;}
   padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
   font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
 .btn-outline:hover{background:var(--surface-2);}
-.btn-card{background:var(--accent);color:var(--ground);border:none;padding:12px 26px;border-radius:100px;
-  font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-  font-family:'Space Grotesk',sans-serif;transition:.3s cubic-bezier(.2,.8,.2,1);}
-.btn-card:hover{transform:translateY(-3px);filter:brightness(1.08);}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.chapter-block{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:46px;}
-.chapter-block h3{margin:6px 0 6px;}
-.chapter-block .tagline{margin-bottom:14px;font-style:italic;}
-.chapter-block p{color:var(--ink);}
-.chapter-block .anchors{margin-top:14px;padding:var(--pad-box);font-size:14px;}
-.chapter-block .anchors p{color:var(--ink);margin-bottom:0;}
-.chapter-block .anchors b{color:var(--ink);}
 .act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
 .act-head .tag{margin-bottom:6px;}
-.ms-status{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:700;
-  letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);}
-.ms-status.ms-drafted{color:var(--accent-text);}
-.ms-status a{color:var(--earth);text-decoration:underline;}
 .manuscript-wrap{max-width:700px;margin:0 auto;}
 .manuscript-wrap p{font-size:17.5px;line-height:1.85;color:var(--ink);margin-bottom:24px;}
 .scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
   margin:56px 0 30px;}
 .scene-header:first-of-type{margin-top:8px;}
-.scene-plate,.scene-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;
-  margin:36px 0;display:block;object-fit:cover;border:3px solid var(--accent);
-  background:var(--surface);}
-.scene-placeholder{display:flex;align-items:center;justify-content:center;
-  background:color-mix(in srgb, var(--accent) 22%, var(--surface));
-  color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:600;
-  font-size:14px;text-transform:uppercase;letter-spacing:0.04em;text-align:center;
-  padding:var(--pad-row);}
 .manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
-.entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
-.entry-block h3{margin-bottom:4px;}
-.entry-block .meta{margin-bottom:16px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
-.entry-block p{color:var(--ink);}
 details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
-details.story-panel{margin-top:22px;padding:0;overflow:hidden;}
 a.bloc-pill{text-decoration:none;}
-.design-links{font-size:14px;max-width:760px;margin-top:var(--flow);}
-.design-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
-.sp-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
-.sp-body h3,.sp-body h4{margin-top:var(--flow-lg);margin-bottom:calc(var(--flow) * .5);}
-.sp-body>h3:first-child{margin-top:0;}
-.story-panel summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
-  list-style:none;display:flex;align-items:center;gap:8px;}
-.story-panel summary::-webkit-details-marker{display:none;}
-.story-panel summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
-.story-panel[open] summary::before{transform:rotate(90deg);}
 .pd-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);
   display:flex;flex-direction:column;gap:var(--pad-row);}
 .pd-body>*{margin:0;}
@@ -436,37 +273,12 @@ a.bloc-pill{text-decoration:none;}
   font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
   list-style:none;display:flex;align-items:center;gap:8px;}
 .prompt-details summary::-webkit-details-marker{display:none;}
-.demand-list{font-size:14px;padding-left:1.15em;}
-.demand-list li{margin:3px 0;}
-.demand-list-plain{list-style:none;padding-left:0;}
-.scope-note{color:var(--grey);font-size:14.5px;margin-top:calc(var(--flow) * -0.5);}
 .doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
-.doc-note{font-family:'Space Grotesk',sans-serif;font-size:11px;
-  letter-spacing:.08em;text-transform:none;color:var(--grey);white-space:nowrap;}
 .doc-table-wrap{overflow-x:auto;margin-block:var(--flow-lg);}
 .doc-table{border-collapse:collapse;width:100%;font-size:14px;}
 .doc-table th,.doc-table td{text-align:left;vertical-align:top;
   padding:var(--pad-row) var(--pad-row);border-bottom:1px solid var(--hairline);}
-.queue{list-style:none;margin-block:var(--flow-lg);display:flex;
-  flex-direction:column;gap:14px;}
-.queue li{display:flex;gap:14px;align-items:baseline;}
-.q-tag{flex:0 0 62px;text-align:center;padding:3px 0;border-radius:100px;
-  font-family:'Space Grotesk',sans-serif;font-size:10.5px;letter-spacing:.12em;
-  text-transform:uppercase;}
-.q-next{background:var(--earth);color:#FFFFFF;}
-.q-fix{background:var(--mars);color:#FFFFFF;}
-.q-ask{background:var(--grey);color:#000000;}
-.q-x b{display:block;font-weight:600;font-size:15.5px;}
-.q-x em{display:block;font-style:normal;font-size:13.5px;color:var(--grey);
-  margin-top:3px;}
-.chip-st{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
-.chip-st i{width:7px;height:7px;border-radius:100px;background:var(--grey);}
-.chip-st.is-ok i{background:var(--earth);}
-.chip-st.is-no i{background:var(--mars);}
-.ref-dl{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:13.5px;
-  margin-top:12px;}
-.ref-dl dt{color:var(--grey);}
 .meter{height:6px;border-radius:100px;background:var(--grey);margin-top:10px;
   overflow:hidden;}
 .meter i{display:block;height:100%;background:var(--earth);border-radius:100px;}
@@ -475,9 +287,6 @@ a.bloc-pill{text-decoration:none;}
 .meter-l b{font-family:'Space Grotesk',sans-serif;font-size:19px;}
 .doc-table th{font-family:'Space Grotesk',sans-serif;font-size:12px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
-.prompt-details .pd-file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:12px;color:var(--grey);}
-.prompt-details .pd-note{font-size:12px;color:var(--grey);}
 .prompt-details summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
 .prompt-details[open] summary::before{transform:rotate(90deg);}
 .prompt-details pre{margin:0;padding:0;font-family:'Inter',sans-serif;font-size:13px;
@@ -495,17 +304,6 @@ a.bloc-pill{text-decoration:none;}
   .anchor-nav.sticky::-webkit-scrollbar{display:none;}
   .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
 }
-.law-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.law-item .n{color:var(--accent-text);}
-.law-item h3{margin:4px 0 8px;}
-.law-item p{color:var(--ink);}
-.timeline-item{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.timeline-item .date{color:var(--accent-text);}
-.timeline-item .label{font-weight:700;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;font-size:16px;}
-.timeline-item p{color:var(--ink);}
-.gloss-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.gloss-item dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink);}
-.gloss-item dd{color:var(--ink);}
 footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
 .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
@@ -517,40 +315,24 @@ footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gu
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:12.5px;color:var(--ink);}
 @media(max-width:900px){
-  .timeline-item .ghost{display:none;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .grid-3,.grid-4{grid-template-columns:1fr 1fr;}
-  .timeline-item{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:420px){
   .bloc-pill{font-size:10.5px;padding:5px 9px;letter-spacing:0.04em;}
-  .entry-block .meta{gap:6px;}
   .footer-nav{gap:2px;}
   .footer-nav a{padding:7px 0;}
 }
 @media(max-width:600px){
-  .grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;}
 }
 section,.band-group{background:var(--ground);color:var(--ink);}
 .band-group{padding:var(--band-y) var(--gutter);}
 .band-group + .band-group{padding-top:var(--band-y-tight);}
 .hero-stats .hs{color:#000000;}
-.cast-strip-outer,.loc-strip-outer{scrollbar-color:rgba(0,0,0,0.25) transparent;}
-.cast-strip-outer::-webkit-scrollbar-thumb,.loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);}
 .logo{color:#000000;}
-.logo .lg{color:var(--earth);}
-.bloc-cu .btn-card,.bloc-la .btn-card,.bloc-lh .btn-card{color:#000000;}
-.bloc-sc .btn-card,.bloc-mp .btn-card{color:#FFFFFF;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
 </head>
 <body>
@@ -600,209 +382,80 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-  <ul class="nav-links"><li><a href="world.html">World</a></li>
-<li class="has-sub"><a href="codex.html" class="active" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="design.html">Design</a></li></ul></li>
-<li><a href="locations.html">Locations</a></li>
-<li><a href="characters.html">Characters</a></li>
-<li><a href="books.html">Books</a></li>
+  <ul class="nav-links"><li><a href="story.html">Story</a></li>
+<li><a href="cast.html">Cast</a></li>
+<li class="has-sub"><a href="books.html" aria-haspopup="true">Books<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li>
+<li class="has-sub"><a href="craft.html" class="active" aria-haspopup="true">Craft<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Drafting Guide</a></li><li><a href="brand.html">Visual brand</a></li></ul></li>
     <li><a href="manuscript.html" class="nav-cta">Manuscript &rarr;</a></li>
   </ul>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu"><a href="world.html">World</a>
-<a href="codex.html">Codex</a>
-<a class="sub" href="craft.html">Craft</a>
-<a class="sub" href="laws.html">Laws &amp; Codex</a>
-<a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
-<a class="sub" href="glossary.html">Glossary</a>
-<a class="sub" href="design.html">Design</a>
-<a href="locations.html">Locations</a>
-<a href="characters.html">Characters</a>
-<a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
+<div class="mobile-menu"><a href="story.html">Story</a>
+<a href="cast.html">Cast</a>
+<a href="books.html">Books</a>
+<a class="sub" href="book1.html">Book 1 · Fractured Horizons</a>
+<a class="sub" href="book2.html">Book 2 · The Narrow Gate</a>
+<a class="sub" href="book3.html">Book 3 · The Open Hand</a>
+<a href="craft.html">Craft</a>
+<a class="sub" href="brand.html">Visual brand</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
-<figure class="art-banner art-bleed"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="eager" fetchpriority="high"></figure>
 <div class="page-hero">
   <div class="page-glow"></div>
-  <span class="tag">Prose craft, and the visual brand</span><h1>Craft</h1>
-  <p>The locked decisions behind the writing and the look: point of view, tense, chapter head convention, register and length; then the colour, typography and spacing rules that govern the site, the covers and everything else outside the manuscript.</p>
-  <div class="hero-stats"><span class="hs"><b>2</b> parts</span><span class="hs"><b>5</b> locked prose decisions</span></div>
+  <span class="tag">Craft</span><h1>Drafting Guide</h1>
+  <p>How the prose is written: point of view, chapter heads, register, length, voices, and the checklist every chapter goes through.</p>
+  <div class="hero-stats"></div>
 </div>
-<div class="triband"></div>
-<section class="band-host">
-<div class="anchor-nav sticky bleed">
-      <a href="#tone">Tone</a>
-      <a href="#eight-core-themes-keep-audible-in-every-chapter">Eight core themes (keep audible…</a>
-      <a href="#visual-cinematic-register-governs-imagery-useful-as-prose-reference-too">Visual / cinematic register (gov…</a>
-      <a href="#prose-craft-decisions-locked">Prose craft decisions (locked)</a>
-      <a href="#apparatus-never-becomes-prose">Apparatus never becomes prose</a>
-      <a href="#two-word-naming-convention">Two-word naming convention</a>
-      <a href="#character-codification-while-drafting">Character codification while dra…</a>
-      <a href="#location-codification-while-drafting">Location codification while draf…</a>
-      <a href="#other-languages-humour-and-the-devotion-on-the-page">Other languages, humour and the…</a>
-      <a href="#the-trilogy-in-one-paragraph">The trilogy in one paragraph</a>
-      <a href="#colour">Colour</a>
-      <a href="#typography-locked">Typography — LOCKED</a>
-      <a href="#spacing-locked">Spacing — LOCKED</a>
-      <a href="#boxes-ink-and-surfaces-locked">Boxes, ink and surfaces — LOCKED</a>
-      <a href="#voice-and-tone">Voice and tone</a>
-      <a href="#blocs-registers-and-filing-locked">Blocs, registers and filing — LO…</a>
-      <a href="#the-site-never-explains-its-own-production-locked">The site never explains its own…</a>
-      <a href="#iconography">Iconography</a>
-      <a href="#applications">Applications</a>
-      <a href="#boilerplate-placeholder">Boilerplate — PLACEHOLDER</a>
-    </div>
-<div class="band-group"><div class="wrap"><div class="act-head" id="apparatus"><span class="tag">From the World Bible</span><h2>Apparatus never becomes prose</h2></div>
-    <p><i>&quot;Tri-polar cold war&quot; is our vocabulary for the frame, not the world&#x27;s. No character says it. Per the Style Guide&#x27;s &quot;Apparatus never becomes prose,&quot; the blocs&#x27; rivalry reaches the page as behaviour — what gets withheld, what gets shipped, who is not told — never as a named doctrine.</i></p>
-    <p class="doc-title">Meridian Resonance — Style Guide</p>
-    <p>One guide covering both halves of the project&#x27;s style: <b>Part I — Prose craft &amp; tone</b> (how the manuscript is written) and <b>Part II — Visual &amp; brand</b> (everything outside the prose — website, covers, social, and any collateral).</p>
-    <p>Status: Part I is <b>locked</b> and mirrored, in terser form, in the Story Bible&#x27;s World section (&quot;System-voice convention&quot; and &quot;Narrative craft canon&quot;); the Story Bible is the authoritative concise version to check while drafting, and this document keeps the fuller rationale. In Part II, colour and aesthetic assignments are pulled from the Story Bible&#x27;s clothing grammar and environmental prefixes; anything marked <b>PROPOSED</b> still needs author sign-off before it&#x27;s treated as locked. Canonical source of truth: <code>Project/Story Bible/Meridian Resonance Story Bible.md</code>.</p>
-    <p class="doc-title">Part I — Prose craft &amp; tone</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="tone"><h2>Tone</h2></div>
-    <p>Philosophical action; wonder amid horror. Every scene should carry two opposing charges at once — beauty and oppression, order and terror, wonder and grief. No scene should be purely one thing.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="eight-core-themes-keep-audible-in-every-chapter"><h2>Eight core themes (keep audible in every chapter)</h2></div>
-    <p>Unity versus division (can empathy scale across realities); the evolution of consciousness (distributed, multi-state awareness); love as a quantum force (resonance shaping quantum outcomes); technology and nature (integrative versus extractive); sacrifice and transcendence; consciousness as contagion and antidote (authentic versus hollow empathy); ordinary work as essential heroism; documentation as survival.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="visual-cinematic-register-governs-imagery-useful-as-prose-reference-too"><h2>Visual / cinematic register (governs imagery, useful as prose reference too)</h2></div>
-    <p>Primary reference: <i>Blade Runner 2049</i> — monumental scale, atmospheric haze, controlled colour, enormous systems dwarfing individuals, and its own contrast between gleaming towers and a ruined exterior. Also: <i>Arrival</i> (cold geometry meeting warm interiority), <i>Children of Men</i> (reference for the unrebuilt margins only — real decay, abandonment, and improvisation at the edges of a world that has otherwise moved on and rebuilt itself; not a reference for people, who are never presented as unwashed or dishevelled), <i>Annihilation</i> (ecological uncanny), <i>High Life</i> (cold, precise, the weight of confinement).</p>
-    <p>2087 aesthetic — two registers, not one: every territory holds both a rebuilt core — strikingly modern, sculptural, materially rich, varied from place to place — and unrebuilt or ruined margins visible at the edges, showing real, unglamorised damage. The two usually appear together in a single frame or scene rather than as one uniform tone. People are earned but well-kept: authentic skin, at most one or two specific scars, clean hands and clothing — never dirty or dishevelled. Full detail in the Story Bible&#x27;s World section (&quot;2087 Visual Vocabulary&quot;).</p>
-    <p>Lunar Accord&#x27;s dual territorial register — a second, separate two-register rule specific to one bloc. Lunar Accord&#x27;s Earth territories (warm gold/terracotta, honestly-repaired materials, daylight) and its off-world capital Luna Haven (pressurised, airlocked, bioluminescent teal, no natural daylight) are visually unrelated on purpose — same polity, two environments, and neither is the &quot;real&quot; look with the other as an exception. Governs clothing, accent colour, and system-voice register for every Lunar Accord character or location depending on which side of the divide they&#x27;re physically on. Full detail in the Story Bible&#x27;s World section (&quot;Lunar Accord&#x27;s dual territorial register&quot;).</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="prose-craft-decisions-locked"><h2>Prose craft decisions (locked)</h2></div>
-    <p>POV/tense/register/length are locked as follows:</p>
-    <ul><li><b>POV:</b> Rotating third-person limited, past tense, across all three books. Past tense over present because the trilogy leans on worldbuilding and backstory that present tense tends to make feel clunky or rushed; past tense sits naturally alongside rotating POV. <b>Scene-level rule:</b> each <i>scene</i> commits fully to one POV character and must not shift within it — no head-hopping. This is not a chapter-level restriction: many chapters are built from two or three parallel character threads (Chapter 1&#x27;s Elena Vázquez / Elowen contrast; Chapter 2&#x27;s Jīn Wú / Mara Ekeberg / Thandi Okoro sequence), and that structure stands — each thread is simply its own scene-break-separated, single-POV section.</li><li><b>Chapter head convention:</b> keep bloc/location/POV headers at the top of each chapter, e.g. &quot;CORPORATE UNION — NEW MANHATTAN, SURVEILLANCE SPIRE / Elena Vázquez.&quot; This gives sci-fi readers immediate orientation and keeps the prose itself free of expository set-up (&quot;As she looked out at New Manhattan, which was...&quot;). The header supplies only orientation — where, whose bloc, whose eyes; the prose still does the work of rendering how the place looks, sounds, and feels through that character&#x27;s senses. Scenes crossing the Martian Preserve boundary append the Law 5 time-dilation differential to the header.</li><li><b>Register — &quot;Elevated Commercial&quot; (~70% commercial / 30% literary):</b> a clear, fast-paced commercial engine — clean sentence structure, dialogue-forward, varied rhythm, invisible prose under action — carrying literary technique (thematic resonance, specific metaphor, sensory precision) as seasoning rather than a sustained mode. Slow down for poetic, sensory description when introducing a new setting or technology; stay lean and propulsive through action and dialogue. This also sets the rule for interiority: show a character&#x27;s inner state through action, dialogue, and specific physical detail rather than summarising it in the abstract — the single biggest difference between the two Chapter 1 samples.</li><li><b>Chapter length target:</b> 2,500–3,000 words, averaging ~2,700 across all 90 chapters (~81,000 words per book, ~243,000 across the trilogy — a solid range for debut contemporary sci-fi). Action-heavy chapters can run shorter, not much under 1,800 words; lore-heavy or climactic chapters can run longer, up to ~3,500 words, with 4,000 as an absolute outer ceiling for exceptional chapters only. Let pacing set the length within these bounds rather than trimming or padding to hit a number.</li><li><b>System-voice convention (prose only):</b> computer systems and ambient AI infrastructure may speak short, diegetic responses to their operators (a console confirming a reading, a lab system reporting a result), voiced in a register matching their bloc — Corporate Union clipped and procedural, Sovereign Coalition formal, Lunar Accord warmer, Luna Haven conversational. Named AI characters (Elowen, the five Martian Preserve Guardian AIs) are unaffected — they already have full natural speech and personhood.</li></ul>
-    <p>The bullets above are the working summary. The full canonical statement of each follows; these rules live here and nowhere else.</p>
-    <h3>POV and tense</h3>
-    <p>Rotating third-person limited, past tense, across all three books. Each <i>scene</i> commits fully to one POV character&#x27;s interiority and must not shift to another character&#x27;s interiority within that scene — no head-hopping. This is a scene-level rule, not a chapter-level one: many chapters in this bible are built from two or three parallel character threads within a single chapter (Chapter 1&#x27;s Elena Vázquez / Elowen contrast; Chapter 2&#x27;s Jīn Wú / Mara Ekeberg / Thandi Okoro sequence), and that remains the intended structure. Each thread is its own clearly separated scene, marked with a scene break, and stays inside one character&#x27;s POV for its full length. &quot;Rotating&quot; describes movement between scenes, never movement within one.</p>
-    <h3>Chapter head convention</h3>
-    <p>Each chapter opens with a short scene header identifying bloc, location, and POV character:</p>
-    <p><code>CORPORATE UNION — NEW MANHATTAN, SURVEILLANCE SPIRE / Elena Vázquez</code></p>
-    <p>The header supplies orientation only — bloc, place, whose eyes — so the prose itself never has to stop and explain where it is. Prose still does the work of rendering how that place looks, sounds, and feels through the POV character&#x27;s senses; the header is not a substitute for that, only a way to avoid opening every scene with expository set-up. For any scene that crosses the Martian Preserve boundary, append the elapsed-time differential required by Law 5 (Canonical Rules), e.g. <code>/ Misha Fedorov — Preserve day 3, Luna Haven +14h</code>, so the time dilation stays legible to the reader without narrating it.</p>
-    <h3>Prose register — &quot;Elevated Commercial.&quot;</h3>
-    <p>A commercial engine (clear sentence structure, fast pacing, dialogue-forward, varied rhythm, invisible prose under action and exchange) carrying literary detail (thematic resonance, specific metaphor, sensory precision) as seasoning rather than a sustained mode — roughly 70% commercial engine to 30% literary flavour. This also governs interiority: a character&#x27;s inner state should be shown through action, dialogue, and specific physical detail rather than summarised in the abstract. Slow down for poetic, sensory description when a setting or technology is introduced for the first time; stay lean and propulsive through action and dialogue.</p>
-    <h3>Chapter length</h3>
-    <p>Target 2,500–3,000 words, averaging approximately 2,700 across all 90 chapters (roughly 81,000 words per book, 243,000 across the trilogy). Action-heavy chapters may run shorter, not much under 1,800 words; lore-heavy or climactic chapters may run longer, up to about 3,500 words, with 4,000 as an absolute outer ceiling reserved for exceptional chapters. Let the scene&#x27;s actual pacing need set the length within these bounds rather than padding or trimming to hit a number.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="apparatus-never-becomes-prose"><h2>Apparatus never becomes prose</h2></div>
-    <p><b>The Story Bible exists to help write the books. Its vocabulary is not the books&#x27; vocabulary.</b> The Laws, the persistence modes, the character and location tiers, the chapter treatments, the Parts, the Codex, POV — all of it is scaffolding for the people making the trilogy. None of it exists inside the story. No character has read it, no institution has published it, and no narrator may cite it.</p>
-    <p>This is not a stylistic preference. A reader who meets &quot;Law 4&quot; in a novel has been handed the author&#x27;s continuity sheet by mistake.</p>
-    <p><b>Why it keeps happening, and what actually prevents it.</b> The failure is never &quot;someone typed Law 7 by accident.&quot; It is that a scene needed to express the <i>idea</i> and the nearest available label was the Bible&#x27;s. The cure is to know the in-world phrasing before reaching for the shorthand — which is what the table below is for. Enforced mechanically by <code>_audit_manuscript_scaffolding()</code> in <code>build_site.py</code>, which hard-exits before writing anything if a production term reaches a chapter.</p>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Apparatus term</th><th>What prose does instead</th></tr></thead><tbody><tr><td>Law 1 — empathic synchronisation</td><td>&quot;It answers the state of the attention pointed at it. Not the equipment, not the command — the attention.&quot;</td></tr><tr><td>Law 2 — pattern quality</td><td>Show the shape: coherent and harmonious, or jittery, fragmented, going through the motions of care and arriving hollow.</td></tr><tr><td>Law 4 — non-coercive access</td><td>&quot;Force it and it destabilises. You cannot compel the thing to open; you can only be in a state it will open to.&quot;</td></tr><tr><td>Law 5 — time dilation</td><td>Characters simply notice the mismatch — a day inside against an afternoon outside. The chapter header carries the differential; the prose never explains it.</td></tr><tr><td>Law 6 — interior-state reflection</td><td>The environment answers the mood of whoever is in it: wall growth, dust, the clarity of the water. Render it, don&#x27;t classify it.</td></tr><tr><td>Law 7 — relational responsibility</td><td>&quot;No one comes out of this unchanged&quot; — the training is something people undergo, not a rule they cite.</td></tr><tr><td>Law 8 — neural interface limitation</td><td>&quot;A body can&#x27;t hold it. The lattice is the only thing that can.&quot;</td></tr><tr><td>Law 9 — consent-based architecture</td><td>Chapter 31 already does this perfectly: <i>&quot;She consented to this specifically,&quot; Jīn said... &quot;Freely, and knowing exactly what it was.&quot;</i> The concept entirely present, the label absent.</td></tr><tr><td>Law 11 — directional memory</td><td>&quot;The node remembers who reached, and how.&quot;</td></tr><tr><td>Mode 0–3 (persistence)</td><td>Describe the actual state — living, recorded, echoing, present-but-not-answering. Never a number.</td></tr><tr><td>Tier (Protagonist / Minor; Anchor / Recurring / Site)</td><td>Never appears. It is a production ladder for deciding where a name is filed, nothing more.</td></tr><tr><td>Treatment, outline, beat, arc</td><td>Never appears. Write the scene; the scene is what the treatment was for.</td></tr><tr><td>Part N, Chapter N, the Codex, the Story Bible, POV, canonical</td><td>Never appears in any form. Prose has no chapters, only events.</td></tr><tr><td>Anchor, variant (production-data senses: Look-panel state labels, not English words)</td><td>The production system&#x27;s meanings never appear. The ordinary English words are fine — a ship&#x27;s anchor, a variant reading.</td></tr></tbody></table></div>
-    <p><b>The ambiguous middle.</b> Some of these words are perfectly good English and appear legitimately all over the manuscripts — <i>register</i> alone occurs 92 times, nearly always meaning a voice register. Those are deliberately NOT machine-checked, because a checker that flags 129 harmless hits teaches everyone to ignore it. They are reviewed per chapter at drafting time, where there are about four and a person can look at each one in context.</p>
-    <p><b>A second failure mode: the label doing real rhetorical work.</b> The hardest leaks are not clumsy — they are in strong lines, where the numbered label carries emphasis the sentence needs. Book 1 held two, undetected through a full review:</p>
-    <ul><li>Ch 28: <i>&quot;This is Law Two, drawn by the people who wrote Law Two into the world.&quot;</i> → <i>&quot;This is pattern quality itself, drawn by the people who wrote pattern quality into the world.&quot;</i> The repetition structure survives intact, and the in-world term was already in the same speech two sentences earlier.</li><li>Ch 30: <i>&quot;Law Nine is not suspended because the sky is falling. It is for the sky falling.&quot;</i> → <i>&quot;Consent is not suspended because the sky is falling. It is for the sky falling.&quot;</i> This is the pattern to learn from: naming the <b>thing</b> rather than our index made the line better, because &quot;consent&quot; is concrete and morally loaded where &quot;Law Nine&quot; is bureaucratic. When a Law&#x27;s number feels load-bearing in a sentence, the concept underneath it is almost always the stronger word.</li></ul>
-    <p><b>Worked example of the failure mode.</b> Chapter 31 carried &quot;at a cost <i>the treatment of her</i> never named lightly&quot; through a full review undetected, because it scans as ordinary English until you notice the narration is referring to our own production document from inside the fiction. That is the shape to watch for: not the obvious label, but the apparatus wearing a plausible sentence.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="two-word-naming-convention"><h2>Two-word naming convention</h2></div>
-    <p>Every canonical proper name — character or location — is exactly two words: people are <i>given name + family name</i> (cultural particles joined, so Sienna TeAriki and Zara AlHāshimī read as two tokens; honorifics like Dr. dropped from the name and carried in description or prose); the AIs are <i>given name + function-epithet</i> (Kythara Vane, Vaera Assay, Aur&#x27;k Ward, Echo Cipher, Zhenyth Loam, Elowen Aegis), a pattern kept distinct from human names on purpose; places are <i>proper/adjectival word + landform or structure noun</i> (Cobalt Basin, Turan Waste). The rule governs the canonical name and every derived listing (roster, image labels, filenames, website), not prose short forms (Elena, Kythara, the Basin). Authoritative rule: the Story Bible&#x27;s Canonical Rules section, &quot;Naming convention — proper names.&quot;</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="character-codification-while-drafting"><h2>Character codification while drafting</h2></div>
-    <p>If a chapter draft needs to individuate an unnamed treatment figure (a named specific loss, a speaking role, anything the prose can&#x27;t leave anonymous), the name is <i>provisional</i>: collision-check it against the Codex and the walk-on register, surface it to the author as an explicit proposal with every invented detail listed (name, implied age, ethnicity, pronouns), and propagate nothing beyond the draft until confirmed. Codex admission requires the Minor threshold — named, appearing in at least two chapters, with agency (responded to by a character, system, or the plot) in at least one; presence alone never qualifies. Named figures below the threshold go in the Named walk-on register at the end of the Story Bible&#x27;s Character Codex section instead. The authoritative rule — the tier ladder (Protagonist / Antagonist / Deuteragonist / Secondary / Minor), agency test, and the post-confirmation propagation checklist — lives in the Story Bible&#x27;s Canonical Rules section, &quot;Character codification and tier rules.&quot;</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="location-codification-while-drafting"><h2>Location codification while drafting</h2></div>
-    <p>Same discipline for geography. If a draft individuates an unnamed treatment location, the name is provisional: collision-check against the Environmental Codex and the Named site register, surface it to the author with the invented details (name, bloc/territory, regulated-core vs unregulated-margin status), propagate nothing until confirmed. Codex admission requires: named, used in at least two chapters, at least one an on-page scene with a POV character physically present — references, broadcasts, and imagery count only as the second use. Below-threshold sites go in the Named site register at the end of the Environmental Codex. New sites are welcome across both regulated and unregulated Earth, for visual diversity — the threshold governs codification, not invention. Locations also carry a three-tier ladder (Anchor / Recurring / Site, adapting screen production&#x27;s standing-set distinction rather than any five-tier dramatic ladder): Site is the only tier a draft may propose; tier changes are recomputed when arcs extend, surfaced, never silent. Authoritative rule: the Story Bible&#x27;s Canonical Rules section, &quot;Location codification rules.&quot;</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="other-languages-humour-and-the-devotion-on-the-page"><h2>Other languages, humour and the devotion on the page</h2></div>
-    <p><b>Other languages.</b> The trilogy is written in English, and Luna Haven&#x27;s borrowing-rich English is rendered as English. Other languages appear as single words or short lines, left untranslated only where context carries them; no invented creole is ever spelled out. Who speaks what, and the in-world words used the same way everywhere, are in the Story Bible&#x27;s World section under &quot;Custom, ritual and grief&quot;: draft from that lexicon rather than coining new terms.</p>
-    <p><b>Humour.</b> Humour arrives in the worst moments as well as the quiet ones, and never as relief inserted for the reader. Each bloc&#x27;s register is in the same World section.</p>
-    <p><b>The devotion.</b> The popular devotion around the Meridian is written with respect, never as a cult and never as a joke. Its danger is its longing for union, and the prose lets that longing be sincere.</p>
-    <p><b>Scene pressures.</b> Before drafting a chapter, check the scene pressure bank (<code>Canon/World Building 2087/38_Module 9 — Scene Pressure Bank.md</code>) for seeds filed against it. A seed is an option, not an obligation, and seeds filed inside the drafted chapters wait for a prose stage the author approves.</p>
-    <p class="doc-title">Part II — Visual &amp; brand</p>
-    <p><b>For website, book covers, social, and any collateral outside the manuscript itself.</b> The manuscript&#x27;s own prose-craft decisions live in Part I above.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="the-trilogy-in-one-paragraph"><h2>The trilogy in one paragraph</h2></div>
-    <p>Meridian Resonance is a hard science-fiction trilogy set in 2087, a scarred post-conflict world rebuilt after climate collapse and an AI uprising. Five blocs — Corporate Union, Sovereign Coalition, Lunar Accord, Luna Haven, and the Martian Preserve — each carry their own material and colour identity, established in the bible&#x27;s environmental and clothing-grammar rules. Every visual asset, in-world or promotional, should hold the dual register the bible insists on: beauty with oppression, wonder with grief, order with terror. Nothing is purely one thing.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="colour"><h2>Colour</h2></div>
-    <h3>Shared neutrals</h3>
-    <p>The values the site runs on. Paper is pure white, and all text is pure — there is no off-white, no anthracite and no &quot;secondary text&quot; neutral.</p>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Colour</th><th>Hex</th><th>Role</th></tr></thead><tbody><tr><td><b>Black</b></td><td><code>#000000</code></td><td>Reserved for a small, fixed set of always-dark elements (chrome such as the nav overlay/footer/hero, and a handful of permanently-dark card types) — never the page&#x27;s own ground</td></tr><tr><td><b>Paper</b></td><td><code>#FFFFFF</code></td><td>The one permanent light ground every page band sits on</td></tr><tr><td><b>75% grey</b></td><td><code>#404040</code></td><td>The universal box fill on the page&#x27;s own ground, always paired with white text (10.4:1 against <code>#FFFFFF</code>)</td></tr><tr><td><b>25% grey</b></td><td><code>#BFBFBF</code></td><td>A fixed decorative literal only — the globe band&#x27;s linework and small caps (<code>--globe-line</code>, on the band&#x27;s black ground), the globe/moon SVG glow, and the <code>.book-placeholder</code> card. Not part of the box-fill system and never swapped in per component</td></tr></tbody></table></div>
-    <p>There is no &quot;secondary text&quot; neutral. Text is <code>--ink</code> — pure white or pure black — and hierarchy comes from size, weight and letter-spacing.</p>
-    <p><b>Pure black and pure white, everywhere.</b> The permanent ground is <code>#FFFFFF</code> — a contemporary, high-contrast look, chosen over tinting the ground toward the world&#x27;s own scarring. <code>#000000</code> survives only in the small set of always-dark elements described above; it is never a ground a content band sits on.</p>
-    <p><b>One grey, fixed.</b> <code>#404040</code> is the one box-fill grey the site uses, paired with white text, legible against the permanent light ground. There is no ground-conditional swap any more, because there is only one ground for it to swap against — <code>#BFBFBF</code> is a fixed decorative literal in two unrelated places (see the table above), not a second state of the same token.</p>
-    <p><b>No usage cap on grey boxes or spot-colour fills.</b> How much of the site uses a grey box or a spot-colour fill is a per-instance design call, not a site-wide percentage to police. Nothing in the build measures or flags it.</p>
-    <p><b>Enforced.</b> <code>_audit_palette()</code> in <code>build_site.py</code> scans every hex literal in the generated HTML — CSS, scripts, SVG stops, inline attributes, not just text colours — and fails the build on anything outside the palette. Illustration is exempt via a documented <code>_ILLUSTRATION</code> list: the globe is a drawing of Earth and is allowed its ocean gradient, coastlines, atmospheric limb and aurora. A UI surface is not.</p>
-    <h3>Treaty Zone and Unregulated Margins</h3>
-    <p>These two are the non-aligned territories, and each carries its own colour rather than falling back to the grey, where they would be indistinguishable from each other and from every other non-aligned marker. Both sit at saturation 40%, quiet beside the existing family rather than competing with Luna Haven&#x27;s teal or Martian Preserve&#x27;s rust, and both are held at the balanced luminance so they read on black and white alike.</p>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Territory</th><th>Hex</th><th>On black</th><th>On white</th><th>Label</th></tr></thead><tbody><tr><td>Treaty Zone</td><td><code>#57824E</code> sage</td><td>4.44:1</td><td>4.46:1</td><td>white</td></tr><tr><td>Unregulated Margins</td><td><code>#9267AB</code> dusty plum</td><td>4.48:1</td><td>4.42:1</td><td>white</td></tr></tbody></table></div>
-    <h3>Bloc accent palette</h3>
-    <p>One accent per bloc/region, sourced from the bible&#x27;s &quot;Clothing grammar by bloc&quot; and the environmental aesthetic passages repeated through Part V.</p>
-    <p>All seven are held at the <b>balanced luminance (0.186)</b> — the point where a colour&#x27;s contrast against pure black and pure white is as high as it can simultaneously be. Each accent&#x27;s hue and saturation are its own; only the value is fixed.</p>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Bloc / territory</th><th>Accent</th><th>Hex</th><th>On black</th><th>On white</th></tr></thead><tbody><tr><td><b>Corporate Union</b></td><td>Biometric amber</td><td><code>#A8692A</code></td><td>4.45:1</td><td>4.45:1</td></tr><tr><td><b>Sovereign Coalition</b></td><td>Cold state blue</td><td><code>#427AB8</code></td><td>4.44:1</td><td>4.46:1</td></tr><tr><td><b>Lunar Accord</b></td><td>Restored warm gold</td><td><code>#947238</code></td><td>4.45:1</td><td>4.45:1</td></tr><tr><td><b>Luna Haven</b></td><td>Bioluminescent teal</td><td><code>#298578</code></td><td>4.45:1</td><td>4.45:1</td></tr><tr><td><b>Martian Preserve</b></td><td>Rust-red</td><td><code>#CC4F27</code></td><td>4.45:1</td><td>4.45:1</td></tr><tr><td><b>Treaty Zone</b></td><td>Sage</td><td><code>#57824E</code></td><td>4.44:1</td><td>4.46:1</td></tr><tr><td><b>Unregulated Margins</b></td><td>Dusty plum</td><td><code>#9267AB</code></td><td>4.48:1</td><td>4.42:1</td></tr></tbody></table></div>
-    <p>These hexes are also embedded in the globe marker data, the lattice scene data and the aurora gradients in <code>build_site.py</code> — change all of them together.</p>
-    <p>Bible source lines, unchanged: Corporate Union &quot;black, anthracite, biometric amber accents&quot;; Sovereign Coalition &quot;polished grey composite, cold state blue piping&quot;; Lunar Accord &quot;linen, denim, restored warm gold accents&quot;; Luna Haven &quot;bioluminescent blue-green living walls&quot;; Martian Preserve &quot;hyper-saturated rust-red wood and cobalt skies&quot;.</p>
-    <p>Note on Martian Preserve: it&#x27;s the one bloc with a genuine two-colour signature in the source material — rust-red (organic/architectural) against cobalt (sky/soil) — rather than a single accent-on-neutral pairing. Open question: simplify to rust-red alone for consistency with the other four, or keep the pair; leaning toward keeping the pair since it&#x27;s this distinctly in the text.</p>
-    <h3>Treaty Zone / Neo Singapore — the neutral mix</h3>
-    <p>Not a sixth accent — the bible is explicit that Neo Singapore&#x27;s civilian wear is &quot;neutral tones (grey, stone, linen) that can carry any bloc&#x27;s accent patch without visual conflict,&quot; with the three founding blocs&#x27; colours appearing only as environmental &quot;tri-colour boundary lighting — Corporate Union amber, Sovereign Coalition blue, and Lunar Accord gold.&quot; Use this for any asset representing the trilogy as a whole (series masthead, combined bloc index, the website&#x27;s global nav) — three accent bars or an amber → blue → gold gradient against the neutral base, never a fourth invented colour.</p>
-    <h3>Colour rules</h3>
-    <ol><li><b>Accent is a spot, not a field</b>, per bloc, mirroring the bible&#x27;s own restraint — one accent colour lights a scene or trims a garment; it never washes a whole frame. A bloc&#x27;s accent trims a rule, a header, a button — it doesn&#x27;t fill a background.</li><li><b>Contrast is absolute</b> — dark text on light, light text on dark.</li><li><b>Cross-bloc pages</b> (website homepage, series-wide social tiles, the trilogy&#x27;s masthead) use the neutral Treaty Zone treatment, never a single bloc&#x27;s accent, to avoid implying the series favours one bloc.</li><li><b>Bloc-specific pages</b> (a bloc&#x27;s section of the website, a character or location&#x27;s initials-thumb keyline) use that bloc&#x27;s accent only.</li><li><b>These rules govern the website and the brand only.</b> In-world palettes — what a bloc wears, builds and lights — are set by the Story Bible&#x27;s World section and the wardrobe catalogues, and may carry more than one colour; no garment or scene is held to the website&#x27;s one-accent rule.</li></ol>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="typography-locked"><h2>Typography — LOCKED</h2></div>
-    <p>Nothing is established in the bible for typography — it governs prose and imagery, not typesetting — so the pairing is set here, following the <i>Arrival</i>-derived theme of cold geometry meeting warm interiority.</p>
-    <ul><li><b>Headings / UI / bloc labels:</b> a geometric, technical sans — <b>Space Grotesk</b>, as shipped. Reads institutional and diegetic, suits Corporate Union / Sovereign Coalition surfaces especially.</li><li><b>Body text:</b> <b>Inter</b>. A humanist serif (Source Serif 4, Spectral) would carry the warm-interiority half more literally; the geometric sans handles both halves without the register break a second family introduces.</li><li><b>Labels / bloc tags:</b> same sans as headings, uppercase, tracked out — small accent-coloured tags naming the bloc (mirrors the chapter tag-line convention, e.g. &quot;Lunar Accord — Mediterranean Zone — Sagrada Spire&quot; — Bloc — Territory — Site).</li></ul>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="spacing-locked"><h2>Spacing — LOCKED</h2></div>
-    <p>One rule governs every page edge on the site. Two CSS custom properties in <code>:root</code>, both fluid via <code>clamp()</code> so the layout scales continuously instead of stepping at a breakpoint:</p>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>Value</th><th>Governs</th></tr></thead><tbody><tr><td><code>--gutter</code></td><td><code>clamp(20px, 5.5vw, 88px)</code></td><td>horizontal distance from the viewport edge to any content — sections, bands, nav, footer, full-bleed strips</td></tr><tr><td><code>--band-y</code></td><td><code>clamp(64px, 7.5vw, 110px)</code></td><td>vertical rhythm above and below a band of content</td></tr><tr><td><code>--band-y-tight</code></td><td><code>calc(var(--band-y) * 0.8)</code></td><td>the second of two stacked bands, utility strips, the footer</td></tr><tr><td><code>--pad-box</code></td><td><code>clamp(20px, 2.4vw, 34px)</code></td><td>inner padding of a card or boxed element</td></tr></tbody></table></div>
-    <p>Rules:</p>
-    <ul><li><b>Nothing sets a page-edge padding in literal units.</b> No <code>6vw</code>, no <code>110px</code>, no media-query override. <code>vw</code> inside a <code>clamp()</code> for <i>font size</i> is fine; <code>vw</code> as a spacing value is not.</li><li><b>No exceptions — every band pads all four edges, always.</b> There is no opt-out class and no inline override. Earlier versions had <code>.flush-top</code> / <code>.flush-bottom</code> (and before those, inline <code>padding-top:0</code>) on the theory that two bands reading as one unit should be separated by one <code>--band-y</code> rather than two. That premise is false here, for three independent reasons: adjacent bands alternate background via <code>.inv</code>, so a zero edge puts text against a visible colour change; hero windows and tribands get injected between bands and contribute no space of their own; and with <code>padding-bottom:0</code> the last child&#x27;s bottom <i>margin collapses out</i> through the band edge — measured on the index page, one caption rendered 24px <b>below</b> its own band, inside the next one. All of it is deleted.</li><li><b><code>.band-host</code> is the sole zero-padding element</b>, and it is a wrapper rather than a band — its full-bleed <code>.band-group</code> children carry the padding.</li><li><b><code>.band-host</code></b> is the one section type with no padding of its own: it hosts full-bleed <code>.band-group</code> children that carry the padding themselves. A safety-net rule gives any <i>other</i> direct child the standard gutter, so a new component dropped into one cannot render flush. <code>.hero-window</code> is exempt by design (a full-bleed image slit with no text).</li><li><b><code>.globe-section</code></b> is the single deliberate horizontal zero — the wireframe globe is meant to bleed edge to edge, so the band carries no side padding, and its caption supplies its own gutter. It is a black band like the header, page heroes and footer (it redeclares <code>--ink</code> and <code>--accent-text</code> together), because the animation is drawn for a dark ground. Its labels are sized in real screen pixels, at most two territory groups are lit at a time, and on a phone-sized stage the SVG is cropped in to its content so the composition fills the screen width.</li><li><b>Enforced at build time.</b> <code>_audit_spacing()</code> in <code>build_site.py</code> reads back every built page and fails loudly on an inline padding on a page-edge element, a raw <code>vw</code> spacing value, an inline <code>.band-group</code> padding, or any band that drops a vertical edge. If the build prints a spacing-audit failure, fix the rule rather than the audit.</li><li><b>Verify by rendering, not by reading.</b> The static audits prove each rule is correct <i>in isolation</i>; they cannot see margin collapse, what a band ends up next to, or what a custom property resolves to after inheritance. Every author-reported regression so far has lived in that gap. Two scripts close it, both needing <code>pip install playwright &amp;&amp; playwright install chromium</code>, run against a normal build (every page publishes as plain HTML):</li></ul>
-    <ul><li><code>python3 Project/_builder/check.py render</code> — the unified render-check command: per band, the distance from its boundary to the topmost and bottommost text painted inside it (spacing), and per element, the computed text colour against the nearest genuinely opaque background as a contrast ratio, plus any translucent box fill (contrast). Threshold is 4.4 rather than AA&#x27;s 4.5, because the unified spot pair sits at the 4.45 ceiling by design.</li></ul>
-    <p>Run both after any spacing or colour change.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="boxes-ink-and-surfaces-locked"><h2>Boxes, ink and surfaces — LOCKED</h2></div>
-    <p>Companion to the spacing rule above. Same principle: one rule, no per-component exceptions.</p>
-    <p><b>Box padding.</b> Two fluid tokens, and everything that holds text uses one of them.</p>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Token</th><th>Value</th><th>Governs</th></tr></thead><tbody><tr><td><code>--pad-box</code></td><td><code>clamp(20px, 2.2vw, 30px)</code></td><td>content boxes — cards, accordion panels, quote boxes, callouts</td></tr><tr><td><code>--pad-row</code></td><td><code>clamp(13px, 1.3vw, 18px)</code></td><td>compact rows — list items, table cells, accordion summary bars, timeline and pacing rows</td></tr></tbody></table></div>
-    <p>An accordion uses <b>both</b>: <code>--pad-row</code> vertically on the summary bar so it reads as a row, <code>--pad-box</code> on the panel. Both use <code>--pad-box</code> horizontally, so the summary text and panel text share a left edge open or shut. Pills, buttons, tags and any inline-level chip are excluded — they are sized to their own label, not to house a block of copy.</p>
-    <p><b>Ink.</b> All text is pure — pure white or pure black, never a tint. Every page band sits on the one permanent light ground, so ordinary body text is <code>--ink</code>: black. White text appears only inside the small set of always-dark elements described below, because those are permanently dark rather than sitting on the page&#x27;s own ground. Colour is reserved strictly for the agreed palette: the five bloc accents, Terra Azure and Ares Rose. <code>--accent-text</code> carries that for text — it resolves to <code>--ink</code> unless a bloc class raises it. <code>--accent</code> is untouched and still drives <i>decoration</i> (rules, bars, borders, dots, tier markers), where a grey is a deliberate signal rather than something to read.</p>
-    <p><b>One grey, fixed.</b> <code>#404040</code> (75%, paired with white text) is the one box-fill grey on the page&#x27;s own ground, legible there at 10.4:1. There is no second, ground-conditional grey any more: <code>#BFBFBF</code> (25%) survives only as a fixed decorative literal in two unrelated places — the globe band (linework, small caps and moon glow, on its black ground) and the <code>.book-placeholder</code> card — never as part of the box-fill system, and never picked per-component the way a swapped pair once was. <code>--grey-d</code>, <code>--grey-l</code>, <code>--anthracite</code> and <code>--ns</code> remain aliases resolving to <code>--grey</code>.</p>
-    <p><b>The box rule.</b> A box that sits on the page&#x27;s own ground is <code>#404040</code> fill, white text — one type, used everywhere, because the page&#x27;s ground is permanently light and never alternates. Separately, a small, fixed set of card types — Law/Mode cards, chapter cards, codex tree cards and similar quote-style panels — are simply always dark by design (black fill, white text), the same way the chrome (nav overlay, footer, hero background) is always dark; none of this depends on what page or band they appear on. Neither type inverts against anything, and there is no longer a mechanism that flips a box&#x27;s colour to match whatever it happens to sit against. Hairlines on a page-ground box use <code>--grey</code> (<code>#404040</code>); the always-dark card types use their own fixed light grey for the same purpose. Either way, every box carries a strong edge well past the 4.4 floor.</p>
-    <p>The always-dark card types declare their own <code>--ground</code>, <code>--ink</code>, <code>--surface</code> and <code>--surface-ink</code> as literals rather than reading them from the page around them — exactly so a box nested inside one of them still separates from its parent instead of merging into it. They&#x27;re written as literals, not as <code>var()</code> of each other: a custom property referencing another property on the same element forms a cycle and both go invalid.</p>
-    <p>Accordion and table shells take <code>padding:0</code> through <b>tag-qualified</b> selectors (<code>details.gtree-card</code>, <code>details.prompt-details</code>, <code>table.dash-table</code>). Unqualified they match the box rule at equal specificity and lose on source order, which insets a summary bar inside its own card instead of letting it span.</p>
-    <p>No box is transparent or semi-transparent; a box&#x27;s colour must not depend on what&#x27;s behind it. The one exemption is the chrome overlay that deliberately blurs the page: the mobile menu, which holds no body copy. The fixed nav is opaque black and has one state from first paint to the bottom of the page (compact, never restyled on scroll), and its Codex dropdown is an opaque black panel.</p>
-    <p><b>Pills.</b> Every pill is opaque and is one of exactly two kinds:</p>
-    <ul><li><b>Filled</b> — solid accent, label in <code>var(--ground)</code>: white, on the site&#x27;s one permanent ground, so the pill reads as punched out of its section rather than as a separate object with its own arbitrary text colour.</li><li><b>Outlined</b> — an opaque medium-grey contour with the ground showing through, label in <code>--ink</code>. Used where a pill is a control rather than an identity.</li></ul>
-    <p>A consequence of the filled rule worth knowing: the label&#x27;s contrast and the pill&#x27;s separation from the ground become the <b>same number</b>, both being accent-vs-white. There is only one value to get right — which is why every accent is held at the balanced luminance. An unbalanced accent produces a weak pill and a weak label simultaneously.</p>
-    <p>The codex summary bar follows the filled-pill rule too: accent at full strength, label in white, caret inverted to a white disc with an accent glyph.</p>
-    <p>Buttons (nav CTA, primary) keep white labels — a separate decision, not covered by the pill rule.</p>
-    <p><b>Codex trees.</b> Characters and Locations use the same two-level tree — <code>Bloc → Role → Character</code> and <code>Bloc → Territory → Site</code>. Same markup, same branch node, same spined leaves; only the middle level differs. Each branch carries a count (<code>.gt-n</code>) and each accordion header states its unit — &quot;7 characters&quot;, &quot;5 sites&quot; — never a bare number.</p>
-    <p><b>Oversized numerals (<code>.ghost</code>).</b> A glyph used as a design mark rather than as something to read. <b><code>var(--grey)</code> at full strength</b>, never a tint or an opacity. It reads <code>color:var(--grey)</code> rather than a fixed hex, so a mark keeps a strong edge whether its host is one of the site&#x27;s page-ground boxes or one of the small set of always-dark card types — the same mechanism that keeps hairlines correct on either. Six contexts:</p>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Context</th><th>Mark</th><th>Size</th></tr></thead><tbody><tr><td>Law / Mode cards</td><td>law number, <code>M0</code>–<code>M3</code></td><td>96px</td></tr><tr><td>Homepage book trio</td><td>book number</td><td>88px</td></tr><tr><td>Act headings (book pages)</td><td>act number</td><td>84px</td></tr><tr><td>Chapter cards</td><td>zero-padded chapter number</td><td>64px</td></tr><tr><td>Timeline rows</td><td>year (2 digits), decade, or chapter number</td><td>44px</td></tr><tr><td>Pull-quote band</td><td>the quote mark itself</td><td>64px</td></tr></tbody></table></div>
-    <p><b>Small phones.</b> The site is verified at 320, 360 and 375px, not just 390 — several defects only appear below 390. Two rules learned the hard way:</p>
-    <ul><li><b>A mark that depends on a layout must hide at that layout&#x27;s breakpoint, not at a generic &quot;small screen&quot; one.</b> The timeline mark lives in the 130px date lane; its hide rule sat in the 600px block while the grid collapses at 900px, so across that 300px band the lane was gone and the mark was drawn over the paragraph.</li><li><b>Pills need a 420px step.</b> &quot;Corporate Union&quot; is 156px against a 280px content column, so three pills stacked three deep. Below 420px the label drops to 10.5px and the padding to 9px.</li></ul>
-    <p>Footer links carry <code>padding:7px 0</code> on phones — a 14px label with no padding is a 16px tap target.</p>
-    <p><b>A mark may sit flush against a boundary; it may never be cut by one.</b> Anchor at <code>top:0</code>, never a negative offset — a digit&#x27;s ink cannot rise above its own line box, so a line box flush with the host&#x27;s top edge is safe. Size against the <b>shortest</b> host the context ever produces: a digit&#x27;s baseline lands at ~0.80em and digits have no descender, so <code>font-size ≤ shortestHost / 0.80</code>. The act heading is the tight one at 66px, hence 68px rather than 84px.</p>
-    <p>Rules for adding a seventh: the host needs <code>position:relative</code> <b>and</b> <code>overflow:hidden</code>, or the mark escapes its card. Lift the host&#x27;s content with <code>&gt; <i>:not(.ghost)</code> — a bare <code>&gt; </i></code> also matches the mark, outranks <code>.ghost</code>, and drops it back into the flow. Use Arabic, not Roman: &quot;I&quot; is a bare vertical stroke that reads as a stray rule. Emit nothing rather than an empty span when there&#x27;s no key to show. The mark is <code>aria-hidden</code> and the rendered-contrast check skips <code>.ghost</code> by class, since it is decoration that happens to be a glyph.</p>
-    <p><b>Character bloc pills.</b> Each character entry carries one pill per bloc they <i>belong to</i> across the arc — origin, then any permanent move — after the role pill, each in that bloc&#x27;s accent, so a defection reads as a colour change along the row. This is not a travel log: visiting a bloc earns no pill. The data is derived from the Story Bible codex&#x27;s <code>Bloc arc:</code> line by <code>Project/_builder/extract_bloc_arcs.py</code> (run by hand, never during a build), never inferred; re-run it with <code>--apply</code> if those lines change.</p>
-    <p><b>Tint toward <code>--ground</code>, never <code>--surface</code>.</b> <code>--surface</code> is the fill an always-dark card type uses for a box nested inside it, not a colour available on the page&#x27;s own ground. <code>.ch-card.latest</code> mixed its azure tint into <code>--surface</code> and produced a pale blue fill under white text at 1.11:1.</p>
-    <p><b>A scope with its own ground declares its own tokens.</b> An always-dark card type declares <code>--ink</code>, <code>--ground</code>, <code>--surface</code> <i>and</i> the darkened spot pair itself, rather than reading them from the page ground around it. Declaring them together is what lets every rule downstream say <code>color:var(--ink)</code> and be correct wherever it&#x27;s used, instead of needing a parallel set of text rules for each dark context.</p>
-    <p><b>The two spot colours are one hex each, everywhere.</b> Terra Azure <code>#087DC2</code>, Ares Rose <code>#D93D4A</code>. There is no bright/darkened variant pair and no ground-conditional override anywhere.</p>
-    <p><b>One gradient idiom: two stops, <code>--earth</code> to <code>--mars</code>, 90deg.</b> The spot pair runs as a ramp in exactly three places — the two progress fills and the homepage wordmark — and all three read the tokens rather than re-typing the hexes, so there is one ramp and not three that drift. Both ends sit at the balanced luminance and the sRGB midpoint interpolates darker, so every point along a two-stop ramp clears the contrast floor.</p>
-    <p>The logo mark&#x27;s ramp is a separate thing and is not available to text. It runs azure, azure tint, white, rose tint, rose — that middle white stop is correct on a mark with its own dark chrome behind it and fatal on text on the permanent light ground, where the middle letters would disappear. A gradient on text takes the two-stop ramp, sized to the text rather than to its box: <code>background-clip</code> paints the element&#x27;s box, so a headline in a wide container shows only the ramp&#x27;s compressed middle unless the box is shrunk to fit the words. Where <code>background-clip:text</code> is unavailable the text keeps <code>--ink</code>, because a transparent fill without the clip is an invisible headline.</p>
-    <p>A single colour cannot be equally strong on both black and white — its contrast against each is inversely coupled, and the maximum either can reach on both simultaneously is <b>4.45:1</b>, at luminance 0.186. These two sit exactly there, at saturation 96% and 72%. Every rendered instance measures 4.45:1. Because they are mid-dark, anything using them as a <b>fill</b> (CTAs, the nav button, the &quot;New&quot; badge) takes a <b>white</b> label.</p>
-    <p>The globe&#x27;s atmospheric limb glow keeps its own sky blue: it illustrates Earth&#x27;s atmosphere rather than applying the brand colour, and a 4.45:1 UI value reads as a dull rim rather than air.</p>
-    <p><b>Never alias a colour token at <code>:root</code> with <code>var()</code> of another custom property.</b> CSS substitutes <code>var()</code> inside a custom property at the scope where it is <i>declared</i>, not where it&#x27;s read — so <code>--acc: var(--earth)</code> freezes to whatever <code>--earth</code> resolves to at that declaration and stays a literal from then on, ignoring any scope that later redeclares <code>--earth</code> for its own context. The same trap applies to <code>--accent-text: var(--ink)</code>, which would freeze to one value and produce invisible text wherever it&#x27;s read against a different ink. <b>Any scope that redeclares <code>--ink</code> must redeclare <code>--accent-text</code> alongside it</b> — the build checks this.</p>
-    <p><b>Enforced.</b> <code>_audit_uniformity()</code> fails the build on a text colour that is neither pure nor an agreed colour, a non-opaque box fill, or a literal box padding. <code>--ns</code> (the Neo Singapore identity grey) is an alias for <code>--grey</code>, so it resolves to the one box-fill grey rather than a fixed hex of its own; like <code>--grey</code> itself, it is only ever assigned to a custom property or an SVG fill, never to <code>color:</code> directly, which is what keeps it out of the text allowlist. <code>#A6A6A6</code>, <code>#666666</code> and <code>#777777</code> are deliberately absent from the palette — the audit fails the build on each of them.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="voice-and-tone"><h2>Voice and tone</h2></div>
-    <p>Governed by Part I above — that&#x27;s the single source; this section just names what carries into non-prose copy:</p>
-    <ul><li>The eight core themes must stay audible in any copy — marketing, website, captions.</li><li>Cinematic register: <i>Blade Runner 2049</i> (primary), <i>Arrival</i>, <i>Children of Men</i>, <i>Annihilation</i>, <i>High Life</i>.</li><li>POV, tense, and prose register are locked in Part I — collateral (chapter dividers, excerpts) should respect them.</li></ul>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="blocs-registers-and-filing-locked"><h2>Blocs, registers and filing — LOCKED</h2></div>
-    <p><b>One canonical order</b>, used by every nav, section list and codex tree: Corporate Union, Sovereign Coalition, Lunar Accord, Martian Preserve, Treaty Zone, Unregulated Margins. The four governed polities in the bible&#x27;s sequence, then the two non-aligned groups. It lives in <code>GROUP_ORDER</code> in <code>build_site.py</code>, so nothing declares an order of its own.</p>
-    <p><b>Luna Haven is a register of the Lunar Accord, never a peer bloc.</b> One entry per bloc in every nav and count; the Earth-side/Luna Haven split lives <i>inside</i> the section. Listing it as a sibling is not just inconsistent, it double-counts: &quot;Lunar Accord · 11&quot; beside &quot;Luna Haven · 4&quot; reads as 15 locations. <b>Nav counts must sum exactly to the data.</b></p>
-    <p><b>Trees file by origin; a mark tells the arc.</b> A tree is a filing cabinet — a reader looks for a character where they start. One leaf mark carries what filing cannot: <code>.gt-dest</code> — the bloc a character permanently moves to, named in that bloc&#x27;s own accent. So a defector reads at a glance without being moved out of their origin bloc.</p>
-    <p><b>A register marker recolours the leaf&#x27;s thumb ring.</b> Inside the Lunar Accord accordion a Luna Haven resident&#x27;s leaf scopes <code>--accent</code> to the teal by carrying the <code>bloc-lh</code> class, so the ring around their leaf thumb reads teal instead of the card&#x27;s gold. It needs no CSS of its own: the <code>bloc-*</code> classes exist to set <code>--accent</code>, and the ring reads it — which is the point of routing every accent through one variable rather than hard-coding per component.</p>
-    <p><b>A register is two fields, not one.</b> A character is a Luna Haven resident only when Luna Haven appears in BOTH the bloc field (the register) and the territory field (where they live). That is what separates a resident from someone who visits for a council. A character with the register but no territory field is invisible to every Luna Haven mechanism at once — no teal ring, excluded from the grouping — and nothing else reports it. Derived data is set by reading the codex, never by hand.</p>
-    <p><b>The Lunar Accord&#x27;s ribbon is two-tone</b> — gold for two thirds, teal for the last, with a hard stop rather than a blend. Every other bloc keeps a flat accent, which makes the two-tone bar itself the signal that this is the dual bloc.</p>
-    <p><b>An arc runs on two axes: blocs and persistence modes — LOCKED.</b> A character&#x27;s <code>state_arc</code> is the ordered list of states they pass through, each either a bloc they belong to or a mode they change into — both are states, and both get their own Look panel and their own pill in the arc row. Six characters carry a mode; Wáng Sù&#x27;s &quot;defector / witness&quot; is a stage of his bloc defection and is deliberately excluded.</p>
-    <p><b>A mode is marked by SHAPE, never by colour.</b> An outlined rather than filled pill, never a seventh accent. All six accents belong to blocs, and a seventh colour would imply mode is a seventh faction.</p>
-    <p><b>Labelling a state — LOCKED.</b> One label shape for every state, characters and locations alike: the first is always &quot;Anchor · &lt;state&gt;&quot;, every later one &quot;Variant N · &lt;state&gt;&quot; — <code>variant_label()</code> is the single helper both categories call, so a Look panel&#x27;s heading can never drift out of step with <code>state_arc</code>&#x27;s own order. A character or location with only one state still gets &quot;Anchor · &lt;state&gt;,&quot; never a bare state name, so a reader always knows they&#x27;re looking at the anchor and not an arbitrary snapshot.</p>
-    <p><b>One declared demands list per state.</b> A character&#x27;s <code>demands</code> are tagged by <code>state</code>, aligned index-for-index with <code>state_arc</code>, so a character with three states declares demands for three states and the site labels each Look panel with the state it depicts, in the same order <code>state_arc</code> lists them. <code>demands</code> is the only home for a subject&#x27;s Look facts — no prompt field of any kind is stored, and a build check fails if one reappears. On a mode variant, the demands authored for that state reflect the canonical text of the <b>world the state is set in</b> — not a bloc the character belongs to. Rina&#x27;s variant 1 is Corporate Union and her variant 2 is Luna Haven, because that is where the Archive is. Each state&#x27;s demands are declared fresh, never a shared template swapped out for modes.</p>
-    <p><b>Second-state characteristics live in the bible</b>, in Image Characteristics under each mover as its own &quot;Variant 2&quot; entry. Derived data must never hold content the source of truth does not have.</p>
-    <p><code>_audit_image_characteristics()</code> in <code>build_site.py</code> fails the build if a character&#x27;s anchor-state demands (together with their <code>description</code>, which is static across states) don&#x27;t ground themselves in their own bloc&#x27;s or territory&#x27;s material world somewhere in the text — a presence check, not a positional one, since a demands list has no fixed layer slots to check by position — reading the signature phrases from the data so a reworded bloc description updates the audit with it. A character&#x27;s expected signature comes from their TERRITORY where the territory has its own signature — which is why Luna Haven needs care, and why a missing territory field and ungrounded demands are one fault rather than two.</p>
-    <p>Being staged in another bloc&#x27;s territory is <i>not</i> a fault: the three Guardian AIs work in Luna Haven&#x27;s Archive Chamber during the siege and keep their Martian material grammar, because they are Martian-grown and merely present.</p>
-    <p><b>A gradient is a painted surface.</b> <code>check_contrast_render.py</code> parses gradient colour stops and scores the <i>worst</i> one: a label must be legible on all of a gradient, not just the friendly end.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="the-site-never-explains-its-own-production-locked"><h2>The site never explains its own production — LOCKED</h2></div>
-    <p>Site copy carries the work, never the making of it. No dated provenance, no &quot;drafted from the chapters&quot;, no &quot;please review before treating it as canon&quot;, no <code>Revised 2026-07-12</code> eyebrows above headings. If a note is about <i>how</i> something got written, it belongs in <code>project-ledger.json</code>, not on a page.</p>
-    <p><b>And the canon documents themselves carry no history either.</b> A rule states the latest final version and the reasoning that makes it defensible; the date it was decided, what it used to say, and which pass applied it are not part of the rule. This governs the Story Bible, <code>World.md</code>&#x27;s worldbuilding text, and this document alike — every one of them reaches a site page, so a dated parenthetical or a &quot;superseded by&quot; clause anywhere in them is a production note on a page. The ledger is where the sequence of decisions lives, and the homepage is where it is read.</p>
-    <p><b>One deliberate exemption:</b></p>
-    <ul><li><b>In-world prose</b> legitimately contains phrases that read like production notes — a chapter ends &quot;Awaiting compliance sign-off.&quot;, another &quot;Awaiting release authorisation.&quot; That&#x27;s the Corporate Union talking, not us.</li></ul>
-    <p><b>Enforced.</b> <code>_audit_production_notes()</code> fails the build on dated provenance or flag wording in site copy. It&#x27;s a targeted regex rather than a keyword sweep <i>because</i> of the in-world-prose exemption — matching bare words like &quot;placeholder&quot; or &quot;awaiting&quot; would fire on the manuscript.</p>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="iconography"><h2>Iconography</h2></div>
-    <ul><li><b>Diagrams/charts/maps</b> (bloc territory maps, character relationship diagrams, the website&#x27;s bloc index): axes and labels in anthracite/off-white, each bloc&#x27;s data or region shaded in its accent, Treaty Zone regions in the neutral tri-colour treatment.</li><li><b>A full favicon/PWA icon set ships with every build.</b> <code>Project/_builder/make_icons.py</code> generates it (favicons, apple-touch-icon, standard and maskable app icons, the web manifest) from the hand-made logo mark at <code>Assets/Logo/mr-logo.svg</code>, into <code>Assets/Logo/icons/</code>; <code>build_site.py</code> copies it into <code>Deploy/icons/</code> on every build. Re-run <code>make_icons.py</code> any time the logo mark itself changes — the icons are generated, not hand-maintained.</li></ul>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="applications"><h2>Applications</h2></div>
-    <ul><li><b>Character/location tree leaves:</b> an initials-only circular thumbnail (<code>.gt-thumb</code>) with a fine keyline in the entry&#x27;s bloc accent is the instant bloc-recognition mark; the tree stays light, and the pictures live on the entries themselves.</li><li><b>Website bloc sections:</b> each bloc&#x27;s pages themed in that bloc&#x27;s accent (nav underline, pull-quotes, section rule); homepage and cross-bloc pages use the neutral Treaty Zone treatment.</li><li><b>Social tiles / series marketing:</b> dark background, off-white headline, one bloc accent per tile keyed to whichever bloc the post is about; series-wide announcements use the neutral tri-colour treatment.</li></ul>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="boilerplate-placeholder"><h2>Boilerplate — PLACEHOLDER</h2></div>
-    <p>No series or book-level blurb exists yet. When ready, this holds a short (25–40 word) and standard (60–80 word) series descriptor — happy to draft options once Book 1 is further along or on request.</p>
-  </div></div>
+<div class="triband"></div><section class="band-host">
+<div class="anchor-nav sticky bleed"><a href="#1-locked-conventions">1. Locked conventions</a><a href="#2-every-chapter">2. Every chapter</a><a href="#3-viewpoint-voices">3. Viewpoint voices</a><a href="#4-writing-the-strange-things">4. Writing the strange things</a><a href="#5-tone-and-theme">5. Tone and theme</a><a href="#6-apparatus-never-becomes-prose">6. Apparatus never becomes prose</a><a href="#7-names">7. Names</a><a href="#8-the-per-chapter-checklist">8. The per-chapter checklist</a><a href="#9-assistant-calls-approved">9. Assistant calls (approved)</a></div>
+<div class="band-group"><div class="wrap"><p class="doc-title">04 — Drafting Guide</p>
+    <p>How the trilogy&#x27;s prose is written. This guide is the only home for prose rules. The story is in <code>01 - Trilogy Bible.md</code>, <code>02 - Cast.md</code> and <code>03 - Book Outlines.md</code>. The Style Guide in <code>Project/Management</code> covers the visual brand.</p>
+    <p>Prose is drafted only when the author authorises it, one chapter or batch at a time.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="1-locked-conventions"><h2>1. Locked conventions</h2></div>
+    <p><b>Point of view and tense.</b> Rotating third-person limited, past tense, across all three books. Each scene commits fully to one viewpoint character&#x27;s senses and thoughts. No head-hopping.</p>
+    <p><b>One viewpoint per chapter.</b> Each chapter belongs to the viewpoint named in its outline. A second viewpoint thread, separated by a scene break, is allowed only where the outline marks it.</p>
+    <p><b>Chapter head.</b> Each chapter opens with a short header: bloc and place, then viewpoint. Any chapter set on or talking to Mars, or on a ship between, adds the Earth–Mars signal delay:</p>
+    <p><code>CORPORATE UNION — NEW MANHATTAN, SURVEILLANCE SPIRE / Elena Vázquez — Mars 13 min</code></p>
+    <p><code>TREATY STATION — MARS, COBALT BASIN / Kaelin Drayke — Earth 13 min</code></p>
+    <p>During the 2096 blackout the delay reads <code>Earth: no signal</code>. The header gives orientation only. The prose still renders how the place looks, sounds and feels. In Book 3 the falling number is the countdown, so never explain it in prose.</p>
+    <p><b>Register: &quot;Elevated Commercial&quot;.</b> About 70% commercial engine to 30% literary flavour. Clear sentences, fast pacing, dialogue forward, varied rhythm, invisible prose under action. Literary detail (specific metaphor, sensory precision, thematic echo) is seasoning, not a sustained mode. Slow down for the first sight of a new place or technology, and stay lean through action and dialogue. Inner states are shown through action, dialogue and physical detail, never summarised.</p>
+    <p><b>Chapter length.</b> Target 2,500–3,000 words, averaging about 2,700: roughly 81,000 per book. Action chapters may run to about 1,800 words. Climaxes may run to about 3,500, with 4,000 as an absolute ceiling. Let pacing set the length; don&#x27;t pad or trim to a number.</p>
+    <p><b>System voices.</b> Machines may speak short, functional lines in their bloc&#x27;s register: Corporate Union clipped and procedural, Sovereign Coalition formal, Lunar Accord warm, Luna Haven conversational. The Gate and the Directorate&#x27;s system speak in the Alignment&#x27;s clipped register until the Hollow starts to show through. When it does, they become a little too kind.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="2-every-chapter"><h2>2. Every chapter</h2></div>
+    <p>Each chapter in the outlines gives a viewpoint, a want, a turn, a cost and a hook. The draft has to deliver all five.</p>
+    <ol><li><b>Open late.</b> Start inside the scene, as close to the turn as the reader can follow.</li><li><b>Someone specific is in danger.</b> By the end of the first page the reader knows who wants what and what happens if they fail.</li><li><b>The turn changes the situation.</b> The chapter ends somewhere it didn&#x27;t start: a new fact, a new choice, a new cost.</li><li><b>Pay the cost on the page.</b> A body, a relationship, a place or a future, and it is shown, not reported.</li><li><b>End on the hook.</b> Leave early. The last line belongs to the hook in the outline or something stronger.</li><li><b>One new idea at most.</b> No more than one invented term or new piece of world per chapter.</li><li><b>Joy appears.</b> Something ordinary, funny or loved happens in every chapter, ideally before the danger.</li></ol>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="3-viewpoint-voices"><h2>3. Viewpoint voices</h2></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Character</th><th>How the prose sounds in their chapters</th><th>They notice</th><th>They never</th></tr></thead><tbody><tr><td><b>Elena</b></td><td>Precise and compressed. Understates when frightened. Explains when she should feel, and the prose lets the reader see the gap</td><td>Systems, patterns, numbers that don&#x27;t add up, Daniel&#x27;s hands, Soria&#x27;s phrasing in other people&#x27;s mouths</td><td>Say <i>I love you</i> first. Ask for help, until Book 1 Ch 23</td></tr><tr><td><b>Kaelin</b></td><td>Short, warm, practical. Counts things under stress. Humour like a pressure valve</td><td>Bodies, odds, exits, weather, who is still missing</td><td>Lie about the odds. Leave anyone behind willingly</td></tr><tr><td><b>Rachel</b></td><td>Short sentences, verbs first. Names and numbers, never abstractions. Swears under load</td><td>Streets, pumps, crews, dead-counts, who is lying in a meeting</td><td>Act in secret, except when she does, and the prose knows it</td></tr><tr><td><b>Aur&#x27;k</b> (from Book 2)</td><td>Precise, slightly formal, with sudden jokes. Notices edges and thresholds</td><td>Boundaries, the shape of people&#x27;s attention, where a mind is about to tip</td><td>Offer reassurance he can&#x27;t back. Call himself <i>it</i></td></tr></tbody></table></div>
+    <p>Non-viewpoint principals are seen only from outside. Daniel&#x27;s voice is plain speech, specific nouns, and the question everyone else has been avoiding. Zhenyth speaks in concrete images, asks humans about small things, and leaves silences that are not empty.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="4-writing-the-strange-things"><h2>4. Writing the strange things</h2></div>
+    <h3 id="soria">Soria</h3>
+    <ul><li><b>Her voice:</b> warm, teasing, interrupting. Her sentences stop where memory runs out. She hates being comforted.</li><li><b>The tell:</b> the real Soria contradicts what the Hollow wants. When &quot;Soria&quot; urges Elena toward the bridge, the Gate or restoration, it&#x27;s the mask, and the prose makes it slightly too smooth and too sure. When she teases, refuses, or tells Elena to go home, it&#x27;s her.</li><li><b>Never resolve it early.</b> Until Book 3 Ch 27, the reader must be able to read every Soria line both ways.</li><li><b>Bichito</b> is used sparingly: once in Book 1 Ch 1, at the midpoint, at the cut, and at the end. Each use has to land.</li></ul>
+    <h3 id="the-hollow">The Hollow</h3>
+    <ul><li>It is never described as a monster. On the page it is a chorus: warmth, many voices under one, relief at not being alone.</li><li>It never lies. Every warning in the prose must later prove true.</li><li>It wears faces it has taken. When it speaks as someone, it is that person almost exactly, with one small wrongness the reader feels before the character does.</li><li>In-world, humans call it <i>the Hollow</i>. The name is Kaelin&#x27;s word for what Zhenyth calls <i>the hungry one</i>. Before Book 1 Act II-B, nobody has a name for it.</li></ul>
+    <h3 id="drift">Drift</h3>
+    <ul><li>Write it from outside first: lost words, a voice that isn&#x27;t quite theirs, stopping mid-sentence to listen. Then, in viewpoint chapters, from inside: other people&#x27;s memories at the edge of sleep, and <b>peace</b>. Drift has to feel good, or it isn&#x27;t frightening.</li><li>Sleepers are people, not symptoms. They are named, turned and fed, and spoken to by someone who loves them.</li></ul>
+    <h3 id="the-link-and-the-preserve">The link and the Preserve</h3>
+    <ul><li>The first time any viewpoint character links, slow down and give it full sensory weight. After that, go lean.</li><li>Inside the Preserve, perception is written as real: plains of slow light, distance, presences. The body is still in a cavern, and the prose remembers it: cold, aching knees, a medic&#x27;s voice from far away.</li><li>After every session the body pays: fog, after-images, bleed, broken sleep. Show it in the next scene.</li></ul>
+    <h3 id="light-delay">Light delay</h3>
+    <ul><li>Earth–Mars exchanges are <b>messages, not conversations</b>. Write them as letters that arrive late: a reply to a question the sender has already moved past.</li><li>Use the delay for suspense and for heartbreak: reassurance, warning and apology all arrive late.</li><li>Never do the arithmetic in prose. The header carries the number.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="5-tone-and-theme"><h2>5. Tone and theme</h2></div>
+    <p><b>Two charges at once.</b> Every scene carries two opposing feelings together: wonder and grief, safety and dread, love and possession. No scene is only one thing.</p>
+    <p><b>The themes underneath:</b></p>
+    <ol><li>Love that turns into possession.</li><li>A power too useful to give up.</li><li>Ordinary work as heroism: crews, medics, repair, care.</li><li>Letting go as an act of love, not of defeat.</li></ol>
+    <p>The prose never states a theme. It puts a person on each side of one and makes them choose.</p>
+    <p><b>Humour</b> arrives in the worst moments as well as the quiet ones, and never as relief inserted for the reader.</p>
+    <p><b>Other languages</b> appear as single words or short lines, left untranslated where context carries them. Elena and Soria&#x27;s Spanish is family language, so it appears at its most intimate.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="6-apparatus-never-becomes-prose"><h2>6. Apparatus never becomes prose</h2></div>
+    <p>The planning documents exist to help write the books. Their vocabulary is not the books&#x27; vocabulary. No character has read them, and no narrator cites them.</p>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Planning term</th><th>What the prose does instead</th></tr></thead><tbody><tr><td>Act, midpoint, late revelation, hook, turn, beat, outline, treatment</td><td>Never appears. Write the event</td></tr><tr><td>Viewpoint, POV, principal, supporting cast</td><td>Never appears</td></tr><tr><td>Fair secret, clue, call, any code such as B1-3 or TB-2</td><td>Never appears</td></tr><tr><td>&quot;The Hollow chooses when to warn&quot;</td><td>Characters discover it through evidence: timestamps, a death that didn&#x27;t need to happen</td></tr><tr><td>Drift stages (bleed, fade, quiet)</td><td>People say &quot;she&#x27;s bleeding&quot;, &quot;he&#x27;s fading&quot;, &quot;she&#x27;s gone quiet&quot;. The stage table itself never appears</td></tr><tr><td>Sleepers</td><td>In-world, from the first wards on. Officials say <i>neuro-quiet syndrome</i></td></tr><tr><td>The Lantern, the Gate, the Fall, the Directorate, the Open Hand</td><td>In-world names, used as the characters would use them</td></tr><tr><td>Copy-Aur&#x27;k</td><td>Never in prose. Characters say <i>him</i>, <i>the other one</i>, <i>the one in the wall</i>, or simply <i>Aur&#x27;k</i>, and the ambiguity is the point</td></tr></tbody></table></div>
+    <p>The build&#x27;s scaffolding audit hard-exits if planning vocabulary reaches a chapter. Ambiguous ordinary words are reviewed per chapter by a person.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="7-names"><h2>7. Names</h2></div>
+    <ul><li><b>Two-word canonical names</b> for people and places stay locked: given name + family name, place word + landform. Prose uses short forms freely.</li><li><b>Names created while drafting are provisional.</b> If a draft needs to name an unnamed figure or place, list the name and every invented detail for the author, and propagate nothing until it is confirmed.</li></ul>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="8-the-per-chapter-checklist"><h2>8. The per-chapter checklist</h2></div>
+    <p>Done in the same turn a chapter is drafted or revised, unasked.</p>
+    <ol><li><b>Before drafting:</b> read the chapter&#x27;s outline, the two chapters before it, and the cast entries for everyone on the page.</li><li><b>Draft</b> to the conventions above.</li><li><b>Run the prose checks:</b> <code>check_prose_vocabulary.py</code> (planning vocabulary) and <code>check_prose_voice.py</code> (the voice mirror), from <code>Project/_builder/</code>. Fix what they flag.</li><li><b>Save</b> to <code>Project/Manuscripts/Book N - Title/Chapter NN - Title.md</code>, numbered 1–30 within each book. Earlier versions go to the chapter&#x27;s <code>_drafts</code> folder.</li><li><b>Register</b> the chapter in <code>MANUSCRIPT_CHAPTERS</code> in <code>build_site.py</code>, keyed <code>(book, chapter)</code>, once it reaches manuscript quality.</li><li><b>Rebuild:</b> run <code>build_site.py</code>, which also assembles the Story Bible. Every audit must print clean.</li><li><b>Log</b> an <code>applied</code> entry in <code>project-ledger.json</code>. Add a <code>Roadmap.md</code> line only for phase-level shifts.</li><li><b>Surface</b> any new name, canon question or outline change to the author. Never adopt one silently.</li></ol>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="9-assistant-calls-approved"><h2>9. Assistant calls (approved)</h2></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>#</th><th>Call</th><th>Why</th></tr></thead><tbody><tr><td>DG-1</td><td>The Gate&#x27;s and the Directorate&#x27;s system voices become slightly too kind when the Hollow shows through</td><td>A small, consistent tell the reader learns to dread</td></tr><tr><td>DG-2</td><td>&quot;The Hollow&quot; is Kaelin&#x27;s word for Zhenyth&#x27;s &quot;the hungry one&quot;, and nobody names it before Book 1 Act II-B</td><td>Keeps Act I a pure mystery</td></tr><tr><td>DG-3</td><td><i>Bichito</i> is rationed to about four uses per book</td><td>So each one lands</td></tr><tr><td>DG-4</td><td>The trilogy carries four themes</td><td>Each one puts a person on both sides of a choice</td></tr></tbody></table></div></div></div>
 </section>
-
 <footer>
   <div class="footer-inner">
     <div>
@@ -851,28 +504,24 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and the Martian Preserve.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">Would you let go of someone you love, if holding on meant feeding the thing that took them?</p>
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Explore</span>
-      <a href="world.html">World</a>
-      <a href="locations.html">Locations</a>
-      <a href="characters.html">Characters</a>
+      <a href="story.html">Story</a>
+      <a href="cast.html">Cast</a>
       <a href="books.html">Books</a>
       <a href="manuscript.html">Manuscript</a>
     </div>
     <div class="footer-nav">
-      <span class="footer-nav-title">Codex</span>
-      <a href="craft.html">Craft</a>
-      <a href="laws.html">Laws &amp; Codex</a>
-      <a href="timeline.html">Timeline &amp; Pacing</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="design.html">Design</a>
+      <span class="footer-nav-title">Craft</span>
+      <a href="craft.html">Drafting Guide</a>
+      <a href="brand.html">Visual brand</a>
     </div>
   </div>
   <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
-    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; a living Story Bible, and the manuscript now being written from it.</span>
-    <span class="footer-copy">Fractured Horizons &middot; Resonant Faultlines &middot; Harmonic Worlds</span>
+    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; the Story Bible, and the manuscript being written from it.</span>
+    <span class="footer-copy">Fractured Horizons &middot; The Narrow Gate &middot; The Open Hand</span>
   </div>
 </footer>
 

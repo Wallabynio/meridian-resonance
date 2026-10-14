@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manuscript — Meridian Resonance</title>
-<meta name="description" content="Read the Meridian Resonance manuscript: 41 of 90 chapters drafted to finished prose so far.">
+<meta name="description" content="The Meridian Resonance manuscript: 0 of 90 chapters drafted.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
@@ -25,11 +25,8 @@
   --ground:#FFFFFF;
   --surface:var(--grey); --surface-2:var(--grey);
   --surface-ink:#FFFFFF;
-  --cu:#A8692A; --sc:#427AB8; --la:#947238; --lh:#298578; --mp:#CC4F27; --mp2:#427AB8;
-  --tz:#57824E; --um:#9267AB;
-  --earth:#087DC2; --mars:#D93D4A;
+    --earth:#087DC2; --mars:#D93D4A;
   --acc:#087DC2;
-  --ns:var(--grey);
   --accent:var(--grey);
   --ink:#000000;
   --accent-text:var(--ink);
@@ -45,8 +42,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
-.anchor-nav.sticky,.dash-tabs,
-.mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
+.anchor-nav.sticky{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
 img,svg,video,iframe,table,pre{max-width:100%;}
 p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
 body{background:var(--ground);color:var(--ink);
@@ -55,7 +51,6 @@ body{background:var(--ground);color:var(--ink);
 a{color:inherit;}
 ::selection{background:var(--earth);color:#FFFFFF;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
-.serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
   height:var(--nav-h);box-sizing:border-box;
   display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
@@ -129,10 +124,10 @@ h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-
 p,li{line-height:1.7;}
 p{margin-bottom:1.5em;}
 p:last-child{margin-bottom:0;}
-.tag,.bloc-pill,.ch-num,.footer-nav-title,.law-item .n,.timeline-item .date,.hero .eyebrow{
+.tag,.bloc-pill,.ch-num,.footer-nav-title,.hero .eyebrow{
   font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
 .tag{display:block;margin-bottom:14px;color:var(--accent-text);}
-.meta,.chapter-block .tagline,.anchor-nav a{
+.anchor-nav a{
   font-size:13px;}
 .hero p.lede,.page-hero p,.section-head p{
   font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--ink);font-family:'Inter',sans-serif;margin-top:18px;}
@@ -155,36 +150,9 @@ p:last-child{margin-bottom:0;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
-  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
-.globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
-.globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
-.globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
-.globe-coast{fill:none;stroke:#CDEBFF;stroke-width:1.15;opacity:0.78;stroke-linejoin:round;filter:drop-shadow(0 0 2px rgba(120,200,255,.5));}
-#aurora .aur{mix-blend-mode:screen;filter:blur(8px);}
-#aurora .aur1{animation:aur-breathe 13s ease-in-out infinite;}
-#aurora .aur2{animation:aur-breathe 17s ease-in-out infinite;}
-#aurora .aur3{animation:aur-breathe 15s ease-in-out infinite;}
 @keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
-#globeSpec{opacity:.75;}
-#globeFresnel{opacity:.9;}
-.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
-.globe-dot-glow{filter:blur(7px);}
-.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
-text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
-  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
-  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
-.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
-.lat-node{fill:var(--globe-line);}
-.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
-.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
 @keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
-.globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
-@media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
-@media(max-width:640px){.globe-stage{max-width:none;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
   --ink:#FFFFFF;--accent-text:var(--ink);
@@ -192,65 +160,27 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
-.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
-.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;}
-.art-bleed{margin-top:var(--nav-h);}
-.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
-.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
-  border-radius:14px 14px 0 0;}
-.art-banner.art-card ~ .ghost{top:auto;}
-.band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
-.band.bloc{opacity:0.85;}
-.card-dark,.chapter-block .anchors,.law-card,.ch-card,
-.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a{
+.card-dark,.ch-card,.prompt-details,.chapnav a{
   background:var(--black);border-radius:14px;padding:var(--pad-box);
   --grey:#BFBFBF;border:1px solid var(--grey);
   --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
   --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
-:where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a) :where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a){
+:where(.card-dark,.ch-card,.prompt-details,.chapnav a) :where(.card-dark,.ch-card,.prompt-details,.chapnav a){
   background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
   --accent-text:var(--ink);color:var(--ink);}
 .card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
-.bloc-card{position:relative;overflow:hidden;}
-.bloc-card::before{content:'';position:absolute;inset:-40% -40% auto auto;width:70%;height:70%;
-  background:radial-gradient(circle,color-mix(in srgb, var(--accent) 30%, transparent) 0%,transparent 72%);
-  opacity:0;transition:opacity .4s ease;pointer-events:none;}
-.bloc-card:hover::before{opacity:1;}
-.bloc-card .accent-bar{transition:width .35s cubic-bezier(.2,.8,.2,1);}
-.bloc-card:hover .accent-bar{width:72px;}
 section .wrap > p{margin-bottom:28px;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
-.tier-protagonist{--accent:var(--grey);}
-.tier-antagonist{--accent:var(--grey);}
-.tier-deuteragonist{--accent:var(--grey);}
-.tier-secondary{--accent:var(--grey);}
-.tier-minor{--accent:var(--grey);}
-.tier-anchor{--accent:var(--grey);}
-.tier-recurring{--accent:var(--grey);}
-.tier-site{--accent:var(--grey);}
 .accent-bar{height:3px;width:44px;background:var(--accent);border-radius:2px;margin-bottom:16px;}
 .bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
   background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
 .grid{display:grid;gap:26px;}
-.grid,.law-grid,.gloss-grid,.ch-grid,.gtree-grid{
+.grid,.ch-grid{
   margin-block:var(--flow-lg);}
-.grid>*,.law-grid>*,.gloss-grid>*,.ch-grid>*,.gtree-grid>*{
+.grid>*,.ch-grid>*{
   margin-block:0;}
 .wrap>.card-dark{margin-block:var(--flow-lg);}
 .grid-3{grid-template-columns:repeat(3,1fr);}
-.grid-4{grid-template-columns:repeat(4,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-.bloc-pill.mode-state{background:var(--ground);border:2px solid var(--grey);
-  color:var(--grey);padding:3px 10px;}
-.globe-caption{text-align:center;color:var(--ink);font-size:13px;line-height:1.7;
-  max-width:600px;margin:22px auto 0;padding:0 var(--gutter);}
 .stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
   border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:44px 0;}
 .stat{text-align:center;}
@@ -261,28 +191,17 @@ section .wrap > p{margin-bottom:28px;}
   letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 @media(max-width:900px){.stat-band{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:560px){.stat-band{grid-template-columns:repeat(2,1fr);gap:28px 18px;}}
-.progress-band{padding:var(--band-y-tight) var(--gutter);}
-.progress-band .progress-row{margin-top:0;}
 .progress-row{max-width:720px;margin:44px auto 0;text-align:center;}
 .progress-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
 .progress-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--earth),var(--mars));
   transition:width 1.4s cubic-bezier(.2,.8,.2,1) .3s;}
 .reveal.visible .progress-fill{width:var(--w);}
 .progress-row .cap{margin-top:13px;font-size:13px;color:var(--ink);}
-.home-split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
-.home-split .section-head{text-align:left;margin:0;max-width:none;}
-.home-split .btn-group{justify-content:flex-start;}
-@media(max-width:900px){.home-split{grid-template-columns:1fr;gap:40px;}}
-.latest-card{--accent:var(--grey);text-decoration:none;display:block;}
-.latest-card .ch-num{color:var(--ink);display:block;margin-bottom:10px;}
-.latest-card .read-on{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--mars);}
   font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 .book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
   letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
   display:block;margin-bottom:10px;}
 .book-card .bloc-pill{margin-top:14px;}
-.scroll-cue{margin-top:44px;opacity:0.45;animation:cue-bob 2.4s ease-in-out infinite;color:var(--ink);}
-.scroll-cue svg{width:22px;height:22px;display:block;}
 @keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
 .hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
 .hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
@@ -291,52 +210,23 @@ section .wrap > p{margin-bottom:28px;}
 .anchor-nav.sticky{position:sticky;top:var(--nav-h);z-index:100;background:var(--ground);
   padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
 .anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
-.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-@media(max-width:800px){.law-grid{grid-template-columns:1fr;}}
-.law-card{position:relative;overflow:hidden;transition:border-color .3s ease,transform .3s ease;}
-.law-card > *:not(.ghost){position:relative;z-index:1;}
-.law-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
 .ghost{position:absolute;pointer-events:none;user-select:none;z-index:0;
   font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1;
   color:var(--grey);}
-.law-card .ghost{top:0;right:8px;font-size:96px;}
 .ch-card{position:relative;overflow:hidden;}
 .ch-card > *:not(.ghost){position:relative;z-index:1;}
 .ch-card .ghost{top:0;right:6px;font-size:64px;}
 .act-head{position:relative;overflow:hidden;}
 .act-head > *:not(.ghost){position:relative;z-index:1;}
 .act-head .ghost{top:0;right:0;font-size:68px;letter-spacing:-0.03em;}
-.timeline-item{position:relative;overflow:hidden;}
-.timeline-item > *:not(.ghost){position:relative;z-index:1;}
-.timeline-item .ghost{top:50%;transform:translateY(-50%);left:0;width:112px;
-  text-align:right;font-size:44px;}
 .book-card{position:relative;overflow:hidden;}
 .book-card > *:not(.ghost){position:relative;z-index:1;}
 .book-card .ghost{top:0;right:10px;font-size:88px;}
-.book-placeholder{background:#BFBFBF;--ink:#000000;--accent-text:var(--ink);color:var(--ink);}
 @media(max-width:600px){
-  .law-card .ghost{font-size:68px;}
   .book-card .ghost{font-size:64px;}
   .act-head .ghost{font-size:60px;}
   .ch-card .ghost{font-size:48px;}
 }
-.law-card .n{color:var(--accent-text);display:block;margin-bottom:8px;}
-.law-card h3{margin-bottom:8px;}
-.law-card p{color:var(--ink);margin-bottom:0;}
-.tl-wrap{position:relative;padding-left:28px;}
-.tl-wrap::before{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--hairline);}
-.tl-wrap .timeline-item{position:relative;border-bottom:none;padding:var(--pad-row) 0;}
-.tl-wrap .timeline-item::before{content:'';position:absolute;left:-25.5px;top:25px;width:8px;height:8px;
-  border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(166,166,166,0.45);}
-.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-@media(max-width:800px){.gloss-grid{grid-template-columns:1fr;}}
-.gloss-grid .gloss-item{margin:0;transition:border-color .3s ease;}
-.gloss-grid .gloss-item:hover{border-color:color-mix(in srgb, var(--accent) 45%, transparent);}
-.pacing-row{display:flex;gap:14px;align-items:flex-start;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.pacing-row .chip{flex:0 0 auto;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
-  letter-spacing:0.05em;color:var(--accent-text);border:1px solid color-mix(in srgb, var(--accent) 45%, var(--ground));
-  padding:4px 11px;border-radius:100px;margin-top:2px;white-space:nowrap;}
-.pacing-row p{color:var(--ink);margin:0;font-size:15.5px;line-height:1.7;}
 .ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 @media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.ch-grid{grid-template-columns:1fr;}}
@@ -346,20 +236,6 @@ section .wrap > p{margin-bottom:28px;}
 .ch-card .ch-num{color:var(--accent-text);display:block;margin-bottom:8px;}
 .ch-card h3{font-size:17px;margin-bottom:8px;}
 .ch-card .go{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12.5px;color:var(--accent-text);}
-.ch-card.latest{border-color:var(--earth);
-  background:color-mix(in srgb, var(--earth) 8%, var(--ground));}
-.ch-card .latest-pill{position:absolute;top:56px;right:12px;z-index:2;
-  background:var(--mars);color:#FFFFFF;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;
-  letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:100px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.35);}
-.ch-card.latest h3{padding-right:74px;}
-@media(max-width:600px){
-  .ch-card .latest-pill{top:44px;}
-  .ch-card.latest h3{padding-right:70px;}
-}
-.bp-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:16px;}
-.bp-fill{height:100%;background:linear-gradient(90deg,var(--earth),var(--mars));border-radius:3px;}
 .chapnav{display:flex;justify-content:space-between;gap:14px;max-width:700px;margin:56px auto 0;flex-wrap:wrap;}
 .chapnav a{flex:1 1 240px;text-decoration:none;transition:border-color .3s ease;}
 .chapnav a:hover{border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
@@ -367,7 +243,7 @@ section .wrap > p{margin-bottom:28px;}
   text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
 .chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
 .chapnav a.next{text-align:right;}
-.act-head[id],.entry-block[id],.chapter-block[id],.territory-head[id],.gloss-item[id]{scroll-margin-top:150px;}
+.act-head[id]{scroll-margin-top:150px;}
 .btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
   font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
@@ -376,59 +252,20 @@ section .wrap > p{margin-bottom:28px;}
   padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
   font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
 .btn-outline:hover{background:var(--surface-2);}
-.btn-card{background:var(--accent);color:var(--ground);border:none;padding:12px 26px;border-radius:100px;
-  font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-  font-family:'Space Grotesk',sans-serif;transition:.3s cubic-bezier(.2,.8,.2,1);}
-.btn-card:hover{transform:translateY(-3px);filter:brightness(1.08);}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.chapter-block{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:46px;}
-.chapter-block h3{margin:6px 0 6px;}
-.chapter-block .tagline{margin-bottom:14px;font-style:italic;}
-.chapter-block p{color:var(--ink);}
-.chapter-block .anchors{margin-top:14px;padding:var(--pad-box);font-size:14px;}
-.chapter-block .anchors p{color:var(--ink);margin-bottom:0;}
-.chapter-block .anchors b{color:var(--ink);}
 .act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
 .act-head .tag{margin-bottom:6px;}
-.ms-status{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:700;
-  letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);}
-.ms-status.ms-drafted{color:var(--accent-text);}
-.ms-status a{color:var(--earth);text-decoration:underline;}
 .manuscript-wrap{max-width:700px;margin:0 auto;}
 .manuscript-wrap p{font-size:17.5px;line-height:1.85;color:var(--ink);margin-bottom:24px;}
 .scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
   margin:56px 0 30px;}
 .scene-header:first-of-type{margin-top:8px;}
-.scene-plate,.scene-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;
-  margin:36px 0;display:block;object-fit:cover;border:3px solid var(--accent);
-  background:var(--surface);}
-.scene-placeholder{display:flex;align-items:center;justify-content:center;
-  background:color-mix(in srgb, var(--accent) 22%, var(--surface));
-  color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:600;
-  font-size:14px;text-transform:uppercase;letter-spacing:0.04em;text-align:center;
-  padding:var(--pad-row);}
 .manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
-.entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
-.entry-block h3{margin-bottom:4px;}
-.entry-block .meta{margin-bottom:16px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
-.entry-block p{color:var(--ink);}
 details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
-details.story-panel{margin-top:22px;padding:0;overflow:hidden;}
 a.bloc-pill{text-decoration:none;}
-.design-links{font-size:14px;max-width:760px;margin-top:var(--flow);}
-.design-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
-.sp-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
-.sp-body h3,.sp-body h4{margin-top:var(--flow-lg);margin-bottom:calc(var(--flow) * .5);}
-.sp-body>h3:first-child{margin-top:0;}
-.story-panel summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
-  list-style:none;display:flex;align-items:center;gap:8px;}
-.story-panel summary::-webkit-details-marker{display:none;}
-.story-panel summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
-.story-panel[open] summary::before{transform:rotate(90deg);}
 .pd-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);
   display:flex;flex-direction:column;gap:var(--pad-row);}
 .pd-body>*{margin:0;}
@@ -436,37 +273,12 @@ a.bloc-pill{text-decoration:none;}
   font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
   list-style:none;display:flex;align-items:center;gap:8px;}
 .prompt-details summary::-webkit-details-marker{display:none;}
-.demand-list{font-size:14px;padding-left:1.15em;}
-.demand-list li{margin:3px 0;}
-.demand-list-plain{list-style:none;padding-left:0;}
-.scope-note{color:var(--grey);font-size:14.5px;margin-top:calc(var(--flow) * -0.5);}
 .doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
-.doc-note{font-family:'Space Grotesk',sans-serif;font-size:11px;
-  letter-spacing:.08em;text-transform:none;color:var(--grey);white-space:nowrap;}
 .doc-table-wrap{overflow-x:auto;margin-block:var(--flow-lg);}
 .doc-table{border-collapse:collapse;width:100%;font-size:14px;}
 .doc-table th,.doc-table td{text-align:left;vertical-align:top;
   padding:var(--pad-row) var(--pad-row);border-bottom:1px solid var(--hairline);}
-.queue{list-style:none;margin-block:var(--flow-lg);display:flex;
-  flex-direction:column;gap:14px;}
-.queue li{display:flex;gap:14px;align-items:baseline;}
-.q-tag{flex:0 0 62px;text-align:center;padding:3px 0;border-radius:100px;
-  font-family:'Space Grotesk',sans-serif;font-size:10.5px;letter-spacing:.12em;
-  text-transform:uppercase;}
-.q-next{background:var(--earth);color:#FFFFFF;}
-.q-fix{background:var(--mars);color:#FFFFFF;}
-.q-ask{background:var(--grey);color:#000000;}
-.q-x b{display:block;font-weight:600;font-size:15.5px;}
-.q-x em{display:block;font-style:normal;font-size:13.5px;color:var(--grey);
-  margin-top:3px;}
-.chip-st{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
-.chip-st i{width:7px;height:7px;border-radius:100px;background:var(--grey);}
-.chip-st.is-ok i{background:var(--earth);}
-.chip-st.is-no i{background:var(--mars);}
-.ref-dl{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:13.5px;
-  margin-top:12px;}
-.ref-dl dt{color:var(--grey);}
 .meter{height:6px;border-radius:100px;background:var(--grey);margin-top:10px;
   overflow:hidden;}
 .meter i{display:block;height:100%;background:var(--earth);border-radius:100px;}
@@ -475,9 +287,6 @@ a.bloc-pill{text-decoration:none;}
 .meter-l b{font-family:'Space Grotesk',sans-serif;font-size:19px;}
 .doc-table th{font-family:'Space Grotesk',sans-serif;font-size:12px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
-.prompt-details .pd-file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:12px;color:var(--grey);}
-.prompt-details .pd-note{font-size:12px;color:var(--grey);}
 .prompt-details summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
 .prompt-details[open] summary::before{transform:rotate(90deg);}
 .prompt-details pre{margin:0;padding:0;font-family:'Inter',sans-serif;font-size:13px;
@@ -495,17 +304,6 @@ a.bloc-pill{text-decoration:none;}
   .anchor-nav.sticky::-webkit-scrollbar{display:none;}
   .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
 }
-.law-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.law-item .n{color:var(--accent-text);}
-.law-item h3{margin:4px 0 8px;}
-.law-item p{color:var(--ink);}
-.timeline-item{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.timeline-item .date{color:var(--accent-text);}
-.timeline-item .label{font-weight:700;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;font-size:16px;}
-.timeline-item p{color:var(--ink);}
-.gloss-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.gloss-item dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink);}
-.gloss-item dd{color:var(--ink);}
 footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
 .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
@@ -517,40 +315,24 @@ footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gu
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:12.5px;color:var(--ink);}
 @media(max-width:900px){
-  .timeline-item .ghost{display:none;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .grid-3,.grid-4{grid-template-columns:1fr 1fr;}
-  .timeline-item{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:420px){
   .bloc-pill{font-size:10.5px;padding:5px 9px;letter-spacing:0.04em;}
-  .entry-block .meta{gap:6px;}
   .footer-nav{gap:2px;}
   .footer-nav a{padding:7px 0;}
 }
 @media(max-width:600px){
-  .grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;}
 }
 section,.band-group{background:var(--ground);color:var(--ink);}
 .band-group{padding:var(--band-y) var(--gutter);}
 .band-group + .band-group{padding-top:var(--band-y-tight);}
 .hero-stats .hs{color:#000000;}
-.cast-strip-outer,.loc-strip-outer{scrollbar-color:rgba(0,0,0,0.25) transparent;}
-.cast-strip-outer::-webkit-scrollbar-thumb,.loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);}
 .logo{color:#000000;}
-.logo .lg{color:var(--earth);}
-.bloc-cu .btn-card,.bloc-la .btn-card,.bloc-lh .btn-card{color:#000000;}
-.bloc-sc .btn-card,.bloc-mp .btn-card{color:#FFFFFF;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
 </head>
 <body>
@@ -600,391 +382,45 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-  <ul class="nav-links"><li><a href="world.html">World</a></li>
-<li class="has-sub"><a href="codex.html" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="design.html">Design</a></li></ul></li>
-<li><a href="locations.html">Locations</a></li>
-<li><a href="characters.html">Characters</a></li>
-<li><a href="books.html">Books</a></li>
+  <ul class="nav-links"><li><a href="story.html">Story</a></li>
+<li><a href="cast.html">Cast</a></li>
+<li class="has-sub"><a href="books.html" aria-haspopup="true">Books<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li>
+<li class="has-sub"><a href="craft.html" aria-haspopup="true">Craft<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Drafting Guide</a></li><li><a href="brand.html">Visual brand</a></li></ul></li>
     <li><a href="manuscript.html" class="nav-cta active">Manuscript &rarr;</a></li>
   </ul>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu"><a href="world.html">World</a>
-<a href="codex.html">Codex</a>
-<a class="sub" href="craft.html">Craft</a>
-<a class="sub" href="laws.html">Laws &amp; Codex</a>
-<a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
-<a class="sub" href="glossary.html">Glossary</a>
-<a class="sub" href="design.html">Design</a>
-<a href="locations.html">Locations</a>
-<a href="characters.html">Characters</a>
-<a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
+<div class="mobile-menu"><a href="story.html">Story</a>
+<a href="cast.html">Cast</a>
+<a href="books.html">Books</a>
+<a class="sub" href="book1.html">Book 1 · Fractured Horizons</a>
+<a class="sub" href="book2.html">Book 2 · The Narrow Gate</a>
+<a class="sub" href="book3.html">Book 3 · The Open Hand</a>
+<a href="craft.html">Craft</a>
+<a class="sub" href="brand.html">Visual brand</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
-<figure class="art-banner art-bleed"><img src="art/hero-manuscript-1600.webp" srcset="art/hero-manuscript-960.webp 960w, art/hero-manuscript-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="Manuscript — the page&#x27;s opening image." loading="eager" fetchpriority="high"></figure>
 <div class="page-hero">
   <div class="page-glow"></div>
-  <span class="tag">Manuscript</span>
-  <h1>Manuscript</h1>
-  <p>The actual novel — finished prose, not outline. 41 of 90 chapters are drafted to manuscript quality so far. Each one is written to the locked POV, register, and chapter-length rules in <a href="world.html" style="color:var(--ink);">World</a>'s narrative craft canon. Looking for the full 90-chapter outline instead? See <a href="books.html" style="color:var(--ink);">The Books</a>.</p>
-  <div class="hero-stats">
-    <span class="hs"><b>41</b> of 90 drafted</span>
-    <span class="hs">Latest: <b>Chapter 41</b></span>
-    <span class="hs"><b>Acts 1&ndash;4</b> complete &middot; Act 5 underway</span>
-  </div>
+  <span class="tag">Manuscript</span><h1>Manuscript</h1>
+  <p>The novels themselves: finished prose, chapter by chapter, written from the <a href="books.html">book outlines</a> to the <a href="craft.html">Drafting Guide</a>.</p>
+  <div class="hero-stats"><span class="hs"><b>0</b> of 90 drafted</span></div>
 </div>
 <div class="triband"></div>
-<div class="anchor-nav sticky bleed">
-  <a href="#msbook1">Book 1 &middot; Fractured Horizons</a>
-  <a href="#msbook2">Book 2 &middot; Resonant Faultlines</a>
-  <a href="#msbook3">Book 3 &middot; Harmonic Worlds</a>
-</div>
 <section>
   <div class="wrap">
-    <div class="progress-row reveal" style="--w:46%;margin-top:0;">
+    <div class="progress-row reveal" style="--w:0%;margin-top:0;">
       <div class="progress-track"><div class="progress-fill"></div></div>
-      <div class="cap">Manuscript progress &mdash; 46% of the trilogy drafted to finished prose</div>
+      <div class="cap">0% of the trilogy drafted to finished prose</div>
     </div>
+    
+    <div class="act-head" id="msbook1"><span class="tag">Book 1 &middot; Fractured Horizons</span><h2>No chapters drafted yet</h2></div>
+    <p>This book exists as its 30 chapters of outline. <a href="book1.html">Read the outline &rarr;</a></p>
+    <div class="act-head" id="msbook2"><span class="tag">Book 2 &middot; The Narrow Gate</span><h2>No chapters drafted yet</h2></div>
+    <p>This book exists as its 30 chapters of outline. <a href="book2.html">Read the outline &rarr;</a></p>
+    <div class="act-head" id="msbook3"><span class="tag">Book 3 &middot; The Open Hand</span><h2>No chapters drafted yet</h2></div>
+    <p>This book exists as its 30 chapters of outline. <a href="book3.html">Read the outline &rarr;</a></p>
   </div>
 </section>
-<section>
-  <div class="wrap">
-    <div class="act-head" id="msbook1"><span class="tag">Book 1 &middot; Fractured Horizons</span><h2>30 of 30 chapters drafted</h2></div>
-    <div class="ch-grid">
-        <a href="chapter-01.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">01</span>
-          
-          <span class="ch-num">Chapter 1 &middot; Act 1</span>
-          <h3>Fractured Horizons</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-02.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">02</span>
-          
-          <span class="ch-num">Chapter 2 &middot; Act 1</span>
-          <h3>Luna Haven&#x27;s Luminous Heart</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-03.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">03</span>
-          
-          <span class="ch-num">Chapter 3 &middot; Act 1</span>
-          <h3>Quantum Whispers</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-04.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">04</span>
-          
-          <span class="ch-num">Chapter 4 &middot; Act 1</span>
-          <h3>Silent Alliances</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-05.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">05</span>
-          
-          <span class="ch-num">Chapter 5 &middot; Act 1</span>
-          <h3>Empathy&#x27;s Edge</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-06.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">06</span>
-          
-          <span class="ch-num">Chapter 6 &middot; Act 1</span>
-          <h3>Shadows Over Freedom</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-07.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">07</span>
-          
-          <span class="ch-num">Chapter 7 &middot; Act 1</span>
-          <h3>The Meridian Murmurs</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-08.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">08</span>
-          
-          <span class="ch-num">Chapter 8 &middot; Act 1</span>
-          <h3>Waves in the Void</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-09.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">09</span>
-          
-          <span class="ch-num">Chapter 9 &middot; Act 1</span>
-          <h3>Forbidden Frequencies</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-10.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">10</span>
-          
-          <span class="ch-num">Chapter 10 &middot; Act 1</span>
-          <h3>Momentum of Secrets</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-11.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">11</span>
-          
-          <span class="ch-num">Chapter 11 &middot; Act 2</span>
-          <h3>Mara&#x27;s Awakening</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-12.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">12</span>
-          
-          <span class="ch-num">Chapter 12 &middot; Act 2</span>
-          <h3>Mars&#x27; Song</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-13.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">13</span>
-          
-          <span class="ch-num">Chapter 13 &middot; Act 2</span>
-          <h3>Threads of Resistance</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-14.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">14</span>
-          
-          <span class="ch-num">Chapter 14 &middot; Act 2</span>
-          <h3>Aur&#x27;k&#x27;s Curiosity</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-15.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">15</span>
-          
-          <span class="ch-num">Chapter 15 &middot; Act 2</span>
-          <h3>Empathic Echoes</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-16.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">16</span>
-          
-          <span class="ch-num">Chapter 16 &middot; Act 2</span>
-          <h3>Divide and Conquer</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-17.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">17</span>
-          
-          <span class="ch-num">Chapter 17 &middot; Act 2</span>
-          <h3>Resonance Unleashed</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-18.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">18</span>
-          
-          <span class="ch-num">Chapter 18 &middot; Act 2</span>
-          <h3>The Long Divide</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-19.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">19</span>
-          
-          <span class="ch-num">Chapter 19 &middot; Act 2</span>
-          <h3>Harmonic Fragments</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-20.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">20</span>
-          
-          <span class="ch-num">Chapter 20 &middot; Act 2</span>
-          <h3>The Unravelling</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-21.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">21</span>
-          
-          <span class="ch-num">Chapter 21 &middot; Act 3</span>
-          <h3>Sacrifice and Memory</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-22.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">22</span>
-          
-          <span class="ch-num">Chapter 22 &middot; Act 3</span>
-          <h3>Whispers of the Past</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-23.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">23</span>
-          
-          <span class="ch-num">Chapter 23 &middot; Act 3</span>
-          <h3>Entangled Hearts — First Crack</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-24.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">24</span>
-          
-          <span class="ch-num">Chapter 24 &middot; Act 3</span>
-          <h3>Resonance Reborn</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-25.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">25</span>
-          
-          <span class="ch-num">Chapter 25 &middot; Act 3</span>
-          <h3>The Gathering Storm</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-26.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">26</span>
-          
-          <span class="ch-num">Chapter 26 &middot; Act 3</span>
-          <h3>Catalyst</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-27.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">27</span>
-          
-          <span class="ch-num">Chapter 27 &middot; Act 3</span>
-          <h3>The Fall of Shadows</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-28.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">28</span>
-          
-          <span class="ch-num">Chapter 28 &middot; Act 3</span>
-          <h3>Beneath the Ruins</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-29.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">29</span>
-          
-          <span class="ch-num">Chapter 29 &middot; Act 3</span>
-          <h3>Last Light — The Hum Splits</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-30.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">30</span>
-          
-          <span class="ch-num">Chapter 30 &middot; Act 3</span>
-          <h3>Shards of Tomorrow</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a></div>
-    <div class="act-head" id="msbook2"><span class="tag">Book 2 &middot; Resonant Faultlines</span><h2>11 of 30 chapters drafted</h2></div>
-    <div class="ch-grid">
-        <a href="chapter-31.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">31</span>
-          
-          <span class="ch-num">Chapter 31 &middot; Act 4</span>
-          <h3>Convergent Signals</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-32.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">32</span>
-          
-          <span class="ch-num">Chapter 32 &middot; Act 4</span>
-          <h3>Weaponised Compassion</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-33.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">33</span>
-          
-          <span class="ch-num">Chapter 33 &middot; Act 4</span>
-          <h3>States of Emergency</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-34.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">34</span>
-          
-          <span class="ch-num">Chapter 34 &middot; Act 4</span>
-          <h3>Fault Lines on Luna Haven</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-35.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">35</span>
-          
-          <span class="ch-num">Chapter 35 &middot; Act 4</span>
-          <h3>First Aberrations</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-36.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">36</span>
-          
-          <span class="ch-num">Chapter 36 &middot; Act 4</span>
-          <h3>The Echoes of Misuse</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-37.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">37</span>
-          
-          <span class="ch-num">Chapter 37 &middot; Act 4</span>
-          <h3>Lines in the Sand</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-38.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">38</span>
-          
-          <span class="ch-num">Chapter 38 &middot; Act 4</span>
-          <h3>Hidden Offensives</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-39.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">39</span>
-          
-          <span class="ch-num">Chapter 39 &middot; Act 4</span>
-          <h3>Two Detonations</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-40.html" class="ch-card reveal">
-          <span class="ghost" aria-hidden="true">40</span>
-          
-          <span class="ch-num">Chapter 40 &middot; Act 4</span>
-          <h3>Warnings from the Martian Preserve</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a>
-
-        <a href="chapter-41.html" class="ch-card reveal latest">
-          <span class="ghost" aria-hidden="true">41</span>
-          <span class="latest-pill">Latest</span>
-          <span class="ch-num">Chapter 41 &middot; Act 5</span>
-          <h3>The Hollow Models</h3>
-          <span class="go">Read the finished chapter &rarr;</span>
-        </a></div>
-      <div class="card-dark book-placeholder reveal" id="msbook3" style="margin-bottom:26px;">
-        <span class="tag">Book 3 &middot; Harmonic Worlds</span>
-        <h3>No chapters drafted yet</h3>
-        <p>Still at Story Bible treatment stage. <a href="book3.html" style="color:var(--ink);text-decoration:underline;">See the outline &rarr;</a></p>
-      </div></div>
-</section>
-
 <footer>
   <div class="footer-inner">
     <div>
@@ -1033,28 +469,24 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and the Martian Preserve.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">Would you let go of someone you love, if holding on meant feeding the thing that took them?</p>
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Explore</span>
-      <a href="world.html">World</a>
-      <a href="locations.html">Locations</a>
-      <a href="characters.html">Characters</a>
+      <a href="story.html">Story</a>
+      <a href="cast.html">Cast</a>
       <a href="books.html">Books</a>
       <a href="manuscript.html">Manuscript</a>
     </div>
     <div class="footer-nav">
-      <span class="footer-nav-title">Codex</span>
-      <a href="craft.html">Craft</a>
-      <a href="laws.html">Laws &amp; Codex</a>
-      <a href="timeline.html">Timeline &amp; Pacing</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="design.html">Design</a>
+      <span class="footer-nav-title">Craft</span>
+      <a href="craft.html">Drafting Guide</a>
+      <a href="brand.html">Visual brand</a>
     </div>
   </div>
   <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
-    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; a living Story Bible, and the manuscript now being written from it.</span>
-    <span class="footer-copy">Fractured Horizons &middot; Resonant Faultlines &middot; Harmonic Worlds</span>
+    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; the Story Bible, and the manuscript being written from it.</span>
+    <span class="footer-copy">Fractured Horizons &middot; The Narrow Gate &middot; The Open Hand</span>
   </div>
 </footer>
 

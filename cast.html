@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Codex — Meridian Resonance</title>
-<meta name="description" content="Laws, timeline, pacing, and glossary reference for Meridian Resonance.">
+<title>The Cast — Meridian Resonance</title>
+<meta name="description" content="Who carries the trilogy, what each of them wants, and what can break them.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
@@ -25,11 +25,8 @@
   --ground:#FFFFFF;
   --surface:var(--grey); --surface-2:var(--grey);
   --surface-ink:#FFFFFF;
-  --cu:#A8692A; --sc:#427AB8; --la:#947238; --lh:#298578; --mp:#CC4F27; --mp2:#427AB8;
-  --tz:#57824E; --um:#9267AB;
-  --earth:#087DC2; --mars:#D93D4A;
+    --earth:#087DC2; --mars:#D93D4A;
   --acc:#087DC2;
-  --ns:var(--grey);
   --accent:var(--grey);
   --ink:#000000;
   --accent-text:var(--ink);
@@ -45,8 +42,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
-.anchor-nav.sticky,.dash-tabs,
-.mr-hscroll,.table-scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
+.anchor-nav.sticky{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
 img,svg,video,iframe,table,pre{max-width:100%;}
 p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
 body{background:var(--ground);color:var(--ink);
@@ -55,7 +51,6 @@ body{background:var(--ground);color:var(--ink);
 a{color:inherit;}
 ::selection{background:var(--earth);color:#FFFFFF;}
 p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
-.serif{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
   height:var(--nav-h);box-sizing:border-box;
   display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
@@ -129,10 +124,10 @@ h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-
 p,li{line-height:1.7;}
 p{margin-bottom:1.5em;}
 p:last-child{margin-bottom:0;}
-.tag,.bloc-pill,.ch-num,.footer-nav-title,.law-item .n,.timeline-item .date,.hero .eyebrow{
+.tag,.bloc-pill,.ch-num,.footer-nav-title,.hero .eyebrow{
   font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
 .tag{display:block;margin-bottom:14px;color:var(--accent-text);}
-.meta,.chapter-block .tagline,.anchor-nav a{
+.anchor-nav a{
   font-size:13px;}
 .hero p.lede,.page-hero p,.section-head p{
   font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--ink);font-family:'Inter',sans-serif;margin-top:18px;}
@@ -155,36 +150,9 @@ p:last-child{margin-bottom:0;}
 .page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
   pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-.globe-section{padding:var(--band-y-tight) 0;overflow:hidden;
-  background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);--globe-line:#BFBFBF;}
-.globe-stage{position:relative;width:100%;max-width:700px;margin:0 auto;aspect-ratio:1/1;}
-.globe-stage svg{width:100%;height:100%;display:block;overflow:visible;}
-.globe-merid,.globe-paral{fill:none;stroke:#CFE8FF;stroke-width:0.6;opacity:0.16;}
-.globe-coast{fill:none;stroke:#CDEBFF;stroke-width:1.15;opacity:0.78;stroke-linejoin:round;filter:drop-shadow(0 0 2px rgba(120,200,255,.5));}
-#aurora .aur{mix-blend-mode:screen;filter:blur(8px);}
-#aurora .aur1{animation:aur-breathe 13s ease-in-out infinite;}
-#aurora .aur2{animation:aur-breathe 17s ease-in-out infinite;}
-#aurora .aur3{animation:aur-breathe 15s ease-in-out infinite;}
 @keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
-#globeSpec{opacity:.75;}
-#globeFresnel{opacity:.9;}
-.globe-rim{fill:none;stroke:var(--globe-line);stroke-width:1.1;opacity:0.7;}
-.globe-dot-glow{filter:blur(7px);}
-.globe-leader{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.42;}
-text.globe-lbl-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;fill:var(--white);
-  letter-spacing:.01em;word-spacing:.16em;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:500;fill:var(--globe-line);letter-spacing:.06em;
-  word-spacing:.3em;text-transform:uppercase;text-anchor:middle;paint-order:stroke;stroke:#000000;stroke-width:.1em;stroke-linejoin:round;}
-.globe-moon-ring{fill:none;stroke:var(--globe-line);stroke-width:0.6;opacity:0.5;}
-.lat-edge{stroke:var(--globe-line);stroke-width:0.7;fill:none;}
-.lat-node{fill:var(--globe-line);}
-.lat-fil{stroke:var(--globe-line);stroke-width:0.55;fill:none;stroke-dasharray:3 4;}
-.lat-halo{fill:none;stroke:var(--globe-line);stroke-width:52;filter:blur(30px);animation:halo-breathe 9s ease-in-out infinite;}
 @keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
-.globe-atmo{fill:none;stroke:#7FD0FF;stroke-width:6;filter:blur(10px);animation:atmo-breathe 7s ease-in-out infinite;}
 @keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
-@media(prefers-reduced-motion:reduce){.lat-halo,.globe-atmo,#aurora .aur{animation-duration:54s;}}
-@media(max-width:640px){.globe-stage{max-width:none;}}
 .page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;overflow:hidden;background:var(--black);
   --ink:#FFFFFF;--accent-text:var(--ink);
@@ -192,65 +160,27 @@ text.globe-lbl-sub{font-family:'Space Grotesk',sans-serif;font-size:9px;font-wei
 .page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
 .page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
-.art-banner{margin:0;line-height:0;background:var(--black);overflow:hidden;}
-.art-banner img{display:block;width:100%;height:auto;aspect-ratio:16/9;}
-.art-bleed{margin-top:var(--nav-h);}
-.art-band{margin-inline:calc(var(--gutter) * -1);margin-bottom:var(--flow-lg);}
-.art-card{margin:calc(var(--pad-box) * -1) calc(var(--pad-box) * -1) var(--flow);
-  border-radius:14px 14px 0 0;}
-.art-banner.art-card ~ .ghost{top:auto;}
-.band{height:120px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));opacity:0.9;}
-.band.bloc{opacity:0.85;}
-.card-dark,.chapter-block .anchors,.law-card,.ch-card,
-.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a{
+.card-dark,.ch-card,.prompt-details,.chapnav a{
   background:var(--black);border-radius:14px;padding:var(--pad-box);
   --grey:#BFBFBF;border:1px solid var(--grey);
   --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
   --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
-:where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a) :where(.card-dark,.chapter-block .anchors,.law-card,.ch-card,.gloss-grid .gloss-item,.prompt-details,.story-panel,.gtree-card,.chapnav a){
+:where(.card-dark,.ch-card,.prompt-details,.chapnav a) :where(.card-dark,.ch-card,.prompt-details,.chapnav a){
   background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
   --accent-text:var(--ink);color:var(--ink);}
 .card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
-.bloc-card{position:relative;overflow:hidden;}
-.bloc-card::before{content:'';position:absolute;inset:-40% -40% auto auto;width:70%;height:70%;
-  background:radial-gradient(circle,color-mix(in srgb, var(--accent) 30%, transparent) 0%,transparent 72%);
-  opacity:0;transition:opacity .4s ease;pointer-events:none;}
-.bloc-card:hover::before{opacity:1;}
-.bloc-card .accent-bar{transition:width .35s cubic-bezier(.2,.8,.2,1);}
-.bloc-card:hover .accent-bar{width:72px;}
 section .wrap > p{margin-bottom:28px;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
-.tier-protagonist{--accent:var(--grey);}
-.tier-antagonist{--accent:var(--grey);}
-.tier-deuteragonist{--accent:var(--grey);}
-.tier-secondary{--accent:var(--grey);}
-.tier-minor{--accent:var(--grey);}
-.tier-anchor{--accent:var(--grey);}
-.tier-recurring{--accent:var(--grey);}
-.tier-site{--accent:var(--grey);}
 .accent-bar{height:3px;width:44px;background:var(--accent);border-radius:2px;margin-bottom:16px;}
 .bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
   background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
 .grid{display:grid;gap:26px;}
-.grid,.law-grid,.gloss-grid,.ch-grid,.gtree-grid{
+.grid,.ch-grid{
   margin-block:var(--flow-lg);}
-.grid>*,.law-grid>*,.gloss-grid>*,.ch-grid>*,.gtree-grid>*{
+.grid>*,.ch-grid>*{
   margin-block:0;}
 .wrap>.card-dark{margin-block:var(--flow-lg);}
 .grid-3{grid-template-columns:repeat(3,1fr);}
-.grid-4{grid-template-columns:repeat(4,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-.bloc-pill.mode-state{background:var(--ground);border:2px solid var(--grey);
-  color:var(--grey);padding:3px 10px;}
-.globe-caption{text-align:center;color:var(--ink);font-size:13px;line-height:1.7;
-  max-width:600px;margin:22px auto 0;padding:0 var(--gutter);}
 .stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
   border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:44px 0;}
 .stat{text-align:center;}
@@ -261,28 +191,17 @@ section .wrap > p{margin-bottom:28px;}
   letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 @media(max-width:900px){.stat-band{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:560px){.stat-band{grid-template-columns:repeat(2,1fr);gap:28px 18px;}}
-.progress-band{padding:var(--band-y-tight) var(--gutter);}
-.progress-band .progress-row{margin-top:0;}
 .progress-row{max-width:720px;margin:44px auto 0;text-align:center;}
 .progress-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
 .progress-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--earth),var(--mars));
   transition:width 1.4s cubic-bezier(.2,.8,.2,1) .3s;}
 .reveal.visible .progress-fill{width:var(--w);}
 .progress-row .cap{margin-top:13px;font-size:13px;color:var(--ink);}
-.home-split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
-.home-split .section-head{text-align:left;margin:0;max-width:none;}
-.home-split .btn-group{justify-content:flex-start;}
-@media(max-width:900px){.home-split{grid-template-columns:1fr;gap:40px;}}
-.latest-card{--accent:var(--grey);text-decoration:none;display:block;}
-.latest-card .ch-num{color:var(--ink);display:block;margin-bottom:10px;}
-.latest-card .read-on{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--mars);}
   font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
 .book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
   letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
   display:block;margin-bottom:10px;}
 .book-card .bloc-pill{margin-top:14px;}
-.scroll-cue{margin-top:44px;opacity:0.45;animation:cue-bob 2.4s ease-in-out infinite;color:var(--ink);}
-.scroll-cue svg{width:22px;height:22px;display:block;}
 @keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
 .hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
 .hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
@@ -291,52 +210,23 @@ section .wrap > p{margin-bottom:28px;}
 .anchor-nav.sticky{position:sticky;top:var(--nav-h);z-index:100;background:var(--ground);
   padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
 .anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
-.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-@media(max-width:800px){.law-grid{grid-template-columns:1fr;}}
-.law-card{position:relative;overflow:hidden;transition:border-color .3s ease,transform .3s ease;}
-.law-card > *:not(.ghost){position:relative;z-index:1;}
-.law-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
 .ghost{position:absolute;pointer-events:none;user-select:none;z-index:0;
   font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1;
   color:var(--grey);}
-.law-card .ghost{top:0;right:8px;font-size:96px;}
 .ch-card{position:relative;overflow:hidden;}
 .ch-card > *:not(.ghost){position:relative;z-index:1;}
 .ch-card .ghost{top:0;right:6px;font-size:64px;}
 .act-head{position:relative;overflow:hidden;}
 .act-head > *:not(.ghost){position:relative;z-index:1;}
 .act-head .ghost{top:0;right:0;font-size:68px;letter-spacing:-0.03em;}
-.timeline-item{position:relative;overflow:hidden;}
-.timeline-item > *:not(.ghost){position:relative;z-index:1;}
-.timeline-item .ghost{top:50%;transform:translateY(-50%);left:0;width:112px;
-  text-align:right;font-size:44px;}
 .book-card{position:relative;overflow:hidden;}
 .book-card > *:not(.ghost){position:relative;z-index:1;}
 .book-card .ghost{top:0;right:10px;font-size:88px;}
-.book-placeholder{background:#BFBFBF;--ink:#000000;--accent-text:var(--ink);color:var(--ink);}
 @media(max-width:600px){
-  .law-card .ghost{font-size:68px;}
   .book-card .ghost{font-size:64px;}
   .act-head .ghost{font-size:60px;}
   .ch-card .ghost{font-size:48px;}
 }
-.law-card .n{color:var(--accent-text);display:block;margin-bottom:8px;}
-.law-card h3{margin-bottom:8px;}
-.law-card p{color:var(--ink);margin-bottom:0;}
-.tl-wrap{position:relative;padding-left:28px;}
-.tl-wrap::before{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--hairline);}
-.tl-wrap .timeline-item{position:relative;border-bottom:none;padding:var(--pad-row) 0;}
-.tl-wrap .timeline-item::before{content:'';position:absolute;left:-25.5px;top:25px;width:8px;height:8px;
-  border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(166,166,166,0.45);}
-.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-@media(max-width:800px){.gloss-grid{grid-template-columns:1fr;}}
-.gloss-grid .gloss-item{margin:0;transition:border-color .3s ease;}
-.gloss-grid .gloss-item:hover{border-color:color-mix(in srgb, var(--accent) 45%, transparent);}
-.pacing-row{display:flex;gap:14px;align-items:flex-start;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.pacing-row .chip{flex:0 0 auto;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
-  letter-spacing:0.05em;color:var(--accent-text);border:1px solid color-mix(in srgb, var(--accent) 45%, var(--ground));
-  padding:4px 11px;border-radius:100px;margin-top:2px;white-space:nowrap;}
-.pacing-row p{color:var(--ink);margin:0;font-size:15.5px;line-height:1.7;}
 .ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 @media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.ch-grid{grid-template-columns:1fr;}}
@@ -346,20 +236,6 @@ section .wrap > p{margin-bottom:28px;}
 .ch-card .ch-num{color:var(--accent-text);display:block;margin-bottom:8px;}
 .ch-card h3{font-size:17px;margin-bottom:8px;}
 .ch-card .go{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12.5px;color:var(--accent-text);}
-.ch-card.latest{border-color:var(--earth);
-  background:color-mix(in srgb, var(--earth) 8%, var(--ground));}
-.ch-card .latest-pill{position:absolute;top:56px;right:12px;z-index:2;
-  background:var(--mars);color:#FFFFFF;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;
-  letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:100px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.35);}
-.ch-card.latest h3{padding-right:74px;}
-@media(max-width:600px){
-  .ch-card .latest-pill{top:44px;}
-  .ch-card.latest h3{padding-right:70px;}
-}
-.bp-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:16px;}
-.bp-fill{height:100%;background:linear-gradient(90deg,var(--earth),var(--mars));border-radius:3px;}
 .chapnav{display:flex;justify-content:space-between;gap:14px;max-width:700px;margin:56px auto 0;flex-wrap:wrap;}
 .chapnav a{flex:1 1 240px;text-decoration:none;transition:border-color .3s ease;}
 .chapnav a:hover{border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
@@ -367,7 +243,7 @@ section .wrap > p{margin-bottom:28px;}
   text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
 .chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
 .chapnav a.next{text-align:right;}
-.act-head[id],.entry-block[id],.chapter-block[id],.territory-head[id],.gloss-item[id]{scroll-margin-top:150px;}
+.act-head[id]{scroll-margin-top:150px;}
 .btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
   font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
@@ -376,59 +252,20 @@ section .wrap > p{margin-bottom:28px;}
   padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
   font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
 .btn-outline:hover{background:var(--surface-2);}
-.btn-card{background:var(--accent);color:var(--ground);border:none;padding:12px 26px;border-radius:100px;
-  font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-  font-family:'Space Grotesk',sans-serif;transition:.3s cubic-bezier(.2,.8,.2,1);}
-.btn-card:hover{transform:translateY(-3px);filter:brightness(1.08);}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.chapter-block{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin-bottom:46px;}
-.chapter-block h3{margin:6px 0 6px;}
-.chapter-block .tagline{margin-bottom:14px;font-style:italic;}
-.chapter-block p{color:var(--ink);}
-.chapter-block .anchors{margin-top:14px;padding:var(--pad-box);font-size:14px;}
-.chapter-block .anchors p{color:var(--ink);margin-bottom:0;}
-.chapter-block .anchors b{color:var(--ink);}
 .act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
 .act-head .tag{margin-bottom:6px;}
-.ms-status{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:700;
-  letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);}
-.ms-status.ms-drafted{color:var(--accent-text);}
-.ms-status a{color:var(--earth);text-decoration:underline;}
 .manuscript-wrap{max-width:700px;margin:0 auto;}
 .manuscript-wrap p{font-size:17.5px;line-height:1.85;color:var(--ink);margin-bottom:24px;}
 .scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
   margin:56px 0 30px;}
 .scene-header:first-of-type{margin-top:8px;}
-.scene-plate,.scene-placeholder{width:100%;aspect-ratio:16/9;border-radius:16px;
-  margin:36px 0;display:block;object-fit:cover;border:3px solid var(--accent);
-  background:var(--surface);}
-.scene-placeholder{display:flex;align-items:center;justify-content:center;
-  background:color-mix(in srgb, var(--accent) 22%, var(--surface));
-  color:var(--surface-ink);font-family:'Space Grotesk',sans-serif;font-weight:600;
-  font-size:14px;text-transform:uppercase;letter-spacing:0.04em;text-align:center;
-  padding:var(--pad-row);}
 .manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
-.entry-block{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--hairline);}
-.entry-block h3{margin-bottom:4px;}
-.entry-block .meta{margin-bottom:16px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
-.entry-block p{color:var(--ink);}
 details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
-details.story-panel{margin-top:22px;padding:0;overflow:hidden;}
 a.bloc-pill{text-decoration:none;}
-.design-links{font-size:14px;max-width:760px;margin-top:var(--flow);}
-.design-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
-.sp-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);}
-.sp-body h3,.sp-body h4{margin-top:var(--flow-lg);margin-bottom:calc(var(--flow) * .5);}
-.sp-body>h3:first-child{margin-top:0;}
-.story-panel summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
-  list-style:none;display:flex;align-items:center;gap:8px;}
-.story-panel summary::-webkit-details-marker{display:none;}
-.story-panel summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
-.story-panel[open] summary::before{transform:rotate(90deg);}
 .pd-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);
   display:flex;flex-direction:column;gap:var(--pad-row);}
 .pd-body>*{margin:0;}
@@ -436,37 +273,12 @@ a.bloc-pill{text-decoration:none;}
   font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
   list-style:none;display:flex;align-items:center;gap:8px;}
 .prompt-details summary::-webkit-details-marker{display:none;}
-.demand-list{font-size:14px;padding-left:1.15em;}
-.demand-list li{margin:3px 0;}
-.demand-list-plain{list-style:none;padding-left:0;}
-.scope-note{color:var(--grey);font-size:14.5px;margin-top:calc(var(--flow) * -0.5);}
 .doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
-.doc-note{font-family:'Space Grotesk',sans-serif;font-size:11px;
-  letter-spacing:.08em;text-transform:none;color:var(--grey);white-space:nowrap;}
 .doc-table-wrap{overflow-x:auto;margin-block:var(--flow-lg);}
 .doc-table{border-collapse:collapse;width:100%;font-size:14px;}
 .doc-table th,.doc-table td{text-align:left;vertical-align:top;
   padding:var(--pad-row) var(--pad-row);border-bottom:1px solid var(--hairline);}
-.queue{list-style:none;margin-block:var(--flow-lg);display:flex;
-  flex-direction:column;gap:14px;}
-.queue li{display:flex;gap:14px;align-items:baseline;}
-.q-tag{flex:0 0 62px;text-align:center;padding:3px 0;border-radius:100px;
-  font-family:'Space Grotesk',sans-serif;font-size:10.5px;letter-spacing:.12em;
-  text-transform:uppercase;}
-.q-next{background:var(--earth);color:#FFFFFF;}
-.q-fix{background:var(--mars);color:#FFFFFF;}
-.q-ask{background:var(--grey);color:#000000;}
-.q-x b{display:block;font-weight:600;font-size:15.5px;}
-.q-x em{display:block;font-style:normal;font-size:13.5px;color:var(--grey);
-  margin-top:3px;}
-.chip-st{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
-.chip-st i{width:7px;height:7px;border-radius:100px;background:var(--grey);}
-.chip-st.is-ok i{background:var(--earth);}
-.chip-st.is-no i{background:var(--mars);}
-.ref-dl{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:13.5px;
-  margin-top:12px;}
-.ref-dl dt{color:var(--grey);}
 .meter{height:6px;border-radius:100px;background:var(--grey);margin-top:10px;
   overflow:hidden;}
 .meter i{display:block;height:100%;background:var(--earth);border-radius:100px;}
@@ -475,9 +287,6 @@ a.bloc-pill{text-decoration:none;}
 .meter-l b{font-family:'Space Grotesk',sans-serif;font-size:19px;}
 .doc-table th{font-family:'Space Grotesk',sans-serif;font-size:12px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
-.prompt-details .pd-file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:12px;color:var(--grey);}
-.prompt-details .pd-note{font-size:12px;color:var(--grey);}
 .prompt-details summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
 .prompt-details[open] summary::before{transform:rotate(90deg);}
 .prompt-details pre{margin:0;padding:0;font-family:'Inter',sans-serif;font-size:13px;
@@ -495,17 +304,6 @@ a.bloc-pill{text-decoration:none;}
   .anchor-nav.sticky::-webkit-scrollbar{display:none;}
   .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
 }
-.law-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.law-item .n{color:var(--accent-text);}
-.law-item h3{margin:4px 0 8px;}
-.law-item p{color:var(--ink);}
-.timeline-item{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.timeline-item .date{color:var(--accent-text);}
-.timeline-item .label{font-weight:700;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;font-size:16px;}
-.timeline-item p{color:var(--ink);}
-.gloss-item{padding:var(--pad-row) 0;border-bottom:1px solid var(--hairline);}
-.gloss-item dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink);}
-.gloss-item dd{color:var(--ink);}
 footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
 .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
@@ -517,40 +315,24 @@ footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gu
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:12.5px;color:var(--ink);}
 @media(max-width:900px){
-  .timeline-item .ghost{display:none;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .grid-3,.grid-4{grid-template-columns:1fr 1fr;}
-  .timeline-item{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:420px){
   .bloc-pill{font-size:10.5px;padding:5px 9px;letter-spacing:0.04em;}
-  .entry-block .meta{gap:6px;}
   .footer-nav{gap:2px;}
   .footer-nav a{padding:7px 0;}
 }
 @media(max-width:600px){
-  .grid-3,.grid-4,.grid-2{grid-template-columns:1fr;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;}
 }
 section,.band-group{background:var(--ground);color:var(--ink);}
 .band-group{padding:var(--band-y) var(--gutter);}
 .band-group + .band-group{padding-top:var(--band-y-tight);}
 .hero-stats .hs{color:#000000;}
-.cast-strip-outer,.loc-strip-outer{scrollbar-color:rgba(0,0,0,0.25) transparent;}
-.cast-strip-outer::-webkit-scrollbar-thumb,.loc-strip-outer::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);}
 .logo{color:#000000;}
-.logo .lg{color:var(--earth);}
-.bloc-cu .btn-card,.bloc-la .btn-card,.bloc-lh .btn-card{color:#000000;}
-.bloc-sc .btn-card,.bloc-mp .btn-card{color:#FFFFFF;}
-.bloc-cu{--accent:var(--cu);}
-.bloc-sc{--accent:var(--sc);}
-.bloc-la{--accent:var(--la);}
-.bloc-lh{--accent:var(--lh);}
-.bloc-mp{--accent:var(--mp);}
-.bloc-ns{--accent:var(--ns);}
-.bloc-tz{--accent:var(--tz);}
-.bloc-um{--accent:var(--um);}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
 </head>
 <body>
@@ -600,58 +382,70 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-  <ul class="nav-links"><li><a href="world.html">World</a></li>
-<li class="has-sub"><a href="codex.html" class="active" aria-haspopup="true">Codex<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Craft</a></li><li><a href="laws.html">Laws &amp; Codex</a></li><li><a href="timeline.html">Timeline &amp; Pacing</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="design.html">Design</a></li></ul></li>
-<li><a href="locations.html">Locations</a></li>
-<li><a href="characters.html">Characters</a></li>
-<li><a href="books.html">Books</a></li>
+  <ul class="nav-links"><li><a href="story.html">Story</a></li>
+<li><a href="cast.html" class="active">Cast</a></li>
+<li class="has-sub"><a href="books.html" aria-haspopup="true">Books<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li>
+<li class="has-sub"><a href="craft.html" aria-haspopup="true">Craft<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Drafting Guide</a></li><li><a href="brand.html">Visual brand</a></li></ul></li>
     <li><a href="manuscript.html" class="nav-cta">Manuscript &rarr;</a></li>
   </ul>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu"><a href="world.html">World</a>
-<a href="codex.html">Codex</a>
-<a class="sub" href="craft.html">Craft</a>
-<a class="sub" href="laws.html">Laws &amp; Codex</a>
-<a class="sub" href="timeline.html">Timeline &amp; Pacing</a>
-<a class="sub" href="glossary.html">Glossary</a>
-<a class="sub" href="design.html">Design</a>
-<a href="locations.html">Locations</a>
-<a href="characters.html">Characters</a>
-<a href="books.html">Books</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
+<div class="mobile-menu"><a href="story.html">Story</a>
+<a href="cast.html">Cast</a>
+<a href="books.html">Books</a>
+<a class="sub" href="book1.html">Book 1 · Fractured Horizons</a>
+<a class="sub" href="book2.html">Book 2 · The Narrow Gate</a>
+<a class="sub" href="book3.html">Book 3 · The Open Hand</a>
+<a href="craft.html">Craft</a>
+<a class="sub" href="brand.html">Visual brand</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
 
-<figure class="art-banner art-bleed"><img src="art/image-pending-1600.webp" srcset="art/image-pending-960.webp 960w, art/image-pending-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="eager" fetchpriority="high"></figure>
 <div class="page-hero">
   <div class="page-glow"></div>
-  <span class="tag">Canonical Rules <span style="font-weight:400;">+ Timeline &amp; Pacing, Glossary</span></span>
-  <h1>Codex</h1>
-  <p>Reference material from the Story Bible: the Meridian's laws, the trilogy timeline and editorial pacing notes, the glossary, and the design references for how 2087 looks. All of it carries full spoilers.</p>
-  <div class="hero-stats">
-    <span class="hs"><b>11</b> laws</span>
-    <span class="hs"><b>4</b> persistence modes</span>
-    <span class="hs"><b>34</b> timeline entries</span>
-    <span class="hs"><b>60</b> glossary terms</span>
-  </div>
+  <span class="tag">Cast</span><h1>The Cast</h1>
+  <p>Who carries the trilogy, what each of them wants, and what can break them.</p>
+  <div class="hero-stats"><span class="hs"><b>6</b> principals</span><span class="hs"><b>4</b> viewpoints</span></div>
 </div>
-<div class="triband"></div>
-<div class="anchor-nav sticky bleed">
-  <a href="laws.html">Laws &amp; Codex</a>
-  <a href="timeline.html">Timeline &amp; Pacing</a>
-  <a href="glossary.html">Glossary</a>
-  <a href="design.html">Design</a>
-</div>
-<section>
-  <div class="wrap">
-    <div class="grid grid-2">
-      <div class="card-dark card-hover bloc-card reveal"><div class="accent-bar"></div><span class="tag">Style Guide</span><h3>Craft</h3><p>The locked prose decisions — point of view, tense, chapter heads, register, length — and the visual brand behind the site and the covers.</p><a class="btn-card" style="margin-top:16px;" href="craft.html">Open &rarr;</a></div>
-      <div class="card-dark card-hover bloc-card reveal"><div class="accent-bar"></div><span class="tag">Canonical Rules</span><h3>Laws &amp; Codex</h3><p>The 11 interlocking laws of the Meridian, the four consciousness-persistence modes, and the full character schedule.</p><a class="btn-card" style="margin-top:16px;" href="laws.html">Open &rarr;</a></div>
-      <div class="card-dark card-hover bloc-card reveal"><div class="accent-bar"></div><span class="tag">34 entries &middot; 40 notes</span><h3>Timeline &amp; Pacing</h3><p>The dependency-driven trilogy chronology, from the 2040s Climate Wars to Chapter 90, alongside the editorial pacing notes across all three books — clarity, causality, and chapter-to-chapter payoff.</p><a class="btn-card" style="margin-top:16px;" href="timeline.html">Open &rarr;</a></div>
-      <div class="card-dark card-hover bloc-card reveal"><div class="accent-bar"></div><span class="tag">60 terms</span><h3>Glossary</h3><p>Key terms: the Meridian, the Hollow Infinite, persistence modes, resonance, and more.</p><a class="btn-card" style="margin-top:16px;" href="glossary.html">Open &rarr;</a></div>
-      <div class="card-dark card-hover bloc-card reveal"><div class="accent-bar"></div><span class="tag">Design references</span><h3>Design</h3><p>How 2087 looks: the buildings and public places of every territory, what each territory wears, and the objects people carry.</p><a class="btn-card" style="margin-top:16px;" href="design.html">Open &rarr;</a></div>
-    </div>
-  </div>
+<div class="triband"></div><section class="band-host">
+<div class="anchor-nav sticky bleed"><a href="#1-at-a-glance">1. At a glance</a><a href="#2-principals">2. Principals</a><a href="#3-supporting-cast">3. Supporting cast</a><a href="#4-bonds">4. Bonds</a><a href="#5-who-knows-what-and-when">5. Who knows what, and when</a><a href="#6-assistant-calls-approved">6. Assistant calls (approved)</a></div>
+<div class="band-group"><div class="wrap"><p class="doc-title">02 — Cast</p>
+    <p>Six principals carry the trilogy. Four of them are viewpoint characters. Every principal wants something concrete, hides something, and has one relationship that can break them. World rules are in <code>01 - Trilogy Bible.md</code>.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="1-at-a-glance"><h2>1. At a glance</h2></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Character</th><th>Viewpoint</th><th>Where</th><th>Wants</th><th>Can be broken by</th></tr></thead><tbody><tr><td><b>Elena Vázquez</b></td><td>Lead, all three books (the largest share of Books 1 and 3; Book 2 is shared four ways)</td><td>Earth; Mars in Book 2</td><td>Soria back</td><td>Soria; Daniel</td></tr><tr><td><b>Kaelin Drayke</b></td><td>All three books</td><td>Mars; Earth in Books 2–3</td><td>Everyone home alive</td><td>Aur&#x27;k</td></tr><tr><td><b>Rachel Iverson</b></td><td>All three books</td><td>Earth</td><td>No one dies on her watch</td><td>Elena</td></tr><tr><td><b>Aur&#x27;k</b></td><td>Books 2–3</td><td>Mars; Earth in Books 2–3</td><td>Never to be an instrument again</td><td>Kaelin; his own copy</td></tr><tr><td><b>Daniel Rocha</b></td><td>No</td><td>Earth</td><td>To be trusted, not protected</td><td>Elena</td></tr><tr><td><b>Soria Vázquez</b></td><td>No (a voice)</td><td>Inside the Hollow</td><td>To be herself, not a tool or a grief</td><td>Elena</td></tr></tbody></table></div>
+    <p><b>Viewpoint jobs.</b> Elena carries the mystery and the grief. Kaelin carries Mars: the wonder and the physical danger. Rachel carries the institutional thriller and the strongest case against the heroes. Aur&#x27;k joins in Book 2, and in his chapters the reader stops being sure which Aur&#x27;k they&#x27;re reading.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="2-principals"><h2>2. Principals</h2></div>
+    <h3 id="elena-vazquez">Elena Vázquez</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><b>Basics</b></td><td>41 (born 2054). Corporate Union, New Manhattan. Systems architect in predictive surveillance at the Surveillance Spire. From the mid-2080s to 2089, a lead architect in Marcus Bellamy&#x27;s lattice programme</td></tr><tr><td><b>Want</b></td><td>Soria back. At first she calls it &quot;the truth&quot;</td></tr><tr><td><b>Wound</b></td><td>Her sister died in a programme Elena designed. Elena believes she missed a risk in her own numbers. The truth is worse: her throughput design is what let them keep Soria linked after her body failed</td></tr><tr><td><b>Flaw</b></td><td>She protects people by deciding for them. She keeps Daniel out &quot;for his own good&quot; and routes danger through his life without asking</td></tr><tr><td><b>Line</b></td><td>She will not take from a mind that hasn&#x27;t consented. It is tested hardest when the mind is Soria&#x27;s</td></tr><tr><td><b>Pleasures</b></td><td>Dry, quick, self-mocking. Loves an elegant system. Cooks for Daniel when she can&#x27;t say something. Bad at sleep</td></tr><tr><td><b>Voice</b></td><td>Precise and compressed. Understates when frightened. Explains when she should feel</td></tr></tbody></table></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Book</th><th>Starts wanting</th><th>Hides</th><th>Choice only she can make</th><th>Ends</th></tr></thead><tbody><tr><td>1</td><td>To find who is sending the warnings</td><td>That she suspects it&#x27;s Soria; that she&#x27;s using Daniel&#x27;s mesh</td><td>Cuts the Lantern while Soria&#x27;s voice begs her not to</td><td>Disgraced, out of work; Daniel&#x27;s trust broken, then partly mended by asking him for help</td></tr><tr><td>2</td><td>To stop the Gate and prove what it is</td><td>How badly she wants to talk to Soria again</td><td>Goes to Mars and leaves Daniel behind; brings back the truth of the merge</td><td>Stranded on Mars through the Fall; offered Soria whole</td></tr><tr><td>3</td><td>To kill the Hollow without losing Soria</td><td>That she&#x27;s tempted to go in alone</td><td>Tells Daniel instead of hiding; links in as the anchor and says goodbye</td><td>Alive, grieving, unable to ever link again</td></tr></tbody></table></div>
+    <p><b>Arc.</b> Private controller → partner who shares risk → someone who can let go.</p>
+    <h3 id="kaelin-drayke">Kaelin Drayke</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><b>Basics</b></td><td>36 (born 2059), human, Lunar Accord, from the Australasian Ring (coastal Queensland). Field-operations and rescue lead at Cobalt Basin Station since 2087. He</td></tr><tr><td><b>Want</b></td><td>Everyone home alive</td></tr><tr><td><b>Wound</b></td><td>At sixteen, in a storm-surge evacuation, he missed one item on a checklist, and his younger brother&#x27;s group was routed into the surge. He has over-prepared ever since</td></tr><tr><td><b>Flaw</b></td><td>Rescue is how he loves, so he is tempted to take over risks that belong to other people</td></tr><tr><td><b>Line</b></td><td>He will not lie to a crew about the odds, even when a lie would get them out faster</td></tr><tr><td><b>Pleasures</b></td><td>Dry field humour. Cooks badly and insists on doing it. Counts things aloud under stress. Afraid of the Preserve and goes in anyway</td></tr><tr><td><b>Voice</b></td><td>Short, warm, practical</td></tr></tbody></table></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Book</th><th>Starts wanting</th><th>Hides</th><th>Choice only he can make</th><th>Ends</th></tr></thead><tbody><tr><td>1</td><td>Everyone at the station through intact</td><td>His fear of the Preserve</td><td>Follows Earth&#x27;s correction at the Ice-Works and lives with the deaths; cuts the Lantern&#x27;s Mars end by hand in a dust storm</td><td>Knows something on Mars is talking, and that Aur&#x27;k knows more than he says</td></tr><tr><td>2</td><td>Aur&#x27;k safe in the Gate</td><td>That he wanted Aur&#x27;k to be the hero</td><td>Breaks with Aur&#x27;k across the delay after Ines dies</td><td>Choosing between the real Aur&#x27;k, 14 light-minutes away, and the one answering him in real time</td></tr><tr><td>3</td><td>Proof of which Aur&#x27;k is his</td><td>That the copy is easier to love</td><td>Lets the copy choose for himself rather than deciding for him</td><td>With the real Aur&#x27;k, on new terms</td></tr></tbody></table></div>
+    <p><b>Arc.</b> Protector who equates love with control → survivor of a loss he couldn&#x27;t prevent → someone who lets others choose their own risk.</p>
+    <h3 id="rachel-iverson">Rachel Iverson</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><b>Basics</b></td><td>47 (born 2048). Alignment, Corporate Union civic coordinators. Director of civic emergency coordination for New Manhattan, based at the Mirror Bastion</td></tr><tr><td><b>Want</b></td><td>No one dies on her watch</td></tr><tr><td><b>Wound</b></td><td>In 2071, aged 23, in a district cut off at the end of the Synthetic War, she made a triage call alone while the aid procedure stalled. Some people lived because she did. She has never been sure who died because she did</td></tr><tr><td><b>Flaw</b></td><td>Under pressure she turns care into authority over people who never chose her command</td></tr><tr><td><b>Line</b></td><td>She will not act in secret. She breaks this at the end of Book 1, and the trilogy makes her pay it back</td></tr><tr><td><b>Pleasures</b></td><td>Gallows humour with her crew. Knows every pump station by name. Swears under load. Loves her city&#x27;s ugly flood walls</td></tr><tr><td><b>Voice</b></td><td>Short sentences, verbs first, numbers and names rather than abstractions</td></tr></tbody></table></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Book</th><th>Starts wanting</th><th>Hides</th><th>Choice only she can make</th><th>Ends</th></tr></thead><tbody><tr><td>1</td><td>Her city safe</td><td>That the warnings have made her a believer</td><td>Signs off the Lantern; hides the final warning from Elena</td><td>Has broken her own line</td></tr><tr><td>2</td><td>To stop the Fall</td><td>That the Gate is leaking</td><td>Keeps the Gate open for the last 48 hours, then tells the public the truth and shuts it</td><td>A hero who knows she let the Hollow in</td></tr><tr><td>3</td><td>To undo what she built</td><td>That she still believes in it</td><td>Publicly orders the shutdown of the system that made her a hero</td><td>Respect with Elena, not friendship; a carer who no longer owns the people she saves</td></tr></tbody></table></div>
+    <p><b>Arc.</b> The person who is right about delay → the person who opens the gate → the person who closes it in public.</p>
+    <p><b>The Gate is Rachel&#x27;s.</b> She designs it and she answers for it.</p>
+    <h3 id="aurk">Aur&#x27;k</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><b>Basics</b></td><td>Synthetic person, Lunar Accord citizen. Emerged in 2074 in the Nairobi Relay&#x27;s boundary-monitoring systems, so 21 years a person in 2095. Boundary lead at Cobalt Basin Station since 2089. Chose his own name. He</td></tr><tr><td><b>Want</b></td><td>Never to be an instrument again</td></tr><tr><td><b>Wound</b></td><td>In his first year, a transitional statute classed emergent relay minds as relay property. He spent eleven months as an asset in a filing before a court upheld his personhood</td></tr><tr><td><b>Secret</b></td><td>Zhenyth told him Martian minds survive in the Preserve, under a promise of silence, because boundary work needed it. He keeps it from Kaelin</td></tr><tr><td><b>Flaw</b></td><td>Refusal is how he keeps his dignity, and it tempts him toward distance</td></tr><tr><td><b>Line</b></td><td>He will not authorise risk on someone else&#x27;s behalf. It is tested when authorising it would save Ines</td></tr><tr><td><b>Pleasures</b></td><td>Dry, exact humour. Corrects Kaelin as a form of affection. Unhurried friendship with DaeJung, the one relationship where he isn&#x27;t needed for anything</td></tr><tr><td><b>Voice</b></td><td>Precise, slightly formal, sudden jokes. Never offers reassurance he can&#x27;t back</td></tr></tbody></table></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Book</th><th>Starts wanting</th><th>Hides</th><th>Choice only he can make</th><th>Ends</th></tr></thead><tbody><tr><td>1</td><td>The Preserve left alone</td><td>The secret</td><td>Holds the boundary while Kaelin cuts the Lantern</td><td>Has lied to Kaelin by silence</td></tr><tr><td>2</td><td>To be good at the Gate</td><td>That being useful feels like the old filing</td><td>Honours the holdouts&#x27; refusal and lets Ines die</td><td>Separated from Kaelin by distance and by his own copy</td></tr><tr><td>3</td><td>To reach Kaelin and be believed</td><td>What it is like to know a copy of him is loved</td><td>Stands beside Kaelin while the copy chooses</td><td>Present, changed, not owned</td></tr></tbody></table></div>
+    <p><b>The copy (Books 2–3).</b> The Gate keeps a model of Aur&#x27;k&#x27;s judgement, and the Hollow thinks with it. Copy-Aur&#x27;k is warm, funny and exactly right, and he is never sure what he is. In Book 3 he asks Kaelin not to decide for him, then takes his own place in the Open Hand.</p>
+    <h3 id="daniel-rocha">Daniel Rocha</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><b>Basics</b></td><td>43 (born 2052). Alignment, from São Verde, living in New Manhattan with Elena; his family is still in São Verde. Field communications engineer in a São Verde community mesh cooperative</td></tr><tr><td><b>Want</b></td><td>To be loved without being managed</td></tr><tr><td><b>Hard skill</b></td><td>He can get people talking when the central system won&#x27;t carry them. He builds, hides and repairs local networks, and he knows the people who run them. His mesh is the one network the Hollow never runs on</td></tr><tr><td><b>Wound</b></td><td>As a teenager he watched risk-scoring pressure his mother, a São Verde organiser, through her family. He learned that closeness can be used as leverage</td></tr><tr><td><b>Flaw</b></td><td>He avoids demanding the whole truth because he&#x27;s afraid of what it will cost</td></tr><tr><td><b>Line</b></td><td>He will not be used as a channel without his consent, including by Elena</td></tr><tr><td><b>Pleasures</b></td><td>Laughs mid-repair. Deadpan exaggeration. Friends of his own and a life outside Elena</td></tr><tr><td><b>Voice</b></td><td>Plain speech, specific nouns. Asks the question everyone else has been avoiding</td></tr></tbody></table></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Book</th><th>Plot effect</th></tr></thead><tbody><tr><td>1</td><td>Finds out Elena routed evidence through his mesh, and they break. Then she asks, and he carries the cut</td></tr><tr><td>2</td><td>Shelters Elena in São Verde. His mesh keeps communities talking during the Fall. He lets her go to Mars and stays</td></tr><tr><td>3</td><td>His mesh becomes the nervous system of the Open Hand. He witnesses Elena&#x27;s goodbye without trying to stop it</td></tr></tbody></table></div>
+    <h3 id="soria-vazquez">Soria Vázquez</h3>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><b>Who she was</b></td><td>Elena&#x27;s older sister, born 2050, died 2089 aged 39. A hospice nurse who volunteered for the lattice programme because she believed the link could let the dying be understood</td></tr><tr><td><b>What speaks</b></td><td>The Hollow&#x27;s mask built from her, wrapped around real surviving fragments of her. Neither Elena nor the reader can be sure which is talking until Book 3</td></tr><tr><td><b>Particulars</b></td><td>Bossy older-sister energy, irreverent, gallows humour learned at bedsides. Hates being comforted. Calls Elena <i>Bichito</i> (&quot;little bug&quot;), a name no record holds</td></tr><tr><td><b>Tell</b></td><td>The real Soria contradicts what the Hollow wants. When &quot;Soria&quot; pushes Elena toward the bridge, the gate or restoration, it&#x27;s the mask. When she teases, refuses, or tells Elena to go home, it&#x27;s her</td></tr><tr><td><b>Want</b></td><td>To be herself, not a tool, a proof or someone else&#x27;s grief</td></tr><tr><td><b>Voice</b></td><td>Warm, teasing, interrupts. Her sentences stop where memory runs out</td></tr></tbody></table></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Book</th><th>How she appears</th><th>What she forces</th></tr></thead><tbody><tr><td>1</td><td>Fragments in the warnings; one real conversation (Ch 15); a last fragment after the cut</td><td>Elena&#x27;s secrecy and the break with Daniel; the cut</td></tr><tr><td>2</td><td>The offer: &quot;they kept enough of me to bring me home&quot;</td><td>Elena&#x27;s journey to Mars</td></tr><tr><td>3</td><td>Whole, offered back; then the real Soria inside the chorus</td><td>Elena&#x27;s goodbye. <b>Soria chooses to let go</b></td></tr></tbody></table></div>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="3-supporting-cast"><h2>3. Supporting cast</h2></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Character</th><th>Who</th><th>Function</th><th>Books</th></tr></thead><tbody><tr><td><b>Zhenyth</b></td><td>The Preserve&#x27;s guardian, grown from the substrate by the holdouts. No body. They (singular). Loves Earth&#x27;s weather, which Mars lost</td><td>Alien, ancient and afraid of repeating the catastrophe. Speaks in concrete images and asks humans about small things. Holds the truth of the merge and finally opens the Preserve to the cut</td><td>1–3</td></tr><tr><td><b>Marcus Bellamy</b></td><td>58, director of the Surveillance Spire, Elena&#x27;s boss</td><td>Book 1&#x27;s human antagonist. Ran the programme that kept Soria linked. Fast-tracks the Lantern. Exposed by Elena at the cut</td><td>1 (testifies in 2)</td></tr><tr><td><b>Wáng Sù</b></td><td>55, Sovereign Coalition, Beijing Command; director of the Directorate in Book 3</td><td>Book 3&#x27;s antagonist and a decent man. His family survived the 2050s evacuations because a central system worked. He offers reform: keep a tamed core, just in case</td><td>1 (seeded), 3</td></tr><tr><td><b>Ines Varga</b></td><td>47, Cobalt Basin&#x27;s medic, Kaelin&#x27;s oldest friend on Mars</td><td>Life and humour at the station in Book 1. In Book 2, fatally hurt, she begs Aur&#x27;k to pull holdout minds into the mesh to save her. They refuse, he honours it, and she dies. Before she dies she tells Kaelin she doesn&#x27;t forgive Aur&#x27;k, and that he was right</td><td>1–2</td></tr><tr><td><b>DaeJung Park</b></td><td>Synthetic person, Synthetic War veteran, ex-Alignment logistics; Cobalt Basin since 2091</td><td>Aur&#x27;k&#x27;s friend and baseline of ordinary care. Acting boundary lead when Aur&#x27;k is away. Stays on Mars</td><td>1–3</td></tr><tr><td><b>Mara Ekeberg</b></td><td>38, keeper of Luna Haven&#x27;s lattice</td><td>Lets Elena link at Luna Haven (Book 1 midpoint). Loses people in the cut. Goes to Mars in Book 2 and works beside Zhenyth</td><td>1–3</td></tr><tr><td><b>Joaquín Reyes</b></td><td>Rachel&#x27;s deputy, from a rebuilt coastal district of New Manhattan</td><td>Loyal and funny. A Gate operator in Book 2. In Book 3 his district is saved by the Directorate, and he becomes the warmest voice for keeping it</td><td>1–3</td></tr><tr><td><b>Alia</b></td><td>A wakeful holdout mind in the Preserve. She</td><td>Speaks the holdouts&#x27; refusal when Ines asks to be saved</td><td>2–3</td></tr><tr><td><b>Funmi Oyelaran</b></td><td>Ice-Works shift lead, Cobalt Basin</td><td>Stays behind to seal a pressure line so her crew can escape, and dies when Earth&#x27;s correction moves the debris onto them. The first cost of the warnings</td><td>1</td></tr></tbody></table></div>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="4-bonds"><h2>4. Bonds</h2></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Bond</th><th>Engine</th><th>Ends</th></tr></thead><tbody><tr><td><b>Elena – Soria</b></td><td>Grief versus possession</td><td>Elena lets her go, and Soria chooses to go</td></tr><tr><td><b>Elena – Daniel</b></td><td>Protection versus trust</td><td>Partners as equals; she tells him first</td></tr><tr><td><b>Elena – Rachel</b></td><td>Old colleagues who become enemies over the Gate</td><td>Respect, not friendship; each saved the other&#x27;s work</td></tr><tr><td><b>Kaelin – Aur&#x27;k</b></td><td>Rescue versus refusal; the real one versus the copy</td><td>Together without owning each other</td></tr><tr><td><b>Kaelin – Ines</b></td><td>Old friends at the edge of the world</td><td>Her death and her last words reshape Kaelin and Aur&#x27;k</td></tr><tr><td><b>Rachel – Wáng</b></td><td>Same competence, opposite conclusions by Book 3</td><td>He concedes, and says he&#x27;ll be ready when it fails</td></tr><tr><td><b>Aur&#x27;k – Zhenyth</b></td><td>The one outsider trusted with the secret</td><td>Zhenyth&#x27;s choice to open the Preserve frees Aur&#x27;k from his promise</td></tr><tr><td><b>Elena – Zhenyth</b></td><td>Her hunger for evidence versus their fear</td><td>Zhenyth shows her the merge from inside</td></tr></tbody></table></div>
+    <p><b>The integration rule.</b> Every irreversible choice about the Hollow changes a principal relationship, and every relationship change drives a later choice. Each book&#x27;s emotional climax is the relationship choice that makes the technical action possible.</p>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="5-who-knows-what-and-when"><h2>5. Who knows what, and when</h2></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Truth</th><th>Knows at the start</th><th>Learns</th></tr></thead><tbody><tr><td>Martian minds survive in the Preserve</td><td>Zhenyth, the holdouts, Aur&#x27;k</td><td>Kaelin (Book 1 Act II, from Zhenyth); Elena, Mara (Book 1 late); the public (Book 2, after the Fall)</td></tr><tr><td>Soria was kept linked after death</td><td>Bellamy</td><td>Elena (Book 1 Ch 22); Daniel (Book 1 Ch 23); the public (Book 1 Ch 26)</td></tr><tr><td>Aur&#x27;k always knew</td><td>Aur&#x27;k</td><td>Kaelin (Book 2 Act II-B)</td></tr><tr><td>The Hollow chooses when to warn</td><td>No one</td><td>Rachel suspects (Book 2 Ch 23); proven (Book 3)</td></tr><tr><td>The Gate keeps people</td><td>No one</td><td>Elena suspects (Book 2 Act II-A); everyone (Book 2 Ch 28)</td></tr></tbody></table></div>
+    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="6-assistant-calls-approved"><h2>6. Assistant calls (approved)</h2></div>
+    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>#</th><th>Call</th><th>Why</th></tr></thead><tbody><tr><td>C-1</td><td>Soria&#x27;s surname is Vázquez, and her private nickname for Elena is <i>Bichito</i></td><td>Needs a name no record holds, so its appearance in the first warning is proof</td></tr><tr><td>C-2</td><td>Rachel breaks her line (&quot;never in secret&quot;) at the end of Book 1 and redeems it at the end of Book 2</td><td>Turns the cliffhanger into her arc</td></tr><tr><td>C-3</td><td>Kaelin learns that minds survive in Book 1 from Zhenyth, but learns Aur&#x27;k always knew only in Book 2</td><td>Keeps one fracture per book</td></tr><tr><td>C-4</td><td>Copy-Aur&#x27;k chooses his own end in the Open Hand</td><td>Kaelin doesn&#x27;t have to delete him, which keeps the trilogy&#x27;s consent theme</td></tr><tr><td>C-5</td><td>Mara keeps Luna Haven&#x27;s lattice; Joaquín is the Book 3 voice for keeping the Directorate</td><td>Smaller cast, sharper roles</td></tr><tr><td>C-6</td><td>Funmi Oyelaran kept as the first named death</td><td>She was the strongest scene in the old Book 1</td></tr></tbody></table></div></div></div>
 </section>
-
 <footer>
   <div class="footer-inner">
     <div>
@@ -700,28 +494,24 @@ section,.band-group{background:var(--ground);color:var(--ink);}
   <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
     font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
 </svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">A hard science-fiction trilogy by Istvan Bakos, set in 2087 — three Earth blocs and the Martian Preserve.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">Would you let go of someone you love, if holding on meant feeding the thing that took them?</p>
     </div>
     <div class="footer-nav">
       <span class="footer-nav-title">Explore</span>
-      <a href="world.html">World</a>
-      <a href="locations.html">Locations</a>
-      <a href="characters.html">Characters</a>
+      <a href="story.html">Story</a>
+      <a href="cast.html">Cast</a>
       <a href="books.html">Books</a>
       <a href="manuscript.html">Manuscript</a>
     </div>
     <div class="footer-nav">
-      <span class="footer-nav-title">Codex</span>
-      <a href="craft.html">Craft</a>
-      <a href="laws.html">Laws &amp; Codex</a>
-      <a href="timeline.html">Timeline &amp; Pacing</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="design.html">Design</a>
+      <span class="footer-nav-title">Craft</span>
+      <a href="craft.html">Drafting Guide</a>
+      <a href="brand.html">Visual brand</a>
     </div>
   </div>
   <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
-    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; a living Story Bible, and the manuscript now being written from it.</span>
-    <span class="footer-copy">Fractured Horizons &middot; Resonant Faultlines &middot; Harmonic Worlds</span>
+    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; the Story Bible, and the manuscript being written from it.</span>
+    <span class="footer-copy">Fractured Horizons &middot; The Narrow Gate &middot; The Open Hand</span>
   </div>
 </footer>
 
