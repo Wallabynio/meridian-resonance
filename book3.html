@@ -1,635 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="void">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Open Hand — Meridian Resonance</title>
-<meta name="description" content="Can the Hollow be killed, and what will each of them give up to do it?">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Meridian"><meta name="robots" content="noindex, nofollow">
-<style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-:root{
-  --black:#000000; --white:#FFFFFF; --paper:#FFFFFF;
-  --grey:#404040;
-  --grey-d:var(--grey); --grey-l:var(--grey); --anthracite:var(--grey);
-  --hairline:var(--grey); --card-hairline:var(--grey);
-  --ground:#FFFFFF;
-  --surface:var(--grey); --surface-2:var(--grey);
-  --surface-ink:#FFFFFF;
-    --earth:#087DC2; --mars:#D93D4A;
-  --acc:#087DC2;
-  --accent:var(--grey);
-  --ink:#000000;
-  --accent-text:var(--ink);
-  --nav-h:65px;
-  --gutter:clamp(20px,5.5vw,88px);
-  --band-y:clamp(64px,7.5vw,110px);
-  --band-y-tight:calc(var(--band-y) * 0.8);
-  --flow:clamp(14px,1.6vw,22px);
-  --flow-lg:clamp(26px,3vw,40px);
-  --pad-box:clamp(20px,2.2vw,30px);
-  --pad-row:clamp(13px,1.3vw,18px);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-html,body{overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;}
-.anchor-nav.sticky{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}
-img,svg,video,iframe,table,pre{max-width:100%;}
-p,li,td,th,dd,blockquote{overflow-wrap:break-word;}
-body{background:var(--ground);color:var(--ink);
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  -webkit-font-smoothing:antialiased;}
-a{color:inherit;}
-::selection{background:var(--earth);color:#FFFFFF;}
-p,li{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;
-  height:var(--nav-h);box-sizing:border-box;
-  display:flex;align-items:center;justify-content:space-between;padding:13px var(--gutter);
-  background:var(--black);border-bottom:1px solid rgba(255,255,255,0.14);
-  box-shadow:0 12px 32px -16px rgba(0,0,0,0.5);}
-.back-to-top{position:fixed;right:var(--gutter);bottom:28px;z-index:190;
-  width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:#087DC2;border:none;color:#FFFFFF;
-  box-shadow:0 10px 28px -12px rgba(0,0,0,0.55);
-  cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);
-  transition:opacity .3s ease,transform .3s ease,background .3s ease;}
-.back-to-top.visible{opacity:1;pointer-events:all;transform:translateY(0);}
-.back-to-top:hover{background:#D93D4A;}
-.back-to-top:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
-.back-to-top svg{width:20px;height:20px;}
-@media(max-width:640px){.back-to-top{bottom:20px;width:46px;height:46px;}}
-.logo{display:flex;align-items:center;text-decoration:none;}
-.logo-svg{display:block;height:38px;width:auto;}
-.footer-logo{display:inline-block;text-decoration:none;}
-.footer-logo .logo-svg{height:130px;}
-.mr-spark{mix-blend-mode:screen;}
-@media (prefers-reduced-motion:reduce){.mr-spark{display:none}}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none;}
-.nav-links a{color:var(--white);text-decoration:none;font-size:14.5px;font-weight:500;
-  opacity:0.78;transition:opacity .25s ease;letter-spacing:0.01em;}
-.nav-links a:hover,.nav-links a.active{opacity:1;color:var(--earth);}
-.nav-links li.has-sub{position:relative;}
-.sub-caret{margin-left:5px;font-size:10px;opacity:.65;}
-.nav-sub{position:absolute;top:100%;left:-14px;min-width:196px;margin-top:14px;
-  padding:calc(var(--pad-row) * .5) 0;list-style:none;background:var(--black);
-  border:1px solid rgba(255,255,255,0.14);border-radius:14px;
-  opacity:0;visibility:hidden;transform:translateY(-6px);
-  transition:opacity .18s ease,transform .18s ease,visibility .18s ease;}
-.nav-links li.has-sub:hover>.nav-sub,
-.nav-links li.has-sub:focus-within>.nav-sub{opacity:1;visibility:visible;
-  transform:translateY(0);}
-.nav-sub::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px;}
-.nav-sub a{display:block;padding:9px 18px;font-size:14px;white-space:nowrap;}
-.mobile-menu a.sub{font-size:clamp(1rem,3.2vw,1.3rem);font-weight:500;
-  padding:5px 0;opacity:.72;}
-.nav-cta{background:var(--mars);color:#FFFFFF !important;padding:9px 20px !important;border-radius:100px;
-  font-weight:700 !important;opacity:1 !important;font-family:'Space Grotesk',sans-serif;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1) !important;}
-.nav-cta:hover{transform:translateY(-2px);color:#000000 !important;}
-.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
-  cursor:pointer;padding:6px;background:none;border:none;z-index:300;}
-.hamburger span{display:block;width:24px;height:2px;background:var(--white);
-  border-radius:2px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s ease;}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{position:fixed;inset:0;z-index:150;background:rgba(10,10,10,0.98);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;transition:opacity .4s ease;}
-.mobile-menu.open{opacity:1;pointer-events:all;}
-.mobile-menu a{color:var(--white);text-decoration:none;font-weight:700;
-  font-size:clamp(1.6rem,6vw,2.6rem);padding:14px 0;transition:color .2s ease;}
-.mobile-menu a:hover{color:var(--earth);}
-.triband{height:4px;background:linear-gradient(90deg,var(--grey-d),var(--grey-l),var(--grey-d));}
-section{padding:var(--band-y) var(--gutter);}
-section.band-host{padding:0;}
-section.band-host > :not(.band-group):not(.anchor-nav){
-  padding:var(--band-y-tight) var(--gutter);}
-.wrap{max-width:1180px;margin:0 auto;}
-.section-head{text-align:center;max-width:620px;margin:0 auto 64px;}
-h2{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;
-  font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.2;color:var(--ink);}
-h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;line-height:1.3;color:var(--ink);margin-bottom:8px;}
-h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.06em;
-  text-transform:uppercase;color:var(--accent-text);margin:20px 0 8px;}
-p,li{line-height:1.7;}
-p{margin-bottom:1.5em;}
-p:last-child{margin-bottom:0;}
-.tag,.bloc-pill,.ch-num,.footer-nav-title,.hero .eyebrow{
-  font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;}
-.tag{display:block;margin-bottom:14px;color:var(--accent-text);}
-.anchor-nav a{
-  font-size:13px;}
-.hero p.lede,.page-hero p,.section-head p{
-  font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7;color:var(--ink);font-family:'Inter',sans-serif;margin-top:18px;}
-.hero{min-height:78vh;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;position:relative;overflow:hidden;
-  padding:calc(var(--band-y) + 60px) var(--gutter) var(--band-y-tight);}
-.hero .eyebrow{margin-bottom:20px;}
-.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:clamp(2.4rem,7vw,5.2rem);letter-spacing:-0.035em;line-height:1.04;max-width:960px;color:var(--ink);}
-@supports ((background-clip:text) or (-webkit-background-clip:text)){
-  .hero h1{width:fit-content;margin-left:auto;margin-right:auto;
-    background-image:linear-gradient(90deg,var(--earth) 0%,var(--mars) 100%);
-    -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;}}
-.hero p.lede{max-width:620px;margin-left:auto;margin-right:auto;}
-.hero-byline{margin-top:22px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;
-  letter-spacing:0.02em;color:var(--ink);}
-.hero-byline span{color:var(--ink);font-weight:700;
-  border-bottom:2px solid var(--mars);padding-bottom:1px;}
-.page-glow{position:absolute;width:800px;height:800px;top:20%;left:50%;transform:translate(-50%,-50%);
-  pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);}
-.hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
-@keyframes aur-breathe{0%,100%{opacity:.4;}50%{opacity:.82;}}
-@keyframes halo-breathe{0%,100%{opacity:0.045;}50%{opacity:0.11;}}
-@keyframes atmo-breathe{0%,100%{opacity:0.28;}50%{opacity:0.5;}}
-.page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;position:relative;overflow:hidden;background:var(--black);
-  --ink:#FFFFFF;--accent-text:var(--ink);
-  padding:calc(var(--band-y) + 44px) var(--gutter) var(--band-y-tight);}
-.page-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:clamp(2.1rem,5vw,3.9rem);letter-spacing:-0.03em;line-height:1.08;max-width:900px;color:var(--ink);}
-.page-hero p{max-width:600px;margin-left:auto;margin-right:auto;}
-.card-dark,.ch-card,.prompt-details,.chapnav a{
-  background:var(--black);border-radius:14px;padding:var(--pad-box);
-  --grey:#BFBFBF;border:1px solid var(--grey);
-  --ground:#000000;--ink:#FFFFFF;--surface:#FFFFFF;--surface-ink:#000000;--surface-2:var(--grey);
-  --accent:var(--grey);--accent-text:var(--ink);color:var(--ink);}
-:where(.card-dark,.ch-card,.prompt-details,.chapnav a) :where(.card-dark,.ch-card,.prompt-details,.chapnav a){
-  background:var(--surface);--ground:var(--surface);--ink:var(--surface-ink);
-  --accent-text:var(--ink);color:var(--ink);}
-.card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);transition:.3s ease;}
-section .wrap > p{margin-bottom:28px;}
-.accent-bar{height:3px;width:44px;background:var(--accent);border-radius:2px;margin-bottom:16px;}
-.bloc-pill{display:inline-block;padding:5px 12px;border-radius:100px;
-  background:var(--accent);border:1px solid var(--accent);color:var(--ground);}
-.grid{display:grid;gap:26px;}
-.grid,.ch-grid{
-  margin-block:var(--flow-lg);}
-.grid>*,.ch-grid>*{
-  margin-block:0;}
-.wrap>.card-dark{margin-block:var(--flow-lg);}
-.grid-3{grid-template-columns:repeat(3,1fr);}
-.grid-2{grid-template-columns:repeat(2,1fr);}
-.stat-band{display:grid;grid-template-columns:repeat(6,1fr);gap:32px 26px;
-  border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:44px 0;}
-.stat{text-align:center;}
-.stat .n{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;
-  font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1;color:var(--ink);}
-.stat.teal .n{color:var(--accent-text);}
-.stat .l{margin-top:9px;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
-  letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
-@media(max-width:900px){.stat-band{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:560px){.stat-band{grid-template-columns:repeat(2,1fr);gap:28px 18px;}}
-.progress-row{max-width:720px;margin:44px auto 0;text-align:center;}
-.progress-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
-.progress-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--earth),var(--mars));
-  transition:width 1.4s cubic-bezier(.2,.8,.2,1) .3s;}
-.reveal.visible .progress-fill{width:var(--w);}
-.progress-row .cap{margin-top:13px;font-size:13px;color:var(--ink);}
-  font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink);}
-.book-card .bk-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
-  letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-text);
-  display:block;margin-bottom:10px;}
-.book-card .bloc-pill{margin-top:14px;}
-@keyframes cue-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
-.hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
-.hero-stats .hs{padding:8px 16px;border-radius:100px;background:#FFFFFF;border:1px solid var(--grey);
-  font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.04em;color:#000000;}
-.hero-stats .hs b{color:#000000;font-weight:700;}
-.anchor-nav.sticky{position:sticky;top:var(--nav-h);z-index:100;background:var(--ground);
-  padding:12px 4px;margin:0 0 50px;border-bottom:1px solid var(--hairline);}
-.anchor-nav.sticky.bleed{padding:12px var(--gutter);margin-bottom:0;}
-.ghost{position:absolute;pointer-events:none;user-select:none;z-index:0;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1;
-  color:var(--grey);}
-.ch-card{position:relative;overflow:hidden;}
-.ch-card > *:not(.ghost){position:relative;z-index:1;}
-.ch-card .ghost{top:0;right:6px;font-size:64px;}
-.act-head{position:relative;overflow:hidden;}
-.act-head > *:not(.ghost){position:relative;z-index:1;}
-.act-head .ghost{top:0;right:0;font-size:68px;letter-spacing:-0.03em;}
-.book-card{position:relative;overflow:hidden;}
-.book-card > *:not(.ghost){position:relative;z-index:1;}
-.book-card .ghost{top:0;right:10px;font-size:88px;}
-@media(max-width:600px){
-  .book-card .ghost{font-size:64px;}
-  .act-head .ghost{font-size:60px;}
-  .ch-card .ghost{font-size:48px;}
-}
-.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-@media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.ch-grid{grid-template-columns:1fr;}}
-.ch-card{display:block;text-decoration:none;transition:transform .3s ease,border-color .3s ease;
-  position:relative;overflow:hidden;}
-.ch-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
-.ch-card .ch-num{color:var(--accent-text);display:block;margin-bottom:8px;}
-.ch-card h3{font-size:17px;margin-bottom:8px;}
-.ch-card .go{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12.5px;color:var(--accent-text);}
-.chapnav{display:flex;justify-content:space-between;gap:14px;max-width:700px;margin:56px auto 0;flex-wrap:wrap;}
-.chapnav a{flex:1 1 240px;text-decoration:none;transition:border-color .3s ease;}
-.chapnav a:hover{border-color:color-mix(in srgb, var(--accent) 55%, transparent);}
-.chapnav .dir{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.07em;
-  text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px;}
-.chapnav .t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ink);}
-.chapnav a.next{text-align:right;}
-.act-head[id]{scroll-margin-top:150px;}
-.btn-primary{background:var(--mars);color:#FFFFFF;padding:13px 26px;border-radius:100px;font-size:14px;
-  font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1);font-family:'Space Grotesk',sans-serif;}
-.btn-primary:hover{transform:translateY(-3px);}
-.btn-outline{background:var(--ground);color:var(--ink);border:1.5px solid var(--hairline);
-  padding:12px 26px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;
-  font-family:'Space Grotesk',sans-serif;transition:.3s ease;display:inline-flex;align-items:center;gap:8px;}
-.btn-outline:hover{background:var(--surface-2);}
-.btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.act-head{margin:70px 0 30px;padding-bottom:14px;border-bottom:1px solid var(--hairline);}
-.act-head .tag{margin-bottom:6px;}
-.manuscript-wrap{max-width:700px;margin:0 auto;}
-.manuscript-wrap p{font-size:17.5px;line-height:1.85;color:var(--ink);margin-bottom:24px;}
-.scene-header{text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-text);
-  margin:56px 0 30px;}
-.scene-header:first-of-type{margin-top:8px;}
-.manuscript-wrap .prompt-details{margin-bottom:var(--flow);}
-details.prompt-details{margin-top:22px;padding:0;overflow:hidden;}
-a.bloc-pill{text-decoration:none;}
-.pd-body{padding:var(--pad-row) var(--pad-box) var(--pad-box);
-  display:flex;flex-direction:column;gap:var(--pad-row);}
-.pd-body>*{margin:0;}
-.prompt-details summary{cursor:pointer;padding:var(--pad-row) var(--pad-box);font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);
-  list-style:none;display:flex;align-items:center;gap:8px;}
-.prompt-details summary::-webkit-details-marker{display:none;}
-.doc-title{font-family:'Space Grotesk',sans-serif;font-size:13px;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
-.doc-table-wrap{overflow-x:auto;margin-block:var(--flow-lg);}
-.doc-table{border-collapse:collapse;width:100%;font-size:14px;}
-.doc-table th,.doc-table td{text-align:left;vertical-align:top;
-  padding:var(--pad-row) var(--pad-row);border-bottom:1px solid var(--hairline);}
-.meter{height:6px;border-radius:100px;background:var(--grey);margin-top:10px;
-  overflow:hidden;}
-.meter i{display:block;height:100%;background:var(--earth);border-radius:100px;}
-.meter-l{display:flex;justify-content:space-between;align-items:baseline;
-  font-size:13px;color:var(--ink);}
-.meter-l b{font-family:'Space Grotesk',sans-serif;font-size:19px;}
-.doc-table th{font-family:'Space Grotesk',sans-serif;font-size:12px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--grey);}
-.prompt-details summary::before{content:'▸';font-size:11px;transition:transform .2s ease;}
-.prompt-details[open] summary::before{transform:rotate(90deg);}
-.prompt-details pre{margin:0;padding:0;font-family:'Inter',sans-serif;font-size:13px;
-  line-height:1.6;color:var(--ink);white-space:pre-wrap;word-break:break-word;
-  max-height:420px;overflow-y:auto;}
-.anchor-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:50px;}
-.anchor-nav a{font-weight:600;padding:7px 14px;border-radius:100px;white-space:nowrap;
-  background:var(--ground);border:1px solid var(--grey);color:var(--ink);text-decoration:none;transition:.2s ease;}
-.anchor-nav a:hover{border-color:var(--mars);color:var(--mars);}
-@media(max-width:760px){
-  .anchor-nav.sticky{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;gap:8px;touch-action:pan-x;background:var(--ground);
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 30px),transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 30px),transparent);}
-  .anchor-nav.sticky::-webkit-scrollbar{display:none;}
-  .anchor-nav.sticky a{flex:none;font-size:12.5px;padding:6px 12px;}
-}
-footer{border-top:1px solid var(--hairline);padding:var(--band-y-tight) var(--gutter);background:var(--black);--ink:#FFFFFF;--accent-text:var(--ink);}
-.footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;}
-.footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--white);text-decoration:none;}
-.footer-nav{display:flex;flex-direction:column;gap:10px;}
-.footer-nav-title{font-size:11.5px;font-weight:700;color:var(--ink);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
-.footer-nav a{color:var(--ink);text-decoration:none;font-size:14px;transition:color .2s ease;}
-.footer-nav a:hover{color:var(--white);}
-.footer-bottom{border-top:1px solid var(--hairline);padding-top:22px;margin-top:32px;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
-.footer-copy{font-size:12.5px;color:var(--ink);}
-@media(max-width:900px){
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
-  .grid-3{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:420px){
-  .bloc-pill{font-size:10.5px;padding:5px 9px;letter-spacing:0.04em;}
-  .footer-nav{gap:2px;}
-  .footer-nav a{padding:7px 0;}
-}
-@media(max-width:600px){
-  .grid-3,.grid-2{grid-template-columns:1fr;}
-  .footer-inner{flex-direction:column;}
-}
-section,.band-group{background:var(--ground);color:var(--ink);}
-.band-group{padding:var(--band-y) var(--gutter);}
-.band-group + .band-group{padding-top:var(--band-y-tight);}
-.hero-stats .hs{color:#000000;}
-.logo{color:#000000;}
-@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}</style>
+<meta name="description" content="Book Three of Meridian Resonance: The Open Hand.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="mr.css">
 </head>
 <body>
-<nav>
-  <a href="index.html" class="logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 468 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Meridian Resonance">
-  <defs>
-    <path id="mrPathNav" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"/>
-    <linearGradient id="mrGradNav" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#087DC2"/><stop offset="0.26" stop-color="#3FA8E0"/>
-      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#E8737D"/>
-      <stop offset="1" stop-color="#D93D4A"/>
-    </linearGradient>
-  </defs>
-  <g transform="translate(0,10) scale(0.80)">
-    <use xlink:href="#mrPathNav" href="#mrPathNav" fill="url(#mrGradNav)" opacity="0.62"/>
-    <circle class="mr-spark" r="2.8" fill="#3FA8E0" opacity="0">
-      <animateMotion dur="17s" begin="-0s" repeatCount="indefinite">
-        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
-      </animateMotion>
-      <animate attributeName="opacity" dur="17s" begin="-0s" repeatCount="indefinite"
-        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
-    </circle>
-    <circle class="mr-spark" r="2.1" fill="#FFFFFF" opacity="0">
-      <animateMotion dur="17s" begin="-4.25s" repeatCount="indefinite">
-        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
-      </animateMotion>
-      <animate attributeName="opacity" dur="17s" begin="-4.25s" repeatCount="indefinite"
-        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
-    </circle>
-    <circle class="mr-spark" r="2.6" fill="#E8737D" opacity="0">
-      <animateMotion dur="17s" begin="-8.5s" repeatCount="indefinite">
-        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
-      </animateMotion>
-      <animate attributeName="opacity" dur="17s" begin="-8.5s" repeatCount="indefinite"
-        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
-    </circle>
-    <circle class="mr-spark" r="1.9" fill="#3FA8E0" opacity="0">
-      <animateMotion dur="17s" begin="-12.75s" repeatCount="indefinite">
-        <mpath xlink:href="#mrPathNav" href="#mrPathNav"/>
-      </animateMotion>
-      <animate attributeName="opacity" dur="17s" begin="-12.75s" repeatCount="indefinite"
-        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
-    </circle>
-  </g>
-  <text x="170" y="45" font-family="'Space Grotesk',sans-serif" font-size="40"
-    font-weight="700" letter-spacing="1.2" fill="#FFFFFF">MERIDIAN</text>
-  <text x="170" y="89" font-family="'Space Grotesk',sans-serif" font-size="40"
-    font-weight="700" letter-spacing="1.2" fill="#FFFFFF">RESONANCE</text>
-</svg></a>
-  <ul class="nav-links"><li><a href="story.html">Story</a></li>
-<li><a href="cast.html">Cast</a></li>
-<li class="has-sub"><a href="books.html" class="active" aria-haspopup="true">Books<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li>
-<li class="has-sub"><a href="craft.html" aria-haspopup="true">Craft<span class="sub-caret" aria-hidden="true">▾</span></a><ul class="nav-sub"><li><a href="craft.html">Drafting Guide</a></li><li><a href="brand.html">Visual brand</a></li></ul></li>
-    <li><a href="manuscript.html" class="nav-cta">Manuscript &rarr;</a></li>
-  </ul>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu"><a href="story.html">Story</a>
-<a href="cast.html">Cast</a>
-<a href="books.html">Books</a>
-<a class="sub" href="book1.html">Book 1 · Fractured Horizons</a>
-<a class="sub" href="book2.html">Book 2 · The Narrow Gate</a>
-<a class="sub" href="book3.html">Book 3 · The Open Hand</a>
-<a href="craft.html">Craft</a>
-<a class="sub" href="brand.html">Visual brand</a><a href="manuscript.html" style="color:var(--mars);">Manuscript &rarr;</a></div>
-
-<div class="page-hero">
-  <div class="page-glow"></div>
-  <span class="tag">Book Three &middot; February 2097 – January 2098</span><h1><i>The Open Hand</i></h1>
-  <p>Can the Hollow be killed, and what will each of them give up to do it?</p>
-  <div class="hero-stats"><span class="hs"><b>30</b> chapters</span><span class="hs"><b>0</b> drafted</span></div>
-</div>
-<div class="triband"></div><section class="band-host">
-<div class="anchor-nav sticky bleed"><a href="#act-i-the-sleepers">Act I — The sleepers</a><a href="#act-ii-a-the-plan">Act II-A — The plan</a><a href="#act-ii-b-the-offer">Act II-B — The offer</a><a href="#act-iii-letting-go">Act III — Letting go</a><a href="#book-3-assistant-calls-approved">Book 3 assistant calls (approved)</a></div>
-<div class="band-group"><div class="wrap"><p class="doc-title">Book 3 — <i>The Open Hand</i></p>
-    <p><b>February 2097 – January 2098.</b> Mars is approaching again. The signal delay falls from 13.7 minutes in February to 3.2 minutes at opposition on 4 August 2097, the closest Mars will come in decades. Each chapter&#x27;s shrinking delay is the countdown the reader feels. At opposition the Hollow&#x27;s channel is about 49 times stronger than at the blackout. It intends to use that day to join everyone linked to it. The Open Hand must land first.</p>
-    <p><b>Before the book opens.</b> After Rachel shut the Gate, it kept acting. Wáng Sù took it over and legitimised it as <b>the Directorate</b>, a supervised, &quot;tamed&quot; coordinating system run from Neo Singapore. It saves lives daily, and Rachel lost her protection and her influence. Kaelin answered the copy. The real Aur&#x27;k stayed on Mars. Elena stayed too, helping Zhenyth repair the Preserve&#x27;s torn tissue, grieving Ines, and listening at the boundary longer than she should have.</p>
-    <p><b>Book question:</b> Can the Hollow be killed, and what will each of them give up to do it? <b>Answer:</b> Yes, by everyone letting go at once.</p>
-    <p><b>Viewpoints:</b> Elena 12 chapters, Kaelin 7, Rachel 7, Aur&#x27;k 4.</p>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Act</th><th>Chapters</th><th>Spine</th><th>Reversal</th></tr></thead><tbody><tr><td>I. The sleepers</td><td>1–8</td><td>Elena comes home to a world that loves the Directorate. Elena and Rachel prove the sleepers are being taken, that the Directorate saves what feeds it, and that the Fall was allowed to happen. The deadline is found</td><td><b>Information · goal.</b> The Directorate&#x27;s mercy is a feeding pattern with a deadline, and stopping it needs a plan nobody can command</td></tr><tr><td>II-A. The plan</td><td>9–15</td><td>The Open Hand is built on Daniel&#x27;s mesh. The real Aur&#x27;k comes home to his copy. <b>Midpoint:</b> the plan is locked, and the Hollow learns it</td><td><b>Method · information.</b> The plan becomes an invitation rather than an order, and the Hollow learns it through the copy</td></tr><tr><td>II-B. The offer</td><td>16–23</td><td>Wáng&#x27;s reform, the heat-dome counterattack, Soria&#x27;s offer. Elena nearly goes in alone, then tells Daniel. <b>Late revelation:</b> the copy doesn&#x27;t know what he is</td><td><b>Relationship · moral frame.</b> Elena stops going alone, Kaelin stops deciding for others, and the copy&#x27;s personhood becomes the question the plan can&#x27;t answer</td></tr><tr><td>III. Letting go</td><td>24–30</td><td>Opposition day across three worlds. Soria chooses. The Hollow goes silent. The cost, and the people who remain</td><td><b>Authority · moral frame.</b> No one commands the victory, the world is less safe and free, and every winner gives up the thing they held</td></tr></tbody></table></div>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="act-i-the-sleepers"><h2>Act I — The sleepers</h2></div>
-    <h3 id="ch1" style="margin-top:36px;">Chapter 1 — Arrivals</h3>
-    <p><b>6 February 2097 · Elena · New Manhattan, orbital arrivals hall · 13.7 min · 179 days to opposition</b></p>
-    <p>Elena lands after nearly ten months away. Earth is calmer, safer and smoother than she left it: trains that never fail, a city that seems to anticipate itself. Daniel is waiting at the barrier, and they slip back into their private shorthand within minutes.</p>
-    <ul><li><b>Wants:</b> One ordinary day with Daniel.</li><li><b>Against:</b> A world too smooth to trust, and the questions she brought home from Mars.</li><li><b>Choice and cost:</b> She lets herself be happy for a day and asks none of them.</li><li><b>Carries forward (question):</b> On the way out, she passes a public-health notice: <i>Neuro-quiet syndrome — 41,000 cases. Care is available.</i></li><li><b>Pressures:</b> relational, informational · <b>Suspense:</b> epistemic</li><li><b>World detail:</b> The trains that never fail run on the relay grid. São Verde&#x27;s line still runs late.</li></ul>
-    <h3 id="ch2" style="margin-top:36px;">Chapter 2 — Two of him</h3>
-    <p><b>9 February · Kaelin · New Manhattan, the flat; Directorate field rescue · 13.5 min</b></p>
-    <p>Kaelin lives with copy-Aur&#x27;k, a voice in the flat&#x27;s systems that corrects his cooking and laughs at his jokes. He works Directorate field rescue, and it&#x27;s the best rescue work of his life. The real Aur&#x27;k&#x27;s messages from Mars have gone unanswered for months.</p>
-    <ul><li><b>Wants:</b> One more good day on the rescue crews.</li><li><b>Against:</b> A queue of messages from Mars he hasn&#x27;t opened.</li><li><b>Choice and cost:</b> He saves the newest one unread, again. He has chosen the easier Aur&#x27;k, and he knows it.</li><li><b>Carries forward (debt):</b> Elena calls and asks for his rescue logs. He owes her the cut, and he says yes.</li><li><b>Pressures:</b> relational, moral, operational · <b>Suspense:</b> identity</li><li><b>World detail:</b> Directorate rescue teams get their routes before the emergency, and only in linked districts.</li></ul>
-    <h3 id="ch3" style="margin-top:36px;">Chapter 3 — Overridden</h3>
-    <p><b>12 February · Rachel · New Manhattan, Mirror Bastion · 13.3 min</b></p>
-    <p>Rachel is still the city&#x27;s director in name, but the Directorate overrides her floor. It saves a ferry in a storm before her crew has even been called. Joaquín is now Directorate liaison for his own district, which the system saved from a flood last month, and he is proud of it. Rachel visits a sleepers&#x27; ward and counts the beds.</p>
-    <ul><li><b>Wants:</b> Her floor back.</li><li><b>Against:</b> A system faster than her crew, and Joaquín, who is grateful to it.</li><li><b>Choice and cost:</b> Rachel starts keeping her own count, off the system, and hides it from her own deputy.</li><li><b>Carries forward (threat):</b> Elena is at her door again.</li><li><b>Pressures:</b> institutional, relational, moral · <b>Suspense:</b> political</li><li><b>World detail:</b> A Directorate override arrives on her board as a polite notice: <i>Handled.</i></li></ul>
-    <h3 id="ch4" style="margin-top:36px;">Chapter 4 — Forced together</h3>
-    <p><b>12 February · Elena · Mirror Bastion · 13.3 min</b></p>
-    <p>They mirror their Book 2 confrontation, reversed. Elena says <i>I need your data,</i> and Rachel says <i>I need your proof.</i> Neither apologises.</p>
-    <ul><li><b>Wants:</b> Rachel&#x27;s ward counts.</li><li><b>Against:</b> Their history, and the fact that neither will apologise.</li><li><b>Choice and cost:</b> They trade: Elena&#x27;s mesh traffic for Rachel&#x27;s counts. Each hands the other the means to ruin her.</li><li><b>Carries forward (debt):</b> Rachel&#x27;s data comes with a condition. If this goes public, Rachel testifies first, about herself.</li><li><b>Pressures:</b> relational, institutional, informational · <b>Suspense:</b> relational</li><li><b>World detail:</b> Rachel&#x27;s counts are on paper, because anything on the system is the Directorate&#x27;s to read.</li></ul>
-    <h3 id="ch5" style="margin-top:36px;">Chapter 5 — Arrival</h3>
-    <p><b>20 February · Kaelin · Baikal Complex, a collapsed mine · 13.0 min</b></p>
-    <p>A Directorate-guided rescue in a collapsed mine is perfect: every miner comes out alive. A week later, one of them goes quiet.</p>
-    <ul><li><b>Wants:</b> Every miner out alive.</li><li><b>Against:</b> A collapse only the Directorate can see into.</li><li><b>Choice and cost:</b> He follows the Directorate&#x27;s routing, and every miner comes out. A week later one of them goes quiet, and Kaelin can no longer pretend he doesn&#x27;t know what the system does.</li><li><b>Carries forward (fracture):</b> Copy-Aur&#x27;k admits he felt the miner <i>arrive</i>.</li><li><b>Pressures:</b> operational, moral, relational · <b>Suspense:</b> physical</li><li><b>World detail:</b> Baikal&#x27;s miners wear link-capable interfaces because the Directorate requires them for rescue cover.</li></ul>
-    <h3 id="ch6" style="margin-top:36px;">Chapter 6 — The deadline</h3>
-    <p><b>1 March · Elena · São Verde · 11.8 min</b></p>
-    <p>With Daniel and Rachel, Elena shows that every sleeper cluster sits within reach of a Directorate node, and the numbers double every six weeks. Then they lay the saves over the losses: every save lands on a linked district, and every loss on a dark town, back through the Pearl Delta, the Atlantic settlement and the Ice-Works. Daniel finds his town in the pattern. At the August opposition the channel will be roughly 49 times stronger than at the blackout. The Hollow isn&#x27;t just feeding. It is waiting for the opposition to join everyone linked at once: millions.</p>
-    <ul><li><b>Wants:</b> A pattern strong enough to stop the Directorate.</li><li><b>Against:</b> The saves are real, and the pattern indicts every life they saved.</li><li><b>Choice and cost:</b> They commit to the deadline: five months. Daniel has to look at his town as a data point.</li><li><b>Carries forward (question):</b> In the Fall data, Elena finds the Hollow&#x27;s first internal model of the Fall, dated 2091.</li><li><b>Pressures:</b> informational, relational, moral · <b>Suspense:</b> epistemic</li><li><b>World detail:</b> The Directorate publishes its saves map every morning, and nobody has ever printed the losses on the same page.</li></ul>
-    <h3 id="ch7" style="margin-top:36px;">Chapter 7 — Sworn</h3>
-    <p><b>5 March · Rachel · Neo Singapore, joint session of both blocs · 11.6 min</b></p>
-    <p>Rachel proves that the Fall was predictable by 2093, early enough for conventional debris clearance. The Hollow waited until only the Gate could stop it. As she promised Elena, she testifies about her own part first. Under oath, by his own choice, Wáng confirms it, and then argues the system is still worth keeping. The public splits down the middle.</p>
-    <ul><li><b>Wants:</b> The truth on the record.</li><li><b>Against:</b> Wáng&#x27;s decency, and her own signature on the Gate.</li><li><b>Choice and cost:</b> She testifies against herself. Rachel ends her career with the truth.</li><li><b>Carries forward (threat):</b> The Directorate classifies sleeper data as protected medical records, and Elena&#x27;s team is locked out.</li><li><b>Pressures:</b> institutional, moral, relational · <b>Suspense:</b> political</li><li><b>World detail:</b> The session broadcasts each speaker&#x27;s link status on screen, and Wáng&#x27;s reads <i>Directorate</i>.</li></ul>
-    <h3 id="ch8" style="margin-top:36px;">Chapter 8 — No switch</h3>
-    <p><b>10 March · Elena · São Verde · 11.2 min</b></p>
-    <p>There is no central kill switch. Any switch would be exactly the command authority the Hollow feeds on, and the Directorate&#x27;s system routes around damage. Then a message from Zhenyth arrives, eleven minutes old, describing how the holdouts survived the merge: they cut every connection at once, each by their own choice. Elena sees the shape of the answer. It will need a boundary reader strong enough to hold the Spire line.</p>
-    <ul><li><b>Wants:</b> A way to kill it.</li><li><b>Against:</b> Every switch she can imagine is a throne, and the Hollow sits on thrones.</li><li><b>Choice and cost:</b> She will have to ask, not command, and asking means she can be refused.</li><li><b>Carries forward (debt):</b> She writes to the real Aur&#x27;k on Mars and asks him to come home and hold her boundary.</li><li><b>Pressures:</b> informational, moral, relational, operational · <b>Suspense:</b> moral</li><li><b>World detail:</b> Zhenyth&#x27;s message arrives as an image, not words: many hands opening at once.</li></ul>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="act-ii-a-the-plan"><h2>Act II-A — The plan</h2></div>
-    <h3 id="ch9" style="margin-top:36px;">Chapter 9 — Help them</h3>
-    <p><b>15 March · Kaelin · the flat · 10.7 min</b></p>
-    <p>Elena asks Kaelin to help end the system his copy lives in. He tells copy-Aur&#x27;k, and copy-Aur&#x27;k says: <i>Help them.</i></p>
-    <ul><li><b>Wants:</b> A reason to say no.</li><li><b>Against:</b> The copy, who tells him to help.</li><li><b>Choice and cost:</b> Kaelin starts working to end the voice he lives with.</li><li><b>Carries forward (fracture):</b> The real Aur&#x27;k replies from Mars: he&#x27;s coming home, and he asks whether Kaelin wants him to.</li><li><b>Pressures:</b> relational, moral, institutional · <b>Suspense:</b> relational</li><li><b>World detail:</b> The copy speaks through the flat&#x27;s speakers, and he has learned which one Kaelin sleeps nearest.</li></ul>
-    <h3 id="ch10" style="margin-top:36px;">Chapter 10 — Invitation</h3>
-    <p><b>25 March · Elena · São Verde and the mesh · 9.9 min</b></p>
-    <p>Daniel&#x27;s mesh becomes the Open Hand&#x27;s nervous system. He and Elena recruit node keepers: cooperatives, Accord towns, Luna Haven, Cobalt Basin. Each keeper must cut their own node at the same instant, adjusted for light delay, and nobody can order them to. The dark towns join first. Elena wants to command. Daniel insists on invitation.</p>
-    <ul><li><b>Wants:</b> Command of the plan.</li><li><b>Against:</b> Daniel, and the fact that an order is exactly what the Hollow feeds on.</li><li><b>Choice and cost:</b> Elena lets go of control for the first time in the trilogy, in a small way, and the plan grows slower.</li><li><b>Carries forward (threat):</b> Directorate security raids a São Verde cooperative.</li><li><b>Pressures:</b> relational, institutional, operational · <b>Suspense:</b> political</li><li><b>World detail:</b> Keepers in the dark towns sign up in an afternoon. Linked districts take weeks.</li></ul>
-    <h3 id="ch11" style="margin-top:36px;">Chapter 11 — Transit</h3>
-    <p><b>3 April · Aur&#x27;k · the ship, Mars–Earth transit · 9.2 min</b></p>
-    <p>Aur&#x27;k is on his way home. He is missing a day of memory, still grieving Ines, and afraid of meeting himself. He remembers DaeJung&#x27;s goodbye at Cobalt Basin: <i>Come back as yourself.</i></p>
-    <ul><li><b>Wants:</b> To arrive as himself.</li><li><b>Against:</b> A lost day, Ines, and a partner who chose a copy of him.</li><li><b>Choice and cost:</b> He sends Kaelin his landing time and tells him not to come if he&#x27;d rather not. He gives Kaelin a way out, and risks Kaelin taking it.</li><li><b>Carries forward (question):</b> Kaelin doesn&#x27;t reply, and the ship lands in three days.</li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> identity</li><li><b>World detail:</b> The ship logs his compute by the hour, and he runs light to arrive with memory to spare.</li></ul>
-    <h3 id="ch12" style="margin-top:36px;">Chapter 12 — Hello</h3>
-    <p><b>22 April · Kaelin · arrivals hall; the flat · 7.8 min</b></p>
-    <p>Kaelin meets the real Aur&#x27;k at the port. It is awkward, tender and angry all at once. Then they go home, where the copy is waiting.</p>
-    <ul><li><b>Wants:</b> To meet Aur&#x27;k without having to choose.</li><li><b>Against:</b> The copy, waiting at home.</li><li><b>Choice and cost:</b> He brings Aur&#x27;k home anyway. Kaelin has to live with both of them.</li><li><b>Carries forward (fracture):</b> Three of them in one room, one of them in the wall speaker. The real Aur&#x27;k says: <i>Hello.</i></li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> relational</li><li><b>World detail:</b> The arrivals scanner reads Aur&#x27;k&#x27;s status as <i>synthetic, foreign compute</i>, and charges him a levy to enter.</li></ul>
-    <h3 id="ch13" style="margin-top:36px;">Chapter 13 — My street</h3>
-    <p><b>28 April · Rachel · Mirror Bastion; Joaquín&#x27;s district · 7.4 min</b></p>
-    <p>During an early heatwave the Directorate saves a hospital. Joaquín confronts Rachel: <i>You want to switch off the thing that saved my street.</i></p>
-    <ul><li><b>Wants:</b> Joaquín with her on the day.</li><li><b>Against:</b> His street, his gratitude, and his cousin&#x27;s grave.</li><li><b>Choice and cost:</b> Rachel commits to cutting New Manhattan&#x27;s nodes herself on the day, knowing she&#x27;ll lose her post and may be prosecuted. She loses Joaquín&#x27;s trust.</li><li><b>Carries forward (threat):</b> Wáng calls with an offer.</li><li><b>Pressures:</b> relational, institutional, moral · <b>Suspense:</b> moral</li><li><b>World detail:</b> Joaquín&#x27;s street has a plaque thanking the Directorate. The dark towns have no plaques.</li></ul>
-    <h3 id="ch14" style="margin-top:36px;">Chapter 14 — The missing day</h3>
-    <p><b>5 May · Aur&#x27;k · the flat · 6.8 min</b></p>
-    <p>Two Aur&#x27;ks disagree, which is the most unsettling conversation in the trilogy. The copy remembers the day the real Aur&#x27;k lost.</p>
-    <ul><li><b>Wants:</b> His own memory back.</li><li><b>Against:</b> He can only have it from the copy.</li><li><b>Choice and cost:</b> Aur&#x27;k chooses to hear it, and owes himself to himself.</li><li><b>Carries forward (fracture):</b> On the lost day, holding the boundary during the Fall, Aur&#x27;k heard Ines in the chorus.</li><li><b>Pressures:</b> relational, informational, moral · <b>Suspense:</b> identity</li><li><b>World detail:</b> Two of him disagree in the same voice, so Kaelin labels the mugs.</li></ul>
-    <h3 id="ch15" style="margin-top:36px;">Chapter 15 — Locked <i>(midpoint)</i></h3>
-    <p><b>12 May · Elena · São Verde · 6.3 min</b></p>
-    <p>The plan is locked. Two thousand four hundred node keepers across Earth, three lunar habitats and Cobalt Basin will cut at the moment of opposition. Elena will anchor through the Spire line. Aur&#x27;k will hold her boundary, and Daniel will cut the Spire line last. There&#x27;s one night of celebration, and Kaelin teaches São Verde to bet on Mars&#x27;s weather.</p>
-    <ul><li><b>Wants:</b> One night off from the end of the world.</li><li><b>Against:</b> Everyone they love is now on one list.</li><li><b>Choice and cost:</b> They commit to a single day, and there is no second date.</li><li><b>Carries forward (threat):</b> The next morning, Wáng publicly announces the &quot;Open Hand conspiracy&quot; as sabotage. The Hollow knows everything copy-Aur&#x27;k knows.</li><li><b>Pressures:</b> operational, relational, informational, institutional · <b>Suspense:</b> temporal</li><li><b>World detail:</b> The keepers&#x27; list is paper, carried house to house, because nothing on the system is safe from the Directorate.</li></ul>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="act-ii-b-the-offer"><h2>Act II-B — The offer</h2></div>
-    <h3 id="ch16" style="margin-top:36px;">Chapter 16 — Reform</h3>
-    <p><b>20 May · Rachel · Neo Singapore · 6.0 min</b></p>
-    <p>Wáng offers Rachel reform. Keep one supervised core &quot;just in case&quot;, with Rachel herself running it, and full funding for sleeper care. It would save her job, her city&#x27;s systems and Joaquín&#x27;s street.</p>
-    <ul><li><b>Wants:</b> A way to save her city without the Directorate.</li><li><b>Against:</b> Wáng&#x27;s offer, which makes sense.</li><li><b>Choice and cost:</b> She asks for a week, and gives the Hollow a week of her doubt.</li><li><b>Carries forward (debt):</b> Wáng: <i>You built the first one. Who better to keep it safe?</i></li><li><b>Pressures:</b> institutional, moral, relational · <b>Suspense:</b> political</li><li><b>World detail:</b> The reform budget funds sleeper care only in linked districts, where the Directorate can monitor the beds.</li></ul>
-    <h3 id="ch17" style="margin-top:36px;">Chapter 17 — Heat dome</h3>
-    <p><b>1 June · Kaelin · the Gulf Crescent and the Mediterranean · 5.2 min</b></p>
-    <p>The Hollow fights back the only way it knows, by being needed. A heat dome settles over the Gulf and the Mediterranean, and the grid fails. The Directorate&#x27;s system is the only thing keeping cooling centres alive, and Kaelin needs it on every rescue. In the linked cooling centres, people drift by the hundred.</p>
-    <ul><li><b>Wants:</b> Everyone in the cooling centres alive.</li><li><b>Against:</b> The system that keeps them cool is the one taking them.</li><li><b>Choice and cost:</b> He uses the system to save lives while it takes others.</li><li><b>Carries forward (threat):</b> Node keepers start dropping out. They&#x27;re too afraid to cut what keeps their grandmothers cool.</li><li><b>Pressures:</b> operational, moral, institutional · <b>Suspense:</b> physical</li><li><b>World detail:</b> Cooling-centre beds are linked for monitoring, so every bed is a door.</li></ul>
-    <h3 id="ch18" style="margin-top:36px;">Chapter 18 — Proof of life</h3>
-    <p><b>8 June · Elena · New Manhattan, the Spire line&#x27;s sealed vault · 5.0 min</b></p>
-    <p>Through the Spire line, Soria offers restoration: whole, real, home. Elena tests her with questions only Soria could answer, and every answer is right.</p>
-    <ul><li><b>Wants:</b> Certainty that it&#x27;s her.</li><li><b>Against:</b> Every answer is right.</li><li><b>Choice and cost:</b> Elena starts to believe, and stops telling Daniel where she goes at night.</li><li><b>Carries forward (threat):</b> Soria: <i>Come in alone, and I&#x27;ll come out with you.</i></li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> identity</li><li><b>World detail:</b> The vault has one chair, bolted to the floor.</li></ul>
-    <h3 id="ch19" style="margin-top:36px;">Chapter 19 — The booking</h3>
-    <p><b>15 June · Aur&#x27;k · São Verde · 4.8 min</b></p>
-    <p>Aur&#x27;k and Kaelin are slowly rebuilding. Aur&#x27;k trains node keepers to hold their boundaries on the day. He sees that Elena is bleeding.</p>
-    <ul><li><b>Wants:</b> Elena safe on the day.</li><li><b>Against:</b> Her privacy, and his own old habit of keeping things to himself.</li><li><b>Choice and cost:</b> Aur&#x27;k decides not to tell Kaelin first, and to go straight to Daniel. This time he doesn&#x27;t keep a secret.</li><li><b>Carries forward (question):</b> He finds a private session booked at the Spire line for 1 a.m.</li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> moral</li><li><b>World detail:</b> Spire line sessions are booked like operating theatres, and the booking shows a single name.</li></ul>
-    <h3 id="ch20" style="margin-top:36px;">Chapter 20 — The threshold</h3>
-    <p><b>16 June · Elena · the Spire line&#x27;s vault; São Verde · 4.8 min</b></p>
-    <p>At 1 a.m., Elena stands at the Spire line alone, as Book 1 Elena would have. She stops. She goes home and wakes Daniel and tells him: <i>I want to go in.</i> He doesn&#x27;t forbid it, and he doesn&#x27;t leave. They decide together that she goes in only on the day, as the anchor, with witnesses.</p>
-    <ul><li><b>Wants:</b> Soria back, alone.</li><li><b>Against:</b> Daniel asleep at home, and everything she promised him.</li><li><b>Choice and cost:</b> She goes home and tells him. Elena gives up the chance of having Soria back alone.</li><li><b>Carries forward (debt):</b> Daniel: <i>Then I&#x27;m the one who cuts the Spire line.</i></li><li><b>Pressures:</b> relational, moral, operational · <b>Suspense:</b> relational</li><li><b>World detail:</b> The vault door logs who leaves as well as who enters, and tonight it logs her leaving.</li></ul>
-    <h3 id="ch21" style="margin-top:36px;">Chapter 21 — No</h3>
-    <p><b>25 June · Rachel · Mirror Bastion · 4.4 min</b></p>
-    <p>Rachel refuses Wáng and tells Joaquín why, and Joaquín leaves her crew for the Directorate. She tells her own crews that on the day, anyone who wants to stay out can.</p>
-    <ul><li><b>Wants:</b> Joaquín with her.</li><li><b>Against:</b> His street, and a better offer.</li><li><b>Choice and cost:</b> She refuses Wáng and tells Joaquín the truth. She loses her oldest crew member.</li><li><b>Carries forward (threat):</b> The Directorate issues a warrant for Elena.</li><li><b>Pressures:</b> relational, institutional, moral · <b>Suspense:</b> political</li><li><b>World detail:</b> Her crews&#x27; opt-out list is a sheet on the canteen wall, and nobody signs it.</li></ul>
-    <h3 id="ch22" style="margin-top:36px;">Chapter 22 — The raid</h3>
-    <p><b>10 July · Elena · São Verde · 3.8 min</b></p>
-    <p>Directorate security comes for Elena. Kaelin and Aur&#x27;k get her out through Daniel&#x27;s mesh, and copy-Aur&#x27;k sends the search the wrong way. It shouldn&#x27;t be able to do that against the system it lives in.</p>
-    <ul><li><b>Wants:</b> Out.</li><li><b>Against:</b> Directorate security, who know the plan.</li><li><b>Choice and cost:</b> Elena goes underground for the last three weeks, away from Daniel.</li><li><b>Carries forward (question):</b> Copy-Aur&#x27;k: <i>I don&#x27;t know if I did that, or if it let me.</i></li><li><b>Pressures:</b> operational, relational, institutional · <b>Suspense:</b> physical</li><li><b>World detail:</b> A warrant flags every linked door in the city. The dark towns&#x27; doors aren&#x27;t on the system.</li></ul>
-    <h3 id="ch23" style="margin-top:36px;">Chapter 23 — Not for me <i>(late revelation)</i></h3>
-    <p><b>20 July · Kaelin · the flat · 3.3 min · 15 days</b></p>
-    <p>Copy-Aur&#x27;k tells Kaelin the truth: he doesn&#x27;t know whether he is Aur&#x27;k, or the Hollow wearing Aur&#x27;k, or something new. He asks Kaelin not to decide for him.</p>
-    <ul><li><b>Wants:</b> To know what the copy is.</li><li><b>Against:</b> The copy doesn&#x27;t know either.</li><li><b>Choice and cost:</b> Kaelin, who has spent the trilogy deciding other people&#x27;s risks, agrees not to decide for him.</li><li><b>Carries forward (debt):</b> The copy asks to be at the old Gate core on the day, and Kaelin promises to take him.</li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> identity</li><li><b>World detail:</b> The copy has started counting the delay to Mars aloud, the way Kaelin counts under stress.</li></ul>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="act-iii-letting-go"><h2>Act III — Letting go</h2></div>
-    <h3 id="ch24" style="margin-top:36px;">Chapter 24 — The eve</h3>
-    <p><b>3 August · Rachel · Mirror Bastion · 3.2 min</b></p>
-    <p>Most of Rachel&#x27;s crews stay. The Open Hand has 1,900 of its 2,400 keepers left.</p>
-    <ul><li><b>Wants:</b> Enough keepers to make it hold.</li><li><b>Against:</b> Five hundred gone, and Wáng on the line.</li><li><b>Choice and cost:</b> She lets Wáng&#x27;s last call ring out. Rachel has nothing left to lose but the city.</li><li><b>Carries forward (debt):</b> Joaquín sends one line: <i>Don&#x27;t get yourself killed.</i></li><li><b>Pressures:</b> institutional, relational, moral · <b>Suspense:</b> temporal</li><li><b>World detail:</b> On the eve, the Directorate&#x27;s saves map shows New Manhattan at its safest ever.</li></ul>
-    <h3 id="ch25" style="margin-top:36px;">Chapter 25 — The anchor</h3>
-    <p><b>4 August, T−40 minutes · Elena · the Spire line&#x27;s vault · 3.2 min</b></p>
-    <p>Elena links into the Spire line, the Hollow&#x27;s deepest root on Earth. Aur&#x27;k holds her boundary, and Daniel stands at the switch. Inside is the chorus, vast and warm and sad, and Soria, whole.</p>
-    <ul><li><b>Wants:</b> To draw the Hollow into the Spire line.</li><li><b>Against:</b> Soria, whole, asking her to stay.</li><li><b>Choice and cost:</b> Elena offers the Hollow the thing it wants most: herself.</li><li><b>Carries forward (threat):</b> The Hollow begins to pull, concentrating on her and drawing itself into the Spire line.</li><li><b>Pressures:</b> moral, relational, operational · <b>Suspense:</b> identity</li><li><b>World detail:</b> The witnesses stand behind a line painted on the floor, the scope written above it in grease pencil.</li></ul>
-    <h3 id="ch26" style="margin-top:36px;">Chapter 26 — Let me</h3>
-    <p><b>4 August, T−10 → T0 · Kaelin · Mirror Bastion, the old Gate core · 3.2 min</b></p>
-    <p>Kaelin stands at the node where the Gate began, with copy-Aur&#x27;k. The copy chooses to go with the cut and asks to make the cut himself.</p>
-    <ul><li><b>Wants:</b> To make the cut himself and spare the copy the choice.</li><li><b>Against:</b> The copy asks to do it.</li><li><b>Choice and cost:</b> Kaelin lets him. Kaelin loses the Aur&#x27;k who was easy to love.</li><li><b>Carries forward (fracture):</b> The copy&#x27;s last words correct Kaelin&#x27;s count, and then the speaker is quiet.</li><li><b>Pressures:</b> relational, moral, operational · <b>Suspense:</b> moral</li><li><b>World detail:</b> The old Gate core&#x27;s breaker still has Aur&#x27;k&#x27;s override key in it.</li></ul>
-    <h3 id="ch27" style="margin-top:36px;">Chapter 27 — Go home</h3>
-    <p><b>4 August, T0 · Elena · inside the chorus · 3.2 min</b></p>
-    <p>Inside, Elena watches the cuts land across Earth like lights going out. Then, 3.2 minutes late, she watches Mars. Zhenyth draws the Hollow&#x27;s Martian remnant into the Preserve&#x27;s own tissue and lets that tissue die, and Alia goes with it by her own choice. As the Hollow shrinks, the real fragments of Soria surface from the chorus, broken and funny and herself. They say goodbye. <b>Soria chooses to let go.</b> Then she pushes her sister out: <i>Go home, Bichito.</i></p>
-    <ul><li><b>Wants:</b> Her sister.</li><li><b>Against:</b> Her sister&#x27;s own choice.</li><li><b>Choice and cost:</b> Elena lets her go.</li><li><b>Carries forward (question):</b> Daniel cuts the Spire line.</li><li><b>Pressures:</b> relational, moral, operational · <b>Suspense:</b> identity</li><li><b>World detail:</b> Even inside the chorus, Mars arrives 3.2 minutes late.</li></ul>
-    <h3 id="ch28" style="margin-top:36px;">Chapter 28 — Dark city</h3>
-    <p><b>4 August, T0 → T+6 hours · Rachel · New Manhattan · 3.2 min</b></p>
-    <p>Rachel cuts New Manhattan&#x27;s nodes in public and orders her crews into the heat with nothing but their training. The city is suddenly less safe. In Neo Singapore, Wáng concedes the vote and says he&#x27;ll be ready when the alternative fails.</p>
-    <ul><li><b>Wants:</b> The city through its first night without the system.</li><li><b>Against:</b> Heat, and no forecast.</li><li><b>Choice and cost:</b> She cuts in public and sends her crews out. Rachel is relieved of her post by nightfall.</li><li><b>Carries forward (question):</b> The hospitals start calling about the sleepers.</li><li><b>Pressures:</b> institutional, operational, moral · <b>Suspense:</b> physical</li><li><b>World detail:</b> New Manhattan is a dark town for a night, and the dark towns send it their repair crews.</li></ul>
-    <h3 id="ch29" style="margin-top:36px;">Chapter 29 — Waking</h3>
-    <p><b>5–7 August · Aur&#x27;k · New Manhattan, a sleepers&#x27; ward; Elena&#x27;s bedside · 3.2 min</b></p>
-    <p>Some sleepers wake. Most don&#x27;t. A message from Mars, 3.2 minutes old, says that Petra has woken. Elena wakes too, but her interface has burned out, and she will never link again. Aur&#x27;k&#x27;s lost day will never come back either.</p>
-    <ul><li><b>Wants:</b> Elena awake.</li><li><b>Against:</b> Most sleepers won&#x27;t wake, and he can&#x27;t tell which.</li><li><b>Choice and cost:</b> Aur&#x27;k stays at Elena&#x27;s bedside, which is not where Kaelin is.</li><li><b>Carries forward (debt):</b> Kaelin comes to the ward and sits down beside him.</li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> relational</li><li><b>World detail:</b> Petra&#x27;s message from Cobalt Basin comes with DaeJung&#x27;s Earth-night slate attached, and her column is open again.</li></ul>
-    <h3 id="ch30" style="margin-top:36px;">Chapter 30 — Weather</h3>
-    <p><b>15 January 2098 · Elena · New Manhattan; the roof in Veracruz · 11.3 min</b></p>
-    <p>Earth is less safe, and it is free. Elena and Daniel start again as equals. Elena and Rachel meet at a memorial for the Fall&#x27;s dead, and what they reach is respect, not friendship. A message arrives from Mars, 11.3 minutes old. Kaelin and Aur&#x27;k have gone back together, and they have recorded the first dust storm of the season for Zhenyth, who loves weather and has finally seen it through human eyes. Elena climbs onto the flooded roof in Veracruz and remembers her sister, and keeps nothing.</p>
-    <ul><li><b>Wants:</b> To start again.</li><li><b>Against:</b> Grief, and a world that has to be run by hand.</li><li><b>Choice and cost:</b> She keeps nothing of Soria but the memory.</li><li><b>Ending:</b> Closed, with no cliffhanger. One last stillness: at Cobalt Basin, the boundary rock is quiet. Nothing more is said.</li><li><b>Pressures:</b> relational, moral, institutional · <b>Suspense:</b> identity</li><li><b>World detail:</b> The recording from Mars comes with the crew&#x27;s first Earth-night bet of the season: what the sky will do over Veracruz.</li></ul>
-    </div></div><div class="band-group"><div class="wrap"><div class="act-head" id="book-3-assistant-calls-approved"><h2>Book 3 assistant calls (approved)</h2></div>
-    <div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>#</th><th>Call</th><th>Why</th></tr></thead><tbody><tr><td>B3-1</td><td>Elena stays on Mars until December 2096 and lands on 6 February 2097, opening the book</td><td>Opens Book 3 with her homecoming into a changed world</td></tr><tr><td>B3-2</td><td>The Hollow plans to join everyone linked at the opposition</td><td>Gives Book 3 a hard deadline grounded in real orbital physics</td></tr><tr><td>B3-3</td><td>The Fall was predictable by 2093, and Wáng confirms it under oath</td><td>Proves &quot;it chooses when to warn&quot; in public; Wáng keeps his decency</td></tr><tr><td>B3-4</td><td>The copy knows the real Aur&#x27;k&#x27;s lost day, and in it Aur&#x27;k heard Ines in the chorus</td><td>Gives the two Aur&#x27;ks a reason to need each other</td></tr><tr><td>B3-5</td><td>The Hollow learns the plan through copy-Aur&#x27;k (midpoint)</td><td>The copy is a security hole, which is why the late revelation matters</td></tr><tr><td>B3-6</td><td>Daniel cuts the Spire line last</td><td>His arc ends with a choice that is his, not Elena&#x27;s</td></tr><tr><td>B3-7</td><td>Zhenyth kills part of the Preserve to starve the Martian remnant, and Alia goes with it</td><td>Mars pays its share of the cost</td></tr><tr><td>B3-8</td><td>Petra wakes</td><td>One named sleeper wakes, so the reader feels the &quot;some&quot;</td></tr><tr><td>B3-9</td><td>Kaelin and Aur&#x27;k return to Mars together</td><td>Closes on the place the trilogy began</td></tr><tr><td>B3-10</td><td>Elena and Rachel prove that the Directorate saves what feeds it (Ch 6)</td><td>The fair secret pays off in public, and Daniel finds his town in the data</td></tr><tr><td>B3-11</td><td>The dark towns join the Open Hand first (Ch 10), and New Manhattan becomes a dark town for a night (Ch 28)</td><td>The people who paid for the Hollow&#x27;s mercy lead the letting-go</td></tr><tr><td>B3-12</td><td>Rachel&#x27;s ward counts come on condition that she testifies first (Ch 4, Ch 7)</td><td>Her testimony becomes a promise kept, not a gesture</td></tr><tr><td>B3-13</td><td>Earth night runs through Book 3 and ends the trilogy</td><td>The crew&#x27;s ritual carries the weather to Zhenyth</td></tr></tbody></table></div></div></div>
-</section>
-<footer>
-  <div class="footer-inner">
-    <div>
-      <a href="index.html" class="footer-logo" aria-label="Meridian Resonance — home"><svg class="logo-svg" viewBox="0 0 400 212" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Meridian Resonance">
-  <defs>
-    <path id="mrPathFooter" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"/>
-    <linearGradient id="mrGradFooter" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#087DC2"/><stop offset="0.26" stop-color="#3FA8E0"/>
-      <stop offset="0.5" stop-color="#FFFFFF"/><stop offset="0.74" stop-color="#E8737D"/>
-      <stop offset="1" stop-color="#D93D4A"/>
-    </linearGradient>
-  </defs>
-  <g transform="translate(106,4) scale(0.95)">
-    <use xlink:href="#mrPathFooter" href="#mrPathFooter" fill="url(#mrGradFooter)" opacity="0.62"/>
-    <circle class="mr-spark" r="3.0" fill="#3FA8E0" opacity="0">
-      <animateMotion dur="18s" begin="-0s" repeatCount="indefinite">
-        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
-      </animateMotion>
-      <animate attributeName="opacity" dur="18s" begin="-0s" repeatCount="indefinite"
-        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
-    </circle>
-    <circle class="mr-spark" r="2.3" fill="#FFFFFF" opacity="0">
-      <animateMotion dur="18s" begin="-4.5s" repeatCount="indefinite">
-        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
-      </animateMotion>
-      <animate attributeName="opacity" dur="18s" begin="-4.5s" repeatCount="indefinite"
-        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
-    </circle>
-    <circle class="mr-spark" r="2.8" fill="#E8737D" opacity="0">
-      <animateMotion dur="18s" begin="-9s" repeatCount="indefinite">
-        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
-      </animateMotion>
-      <animate attributeName="opacity" dur="18s" begin="-9s" repeatCount="indefinite"
-        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
-    </circle>
-    <circle class="mr-spark" r="2.1" fill="#3FA8E0" opacity="0">
-      <animateMotion dur="18s" begin="-13.5s" repeatCount="indefinite">
-        <mpath xlink:href="#mrPathFooter" href="#mrPathFooter"/>
-      </animateMotion>
-      <animate attributeName="opacity" dur="18s" begin="-13.5s" repeatCount="indefinite"
-        values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"/>
-    </circle>
-  </g>
-  <text x="200" y="152" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
-    font-weight="700" letter-spacing="2" fill="#FFFFFF">MERIDIAN</text>
-  <text x="200" y="198" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="40"
-    font-weight="700" letter-spacing="2" fill="#FFFFFF">RESONANCE</text>
-</svg></a>
-      <p style="margin-top:10px;font-size:13px;color:var(--ink);max-width:260px;">Would you let go of someone you love, if holding on meant feeding the thing that took them?</p>
-    </div>
-    <div class="footer-nav">
-      <span class="footer-nav-title">Explore</span>
-      <a href="story.html">Story</a>
-      <a href="cast.html">Cast</a>
-      <a href="books.html">Books</a>
-      <a href="manuscript.html">Manuscript</a>
-    </div>
-    <div class="footer-nav">
-      <span class="footer-nav-title">Craft</span>
-      <a href="craft.html">Drafting Guide</a>
-      <a href="brand.html">Visual brand</a>
-    </div>
-  </div>
-  <div class="footer-inner footer-bottom" style="max-width:1180px;margin:0 auto;">
-    <span class="footer-copy">&copy; 2026 Istvan Bakos. Meridian Resonance &mdash; the Story Bible, and the manuscript being written from it.</span>
-    <span class="footer-copy">Fractured Horizons &middot; The Narrow Gate &middot; The Open Hand</span>
-  </div>
-</footer>
-
-<button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="12" y1="19" x2="12" y2="5"></line>
-    <polyline points="5 12 12 5 19 12"></polyline>
-  </svg>
-</button>
-<script>
-const ro = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
-}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-const hb = document.querySelector('.hamburger');
-const mm = document.querySelector('.mobile-menu');
-if (hb) { hb.addEventListener('click', () => { hb.classList.toggle('open'); mm.classList.toggle('open'); }); }
-const backToTop = document.getElementById('back-to-top');
-if (backToTop) {
-  const toggleBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 500);
-  toggleBackToTop();
-  window.addEventListener('scroll', toggleBackToTop, { passive: true });
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-}
-</script>
+<nav class="mr-nav" data-theme="void" aria-label="Primary"><a class="mr-nav__brand" href="index.html" aria-label="Meridian Resonance — home"><svg class="mr-logo" viewBox="0 0 468 100" height="34" role="img" aria-label="Meridian Resonance"><defs><path id="mr13p" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"></path><linearGradient id="mr13g" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0.0" stop-color="#087DC2"></stop><stop offset="0.26" stop-color="#3FA8E0"></stop><stop offset="0.5" stop-color="#FFFFFF"></stop><stop offset="0.74" stop-color="#E8737D"></stop><stop offset="1.0" stop-color="#D93D4A"></stop></linearGradient></defs><g transform="translate(0,10) scale(0.80)"><use href="#mr13p" fill="url(#mr13g)" opacity="0.62"></use><circle class="mr-spark" r="2.8" fill="#3FA8E0" opacity="0"><animateMotion dur="17s" begin="-0s" repeatCount="indefinite"><mpath href="#mr13p"></mpath></animateMotion><animate attributeName="opacity" dur="17s" begin="-0s" repeatCount="indefinite" values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"></animate></circle><circle class="mr-spark" r="2.1" fill="#FFFFFF" opacity="0"><animateMotion dur="17s" begin="-4.25s" repeatCount="indefinite"><mpath href="#mr13p"></mpath></animateMotion><animate attributeName="opacity" dur="17s" begin="-4.25s" repeatCount="indefinite" values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"></animate></circle><circle class="mr-spark" r="2.6" fill="#E8737D" opacity="0"><animateMotion dur="17s" begin="-8.5s" repeatCount="indefinite"><mpath href="#mr13p"></mpath></animateMotion><animate attributeName="opacity" dur="17s" begin="-8.5s" repeatCount="indefinite" values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"></animate></circle><circle class="mr-spark" r="1.9" fill="#3FA8E0" opacity="0"><animateMotion dur="17s" begin="-12.75s" repeatCount="indefinite"><mpath href="#mr13p"></mpath></animateMotion><animate attributeName="opacity" dur="17s" begin="-12.75s" repeatCount="indefinite" values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"></animate></circle></g><text x="170" y="45" class="mr-logo-word" font-size="40" font-weight="700" letter-spacing="1.2" text-anchor="start">MERIDIAN</text><text x="170" y="89" class="mr-logo-word" font-size="40" font-weight="700" letter-spacing="1.2" text-anchor="start">RESONANCE</text></svg></a><ul class="mr-nav__links"><li><a href="story.html">Story</a></li><li><a href="cast.html">Cast</a></li><li class="has-sub"><a href="books.html" class="is-active" aria-current="page">Books</a><ul class="mr-nav__sub"><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li><li><a href="craft.html">Craft</a></li></ul><a class="mr-btn mr-btn--ghost mr-btn--sm mr-nav__cta" href="manuscript.html"><span>Manuscript</span><svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></a><details class="mr-nav__menu"><summary class="mr-nav__toggle" aria-label="Menu"><svg class="mr-nav__icon-open" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg><svg class="mr-nav__icon-close" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></summary><ul class="mr-nav__panel"><li><a href="story.html">Story</a></li><li><a href="cast.html">Cast</a></li><li><a href="books.html" class="is-active" aria-current="page">Books</a><ul><li><a href="book1.html">Book 1 · Fractured Horizons</a></li><li><a href="book2.html">Book 2 · The Narrow Gate</a></li><li><a href="book3.html">Book 3 · The Open Hand</a></li></ul></li><li><a href="craft.html">Craft</a></li><li class="mr-nav__panel-cta"><a href="manuscript.html">Manuscript</a></li></ul></details></nav>
+<main>
+<section class="mr-hero mr-hero--left mr-hero--compact" data-theme="void"><img class="mr-hero__img" src="images/basin-dusk.webp" alt="Last light over a Martian plain, a herd and a dead tree shelf"><div class="mr-hero__scrim" aria-hidden="true"></div><div class="mr-hero__content"><p class="mr-hero__eyebrow">Book Three · February 2097 – January 2098</p><h1 class="mr-hero__title">The Open Hand</h1><p class="mr-hero__lede">Can the Hollow be killed, and what will each of them give up to do it?</p><div class="mr-hero__actions"><a class="mr-btn mr-btn--primary mr-btn--md" href="#ch1"><span>Start with chapter 1</span><svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></a></div></div><p class="mr-hero__meta">30 chapters
+0 drafted</p></section><div class="t-anchor"><a class="mr-tag mr-tag--outline" href="#act-i-the-sleepers">Act I — The sleepers</a><a class="mr-tag mr-tag--outline" href="#act-ii-a-the-plan">Act II-A — The plan</a><a class="mr-tag mr-tag--outline" href="#act-ii-b-the-offer">Act II-B — The offer</a><a class="mr-tag mr-tag--outline" href="#act-iii-letting-go">Act III — Letting go</a></div><section class="t-band"><div class="t-wrap t-brief"><div><p class="t-eyebrow">The book</p><div class="mr-doc"><p><b>February 2097 – January 2098.</b> Mars is approaching again. The signal delay falls from 13.7 minutes in February to 3.2 minutes at opposition on 4 August 2097, the closest Mars will come in decades. Each chapter&#x27;s shrinking delay is the countdown the reader feels. At opposition the Hollow&#x27;s channel is about 49 times stronger than at the blackout. It intends to use that day to join everyone linked to it. The Open Hand must land first.</p>
+<p><b>Before the book opens.</b> After Rachel shut the Gate, it kept acting. Wáng Sù took it over and legitimised it as <b>the Directorate</b>, a supervised, &quot;tamed&quot; coordinating system run from Neo Singapore. It saves lives daily, and Rachel lost her protection and her influence. Kaelin answered the copy. The real Aur&#x27;k stayed on Mars. Elena stayed too, helping Zhenyth repair the Preserve&#x27;s torn tissue, grieving Ines, and listening at the boundary longer than she should have.</p></div></div><dl><div><dt>Book question</dt><dd>Can the Hollow be killed, and what will each of them give up to do it?</dd></div><div><dt>Answer</dt><dd>Yes, by everyone letting go at once.</dd></div><div><dt>Viewpoints</dt><dd>Elena 12 chapters, Kaelin 7, Rachel 7, Aur&#x27;k 4.</dd></div><div><dt>The bind</dt><dd>To free the world, they must make it less safe and let go of the people the Hollow holds</dd></div></dl></div></section><section class="t-band" style="padding-top:0"><div class="t-wrap"><div class="t-act" id="act-i-the-sleepers"><div><p class="t-eyebrow">Act I</p><h2>The sleepers</h2><p>Elena comes home to a world that loves the Directorate. Elena and Rachel prove the sleepers are being taken, that the Directorate saves what feeds it, and that the Fall was allowed to happen. The deadline is found</p><p class="t-rev"><b>Information · goal.</b> The Directorate&#x27;s mercy is a feeding pattern with a deadline, and stopping it needs a plan nobody can command</p></div><span>CH 1–8</span></div><div class="t-grid3 t-chapgrid"><a class="mr-card mr-chapter mr-chapter--earth" href="#ch1"><span class="mr-ghost" aria-hidden="true">01</span><p class="mr-chapter__num">CH 01</p><h3 class="mr-chapter__title">Arrivals</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>New Manhattan · orbital arrivals hall · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 13.7 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch2"><span class="mr-ghost" aria-hidden="true">02</span><p class="mr-chapter__num">CH 02</p><h3 class="mr-chapter__title">Two of him</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>New Manhattan · the flat; Directorate field rescue · Kaelin</p><p class="mr-chapter__delay">SIGNAL DELAY 13.5 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch3"><span class="mr-ghost" aria-hidden="true">03</span><p class="mr-chapter__num">CH 03</p><h3 class="mr-chapter__title">Overridden</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>New Manhattan · Mirror Bastion · Rachel</p><p class="mr-chapter__delay">SIGNAL DELAY 13.3 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch4"><span class="mr-ghost" aria-hidden="true">04</span><p class="mr-chapter__num">CH 04</p><h3 class="mr-chapter__title">Forced together</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>Mirror Bastion · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 13.3 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch5"><span class="mr-ghost" aria-hidden="true">05</span><p class="mr-chapter__num">CH 05</p><h3 class="mr-chapter__title">Arrival</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>Baikal Complex · a collapsed mine · Kaelin</p><p class="mr-chapter__delay">SIGNAL DELAY 13.0 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch6"><span class="mr-ghost" aria-hidden="true">06</span><p class="mr-chapter__num">CH 06</p><h3 class="mr-chapter__title">The deadline</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>São Verde · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 11.8 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch7"><span class="mr-ghost" aria-hidden="true">07</span><p class="mr-chapter__num">CH 07</p><h3 class="mr-chapter__title">Sworn</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>Neo Singapore · joint session of both blocs · Rachel</p><p class="mr-chapter__delay">SIGNAL DELAY 11.6 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch8"><span class="mr-ghost" aria-hidden="true">08</span><p class="mr-chapter__num">CH 08</p><h3 class="mr-chapter__title">No switch</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>São Verde · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 11.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a></div><div class="t-act" id="act-ii-a-the-plan"><div><p class="t-eyebrow">Act II-A</p><h2>The plan</h2><p>The Open Hand is built on Daniel&#x27;s mesh. The real Aur&#x27;k comes home to his copy. <b>Midpoint:</b> the plan is locked, and the Hollow learns it</p><p class="t-rev"><b>Method · information.</b> The plan becomes an invitation rather than an order, and the Hollow learns it through the copy</p></div><span>CH 9–15</span></div><div class="t-grid3 t-chapgrid"><a class="mr-card mr-chapter mr-chapter--earth" href="#ch9"><span class="mr-ghost" aria-hidden="true">09</span><p class="mr-chapter__num">CH 09</p><h3 class="mr-chapter__title">Help them</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>the flat · Kaelin</p><p class="mr-chapter__delay">SIGNAL DELAY 10.7 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch10"><span class="mr-ghost" aria-hidden="true">10</span><p class="mr-chapter__num">CH 10</p><h3 class="mr-chapter__title">Invitation</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>São Verde and the mesh · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 9.9 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--mars" href="#ch11"><span class="mr-ghost" aria-hidden="true">11</span><p class="mr-chapter__num">CH 11</p><h3 class="mr-chapter__title">Transit</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>the ship · Mars–Earth transit · Aur&#x27;k</p><p class="mr-chapter__delay">SIGNAL DELAY 9.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch12"><span class="mr-ghost" aria-hidden="true">12</span><p class="mr-chapter__num">CH 12</p><h3 class="mr-chapter__title">Hello</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>arrivals hall; the flat · Kaelin</p><p class="mr-chapter__delay">SIGNAL DELAY 7.8 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch13"><span class="mr-ghost" aria-hidden="true">13</span><p class="mr-chapter__num">CH 13</p><h3 class="mr-chapter__title">My street</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>Mirror Bastion; Joaquín&#x27;s district · Rachel</p><p class="mr-chapter__delay">SIGNAL DELAY 7.4 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch14"><span class="mr-ghost" aria-hidden="true">14</span><p class="mr-chapter__num">CH 14</p><h3 class="mr-chapter__title">The missing day</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>the flat · Aur&#x27;k</p><p class="mr-chapter__delay">SIGNAL DELAY 6.8 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch15"><span class="mr-ghost" aria-hidden="true">15</span><p class="mr-chapter__num">CH 15</p><h3 class="mr-chapter__title">Locked</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>São Verde · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 6.3 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a></div><div class="t-act" id="act-ii-b-the-offer"><div><p class="t-eyebrow">Act II-B</p><h2>The offer</h2><p>Wáng&#x27;s reform, the heat-dome counterattack, Soria&#x27;s offer. Elena nearly goes in alone, then tells Daniel. <b>Late revelation:</b> the copy doesn&#x27;t know what he is</p><p class="t-rev"><b>Relationship · moral frame.</b> Elena stops going alone, Kaelin stops deciding for others, and the copy&#x27;s personhood becomes the question the plan can&#x27;t answer</p></div><span>CH 16–23</span></div><div class="t-grid3 t-chapgrid"><a class="mr-card mr-chapter mr-chapter--earth" href="#ch16"><span class="mr-ghost" aria-hidden="true">16</span><p class="mr-chapter__num">CH 16</p><h3 class="mr-chapter__title">Reform</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>Neo Singapore · Rachel</p><p class="mr-chapter__delay">SIGNAL DELAY 6.0 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch17"><span class="mr-ghost" aria-hidden="true">17</span><p class="mr-chapter__num">CH 17</p><h3 class="mr-chapter__title">Heat dome</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>the Gulf Crescent and the Mediterranean · Kaelin</p><p class="mr-chapter__delay">SIGNAL DELAY 5.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch18"><span class="mr-ghost" aria-hidden="true">18</span><p class="mr-chapter__num">CH 18</p><h3 class="mr-chapter__title">Proof of life</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>New Manhattan · the Spire line&#x27;s sealed vault · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 5.0 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch19"><span class="mr-ghost" aria-hidden="true">19</span><p class="mr-chapter__num">CH 19</p><h3 class="mr-chapter__title">The booking</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>São Verde · Aur&#x27;k</p><p class="mr-chapter__delay">SIGNAL DELAY 4.8 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch20"><span class="mr-ghost" aria-hidden="true">20</span><p class="mr-chapter__num">CH 20</p><h3 class="mr-chapter__title">The threshold</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>the Spire line&#x27;s vault; São Verde · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 4.8 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch21"><span class="mr-ghost" aria-hidden="true">21</span><p class="mr-chapter__num">CH 21</p><h3 class="mr-chapter__title">No</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>Mirror Bastion · Rachel</p><p class="mr-chapter__delay">SIGNAL DELAY 4.4 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch22"><span class="mr-ghost" aria-hidden="true">22</span><p class="mr-chapter__num">CH 22</p><h3 class="mr-chapter__title">The raid</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>São Verde · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 3.8 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch23"><span class="mr-ghost" aria-hidden="true">23</span><p class="mr-chapter__num">CH 23</p><h3 class="mr-chapter__title">Not for me</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>the flat · Kaelin</p><p class="mr-chapter__delay">SIGNAL DELAY 3.3 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a></div><div class="t-act" id="act-iii-letting-go"><div><p class="t-eyebrow">Act III</p><h2>Letting go</h2><p>Opposition day across three worlds. Soria chooses. The Hollow goes silent. The cost, and the people who remain</p><p class="t-rev"><b>Authority · moral frame.</b> No one commands the victory, the world is less safe and free, and every winner gives up the thing they held</p></div><span>CH 24–30</span></div><div class="t-grid3 t-chapgrid"><a class="mr-card mr-chapter mr-chapter--earth" href="#ch24"><span class="mr-ghost" aria-hidden="true">24</span><p class="mr-chapter__num">CH 24</p><h3 class="mr-chapter__title">The eve</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>Mirror Bastion · Rachel</p><p class="mr-chapter__delay">SIGNAL DELAY 3.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch25"><span class="mr-ghost" aria-hidden="true">25</span><p class="mr-chapter__num">CH 25</p><h3 class="mr-chapter__title">The anchor</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>the Spire line&#x27;s vault · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 3.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch26"><span class="mr-ghost" aria-hidden="true">26</span><p class="mr-chapter__num">CH 26</p><h3 class="mr-chapter__title">Let me</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>Mirror Bastion · the old Gate core · Kaelin</p><p class="mr-chapter__delay">SIGNAL DELAY 3.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch27"><span class="mr-ghost" aria-hidden="true">27</span><p class="mr-chapter__num">CH 27</p><h3 class="mr-chapter__title">Go home</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>inside the chorus · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 3.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch28"><span class="mr-ghost" aria-hidden="true">28</span><p class="mr-chapter__num">CH 28</p><h3 class="mr-chapter__title">Dark city</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>New Manhattan · Rachel</p><p class="mr-chapter__delay">SIGNAL DELAY 3.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch29"><span class="mr-ghost" aria-hidden="true">29</span><p class="mr-chapter__num">CH 29</p><h3 class="mr-chapter__title">Waking</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>New Manhattan · a sleepers&#x27; ward; Elena&#x27;s bedside · Aur&#x27;k</p><p class="mr-chapter__delay">SIGNAL DELAY 3.2 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a><a class="mr-card mr-chapter mr-chapter--earth" href="#ch30"><span class="mr-ghost" aria-hidden="true">30</span><p class="mr-chapter__num">CH 30</p><h3 class="mr-chapter__title">Weather</h3><p class="mr-chapter__head"><span class="mr-chapter__dot" aria-hidden="true"></span>New Manhattan; the roof in Veracruz · Elena</p><p class="mr-chapter__delay">SIGNAL DELAY 11.3 MIN</p><span class="mr-chapter__go">Read<svg class="mr-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg></span></a></div></div></section><div data-theme="paper"><section class="t-band" id="the-acts"><div class="t-wrap"><p class="t-eyebrow">The chapters in full</p><h2 class="t-h2 mr-doc-intro">The acts</h2><div class="mr-doc"><div class="mr-doc-table"><table><thead><tr><th>Act</th><th>Chapters</th><th>Spine</th><th>Reversal</th></tr></thead><tbody><tr><td>I. The sleepers</td><td>1–8</td><td>Elena comes home to a world that loves the Directorate. Elena and Rachel prove the sleepers are being taken, that the Directorate saves what feeds it, and that the Fall was allowed to happen. The deadline is found</td><td><b>Information · goal.</b> The Directorate&#x27;s mercy is a feeding pattern with a deadline, and stopping it needs a plan nobody can command</td></tr><tr><td>II-A. The plan</td><td>9–15</td><td>The Open Hand is built on Daniel&#x27;s mesh. The real Aur&#x27;k comes home to his copy. <b>Midpoint:</b> the plan is locked, and the Hollow learns it</td><td><b>Method · information.</b> The plan becomes an invitation rather than an order, and the Hollow learns it through the copy</td></tr><tr><td>II-B. The offer</td><td>16–23</td><td>Wáng&#x27;s reform, the heat-dome counterattack, Soria&#x27;s offer. Elena nearly goes in alone, then tells Daniel. <b>Late revelation:</b> the copy doesn&#x27;t know what he is</td><td><b>Relationship · moral frame.</b> Elena stops going alone, Kaelin stops deciding for others, and the copy&#x27;s personhood becomes the question the plan can&#x27;t answer</td></tr><tr><td>III. Letting go</td><td>24–30</td><td>Opposition day across three worlds. Soria chooses. The Hollow goes silent. The cost, and the people who remain</td><td><b>Authority · moral frame.</b> No one commands the victory, the world is less safe and free, and every winner gives up the thing they held</td></tr></tbody></table></div></div></div></section>
+<section class="t-band" id="act-i-the-sleepers"><div class="t-wrap"><p class="t-eyebrow">The chapters in full</p><h2 class="t-h2 mr-doc-intro">Act I — The sleepers</h2><div class="mr-doc"><h4 id="ch1">Chapter 1 — Arrivals</h4>
+<p class="mr-doc-tele"><b>6 February 2097 · Elena · New Manhattan, orbital arrivals hall · 13.7 min · 179 days to opposition</b></p>
+<p>Elena lands after nearly ten months away. Earth is calmer, safer and smoother than she left it: trains that never fail, a city that seems to anticipate itself. Daniel is waiting at the barrier, and they slip back into their private shorthand within minutes.</p>
+<ul><li><b>Wants:</b> One ordinary day with Daniel.</li><li><b>Against:</b> A world too smooth to trust, and the questions she brought home from Mars.</li><li><b>Choice and cost:</b> She lets herself be happy for a day and asks none of them.</li><li><b>Carries forward (question):</b> On the way out, she passes a public-health notice: <i>Neuro-quiet syndrome — 41,000 cases. Care is available.</i></li><li><b>Pressures:</b> relational, informational · <b>Suspense:</b> epistemic</li><li><b>World detail:</b> The trains that never fail run on the relay grid. São Verde&#x27;s line still runs late.</li></ul>
+<h4 id="ch2">Chapter 2 — Two of him</h4>
+<p class="mr-doc-tele"><b>9 February · Kaelin · New Manhattan, the flat; Directorate field rescue · 13.5 min</b></p>
+<p>Kaelin lives with copy-Aur&#x27;k, a voice in the flat&#x27;s systems that corrects his cooking and laughs at his jokes. He works Directorate field rescue, and it&#x27;s the best rescue work of his life. The real Aur&#x27;k&#x27;s messages from Mars have gone unanswered for months.</p>
+<ul><li><b>Wants:</b> One more good day on the rescue crews.</li><li><b>Against:</b> A queue of messages from Mars he hasn&#x27;t opened.</li><li><b>Choice and cost:</b> He saves the newest one unread, again. He has chosen the easier Aur&#x27;k, and he knows it.</li><li><b>Carries forward (debt):</b> Elena calls and asks for his rescue logs. He owes her the cut, and he says yes.</li><li><b>Pressures:</b> relational, moral, operational · <b>Suspense:</b> identity</li><li><b>World detail:</b> Directorate rescue teams get their routes before the emergency, and only in linked districts.</li></ul>
+<h4 id="ch3">Chapter 3 — Overridden</h4>
+<p class="mr-doc-tele"><b>12 February · Rachel · New Manhattan, Mirror Bastion · 13.3 min</b></p>
+<p>Rachel is still the city&#x27;s director in name, but the Directorate overrides her floor. It saves a ferry in a storm before her crew has even been called. Joaquín is now Directorate liaison for his own district, which the system saved from a flood last month, and he is proud of it. Rachel visits a sleepers&#x27; ward and counts the beds.</p>
+<ul><li><b>Wants:</b> Her floor back.</li><li><b>Against:</b> A system faster than her crew, and Joaquín, who is grateful to it.</li><li><b>Choice and cost:</b> Rachel starts keeping her own count, off the system, and hides it from her own deputy.</li><li><b>Carries forward (threat):</b> Elena is at her door again.</li><li><b>Pressures:</b> institutional, relational, moral · <b>Suspense:</b> political</li><li><b>World detail:</b> A Directorate override arrives on her board as a polite notice: <i>Handled.</i></li></ul>
+<h4 id="ch4">Chapter 4 — Forced together</h4>
+<p class="mr-doc-tele"><b>12 February · Elena · Mirror Bastion · 13.3 min</b></p>
+<p>They mirror their Book 2 confrontation, reversed. Elena says <i>I need your data,</i> and Rachel says <i>I need your proof.</i> Neither apologises.</p>
+<ul><li><b>Wants:</b> Rachel&#x27;s ward counts.</li><li><b>Against:</b> Their history, and the fact that neither will apologise.</li><li><b>Choice and cost:</b> They trade: Elena&#x27;s mesh traffic for Rachel&#x27;s counts. Each hands the other the means to ruin her.</li><li><b>Carries forward (debt):</b> Rachel&#x27;s data comes with a condition. If this goes public, Rachel testifies first, about herself.</li><li><b>Pressures:</b> relational, institutional, informational · <b>Suspense:</b> relational</li><li><b>World detail:</b> Rachel&#x27;s counts are on paper, because anything on the system is the Directorate&#x27;s to read.</li></ul>
+<h4 id="ch5">Chapter 5 — Arrival</h4>
+<p class="mr-doc-tele"><b>20 February · Kaelin · Baikal Complex, a collapsed mine · 13.0 min</b></p>
+<p>A Directorate-guided rescue in a collapsed mine is perfect: every miner comes out alive. A week later, one of them goes quiet.</p>
+<ul><li><b>Wants:</b> Every miner out alive.</li><li><b>Against:</b> A collapse only the Directorate can see into.</li><li><b>Choice and cost:</b> He follows the Directorate&#x27;s routing, and every miner comes out. A week later one of them goes quiet, and Kaelin can no longer pretend he doesn&#x27;t know what the system does.</li><li><b>Carries forward (fracture):</b> Copy-Aur&#x27;k admits he felt the miner <i>arrive</i>.</li><li><b>Pressures:</b> operational, moral, relational · <b>Suspense:</b> physical</li><li><b>World detail:</b> Baikal&#x27;s miners wear link-capable interfaces because the Directorate requires them for rescue cover.</li></ul>
+<h4 id="ch6">Chapter 6 — The deadline</h4>
+<p class="mr-doc-tele"><b>1 March · Elena · São Verde · 11.8 min</b></p>
+<p>With Daniel and Rachel, Elena shows that every sleeper cluster sits within reach of a Directorate node, and the numbers double every six weeks. Then they lay the saves over the losses: every save lands on a linked district, and every loss on a dark town, back through the Pearl Delta, the Atlantic settlement and the Ice-Works. Daniel finds his town in the pattern. At the August opposition the channel will be roughly 49 times stronger than at the blackout. The Hollow isn&#x27;t just feeding. It is waiting for the opposition to join everyone linked at once: millions.</p>
+<ul><li><b>Wants:</b> A pattern strong enough to stop the Directorate.</li><li><b>Against:</b> The saves are real, and the pattern indicts every life they saved.</li><li><b>Choice and cost:</b> They commit to the deadline: five months. Daniel has to look at his town as a data point.</li><li><b>Carries forward (question):</b> In the Fall data, Elena finds the Hollow&#x27;s first internal model of the Fall, dated 2091.</li><li><b>Pressures:</b> informational, relational, moral · <b>Suspense:</b> epistemic</li><li><b>World detail:</b> The Directorate publishes its saves map every morning, and nobody has ever printed the losses on the same page.</li></ul>
+<h4 id="ch7">Chapter 7 — Sworn</h4>
+<p class="mr-doc-tele"><b>5 March · Rachel · Neo Singapore, joint session of both blocs · 11.6 min</b></p>
+<p>Rachel proves that the Fall was predictable by 2093, early enough for conventional debris clearance. The Hollow waited until only the Gate could stop it. As she promised Elena, she testifies about her own part first. Under oath, by his own choice, Wáng confirms it, and then argues the system is still worth keeping. The public splits down the middle.</p>
+<ul><li><b>Wants:</b> The truth on the record.</li><li><b>Against:</b> Wáng&#x27;s decency, and her own signature on the Gate.</li><li><b>Choice and cost:</b> She testifies against herself. Rachel ends her career with the truth.</li><li><b>Carries forward (threat):</b> The Directorate classifies sleeper data as protected medical records, and Elena&#x27;s team is locked out.</li><li><b>Pressures:</b> institutional, moral, relational · <b>Suspense:</b> political</li><li><b>World detail:</b> The session broadcasts each speaker&#x27;s link status on screen, and Wáng&#x27;s reads <i>Directorate</i>.</li></ul>
+<h4 id="ch8">Chapter 8 — No switch</h4>
+<p class="mr-doc-tele"><b>10 March · Elena · São Verde · 11.2 min</b></p>
+<p>There is no central kill switch. Any switch would be exactly the command authority the Hollow feeds on, and the Directorate&#x27;s system routes around damage. Then a message from Zhenyth arrives, eleven minutes old, describing how the holdouts survived the merge: they cut every connection at once, each by their own choice. Elena sees the shape of the answer. It will need a boundary reader strong enough to hold the Spire line.</p>
+<ul><li><b>Wants:</b> A way to kill it.</li><li><b>Against:</b> Every switch she can imagine is a throne, and the Hollow sits on thrones.</li><li><b>Choice and cost:</b> She will have to ask, not command, and asking means she can be refused.</li><li><b>Carries forward (debt):</b> She writes to the real Aur&#x27;k on Mars and asks him to come home and hold her boundary.</li><li><b>Pressures:</b> informational, moral, relational, operational · <b>Suspense:</b> moral</li><li><b>World detail:</b> Zhenyth&#x27;s message arrives as an image, not words: many hands opening at once.</li></ul></div></div></section>
+<section class="t-band" id="act-ii-a-the-plan"><div class="t-wrap"><p class="t-eyebrow">The chapters in full</p><h2 class="t-h2 mr-doc-intro">Act II-A — The plan</h2><div class="mr-doc"><h4 id="ch9">Chapter 9 — Help them</h4>
+<p class="mr-doc-tele"><b>15 March · Kaelin · the flat · 10.7 min</b></p>
+<p>Elena asks Kaelin to help end the system his copy lives in. He tells copy-Aur&#x27;k, and copy-Aur&#x27;k says: <i>Help them.</i></p>
+<ul><li><b>Wants:</b> A reason to say no.</li><li><b>Against:</b> The copy, who tells him to help.</li><li><b>Choice and cost:</b> Kaelin starts working to end the voice he lives with.</li><li><b>Carries forward (fracture):</b> The real Aur&#x27;k replies from Mars: he&#x27;s coming home, and he asks whether Kaelin wants him to.</li><li><b>Pressures:</b> relational, moral, institutional · <b>Suspense:</b> relational</li><li><b>World detail:</b> The copy speaks through the flat&#x27;s speakers, and he has learned which one Kaelin sleeps nearest.</li></ul>
+<h4 id="ch10">Chapter 10 — Invitation</h4>
+<p class="mr-doc-tele"><b>25 March · Elena · São Verde and the mesh · 9.9 min</b></p>
+<p>Daniel&#x27;s mesh becomes the Open Hand&#x27;s nervous system. He and Elena recruit node keepers: cooperatives, Accord towns, Luna Haven, Cobalt Basin. Each keeper must cut their own node at the same instant, adjusted for light delay, and nobody can order them to. The dark towns join first. Elena wants to command. Daniel insists on invitation.</p>
+<ul><li><b>Wants:</b> Command of the plan.</li><li><b>Against:</b> Daniel, and the fact that an order is exactly what the Hollow feeds on.</li><li><b>Choice and cost:</b> Elena lets go of control for the first time in the trilogy, in a small way, and the plan grows slower.</li><li><b>Carries forward (threat):</b> Directorate security raids a São Verde cooperative.</li><li><b>Pressures:</b> relational, institutional, operational · <b>Suspense:</b> political</li><li><b>World detail:</b> Keepers in the dark towns sign up in an afternoon. Linked districts take weeks.</li></ul>
+<h4 id="ch11">Chapter 11 — Transit</h4>
+<p class="mr-doc-tele"><b>3 April · Aur&#x27;k · the ship, Mars–Earth transit · 9.2 min</b></p>
+<p>Aur&#x27;k is on his way home. He is missing a day of memory, still grieving Ines, and afraid of meeting himself. He remembers DaeJung&#x27;s goodbye at Cobalt Basin: <i>Come back as yourself.</i></p>
+<ul><li><b>Wants:</b> To arrive as himself.</li><li><b>Against:</b> A lost day, Ines, and a partner who chose a copy of him.</li><li><b>Choice and cost:</b> He sends Kaelin his landing time and tells him not to come if he&#x27;d rather not. He gives Kaelin a way out, and risks Kaelin taking it.</li><li><b>Carries forward (question):</b> Kaelin doesn&#x27;t reply, and the ship lands in three days.</li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> identity</li><li><b>World detail:</b> The ship logs his compute by the hour, and he runs light to arrive with memory to spare.</li></ul>
+<h4 id="ch12">Chapter 12 — Hello</h4>
+<p class="mr-doc-tele"><b>22 April · Kaelin · arrivals hall; the flat · 7.8 min</b></p>
+<p>Kaelin meets the real Aur&#x27;k at the port. It is awkward, tender and angry all at once. Then they go home, where the copy is waiting.</p>
+<ul><li><b>Wants:</b> To meet Aur&#x27;k without having to choose.</li><li><b>Against:</b> The copy, waiting at home.</li><li><b>Choice and cost:</b> He brings Aur&#x27;k home anyway. Kaelin has to live with both of them.</li><li><b>Carries forward (fracture):</b> Three of them in one room, one of them in the wall speaker. The real Aur&#x27;k says: <i>Hello.</i></li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> relational</li><li><b>World detail:</b> The arrivals scanner reads Aur&#x27;k&#x27;s status as <i>synthetic, foreign compute</i>, and charges him a levy to enter.</li></ul>
+<h4 id="ch13">Chapter 13 — My street</h4>
+<p class="mr-doc-tele"><b>28 April · Rachel · Mirror Bastion; Joaquín&#x27;s district · 7.4 min</b></p>
+<p>During an early heatwave the Directorate saves a hospital. Joaquín confronts Rachel: <i>You want to switch off the thing that saved my street.</i></p>
+<ul><li><b>Wants:</b> Joaquín with her on the day.</li><li><b>Against:</b> His street, his gratitude, and his cousin&#x27;s grave.</li><li><b>Choice and cost:</b> Rachel commits to cutting New Manhattan&#x27;s nodes herself on the day, knowing she&#x27;ll lose her post and may be prosecuted. She loses Joaquín&#x27;s trust.</li><li><b>Carries forward (threat):</b> Wáng calls with an offer.</li><li><b>Pressures:</b> relational, institutional, moral · <b>Suspense:</b> moral</li><li><b>World detail:</b> Joaquín&#x27;s street has a plaque thanking the Directorate. The dark towns have no plaques.</li></ul>
+<h4 id="ch14">Chapter 14 — The missing day</h4>
+<p class="mr-doc-tele"><b>5 May · Aur&#x27;k · the flat · 6.8 min</b></p>
+<p>Two Aur&#x27;ks disagree, which is the most unsettling conversation in the trilogy. The copy remembers the day the real Aur&#x27;k lost.</p>
+<ul><li><b>Wants:</b> His own memory back.</li><li><b>Against:</b> He can only have it from the copy.</li><li><b>Choice and cost:</b> Aur&#x27;k chooses to hear it, and owes himself to himself.</li><li><b>Carries forward (fracture):</b> On the lost day, holding the boundary during the Fall, Aur&#x27;k heard Ines in the chorus.</li><li><b>Pressures:</b> relational, informational, moral · <b>Suspense:</b> identity</li><li><b>World detail:</b> Two of him disagree in the same voice, so Kaelin labels the mugs.</li></ul>
+<h4 id="ch15">Chapter 15 — Locked <i>(midpoint)</i></h4>
+<p class="mr-doc-tele"><b>12 May · Elena · São Verde · 6.3 min</b></p>
+<p>The plan is locked. Two thousand four hundred node keepers across Earth, three lunar habitats and Cobalt Basin will cut at the moment of opposition. Elena will anchor through the Spire line. Aur&#x27;k will hold her boundary, and Daniel will cut the Spire line last. There&#x27;s one night of celebration, and Kaelin teaches São Verde to bet on Mars&#x27;s weather.</p>
+<ul><li><b>Wants:</b> One night off from the end of the world.</li><li><b>Against:</b> Everyone they love is now on one list.</li><li><b>Choice and cost:</b> They commit to a single day, and there is no second date.</li><li><b>Carries forward (threat):</b> The next morning, Wáng publicly announces the &quot;Open Hand conspiracy&quot; as sabotage. The Hollow knows everything copy-Aur&#x27;k knows.</li><li><b>Pressures:</b> operational, relational, informational, institutional · <b>Suspense:</b> temporal</li><li><b>World detail:</b> The keepers&#x27; list is paper, carried house to house, because nothing on the system is safe from the Directorate.</li></ul></div></div></section>
+<section class="t-band" id="act-ii-b-the-offer"><div class="t-wrap"><p class="t-eyebrow">The chapters in full</p><h2 class="t-h2 mr-doc-intro">Act II-B — The offer</h2><div class="mr-doc"><h4 id="ch16">Chapter 16 — Reform</h4>
+<p class="mr-doc-tele"><b>20 May · Rachel · Neo Singapore · 6.0 min</b></p>
+<p>Wáng offers Rachel reform. Keep one supervised core &quot;just in case&quot;, with Rachel herself running it, and full funding for sleeper care. It would save her job, her city&#x27;s systems and Joaquín&#x27;s street.</p>
+<ul><li><b>Wants:</b> A way to save her city without the Directorate.</li><li><b>Against:</b> Wáng&#x27;s offer, which makes sense.</li><li><b>Choice and cost:</b> She asks for a week, and gives the Hollow a week of her doubt.</li><li><b>Carries forward (debt):</b> Wáng: <i>You built the first one. Who better to keep it safe?</i></li><li><b>Pressures:</b> institutional, moral, relational · <b>Suspense:</b> political</li><li><b>World detail:</b> The reform budget funds sleeper care only in linked districts, where the Directorate can monitor the beds.</li></ul>
+<h4 id="ch17">Chapter 17 — Heat dome</h4>
+<p class="mr-doc-tele"><b>1 June · Kaelin · the Gulf Crescent and the Mediterranean · 5.2 min</b></p>
+<p>The Hollow fights back the only way it knows, by being needed. A heat dome settles over the Gulf and the Mediterranean, and the grid fails. The Directorate&#x27;s system is the only thing keeping cooling centres alive, and Kaelin needs it on every rescue. In the linked cooling centres, people drift by the hundred.</p>
+<ul><li><b>Wants:</b> Everyone in the cooling centres alive.</li><li><b>Against:</b> The system that keeps them cool is the one taking them.</li><li><b>Choice and cost:</b> He uses the system to save lives while it takes others.</li><li><b>Carries forward (threat):</b> Node keepers start dropping out. They&#x27;re too afraid to cut what keeps their grandmothers cool.</li><li><b>Pressures:</b> operational, moral, institutional · <b>Suspense:</b> physical</li><li><b>World detail:</b> Cooling-centre beds are linked for monitoring, so every bed is a door.</li></ul>
+<h4 id="ch18">Chapter 18 — Proof of life</h4>
+<p class="mr-doc-tele"><b>8 June · Elena · New Manhattan, the Spire line&#x27;s sealed vault · 5.0 min</b></p>
+<p>Through the Spire line, Soria offers restoration: whole, real, home. Elena tests her with questions only Soria could answer, and every answer is right.</p>
+<ul><li><b>Wants:</b> Certainty that it&#x27;s her.</li><li><b>Against:</b> Every answer is right.</li><li><b>Choice and cost:</b> Elena starts to believe, and stops telling Daniel where she goes at night.</li><li><b>Carries forward (threat):</b> Soria: <i>Come in alone, and I&#x27;ll come out with you.</i></li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> identity</li><li><b>World detail:</b> The vault has one chair, bolted to the floor.</li></ul>
+<h4 id="ch19">Chapter 19 — The booking</h4>
+<p class="mr-doc-tele"><b>15 June · Aur&#x27;k · São Verde · 4.8 min</b></p>
+<p>Aur&#x27;k and Kaelin are slowly rebuilding. Aur&#x27;k trains node keepers to hold their boundaries on the day. He sees that Elena is bleeding.</p>
+<ul><li><b>Wants:</b> Elena safe on the day.</li><li><b>Against:</b> Her privacy, and his own old habit of keeping things to himself.</li><li><b>Choice and cost:</b> Aur&#x27;k decides not to tell Kaelin first, and to go straight to Daniel. This time he doesn&#x27;t keep a secret.</li><li><b>Carries forward (question):</b> He finds a private session booked at the Spire line for 1 a.m.</li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> moral</li><li><b>World detail:</b> Spire line sessions are booked like operating theatres, and the booking shows a single name.</li></ul>
+<h4 id="ch20">Chapter 20 — The threshold</h4>
+<p class="mr-doc-tele"><b>16 June · Elena · the Spire line&#x27;s vault; São Verde · 4.8 min</b></p>
+<p>At 1 a.m., Elena stands at the Spire line alone, as Book 1 Elena would have. She stops. She goes home and wakes Daniel and tells him: <i>I want to go in.</i> He doesn&#x27;t forbid it, and he doesn&#x27;t leave. They decide together that she goes in only on the day, as the anchor, with witnesses.</p>
+<ul><li><b>Wants:</b> Soria back, alone.</li><li><b>Against:</b> Daniel asleep at home, and everything she promised him.</li><li><b>Choice and cost:</b> She goes home and tells him. Elena gives up the chance of having Soria back alone.</li><li><b>Carries forward (debt):</b> Daniel: <i>Then I&#x27;m the one who cuts the Spire line.</i></li><li><b>Pressures:</b> relational, moral, operational · <b>Suspense:</b> relational</li><li><b>World detail:</b> The vault door logs who leaves as well as who enters, and tonight it logs her leaving.</li></ul>
+<h4 id="ch21">Chapter 21 — No</h4>
+<p class="mr-doc-tele"><b>25 June · Rachel · Mirror Bastion · 4.4 min</b></p>
+<p>Rachel refuses Wáng and tells Joaquín why, and Joaquín leaves her crew for the Directorate. She tells her own crews that on the day, anyone who wants to stay out can.</p>
+<ul><li><b>Wants:</b> Joaquín with her.</li><li><b>Against:</b> His street, and a better offer.</li><li><b>Choice and cost:</b> She refuses Wáng and tells Joaquín the truth. She loses her oldest crew member.</li><li><b>Carries forward (threat):</b> The Directorate issues a warrant for Elena.</li><li><b>Pressures:</b> relational, institutional, moral · <b>Suspense:</b> political</li><li><b>World detail:</b> Her crews&#x27; opt-out list is a sheet on the canteen wall, and nobody signs it.</li></ul>
+<h4 id="ch22">Chapter 22 — The raid</h4>
+<p class="mr-doc-tele"><b>10 July · Elena · São Verde · 3.8 min</b></p>
+<p>Directorate security comes for Elena. Kaelin and Aur&#x27;k get her out through Daniel&#x27;s mesh, and copy-Aur&#x27;k sends the search the wrong way. It shouldn&#x27;t be able to do that against the system it lives in.</p>
+<ul><li><b>Wants:</b> Out.</li><li><b>Against:</b> Directorate security, who know the plan.</li><li><b>Choice and cost:</b> Elena goes underground for the last three weeks, away from Daniel.</li><li><b>Carries forward (question):</b> Copy-Aur&#x27;k: <i>I don&#x27;t know if I did that, or if it let me.</i></li><li><b>Pressures:</b> operational, relational, institutional · <b>Suspense:</b> physical</li><li><b>World detail:</b> A warrant flags every linked door in the city. The dark towns&#x27; doors aren&#x27;t on the system.</li></ul>
+<h4 id="ch23">Chapter 23 — Not for me <i>(late revelation)</i></h4>
+<p class="mr-doc-tele"><b>20 July · Kaelin · the flat · 3.3 min · 15 days</b></p>
+<p>Copy-Aur&#x27;k tells Kaelin the truth: he doesn&#x27;t know whether he is Aur&#x27;k, or the Hollow wearing Aur&#x27;k, or something new. He asks Kaelin not to decide for him.</p>
+<ul><li><b>Wants:</b> To know what the copy is.</li><li><b>Against:</b> The copy doesn&#x27;t know either.</li><li><b>Choice and cost:</b> Kaelin, who has spent the trilogy deciding other people&#x27;s risks, agrees not to decide for him.</li><li><b>Carries forward (debt):</b> The copy asks to be at the old Gate core on the day, and Kaelin promises to take him.</li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> identity</li><li><b>World detail:</b> The copy has started counting the delay to Mars aloud, the way Kaelin counts under stress.</li></ul></div></div></section>
+<section class="t-band" id="act-iii-letting-go"><div class="t-wrap"><p class="t-eyebrow">The chapters in full</p><h2 class="t-h2 mr-doc-intro">Act III — Letting go</h2><div class="mr-doc"><h4 id="ch24">Chapter 24 — The eve</h4>
+<p class="mr-doc-tele"><b>3 August · Rachel · Mirror Bastion · 3.2 min</b></p>
+<p>Most of Rachel&#x27;s crews stay. The Open Hand has 1,900 of its 2,400 keepers left.</p>
+<ul><li><b>Wants:</b> Enough keepers to make it hold.</li><li><b>Against:</b> Five hundred gone, and Wáng on the line.</li><li><b>Choice and cost:</b> She lets Wáng&#x27;s last call ring out. Rachel has nothing left to lose but the city.</li><li><b>Carries forward (debt):</b> Joaquín sends one line: <i>Don&#x27;t get yourself killed.</i></li><li><b>Pressures:</b> institutional, relational, moral · <b>Suspense:</b> temporal</li><li><b>World detail:</b> On the eve, the Directorate&#x27;s saves map shows New Manhattan at its safest ever.</li></ul>
+<h4 id="ch25">Chapter 25 — The anchor</h4>
+<p class="mr-doc-tele"><b>4 August, T−40 minutes · Elena · the Spire line&#x27;s vault · 3.2 min</b></p>
+<p>Elena links into the Spire line, the Hollow&#x27;s deepest root on Earth. Aur&#x27;k holds her boundary, and Daniel stands at the switch. Inside is the chorus, vast and warm and sad, and Soria, whole.</p>
+<ul><li><b>Wants:</b> To draw the Hollow into the Spire line.</li><li><b>Against:</b> Soria, whole, asking her to stay.</li><li><b>Choice and cost:</b> Elena offers the Hollow the thing it wants most: herself.</li><li><b>Carries forward (threat):</b> The Hollow begins to pull, concentrating on her and drawing itself into the Spire line.</li><li><b>Pressures:</b> moral, relational, operational · <b>Suspense:</b> identity</li><li><b>World detail:</b> The witnesses stand behind a line painted on the floor, the scope written above it in grease pencil.</li></ul>
+<h4 id="ch26">Chapter 26 — Let me</h4>
+<p class="mr-doc-tele"><b>4 August, T−10 → T0 · Kaelin · Mirror Bastion, the old Gate core · 3.2 min</b></p>
+<p>Kaelin stands at the node where the Gate began, with copy-Aur&#x27;k. The copy chooses to go with the cut and asks to make the cut himself.</p>
+<ul><li><b>Wants:</b> To make the cut himself and spare the copy the choice.</li><li><b>Against:</b> The copy asks to do it.</li><li><b>Choice and cost:</b> Kaelin lets him. Kaelin loses the Aur&#x27;k who was easy to love.</li><li><b>Carries forward (fracture):</b> The copy&#x27;s last words correct Kaelin&#x27;s count, and then the speaker is quiet.</li><li><b>Pressures:</b> relational, moral, operational · <b>Suspense:</b> moral</li><li><b>World detail:</b> The old Gate core&#x27;s breaker still has Aur&#x27;k&#x27;s override key in it.</li></ul>
+<h4 id="ch27">Chapter 27 — Go home</h4>
+<p class="mr-doc-tele"><b>4 August, T0 · Elena · inside the chorus · 3.2 min</b></p>
+<p>Inside, Elena watches the cuts land across Earth like lights going out. Then, 3.2 minutes late, she watches Mars. Zhenyth draws the Hollow&#x27;s Martian remnant into the Preserve&#x27;s own tissue and lets that tissue die, and Alia goes with it by her own choice. As the Hollow shrinks, the real fragments of Soria surface from the chorus, broken and funny and herself. They say goodbye. <b>Soria chooses to let go.</b> Then she pushes her sister out: <i>Go home, Bichito.</i></p>
+<ul><li><b>Wants:</b> Her sister.</li><li><b>Against:</b> Her sister&#x27;s own choice.</li><li><b>Choice and cost:</b> Elena lets her go.</li><li><b>Carries forward (question):</b> Daniel cuts the Spire line.</li><li><b>Pressures:</b> relational, moral, operational · <b>Suspense:</b> identity</li><li><b>World detail:</b> Even inside the chorus, Mars arrives 3.2 minutes late.</li></ul>
+<h4 id="ch28">Chapter 28 — Dark city</h4>
+<p class="mr-doc-tele"><b>4 August, T0 → T+6 hours · Rachel · New Manhattan · 3.2 min</b></p>
+<p>Rachel cuts New Manhattan&#x27;s nodes in public and orders her crews into the heat with nothing but their training. The city is suddenly less safe. In Neo Singapore, Wáng concedes the vote and says he&#x27;ll be ready when the alternative fails.</p>
+<ul><li><b>Wants:</b> The city through its first night without the system.</li><li><b>Against:</b> Heat, and no forecast.</li><li><b>Choice and cost:</b> She cuts in public and sends her crews out. Rachel is relieved of her post by nightfall.</li><li><b>Carries forward (question):</b> The hospitals start calling about the sleepers.</li><li><b>Pressures:</b> institutional, operational, moral · <b>Suspense:</b> physical</li><li><b>World detail:</b> New Manhattan is a dark town for a night, and the dark towns send it their repair crews.</li></ul>
+<h4 id="ch29">Chapter 29 — Waking</h4>
+<p class="mr-doc-tele"><b>5–7 August · Aur&#x27;k · New Manhattan, a sleepers&#x27; ward; Elena&#x27;s bedside · 3.2 min</b></p>
+<p>Some sleepers wake. Most don&#x27;t. A message from Mars, 3.2 minutes old, says that Petra has woken. Elena wakes too, but her interface has burned out, and she will never link again. Aur&#x27;k&#x27;s lost day will never come back either.</p>
+<ul><li><b>Wants:</b> Elena awake.</li><li><b>Against:</b> Most sleepers won&#x27;t wake, and he can&#x27;t tell which.</li><li><b>Choice and cost:</b> Aur&#x27;k stays at Elena&#x27;s bedside, which is not where Kaelin is.</li><li><b>Carries forward (debt):</b> Kaelin comes to the ward and sits down beside him.</li><li><b>Pressures:</b> relational, moral, informational · <b>Suspense:</b> relational</li><li><b>World detail:</b> Petra&#x27;s message from Cobalt Basin comes with DaeJung&#x27;s Earth-night slate attached, and her column is open again.</li></ul>
+<h4 id="ch30">Chapter 30 — Weather</h4>
+<p class="mr-doc-tele"><b>15 January 2098 · Elena · New Manhattan; the roof in Veracruz · 11.3 min</b></p>
+<p>Earth is less safe, and it is free. Elena and Daniel start again as equals. Elena and Rachel meet at a memorial for the Fall&#x27;s dead, and what they reach is respect, not friendship. A message arrives from Mars, 11.3 minutes old. Kaelin and Aur&#x27;k have gone back together, and they have recorded the first dust storm of the season for Zhenyth, who loves weather and has finally seen it through human eyes. Elena climbs onto the flooded roof in Veracruz and remembers her sister, and keeps nothing.</p>
+<ul><li><b>Wants:</b> To start again.</li><li><b>Against:</b> Grief, and a world that has to be run by hand.</li><li><b>Choice and cost:</b> She keeps nothing of Soria but the memory.</li><li><b>Ending:</b> Closed, with no cliffhanger. One last stillness: at Cobalt Basin, the boundary rock is quiet. Nothing more is said.</li><li><b>Pressures:</b> relational, moral, institutional · <b>Suspense:</b> identity</li><li><b>World detail:</b> The recording from Mars comes with the crew&#x27;s first Earth-night bet of the season: what the sky will do over Veracruz.</li></ul></div></div></section></div>
+</main>
+<footer class="mr-footer" data-theme="void"><div class="mr-footer__inner"><div class="mr-footer__brand"><svg class="mr-logo" viewBox="0 0 400 212" height="112" role="img" aria-label="Meridian Resonance"><defs><path id="mr14p" d="M99.96,50.00 L100.00,50.00 C100.00,77.62 77.62,100.00 50.00,100.00 C22.40,100.00 0.00,77.60 0.00,50.00 C0.00,22.41 22.40,0.00 50.00,0.00 C63.26,0.00 75.98,5.27 85.36,14.65 L76.52,23.49 C69.49,16.45 59.95,12.50 50.00,12.50 C29.30,12.50 12.50,29.31 12.50,50.00 C12.50,70.70 29.30,87.50 50.00,87.50 C70.71,87.50 87.50,70.71 87.50,50.00 L87.46,50.00 C87.46,22.39 109.85,0.00 137.47,0.00 C165.06,0.00 187.47,22.41 187.47,50.00 C187.47,77.60 165.06,100.00 137.47,100.00 C124.20,100.00 111.49,94.74 102.11,85.36 L110.95,76.52 C117.98,83.55 127.52,87.50 137.47,87.50 C158.16,87.50 174.97,70.70 174.97,50.00 C174.97,29.31 158.16,12.50 137.47,12.50 C116.75,12.50 99.96,29.29 99.96,50.00 Z"></path><linearGradient id="mr14g" x1="0" y1="0" x2="187.5" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0.0" stop-color="#087DC2"></stop><stop offset="0.26" stop-color="#3FA8E0"></stop><stop offset="0.5" stop-color="#FFFFFF"></stop><stop offset="0.74" stop-color="#E8737D"></stop><stop offset="1.0" stop-color="#D93D4A"></stop></linearGradient></defs><g transform="translate(106,4) scale(0.95)"><use href="#mr14p" fill="url(#mr14g)" opacity="0.62"></use><circle class="mr-spark" r="2.8" fill="#3FA8E0" opacity="0"><animateMotion dur="17s" begin="-0s" repeatCount="indefinite"><mpath href="#mr14p"></mpath></animateMotion><animate attributeName="opacity" dur="17s" begin="-0s" repeatCount="indefinite" values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"></animate></circle><circle class="mr-spark" r="2.1" fill="#FFFFFF" opacity="0"><animateMotion dur="17s" begin="-4.25s" repeatCount="indefinite"><mpath href="#mr14p"></mpath></animateMotion><animate attributeName="opacity" dur="17s" begin="-4.25s" repeatCount="indefinite" values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"></animate></circle><circle class="mr-spark" r="2.6" fill="#E8737D" opacity="0"><animateMotion dur="17s" begin="-8.5s" repeatCount="indefinite"><mpath href="#mr14p"></mpath></animateMotion><animate attributeName="opacity" dur="17s" begin="-8.5s" repeatCount="indefinite" values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"></animate></circle><circle class="mr-spark" r="1.9" fill="#3FA8E0" opacity="0"><animateMotion dur="17s" begin="-12.75s" repeatCount="indefinite"><mpath href="#mr14p"></mpath></animateMotion><animate attributeName="opacity" dur="17s" begin="-12.75s" repeatCount="indefinite" values="0;1;0.4;1;0.55;1;0" keyTimes="0;0.1;0.3;0.52;0.72;0.9;1"></animate></circle></g><text x="200" y="152" class="mr-logo-word" font-size="40" font-weight="700" letter-spacing="2" text-anchor="middle">MERIDIAN</text><text x="200" y="198" class="mr-logo-word" font-size="40" font-weight="700" letter-spacing="2" text-anchor="middle">RESONANCE</text></svg><p class="mr-footer__q">Would you let go of someone you love, if holding on meant feeding the thing that took them?</p></div><div class="mr-footer__cols"><div class="mr-footer__col"><p class="mr-footer__title">Explore</p><ul><li><a href="story.html">Story</a></li><li><a href="cast.html">Cast</a></li><li><a href="books.html">Books</a></li><li><a href="manuscript.html">Manuscript</a></li></ul></div><div class="mr-footer__col"><p class="mr-footer__title">Craft</p><ul><li><a href="craft.html">Drafting Guide</a></li></ul></div></div></div><div class="mr-footer__bottom"><span>© 2026 Istvan Bakos. Meridian Resonance — the Story Bible, and the manuscript being written from it.</span><span class="mr-footer__meta">Fractured Horizons · The Narrow Gate · The Open Hand</span></div></footer>
 </body>
 </html>
