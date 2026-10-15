@@ -217,6 +217,12 @@ body { margin:0; }
 .t-road > div + div { padding-left: var(--space-5); border-left: 1px solid var(--line); }
 .t-road h3 { margin: var(--space-3) 0 var(--space-2); font-family: var(--font-display); font-size:20px; line-height:1.3; font-weight:700; color: var(--ink); }
 .t-road p { margin:0; font-size:15px; line-height:1.65; color: var(--ink-muted); }
+@media (max-width: 900px) {
+.t-progress { grid-template-columns: 1fr; gap: var(--space-5); }
+.t-road { grid-template-columns: 1fr; }
+.t-road > div { padding: var(--space-5) 0; }
+.t-road > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+}
 .t-brief { display:grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-8); align-items:start; }
 .t-brief p { margin:0 0 var(--space-4); font-size:17px; line-height:1.75; color: var(--ink); }
 .t-brief dl { margin:0; display:grid; gap: var(--space-5); padding: var(--pad-box); background: var(--surface-100); border:1px solid var(--line); border-radius: var(--radius-md); }
@@ -263,6 +269,7 @@ body { margin:0; }
 .t-chapnav b { font-family: var(--font-display); font-size:20px; line-height:1.3; color: var(--ink); }
 .t-chapnav a.next { text-align:right; }
 .t-chapnav a.off { opacity: 1; background: var(--ground); pointer-events:none; }
+@media (max-width: 520px) { .t-chapnav { grid-template-columns: 1fr; } .t-chapnav a.next { text-align: left; } }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 img { max-width: 100%; }
