@@ -333,6 +333,7 @@ a { color: var(--azure-text); }
 .mr-doc h4 { margin: var(--space-7) 0 0; font-family: var(--heading-3-family); font-size: var(--heading-3-size); line-height: var(--heading-3-line); font-weight: var(--heading-3-weight); letter-spacing: var(--heading-3-tracking); scroll-margin-top: calc(var(--nav-h) + var(--space-8) + env(safe-area-inset-top)); }
 .mr-doc .mr-doc-tele { margin-top: var(--space-2); font-family: var(--telemetry-family); font-size: var(--telemetry-size); line-height: var(--telemetry-line); font-weight: var(--telemetry-weight); letter-spacing: var(--telemetry-tracking); text-transform: uppercase; color: var(--rose-text); }
 .mr-doc .mr-doc-tele strong { font-weight: inherit; }
+.mr-doc .mr-doc-read { margin: var(--space-4) 0 var(--space-5); }
 .mr-doc ul, .mr-doc ol { margin: 0; padding-left: var(--space-5); max-width: var(--measure-prose); }
 .mr-doc li + li { margin-top: var(--space-2); }
 .mr-doc strong { font-weight: var(--label-weight); }
