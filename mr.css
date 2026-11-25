@@ -311,6 +311,10 @@ body { margin:0; }
 .t-cells .is-p3, .t-tickkey i.is-p3 { background: var(--line-strong); border-color: var(--line-strong); }
 .t-cells .is-p4, .t-tickkey i.is-p4 { background: var(--ink-muted); border-color: var(--ink-muted); }
 .t-cells .is-p5, .t-tickkey i.is-p5 { background: var(--ink); border-color: var(--ink); }
+.t-cells .is-p1h, .t-tickkey i.is-p1h { background: linear-gradient(135deg, var(--surface-200) 50%, var(--surface-300) 50%); border-color: var(--line-strong); }
+.t-cells .is-p2h, .t-tickkey i.is-p2h { background: linear-gradient(135deg, var(--surface-300) 50%, var(--line-strong) 50%); border-color: var(--line-strong); }
+.t-cells .is-p3h, .t-tickkey i.is-p3h { background: linear-gradient(135deg, var(--line-strong) 50%, var(--ink-muted) 50%); border-color: var(--line-strong); }
+.t-cells .is-p4h, .t-tickkey i.is-p4h { background: linear-gradient(135deg, var(--ink-muted) 50%, var(--ink) 50%); border-color: var(--ink-muted); }
 .t-scoresum { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--space-5); margin: var(--space-6) 0 0; }
 .t-scoresum > div { padding: var(--pad-box); background: var(--surface-100); border:1px solid var(--line); border-radius: var(--radius-md); }
 .t-scoresum h3 { margin:0 0 var(--space-3); font-family: var(--font-display); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color: var(--ink-muted); }
